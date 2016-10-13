@@ -1,0 +1,21 @@
+<STYLE>
+	IMG.icon {width: 32px;height: 32px;}
+	BODY {background:black; color:white;}
+</STYLE>
+
+macro
+	S return ".Click InCharacterChat-(S)"
+	O return ".Click OutOfCharacter-(O)"
+	R return ".Click RolePlay-(R)"
+	B return ".Click Build-(B)"
+	A return ".Click SkillInformation-(A)"
+	H return ".Click HealthInformation-(H)"
+	C return ".Click CharacterInformation-(C)"
+	I return ".Click Inventory-(I)"
+	P return ".Click Pull-(P)"
+	D return ".Click CombatMode-(D)"
+	E return ".Click Examine-(E)"
+	Z return ".Click Interact-(Z)"
+	U return ".Click PickUp-(U)"
+	G return ".Click GameInfo-(G)"
+	X return "AdminChat"

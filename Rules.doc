@@ -1,0 +1,323 @@
+{\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff31507\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi0\deflang2057\deflangfe2057\themelang2057\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fbidi \fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}{\f41\fbidi \fswiss\fcharset0\fprq2{\*\panose 00000000000000000000}MS Shell Dlg;}
+{\flomajor\f31500\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\fdbmajor\f31501\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\fhimajor\f31502\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria;}{\fbimajor\f31503\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\flominor\f31504\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\fdbminor\f31505\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\fhiminor\f31506\fbidi \fswiss\fcharset0\fprq2{\*\panose 020f0502020204030204}Calibri;}{\fbiminor\f31507\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f42\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}
+{\f43\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\f45\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\f46\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\f47\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}
+{\f48\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f49\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\f50\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\f52\fbidi \fswiss\fcharset238\fprq2 Arial CE;}
+{\f53\fbidi \fswiss\fcharset204\fprq2 Arial Cyr;}{\f55\fbidi \fswiss\fcharset161\fprq2 Arial Greek;}{\f56\fbidi \fswiss\fcharset162\fprq2 Arial Tur;}{\f57\fbidi \fswiss\fcharset177\fprq2 Arial (Hebrew);}
+{\f58\fbidi \fswiss\fcharset178\fprq2 Arial (Arabic);}{\f59\fbidi \fswiss\fcharset186\fprq2 Arial Baltic;}{\f60\fbidi \fswiss\fcharset163\fprq2 Arial (Vietnamese);}{\f382\fbidi \froman\fcharset238\fprq2 Cambria Math CE;}
+{\f383\fbidi \froman\fcharset204\fprq2 Cambria Math Cyr;}{\f385\fbidi \froman\fcharset161\fprq2 Cambria Math Greek;}{\f386\fbidi \froman\fcharset162\fprq2 Cambria Math Tur;}{\f389\fbidi \froman\fcharset186\fprq2 Cambria Math Baltic;}
+{\f452\fbidi \fswiss\fcharset238\fprq2 MS Shell Dlg CE;}{\f453\fbidi \fswiss\fcharset204\fprq2 MS Shell Dlg Cyr;}{\f455\fbidi \fswiss\fcharset161\fprq2 MS Shell Dlg Greek;}{\f456\fbidi \fswiss\fcharset162\fprq2 MS Shell Dlg Tur;}
+{\f457\fbidi \fswiss\fcharset177\fprq2 MS Shell Dlg (Hebrew);}{\f458\fbidi \fswiss\fcharset178\fprq2 MS Shell Dlg (Arabic);}{\f459\fbidi \fswiss\fcharset186\fprq2 MS Shell Dlg Baltic;}{\f460\fbidi \fswiss\fcharset163\fprq2 MS Shell Dlg (Vietnamese);}
+{\f461\fbidi \fswiss\fcharset222\fprq2 MS Shell Dlg (Thai);}{\flomajor\f31508\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\flomajor\f31509\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\flomajor\f31511\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\flomajor\f31512\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\flomajor\f31513\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}
+{\flomajor\f31514\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\flomajor\f31515\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\flomajor\f31516\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}
+{\fdbmajor\f31518\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\fdbmajor\f31519\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fdbmajor\f31521\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}
+{\fdbmajor\f31522\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\fdbmajor\f31523\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fdbmajor\f31524\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\fdbmajor\f31525\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\fdbmajor\f31526\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\fhimajor\f31528\fbidi \froman\fcharset238\fprq2 Cambria CE;}
+{\fhimajor\f31529\fbidi \froman\fcharset204\fprq2 Cambria Cyr;}{\fhimajor\f31531\fbidi \froman\fcharset161\fprq2 Cambria Greek;}{\fhimajor\f31532\fbidi \froman\fcharset162\fprq2 Cambria Tur;}
+{\fhimajor\f31535\fbidi \froman\fcharset186\fprq2 Cambria Baltic;}{\fbimajor\f31538\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\fbimajor\f31539\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\fbimajor\f31541\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\fbimajor\f31542\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\fbimajor\f31543\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}
+{\fbimajor\f31544\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\fbimajor\f31545\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\fbimajor\f31546\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}
+{\flominor\f31548\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\flominor\f31549\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\flominor\f31551\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}
+{\flominor\f31552\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\flominor\f31553\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\flominor\f31554\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\flominor\f31555\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\flominor\f31556\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\fdbminor\f31558\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}
+{\fdbminor\f31559\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fdbminor\f31561\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\fdbminor\f31562\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}
+{\fdbminor\f31563\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fdbminor\f31564\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\fdbminor\f31565\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}
+{\fdbminor\f31566\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\fhiminor\f31568\fbidi \fswiss\fcharset238\fprq2 Calibri CE;}{\fhiminor\f31569\fbidi \fswiss\fcharset204\fprq2 Calibri Cyr;}
+{\fhiminor\f31571\fbidi \fswiss\fcharset161\fprq2 Calibri Greek;}{\fhiminor\f31572\fbidi \fswiss\fcharset162\fprq2 Calibri Tur;}{\fhiminor\f31575\fbidi \fswiss\fcharset186\fprq2 Calibri Baltic;}
+{\fbiminor\f31578\fbidi \froman\fcharset238\fprq2 Times New Roman CE;}{\fbiminor\f31579\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fbiminor\f31581\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}
+{\fbiminor\f31582\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\fbiminor\f31583\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fbiminor\f31584\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\fbiminor\f31585\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\fbiminor\f31586\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;
+\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;
+\red192\green192\blue192;}{\*\defchp \fs22\loch\af31506\hich\af31506\dbch\af31505 }{\*\defpap \ql \li0\ri0\sa200\sl276\slmult1\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 }\noqfpromote {\stylesheet{
+\ql \li0\ri0\sa200\sl276\slmult1\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af31507\afs22\alang1025 \ltrch\fcs0 \fs22\lang2057\langfe2057\loch\f31506\hich\af31506\dbch\af31505\cgrid\langnp2057\langfenp2057 
+\snext0 \sqformat \spriority0 Normal;}{\*\cs10 \additive \ssemihidden \sunhideused \spriority1 Default Paragraph Font;}{\*
+\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\tblind0\tblindtype3\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv \ql \li0\ri0\sa200\sl276\slmult1
+\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs22\alang1025 \ltrch\fcs0 \fs22\lang2057\langfe2057\loch\f31506\hich\af31506\dbch\af31505\cgrid\langnp2057\langfenp2057 
+\snext11 \ssemihidden \sunhideused \sqformat Normal Table;}}{\*\rsidtbl \rsid8163\rsid477554\rsid556185\rsid932753\rsid994701\rsid1711453\rsid2519857\rsid2576994\rsid2821280\rsid3352138\rsid3818847\rsid4539454\rsid4855411\rsid5012737\rsid5134211
+\rsid7039016\rsid7932881\rsid8064989\rsid8156795\rsid8220471\rsid10104532\rsid10302901\rsid10439963\rsid10686612\rsid10703413\rsid10903670\rsid11019505\rsid11080217\rsid11601604\rsid11611397\rsid11740400\rsid11878702\rsid11935167\rsid12062127\rsid12082533
+\rsid13269449\rsid13711121\rsid13834080\rsid13836294\rsid13913426\rsid15089852\rsid15615129\rsid15891226\rsid16196402\rsid16214673\rsid16284820\rsid16546568}{\mmathPr\mmathFont34\mbrkBin0\mbrkBinSub0\msmallFrac0\mdispDef1\mlMargin0\mrMargin0\mdefJc1
+\mwrapIndent1440\mintLim0\mnaryLim1}{\info{\operator Martyn Brockett}{\creatim\yr2009\mo12\dy20\hr16\min37}{\revtim\yr2010\mo1\dy7\min25}{\version47}{\edmins206}{\nofpages4}{\nofwords2298}{\nofchars10069}{\nofcharsws12343}{\vern32771}}
+{\*\xmlnstbl {\xmlns1 http://schemas.microsoft.com/office/word/2003/wordml}}\paperw12240\paperh15840\margl1440\margr1440\margt1440\margb1440\gutter0\ltrsect 
+\widowctrl\ftnbj\aenddoc\trackmoves1\trackformatting1\donotembedsysfont0\relyonvml0\donotembedlingdata1\grfdocevents0\validatexml0\showplaceholdtext0\ignoremixedcontent0\saveinvalidxml0\showxmlerrors0\horzdoc\dghspace120\dgvspace120\dghorigin1701
+\dgvorigin1984\dghshow0\dgvshow3\jcompress\viewkind1\viewscale100\rsidroot932753 \fet0{\*\wgrffmtfilter 2450}\ilfomacatclnup0\ltrpar \sectd \ltrsect\linex0\sectdefaultcl\sftnbj {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2
+\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6
+\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang 
+{\pntxtb (}{\pntxta )}}\pard\plain \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0 \rtlch\fcs1 \af31507\afs22\alang1025 \ltrch\fcs0 \fs22\lang2057\langfe2057\loch\af31506\hich\af31506\dbch\af31505\cgrid\langnp2057\langfenp2057 {
+\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid8064989 \hich\af1\dbch\af31505\loch\f1 Before reading these rules, let me just remind you that these are here for EVERYONE to see when they log in, their is NO \hich\af1\dbch\af31505\loch\f1 
+excuse what so ever about not knowing the rules, if you chose not to read them, or heed their warnings and advice, then that is YOUR fault.<p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 R\hich\af1\dbch\af31505\loch\f1 
+ule One - Do NOT randomly kill ANYTHING, you may only attack people if you have warned them AND you have a Role Play Reason to attack them in the first place. A warning consists of you using the Role Play button and typing something along the lines of "Bl
+\hich\af1\dbch\af31505\loch\f1 a\hich\af1\dbch\af31505\loch\f1 
+nk swiftly extends their blade at Target and charges at them, with the intention of slashing them to bit" You would then allow at least Twenty (20) for the Target to reply. If the player says [Wait, I'm writing a reply RP!], then you must give them anothe
+\hich\af1\dbch\af31505\loch\f1 r\hich\af1\dbch\af31505\loch\f1  Five(5) seconds to react, providing the first Twenty(20) seconds have already passed.<p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Two - Do NOT use In Character (IC) Chat in Out of Character (OOC) Chat. This means no using in character information in out of character chat. This means you ar\hich\af1\dbch\af31505\loch\f1 
+e not allowed give out locations of places, or speak of plans and/or events. Do not use OOC to Role-play with another player if you cannot find him. OOC chat is for asking for help, general chat, and greeting and/or checking if a certain player is online.
+\hich\af1\dbch\af31505\loch\f1  \hich\af1\dbch\af31505\loch\f1 No exceptions. <p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Three - If you wish to speak Out of Character using the 'say' verb, put your text in parentheses (). <p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Four - Keep your role play consistent, no turning evil suddenly or going crazy for no reason. This means you can\hich\f1 \rquote \loch\f1 t sudde\hich\af1\dbch\af31505\loch\f1 
+nly become evil because someone evil asks you to join them when your actually a good person. If the guards in town attack you by default you generally have to RP an evil character. <p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Five - Do NOT create Campfires in town. This will cause fire and \hich\af1\dbch\af31505\loch\f1 
+get you banned! Admins know when a fire is created, so you will not get away with it. And do NOT burn player bodies, unless you have a RP reason. That is considered greifing, and will also result in a visit from the magical ban hammer fairy.<p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Six \hich\f1 \endash \hich\af1\dbch\af31505\loch\f1  Don\hich\f1 \rquote \loch\f1 t kill people or NPC\hich\f1 \rquote \loch\f1 
+s for their items. Although you can obviously pick up items that a dead NPC drops, if you kill an NPC for his Items, and your not RPing a evil character, that is bad RP.<p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Seven \hich\f1 \endash \loch\f1  Do not attack an NPC that is on your Side/R\hich\af1\dbch\af31505\loch\f1 ace/Faction unless it is has you trapped and wont move or you have a valid RP reason to do so. <p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Eight - No foul language, spamming or trolling.<p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Nine \hich\f1 \endash \loch\f1  If you are fighting another player, and you wish to flee you must RP running away using\hich\af1\dbch\af31505\loch\f1 
+ the Role-play Verb. The RP for a run must at least contain Four words, so you cant just say, "Blank runs away". For Run RP's you do not need to give reaction time.<p> 
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Ten - You MUST Role-play the act of stealing an Item that belongs to someone else\hich\af1\dbch\af31505\loch\f1 
+. you cannot grab an item that a blacksmith just created then flee. You will get punished for this. You will need to RP at least Six words for a steal RP, then give Ten(10) seconds for the Victim to react.<p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Elven - You MUST have a RP reason to dest\hich\af1\dbch\af31505\loch\f1 roy a building, damage it, block its door ways, or anything else that may cause distress to other players regarding housing.<p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Twelve - Do NOT use information learned from a previous character with a newly made one, this means you can not remake wit\hich\af1\dbch\af31505\loch\f1 
+h the same name and know everything you knew before. However, you can still have the same name, but you must inform people OOCly that you no longer know them or anything about them.<p>
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Rule Thirteen - }{\rtlch\fcs1 \af41\afs20 \ltrch\fcs0 \f41\fs20\cf1\insrsid8064989 \hich\af41\dbch\af31505\loch\f41 You must give your character a proper Role-Play name t\hich\af41\dbch\af31505\loch\f41 
+hat fits the setting. This means no using famous names from real life or other works of fiction, and no using futuristic sounding names. A properly named character will have both a first and a last name. Do not use titles such as 'King' 'Queen' or 't3h 13
+\hich\af41\dbch\af31505\loch\f41 3\hich\af41\dbch\af31505\loch\f41 7' in your characters name. Admins can rename your character if they feel it has an inappropriate name. <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid8064989 
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 Notes - Failing to follow these SIMPLE rules will get you Deducted, with a boot and warning, then Ban if continued. - Admins keep logs of what play\hich\af1\dbch\af31505\loch\f1 
+ers say, so if your Role Play sounds off, an Admin will find out, and will take action - Any Negative actions towards players needs to be Role Played, the victim must be given time to react, this is called reaction time, other wise the RP you do is void a
+\hich\af1\dbch\af31505\loch\f1 n\hich\af1\dbch\af31505\loch\f1 
+d can be ignored. If you catch somebody breaking these rules report it to an Admin, if no Admins are online, then note down the player who attacked you, their Key, the location it happened, Time, what happened, Why, ect.<p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid932753 
+\par 
+\par \hich\af1\dbch\af31505\loch\f1 <u>Rules</u>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid15615129 \hich\af1\dbch\af31505\loch\f1 <p>
+\par \hich\af1\dbch\af31505\loch\f1 These Rules are important for a game like this. They are not an attempt to limit Role Play but to make it fair for everbody else so that no Abuse, Manipulation or Loop Holes can be used or }{\rtlch\fcs1 \af1\afs20 
+\ltrch\fcs0 \f1\fs20\insrsid10439963 \hich\af1\dbch\af31505\loch\f1 created to bene}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid4855411 \hich\af1\dbch\af31505\loch\f1 fit one player or}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid15615129 
+\hich\af1\dbch\af31505\loch\f1  another during the course of play.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid4855411 \hich\af1\dbch\af31505\loch\f1  This is not a PvP game, but a RP-PvP game.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid15615129 \hich\af1\dbch\af31505\loch\f1  Thank you for understanding and read carefully.
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid932753 \hich\af1\dbch\af31505\loch\f1 <p>
+\par \hich\af1\dbch\af31505\loch\f1 When about to fight someone, a player must make sure their target is clearly aware that you intend to attack them otherwise the Role Play you\hich\f1 \rquote \loch\f1 ve made becomes vo\hich\af1\dbch\af31505\loch\f1 id. 
+
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid932753 
+\par \hich\af1\dbch\af31505\loch\f1 Players must use a 30 second countdown after role playing something negative. Negative actions include, attacking a player, }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid16284820 \hich\af1\dbch\af31505\loch\f1 
+breaking player walls, breaking player doors, }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid932753 \hich\af1\dbch\af31505\loch\f1 stealing from a player,}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid2821280 \hich\af1\dbch\af31505\loch\f1 
+ running from a player,}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid932753 \hich\af1\dbch\af31505\loch\f1  blocking a players path, pushi\hich\af1\dbch\af31505\loch\f1 
+ng a player, dragging a player and building near a player. A role play becomes a Negative action when one player is hostile to another, verbally of }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid8220471\charrsid8220471 
+\hich\af1\dbch\af31505\loch\f1 physically}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid932753 \hich\af1\dbch\af31505\loch\f1 . Some common sense is needed. Stupid players will be punished regardless.
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13711121 \hich\af1\dbch\af31505\loch\f1 <p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11878702 \hich\af1\dbch\af31505\loch\f1 Players can attack \hich\af1\dbch\af31505\loch\f1 each other without RP only if each player agrees to do so.
+\par \hich\af1\dbch\af31505\loch\f1 <p>
+\par \hich\af1\dbch\af31505\loch\f1 Any Emoted action that is displayed, regardless of having a count down attached to it, can be replied to.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid556185 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11878702 \hich\af1\dbch\af31505\loch\f1 <p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13711121 \hich\af1\dbch\af31505\loch\f1 In the case of stealing an item, a thief may steal any item without Role Play only if that Item is not within }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid10302901 \hich\af1\dbch\af31505\loch\f1 five}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13711121 \hich\af1\dbch\af31505\loch\f1 (}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10302901 \hich\af1\dbch\af31505\loch\f1 5}{
+\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13711121 \hich\af1\dbch\af31505\loch\f1 ) tiles of any other player, otherwise the thief must role play an attempt at a steal that clearly states that }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid11935167 \hich\af1\dbch\af31505\loch\f1 the}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13711121 \hich\af1\dbch\af31505\loch\f1  Item is about to be stole\hich\af1\dbch\af31505\loch\f1 
+n, at which point the victim may respond with another RP.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7039016 \hich\af1\dbch\af31505\loch\f1 
+ If a player is able to steal with no RP but there is a player on screen who the Item belongs to, that player can attack the thief but only if they first make it clear that they are going to, through\hich\af1\dbch\af31505\loch\f1 
+ use of Say or Emote. This is the only time that a fight should become a fight without the use of a countdown.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13711121 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid932753 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10686612 \hich\af1\dbch\af31505\loch\f1 No In character information can be shared}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid8163 \hich\af1\dbch\af31505\loch\f1 
+ over OOC or through the use of, or without the use of, }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10686612 \hich\af1\dbch\af31505\loch\f1 Brackets such as [], () , \{\} and any other s\hich\af1\dbch\af31505\loch\f1 
+ymbol a player decides to use in an attempt to by pass this rule and us}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid4539454 \hich\af1\dbch\af31505\loch\f1 e OOC in say, emote, world chat, telepath, }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid10686612 \hich\af1\dbch\af31505\loch\f1 or any other form of communication.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid932753 
+\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid13834080 {\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13834080 \hich\af1\dbch\af31505\loch\f1 <p>
+\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0 {\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13834080 \hich\af1\dbch\af31505\loch\f1 
+The use of third party programs such as MSN in an attempt to organise, manipulate or abuse the games p\hich\af1\dbch\af31505\loch\f1 layers, rules and bugs is not allowed and with proof of this, action can be taken.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid16214673 \hich\af1\dbch\af31505\loch\f1  This also includes using the Byond pager.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13834080 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10686612 
+\par \hich\af1\dbch\af31505\loch\f1 The Emote button is not to be used by players as a me}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 ans to bypass language barriers verbally. Hand gestures and the likes are 
+\hich\af1\dbch\af31505\loch\f1 allowed.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid5134211 \hich\af1\dbch\af31505\loch\f1  Example, \hich\f1 \lquote \loch\f1 \hich\f1 Unknown waves over to the Human then shouts to them. \'93\loch\f1 \hich\f1 
+Follow me Human!\'94\rquote \loch\f1  This would not be allowed due to language barriers.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10686612 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10686612 
+\par \hich\af1\dbch\af31505\loch\f1 The Emote and Say buttons are not to be spammed in an attempt to help others raise \hich\af1\dbch\af31505\loch\f1 their lanugage or for any other reason what so ever.
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10686612 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid15089852 \hich\af1\dbch\af31505\loch\f1 Players may not abuse bugs, glitches or anything obviously else wrong with the game to their advantage or anyone elses.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid10686612 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid12062127 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid2821280 \hich\af1\dbch\af31505\loch\f1  If a player runs off after a\hich\af1\dbch\af31505\loch\f1 nother player role plays an attack and begins a countdown, then the player who Role Playe}{\rtlch\fcs1 
+\af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11611397 \hich\af1\dbch\af31505\loch\f1 d attacking the player who runs, }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid2821280 \hich\af1\dbch\af31505\loch\f1 
+may proceed to attack even though the count down has not ended. The player attacking may chase their target until the target either sa\hich\af1\dbch\af31505\loch\f1 
+ys something, emotes something or another player enters the scence who is also hostile to the attacker, at any point during one of these events, the player running away must stop.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11611397 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11080217 
+\par \hich\af1\dbch\af31505\loch\f1 If when a player role plays an attack and the vi}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11601604 \hich\af1\dbch\af31505\loch\f1 ctim does not respond, }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid11080217 \hich\af1\dbch\af31505\loch\f1 g\hich\af1\dbch\af31505\loch\f1 ive another 30 seconds to the }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11601604 \hich\af1\dbch\af31505\loch\f1 victim}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid11080217 \hich\af1\dbch\af31505\loch\f1  for they might have lagged, gone away from keyboard or are typing a role play. If after the second countdown they do not reply,}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid16546568 
+\hich\af1\dbch\af31505\loch\f1  do NOT attack them}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11080217 .}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10703413 \hich\af1\dbch\af31505\loch\f1  This rule }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid16546568 \hich\af1\dbch\af31505\loch\f1 does not}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10703413 \hich\af1\dbch\af31505\loch\f1  }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid16546568 \hich\af1\dbch\af31505\loch\f1 
+apply}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10703413 \hich\af1\dbch\af31505\loch\f1  if your doing anything negative towards the pl\hich\af1\dbch\af31505\loch\f1 ayer, for examp}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid16546568 
+\hich\af1\dbch\af31505\loch\f1 le, stealing one of their items, only if you attack, drag, }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11601604 \hich\af1\dbch\af31505\loch\f1 use }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid11601604\charrsid11601604 \hich\af1\dbch\af31505\loch\f1 telekinesis}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11601604 \hich\af1\dbch\af31505\loch\f1 , }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid16546568 
+\hich\af1\dbch\af31505\loch\f1 ect.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11080217 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11080217 
+\par }{\rtlch\fcs1 \af41\afs20 \ltrch\fcs0 \f41\fs20\cf1\insrsid1711453 \hich\af41\dbch\af31505\loch\f41 Players must give their character a proper Role-Play name that fits the setting. This means no using famous names from real life 
+\hich\af41\dbch\af31505\loch\f41 
+or other works of fiction, and no using futuristic sounding names. A properly named character will have both a first and a last name. Do not use titles such as 'King' or 'Queen'. Names that start with lower case are not allowed and names with numbers in a
+\hich\af41\dbch\af31505\loch\f41 r\hich\af41\dbch\af31505\loch\f41 e not allowed.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11080217 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10703413 
+\par \hich\af1\dbch\af31505\loch\f1 In character information learned from out of character speech is invalid and void. Players may not act upon this information. If you suspect someone has told you information tha}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid13836294 \hich\af1\dbch\af31505\loch\f1 t could be considered hard to o}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10703413 \hich\af1\dbch\af31505\loch\f1 btain via IC means, it is sug\hich\af1\dbch\af31505\loch\f1 
+gested that you contact an Admin ASAP to avoid yourself taking the blame for anothers rule breaking.
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10903670 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11740400 
+\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid11740400 {\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11740400 \hich\af1\dbch\af31505\loch\f1 Don\hich\f1 \rquote \loch\f1 t kill NPC\hich\f1 \rquote \loch\f1 
+s of the same faction as your self for their items. If you kill an NPC for its Items, and your not RPing a evil character or anything el\hich\af1\dbch\af31505\loch\f1 se that would make sense, then thats bad RP.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid2519857 \hich\af1\dbch\af31505\loch\f1  You\hich\f1 \rquote \loch\f1 ll know if an NPC is not of your faction because they wont attack you, that is, if you\hich\f1 \rquote \loch\f1 ve not got a cloak on.}{\rtlch\fcs1 \af1\afs20 
+\ltrch\fcs0 \f1\fs20\insrsid11740400 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid7932881 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11740400 
+\par \hich\af1\dbch\af31505\loch\f1 Do not attack an NPC that is on your Side/Race/Faction unless it is has you trapped and wont \hich\af1\dbch\af31505\loch\f1 
+move or you have a valid RP reason to do so, such as the NPC being hostile to you by default and not because you attacked it.
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid8064989 \hich\af1\dbch\af31505\loch\f1 <p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid994701 \hich\af1\dbch\af31505\loch\f1 Do not destroy players bodies without good RP, you would\hich\f1 \rquote \loch\f1 nt want it done to you and thus do not do it to others unless you\hich\f1 \rquote 
+\loch\f1 ve \hich\af1\dbch\af31505\loch\f1 a good reason. Moving a players body into a hard to find location is allowed but again you must have a good reason to do so.
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid2576994 \hich\af1\dbch\af31505\loch\f1 <p>
+\par \hich\af1\dbch\af31505\loch\f1 Do NOT spam, troll, insult, be racist or provoke players over OOC or through use of IC commands.
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid8156795 \hich\af1\dbch\af31505\loch\f1 <p>}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid8064989 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid8156795 \hich\af1\dbch\af31505\loch\f1 Do NOT use a name from a p\hich\af1\dbch\af31505\loch\f1 revious character or use any of the IC knowledge that you gained through that character with your new one.
+}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid3818847 \hich\af1\dbch\af31505\loch\f1  This only applies to the current round/wipe and not all of them. This means you can use that name once per round.wipe.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid8156795 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid477554 \hich\af1\dbch\af31505\loch\f1 <p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid5012737 \hich\af1\dbch\af31505\loch\f1 No sexual RP in public places within the game where many players who are not involved in your RP gather and no Rape RP.
+\par \hich\af1\dbch\af31505\loch\f1 <p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13269449 \hich\af1\dbch\af31505\loch\f1 T}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13269449\charrsid13269449 \hich\af1\dbch\af31505\loch\f1 elekinesis}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 
+\f1\fs20\insrsid13269449 \hich\af1\dbch\af31505\loch\f1  must be RP\hich\f1 \rquote \loch\f1 ed, even if using Observe. If the player you use }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13269449\charrsid13269449 \hich\af1\dbch\af31505\loch\f1 
+telekinesis}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13269449 \hich\af1\dbch\af31505\loch\f1  near while observing can understand you, use Tel\hich\af1\dbch\af31505\loch\f1 epath to post the RP to them.
+\par \hich\af1\dbch\af31505\loch\f1 <p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10903670 \hich\af1\dbch\af31505\loch\f1 
+Before using the Armor of Corruption Artifact, players must understand that it will likely have a drastic change on their role play, of which they must follow when the AoC makes it clear of the new type of role play. 
+\par \hich\af1\dbch\af31505\loch\f1 <p>
+\par \hich\af1\dbch\af31505\loch\f1 Attempting to feed certain NPC bodies is not allowed unless you have a very good role play reason.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid12082533 \hich\af1\dbch\af31505\loch\f1 
+ Not to say its not allowed, but a good role play reason is needed to prevent abuse.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10903670 
+\par \hich\af1\dbch\af31505\loch\f1 <p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid12082533 \hich\af1\dbch\af31505\loch\f1 Attempting to free certain NPC from places like a prison is not allow\hich\af1\dbch\af31505\loch\f1 
+ed unless you have a very good role play reason. Not to say its not allowed, but a good role play reason is needed to prevent abuse.}{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13834080 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid13913426 \hich\af1\dbch\af31505\loch\f1 <p>
+\par \hich\af1\dbch\af31505\loch\f1 Interacting on a Portal of any kind must be Role Played bef\hich\af1\dbch\af31505\loch\f1 ore hand when near other players.
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid16196402 \hich\af1\dbch\af31505\loch\f1 <p>
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid10104532 \hich\af1\dbch\af31505\loch\f1 Because good role play reasons tend to differ on peoples opinions instead of what makes sense for a character in a cert\hich\af1\dbch\af31505\loch\f1 
+ain situation, players must consider firstly what their character knows, what they dont know and what their race would consider a good and/or bad idea. Only once these things have been considered can a player find a reason to do any of the previously ment
+\hich\af1\dbch\af31505\loch\f1 i\hich\af1\dbch\af31505\loch\f1 oned, potentially role play ruining events such as feeding NPC bodies.
+\par \hich\af1\dbch\af31505\loch\f1 <p>
+\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid477554 {\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid477554 \hich\af1\dbch\af31505\loch\f1 
+Notes - Failing to follow these SIMPLE rules will get you Deducted, with a boot and warning, then Ban if continued. - Admins keep logs of what players say, so if your Role Play soun\hich\af1\dbch\af31505\loch\f1 
+ds off, an Admin will find out, and will take action - Any Negative actions towards players needs to be Role Played, the victim must be given time to react, this is called reaction time, other wise the RP you do is void and can be ignored. If you catch so
+\hich\af1\dbch\af31505\loch\f1 m\hich\af1\dbch\af31505\loch\f1 ebody breaking these rules report it to an Admin, if no Admins are online, then note down the player who attacked you, their Key, the location it happened, Time, what happened, Why, ect.<p>
+
+\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid11740400 {\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid477554 
+\par }{\rtlch\fcs1 \af1\afs20 \ltrch\fcs0 \f1\fs20\insrsid11740400 
+\par }{\*\themedata 504b030414000600080000002100828abc13fa0000001c020000130000005b436f6e74656e745f54797065735d2e786d6cac91cb6ac3301045f785fe83d0b6d8
+72ba28a5d8cea249777d2cd20f18e4b12d6a8f843409c9df77ecb850ba082d74231062ce997b55ae8fe3a00e1893f354e9555e6885647de3a8abf4fbee29bbd7
+2a3150038327acf409935ed7d757e5ee14302999a654e99e393c18936c8f23a4dc072479697d1c81e51a3b13c07e4087e6b628ee8cf5c4489cf1c4d075f92a0b
+44d7a07a83c82f308ac7b0a0f0fbf90c2480980b58abc733615aa2d210c2e02cb04430076a7ee833dfb6ce62e3ed7e14693e8317d8cd0433bf5c60f53fea2fe7
+065bd80facb647e9e25c7fc421fd2ddb526b2e9373fed4bb902e182e97b7b461e6bfad3f010000ffff0300504b030414000600080000002100a5d6a7e7c00000
+00360100000b0000005f72656c732f2e72656c73848fcf6ac3300c87ef85bd83d17d51d2c31825762fa590432fa37d00e1287f68221bdb1bebdb4fc7060abb08
+84a4eff7a93dfeae8bf9e194e720169aaa06c3e2433fcb68e1763dbf7f82c985a4a725085b787086a37bdbb55fbc50d1a33ccd311ba548b63095120f88d94fbc
+52ae4264d1c910d24a45db3462247fa791715fd71f989e19e0364cd3f51652d73760ae8fa8c9ffb3c330cc9e4fc17faf2ce545046e37944c69e462a1a82fe353
+bd90a865aad41ed0b5b8f9d6fd010000ffff0300504b0304140006000800000021006b799616830000008a0000001c0000007468656d652f7468656d652f7468
+656d654d616e616765722e786d6c0ccc4d0ac3201040e17da17790d93763bb284562b2cbaebbf600439c1a41c7a0d29fdbd7e5e38337cedf14d59b4b0d592c9c
+070d8a65cd2e88b7f07c2ca71ba8da481cc52c6ce1c715e6e97818c9b48d13df49c873517d23d59085adb5dd20d6b52bd521ef2cdd5eb9246a3d8b4757e8d3f7
+29e245eb2b260a0238fd010000ffff0300504b03041400060008000000210096b5ade296060000501b0000160000007468656d652f7468656d652f7468656d65
+312e786d6cec594f6fdb3614bf0fd87720746f6327761a07758ad8b19b2d4d1bc46e871e698996d850a240d2497d1bdae38001c3ba618715d86d87615b8116d8
+a5fb34d93a6c1dd0afb0475292c5585e9236d88aad3e2412f9e3fbff1e1fa9abd7eec70c1d1221294fda5efd72cd4324f1794093b0eddd1ef62fad79482a9c04
+98f184b4bd2991deb58df7dfbb8ad755446282607d22d771db8b944ad79796a40fc3585ee62949606ecc458c15bc8a702910f808e8c66c69b9565b5d8a314d3c
+94e018c8de1a8fa94fd05093f43672e23d06af89927ac06762a049136785c10607758d9053d965021d62d6f6804fc08f86e4bef210c352c144dbab999fb7b471
+7509af678b985ab0b6b4ae6f7ed9ba6c4170b06c788a705430adf71bad2b5b057d03606a1ed7ebf5babd7a41cf00b0ef83a6569632cd467faddec9699640f671
+9e76b7d6ac355c7c89feca9cccad4ea7d36c65b258a206641f1b73f8b5da6a6373d9c11b90c537e7f08dce66b7bbeae00dc8e257e7f0fd2badd5868b37a088d1
+e4600ead1ddaef67d40bc898b3ed4af81ac0d76a197c86826828a24bb318f3442d8ab518dfe3a20f000d6458d104a9694ac6d88728eee2782428d60cf03ac1a5
+193be4cbb921cd0b495fd054b5bd0f530c1931a3f7eaf9f7af9e3f45c70f9e1d3ff8e9f8e1c3e3073f5a42ceaa6d9c84e5552fbffdeccfc71fa33f9e7ef3f2d1
+17d57859c6fffac327bffcfc793510d26726ce8b2f9ffcf6ecc98baf3efdfdbb4715f04d814765f890c644a29be408edf3181433567125272371be15c308d3f2
+8acd249438c19a4b05fd9e8a1cf4cd296699771c393ac4b5e01d01e5a30a787d72cf1178108989a2159c77a2d801ee72ce3a5c545a6147f32a99793849c26ae6
+6252c6ed637c58c5bb8b13c7bfbd490a75330f4b47f16e441c31f7184e140e494214d273fc80900aedee52ead87597fa824b3e56e82e451d4c2b4d32a423279a
+668bb6690c7e9956e90cfe766cb37b077538abd27a8b1cba48c80acc2a841f12e698f13a9e281c57911ce298950d7e03aba84ac8c154f8655c4f2af074481847
+bd804859b5e696007d4b4edfc150b12addbecba6b18b148a1e54d1bc81392f23b7f84137c2715a851dd0242a633f900710a218ed715505dfe56e86e877f0034e
+16bafb0e258ebb4faf06b769e888340b103d3311da9750aa9d0a1cd3e4efca31a3508f6d0c5c5c398602f8e2ebc71591f5b616e24dd893aa3261fb44f95d843b
+5974bb5c04f4edafb95b7892ec1108f3f98de75dc97d5772bdff7cc95d94cf672db4b3da0a6557f70db629362d72bcb0431e53c6066acac80d699a6409fb44d0
+8741bdce9c0e4971624a2378cceaba830b05366b90e0ea23aaa241845368b0eb9e2612ca8c742851ca251ceccc70256d8d87265dd96361531f186c3d9058edf2
+c00eafe8e1fc5c509031bb4d680e9f39a3154de0accc56ae644441edd76156d7429d995bdd88664a9dc3ad50197c38af1a0c16d684060441db02565e85f3b966
+0d0713cc48a0ed6ef7dedc2dc60b17e92219e180643ed27acffba86e9c94c78ab90980d8a9f0913ee49d62b512b79626fb06dccee2a432bbc60276b9f7dec44b
+7904cfbca4f3f6443ab2a49c9c2c41476dafd55c6e7ac8c769db1bc399161ee314bc2e75cf8759081743be1236ec4f4d6693e5336fb672c5dc24a8c33585b5fb
+9cc24e1d4885545b58463634cc5416022cd19cacfccb4d30eb45296023fd35a458598360f8d7a4003bbaae25e331f155d9d9a5116d3bfb9a95523e51440ca2e0
+088dd844ec6370bf0e55d027a012ae264c45d02f708fa6ad6da6dce29c255df9f6cae0ec38666984b372ab5334cf640b37795cc860de4ae2816e95b21be5ceaf
+8a49f90b52a51cc6ff3355f47e0237052b81f6800fd7b802239daf6d8f0b1571a8426944fdbe80c6c1d40e8816b88b8569082ab84c36ff0539d4ff6dce591a26
+ade1c0a7f669880485fd484582903d284b26fa4e2156cff62e4b9265844c4495c495a9157b440e091bea1ab8aaf7760f4510eaa69a6465c0e04ec69ffb9e65d0
+28d44d4e39df9c1a52ecbd3607fee9cec7263328e5d661d3d0e4f62f44acd855ed7ab33cdf7bcb8ae889599bd5c8b3029895b6825696f6af29c239b75a5bb1e6
+345e6ee6c28117e73586c1a2214ae1be07e93fb0ff51e133fb65426fa843be0fb515c187064d0cc206a2fa926d3c902e907670048d931db4c1a44959d366ad93
+b65abe595f70a75bf03d616c2dd959fc7d4e6317cd99cbcec9c58b34766661c7d6766ca1a9c1b327531486c6f941c638c67cd22a7f75e2a37be0e82db8df9f30
+254d30c1372581a1f51c983c80e4b71ccdd28dbf000000ffff0300504b0304140006000800000021000dd1909fb60000001b010000270000007468656d652f74
+68656d652f5f72656c732f7468656d654d616e616765722e786d6c2e72656c73848f4d0ac2301484f78277086f6fd3ba109126dd88d0add40384e4350d363f24
+51eced0dae2c082e8761be9969bb979dc9136332de3168aa1a083ae995719ac16db8ec8e4052164e89d93b64b060828e6f37ed1567914b284d262452282e3198
+720e274a939cd08a54f980ae38a38f56e422a3a641c8bbd048f7757da0f19b017cc524bd62107bd5001996509affb3fd381a89672f1f165dfe514173d9850528
+a2c6cce0239baa4c04ca5bbabac4df000000ffff0300504b01022d0014000600080000002100828abc13fa0000001c0200001300000000000000000000000000
+000000005b436f6e74656e745f54797065735d2e786d6c504b01022d0014000600080000002100a5d6a7e7c0000000360100000b000000000000000000000000
+002b0100005f72656c732f2e72656c73504b01022d00140006000800000021006b799616830000008a0000001c00000000000000000000000000140200007468
+656d652f7468656d652f7468656d654d616e616765722e786d6c504b01022d001400060008000000210096b5ade296060000501b000016000000000000000000
+00000000d10200007468656d652f7468656d652f7468656d65312e786d6c504b01022d00140006000800000021000dd1909fb60000001b010000270000000000
+00000000000000009b0900007468656d652f7468656d652f5f72656c732f7468656d654d616e616765722e786d6c2e72656c73504b050600000000050005005d010000960a00000000}
+{\*\colorschememapping 3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d225554462d3822207374616e64616c6f6e653d22796573223f3e0d0a3c613a636c724d
+617020786d6c6e733a613d22687474703a2f2f736368656d61732e6f70656e786d6c666f726d6174732e6f72672f64726177696e676d6c2f323030362f6d6169
+6e22206267313d226c743122207478313d22646b3122206267323d226c743222207478323d22646b322220616363656e74313d22616363656e74312220616363
+656e74323d22616363656e74322220616363656e74333d22616363656e74332220616363656e74343d22616363656e74342220616363656e74353d22616363656e74352220616363656e74363d22616363656e74362220686c696e6b3d22686c696e6b2220666f6c486c696e6b3d22666f6c486c696e6b222f3e}
+{\*\latentstyles\lsdstimax267\lsdlockeddef0\lsdsemihiddendef1\lsdunhideuseddef1\lsdqformatdef0\lsdprioritydef99{\lsdlockedexcept \lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority0 \lsdlocked0 Normal;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority9 \lsdlocked0 heading 1;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 2;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 3;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 4;
+\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 5;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 6;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 7;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 8;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 9;
+\lsdpriority39 \lsdlocked0 toc 1;\lsdpriority39 \lsdlocked0 toc 2;\lsdpriority39 \lsdlocked0 toc 3;\lsdpriority39 \lsdlocked0 toc 4;\lsdpriority39 \lsdlocked0 toc 5;\lsdpriority39 \lsdlocked0 toc 6;\lsdpriority39 \lsdlocked0 toc 7;
+\lsdpriority39 \lsdlocked0 toc 8;\lsdpriority39 \lsdlocked0 toc 9;\lsdqformat1 \lsdpriority35 \lsdlocked0 caption;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority10 \lsdlocked0 Title;\lsdpriority1 \lsdlocked0 Default Paragraph Font;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority11 \lsdlocked0 Subtitle;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority22 \lsdlocked0 Strong;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority20 \lsdlocked0 Emphasis;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority59 \lsdlocked0 Table Grid;\lsdunhideused0 \lsdlocked0 Placeholder Text;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority1 \lsdlocked0 No Spacing;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading;\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 1;\lsdunhideused0 \lsdlocked0 Revision;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority34 \lsdlocked0 List Paragraph;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority29 \lsdlocked0 Quote;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority30 \lsdlocked0 Intense Quote;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 4;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 4;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 4;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 4;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority19 \lsdlocked0 Subtle Emphasis;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority21 \lsdlocked0 Intense Emphasis;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority31 \lsdlocked0 Subtle Reference;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority32 \lsdlocked0 Intense Reference;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority33 \lsdlocked0 Book Title;\lsdpriority37 \lsdlocked0 Bibliography;\lsdqformat1 \lsdpriority39 \lsdlocked0 TOC Heading;}}{\*\datastore 010500000200000018000000
+4d73786d6c322e534158584d4c5265616465722e352e3000000000000000000000060000
+d0cf11e0a1b11ae1000000000000000000000000000000003e000300feff090006000000000000000000000001000000010000000000000000100000feffffff00000000feffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffdfffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffffffffffffec69d9888b8b3d4c859eaf6cd158be0f000000000000000000000000c052
+07dd2f8fca01feffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000105000000000000}}

@@ -1,0 +1,32 @@
+// DM Environment file for Lands of Legend.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+#define FILE_DIR "Sounds"
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include "AntiSpam.dm"
+#include "Combat.dm"
+#include "Crafting.dm"
+#include "DoList.dm"
+#include "Login.dm"
+#include "Logs.dm"
+#include "MobProcs.dm"
+#include "Mobs.dm"
+#include "Objs.dm"
+#include "Text On Screen.dm"
+#include "Turfs.dm"
+#include "Vars.dm"
+#include "World.dm"
+#include "OldSmallWorld.dmm"
+#include "Macros.dms"
+// END_INCLUDE
+
