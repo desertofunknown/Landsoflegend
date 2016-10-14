@@ -16,14 +16,15 @@ mob
 			usr << "You are banned..."
 			del(usr)
 			return
-		if(!usr.client.address || usr.client.address == world.address || usr.client.address == world.internet_address || usr.client.address == "127.0.0.1")
+		/*if(!usr.client.address || usr.client.address == world.address || usr.client.address == world.internet_address || usr.client.address == "127.0.0.1")
 			usr.Admin = 4
 			var/obj/Misc/Admins/Z = new
 			Z.Value = 4
 			Z.name = usr.key
 			Admins += Z
-			usr << "Localhost detected: Your rank is now Head Admin level."
+			usr << "Localhost detected: Your rank is now Head Admin level."*/
 		var/image/I = new('Target.dmi',usr)
+		loadadmins()
 		usr.TargetIcon = I
 		usr.loc = locate(11,11,2)
 		usr.density = 0

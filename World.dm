@@ -5,8 +5,8 @@ world
 	version = 63
 	name = "Lands of Legend - Version 0.63"
 	status = "Lands of Legend - Version 0.63"
-	hub = "Ginseng.LandsofLegend"
-	hub_password = "54545345443543563456435645564"
+	hub = "Godsring.LandsofLegend"
+	hub_password = ""
 	loop_checks = 0
 	tick_lag = 0.75
 	New()
