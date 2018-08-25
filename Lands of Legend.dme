@@ -6,6 +6,9 @@
 // END_INTERNALS
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "extras"
+#define FILE_DIR "Icons"
+#define FILE_DIR "Sounds"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
