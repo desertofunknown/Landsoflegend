@@ -6402,8 +6402,6 @@ mob
 						return
 				src.Corruption()
 		Save()
-			if(Ruining)
-				return
 			if(src.LoggedIn == 0)
 				return
 			src.TargetIcon = null

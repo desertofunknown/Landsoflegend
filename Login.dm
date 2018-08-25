@@ -45,7 +45,6 @@ mob
 		usr << "Macros - S = Say, O = OOC, R = RolePlay<p>"
 		usr << "<font color =teal>It is Year [Year], Month [Month]<p>"
 		if(usr.client.IsByondMember())
-			var/Add_GobKoboldLizard_instead
 			var/InList = 0
 			if(usr.key in LizardmanList)
 				InList = 1
