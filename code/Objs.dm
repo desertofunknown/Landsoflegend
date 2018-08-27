@@ -27451,19 +27451,7 @@ obj
 				Click()
 					if(usr.Admin >= 1)
 						src.icon_state = "reboot on"
-						switch(alert("Choose Option",,"Reboot","Shut Down","Ruin All"))
-							if("Ruin All")
-								if(usr.Admin == 4)
-									switch(alert("Ruin Server?",,"Yes","No"))
-										if("No")
-											src.icon_state = "reboot off"
-											return
-										if("Yes")
-											RuinAll()
-											return
-								else
-									usr << "<font color = red><b>Only the owner can Ruin a Server!<br>"
-									return
+						switch(alert("Choose Option",,"Reboot","Shut Down"))
 							if("Reboot")
 								switch(alert("Reboot Server?",,"Yes","No"))
 									if("No")
@@ -28419,7 +28407,6 @@ obj
 							usr.CurrentLanguage = L
 							usr << "<font color = green>You will now speak [L.name] - You are [L.SpeakPercent]% fluent in this language, and Write [L.WritePercent]% correctly in it.<br>"
 					if(Result == "Help")
-						var/Finish_Later_Using_HTML
 						var/list/helpmenu = new()
 						helpmenu += "Mining"
 						helpmenu += "Tree Chopping"

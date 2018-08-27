@@ -6,6 +6,8 @@
 // END_INTERNALS
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "extras"
+#define FILE_DIR "Icons"
 #define FILE_DIR "Sounds"
 // END_FILE_DIR
 
@@ -13,22 +15,22 @@
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
-#include "AntiSpam.dm"
-#include "Combat.dm"
-#include "config.dm"
-#include "Crafting.dm"
-#include "DoList.dm"
-#include "Login.dm"
-#include "Logs.dm"
-#include "MobProcs.dm"
-#include "Mobs.dm"
-#include "Objs.dm"
-#include "Text On Screen.dm"
-#include "Turfs.dm"
-#include "txtprocs.dm"
-#include "Vars.dm"
-#include "World.dm"
-#include "OldSmallWorld.dmm"
 #include "Macros.dms"
+#include "code\AntiSpam.dm"
+#include "code\Combat.dm"
+#include "code\config.dm"
+#include "code\Crafting.dm"
+#include "code\DoList.dm"
+#include "code\Login.dm"
+#include "code\Logs.dm"
+#include "code\MobProcs.dm"
+#include "code\Mobs.dm"
+#include "code\Objs.dm"
+#include "code\Text On Screen.dm"
+#include "code\Turfs.dm"
+#include "code\txtprocs.dm"
+#include "code\Vars.dm"
+#include "code\World.dm"
+#include "extras\OldSmallWorld.dmm"
 // END_INCLUDE
 

@@ -1,3 +1,1 @@
-godsring = 1
-ginseng
-maiza008
+example = 5

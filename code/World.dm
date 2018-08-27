@@ -2,20 +2,19 @@
 #define REMOTE_SERVER
 world
 	view = 7
-	version = 63
-	name = "Lands of Legend - Version 0.63"
-	status = "Lands of Legend - Version 0.63"
+	version = 64
+	name = "Lands of Legend - Version 0.64"
+	status = "Lands of Legend - Version 0.64"
 	hub = "Godsring.LandsofLegend"
 	hub_password = ""
 	loop_checks = 0
-	tick_lag = 0.75
+	tick_lag = 0.50
 	New()
 		log = file("ErrorLog.txt")
 		LoadMisc()
 		CreateOre()
 		LoadMap()
 		DayNightCyle()
-		var/Finish_Remote_Server_Access
 		for(var/turf/T in block(locate(98,42,3),locate(114,38,3)))
 			var/InTiles = 0
 			if(T in Tiles)
@@ -57,7 +56,6 @@ world
 
 	Season = null
 
-	Ruining = 0
 
 	CanJoin = 1
 
@@ -562,23 +560,6 @@ client
 				mob.LastLoc = mob.loc
 				..()
 /proc
-	RuinAll()
-		Ruining = 1
-		fdel("players/")
-		fdel("map/")
-		fdel("logs/")
-		fdel("backups/")
-		world << "<font color = teal><b><font size = 3>Deleting all Player Saves...<br>"
-		world << "<font color = teal><b><font size = 3>Done...<br>"
-		spawn(10)
-			world << "<font color = teal><b><font size = 3>Deleting all Map Saves...<br>"
-			world << "<font color = teal><b><font size = 3>Done...<br>"
-			spawn(10)
-				world << "<font color = teal><b><font size = 3>Deleting Logs...<br>"
-				world << "<font color = teal><b><font size = 3>Done...<br>"
-				spawn(10)
-					world << "<font color = teal><b><font size = 3>Shutting Down...<br>"
-					del(world)
 	AutoReboot()
 		spawn(216000)
 			world << "<font color=yellow><font size =3>Server will reboot in 5 minutes!<br>"
