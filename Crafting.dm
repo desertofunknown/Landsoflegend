@@ -94,22 +94,22 @@ mob
 					Qual = "Epic"
 					AddedDefense += Bone.CraftPotential / 19
 					AddedDefense += rand(12,13)
-					AddedDura += rand(60,70)
+					AddedDura += rand(50,60)
 					W.Dura = AddedDura
 					W.Defense = AddedDefense
 					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 100)
-					Qual = "Epic"
+					Qual = "Legendary"
 					AddedDefense += Bone.CraftPotential / 19
 					AddedDefense += rand(13,14)
-					AddedDura += rand(60,70)
+					AddedDura += rand(70,80)
 					W.Dura = AddedDura
 					W.Defense = AddedDefense
 					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
-				if(src.BoneCraftSkill >= 101)
-					Qual = "Legendary"
+				if(src.BoneCraftSkill > 100)
+					Qual = "Mythical"
 					AddedDefense += Bone.CraftPotential / 18
 					AddedDefense += rand(14,15)
 					AddedDura += rand(80,100)
@@ -211,25 +211,25 @@ mob
 					Qual = "Epic"
 					AddedDefense += Leather.CraftPotential / 19
 					AddedDefense += rand(14,15)
-					AddedDura += rand(60,70)
+					AddedDura += rand(50,60)
 					W.Dura = AddedDura
 					W.Defense = AddedDefense
 					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 100)
-					Qual = "Epic"
+					Qual = "Legendary"
 					AddedDefense += Leather.CraftPotential / 19
 					AddedDefense += rand(14,15)
-					AddedDura += rand(60,70)
+					AddedDura += rand(70,80)
 					W.Dura = AddedDura
 					W.Defense = AddedDefense
 					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
-				if(src.LeatherCraftSkill >= 101)
-					Qual = "Legendary"
+				if(src.LeatherCraftSkill > 100)
+					Qual = "Mythical"
 					AddedDefense += Leather.CraftPotential / 18
 					AddedDefense += rand(15,16)
-					AddedDura += rand(80,100)
+					AddedDura += rand(90,100)
 					W.Dura = AddedDura
 					W.Defense = AddedDefense
 					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
@@ -245,10 +245,10 @@ mob
 				if(Ingot.Material == "Silver")
 					AddedDefense += 1
 					AddedDura += 15
-				if(Ingot.Material == "Gold")
+				if(Ingot.Material == "Copper")
 					AddedDefense += 1
 					AddedDura += 10
-				if(Ingot.Material == "Copper")
+				if(Ingot.Material == "Gold") //I switched Copper and Gold because Gold is a very fragile metal. Copper is most certainly stronger.
 					AddedDefense += 1
 					AddedDura += 5
 				W.Weight += Ingot.Weight
@@ -450,7 +450,7 @@ mob
 				if(src.ForgingSkill <= 80)
 					Qual = "Grand"
 					AddedDMG += Ingot.CraftPotential / 20
-					W.Quality = rand(17,20)
+					W.Quality = rand(17,19)
 					AddedDura += rand(40,45)
 					W.Dura = AddedDura
 					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
@@ -458,24 +458,24 @@ mob
 				if(src.ForgingSkill <= 90)
 					Qual = "Epic"
 					AddedDMG += Ingot.CraftPotential / 19
-					W.Quality = rand(20,22)
-					AddedDura += rand(60,70)
+					W.Quality = rand(19,21)
+					AddedDura += rand(50,60)
 					W.Dura = AddedDura
 					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 100)
-					Qual = "Epic"
+					Qual = "Legendary"
 					AddedDMG += Ingot.CraftPotential / 19
-					W.Quality = rand(20,22)
-					AddedDura += rand(60,70)
+					W.Quality = rand(21,23)
+					AddedDura += rand(70,80)
 					W.Dura = AddedDura
 					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill >= 101)
-					Qual = "Legendary"
+					Qual = "Mythical"
 					AddedDMG += Ingot.CraftPotential / 18
-					W.Quality = rand(22,24)
-					AddedDura += rand(80,100)
+					W.Quality = rand(23,24)
+					AddedDura += rand(90,100)
 					W.Dura = AddedDura
 					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
