@@ -404,8 +404,8 @@ turf
 				if(usr.Function == "Interact")
 					if(src in range(1,usr))
 						if(src.icon_state == "underwater floor" && usr.Fainted == 0)
-							if(usr.Can'tDoTask == 0)
-								usr.Can'tDoTask = 1
+							if(usr.CannotDoTask == 0)
+								usr.CannotDoTask = 1
 								var/Delay = rand(100,150)
 								if(usr.LeftLeg == 0)
 									Delay += 25
@@ -417,7 +417,7 @@ turf
 									Delay += 25
 								spawn(Delay)
 									if(usr)
-										usr.Can'tDoTask = 0
+										usr.CannotDoTask = 0
 								view() << "<font color = yellow>[usr] begins to swim up!<br>"
 								var/Sink = 0
 								Sink += usr.Weight / 5

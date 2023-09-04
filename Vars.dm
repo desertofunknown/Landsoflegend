@@ -138,7 +138,7 @@ mob
 
 		HungerMulti = 0
 
-		Necromancery = 0
+		Necromancy = 0
 		BloodMagic = 0
 		AstralMagic = 0
 		NatureMagic = 0
@@ -507,7 +507,7 @@ atom
 
 		Type = null
 
-		Defence = 0
+		Defense = 0
 
 		Weight = 0
 		WeightMax = 0
@@ -520,7 +520,7 @@ atom
 		Race = null
 
 		DamageType = null
-		DefenceType = null
+		DefenseType = null
 
 		Dura = 0
 		MaxDura = 0
@@ -587,7 +587,7 @@ atom
 		BloodColour = null
 obj
 	var
-		BodysKey = null
+		BodiesKey = null
 
 		EquipState = null
 		CarryState = null
@@ -753,7 +753,7 @@ atom
 											A.Burn(Dis)
 											if(ismob(A))
 												var/mob/M = A
-												M.CheckFlamable()
+												M.CheckFlammable()
 			else
 				src.overlays -= /obj/Misc/Fire/
 				src.overlays -= /obj/Misc/FireLarge/

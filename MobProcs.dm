@@ -137,7 +137,7 @@ mob
 				B.Owner = src
 				if(src.client)
 					B.Owner = src.name
-					B.BodysKey = src.key
+					B.BodiesKey = src.key
 					B.BodyKeyCheck()
 				B.Move(src.loc)
 				var/icon/I = new(B.icon)
@@ -550,7 +550,7 @@ mob
 				if(src.Race == "Yeti")
 					view(5) << 'Yeti.wav'
 			spawn(350) Noise()
-		EvilRessurect()
+		EvilResurrect()
 			if(src.Dead == 0 && src.Job == null && src.Target == null)
 				for(var/obj/Items/Body/B in view(6,src))
 					var/CanRes = 1
@@ -587,8 +587,8 @@ mob
 											src.overlays -= /obj/Misc/SpellEffects/Evil/
 									else
 										src.overlays -= /obj/Misc/SpellEffects/Evil/
-			spawn(100) EvilRessurect()
-		Ressurect()
+			spawn(100) EvilResurrect()
+		Resurrect()
 			if(src.Dead == 0 && src.Job == null && src.Target == null)
 				for(var/obj/Items/Body/B in view(6,src))
 					var/mob/HasOwner = null
@@ -626,7 +626,7 @@ mob
 											src.overlays -= /obj/Misc/SpellEffects/Dispel/
 									else
 										src.overlays -= /obj/Misc/SpellEffects/Dispel/
-			spawn(100) Ressurect()
+			spawn(100) Resurrect()
 		Update()
 			if(src)
 				if(src.client)
@@ -664,7 +664,7 @@ mob
 			if(TimeLeft != 0)
 				TimeLeft -= 1
 			if(TimeLeft == 700)
-				view() << "<font color = yellow>[src] seems to be having trouble holding their breathe!<br>"
+				view() << "<font color = yellow>[src] seems to be having trouble holding their breath!<br>"
 			if(TimeLeft == 200)
 				view() << "<font color = yellow>[src] is in danger of drowning!<br>"
 			if(TimeLeft == 0)
@@ -673,7 +673,7 @@ mob
 				src.Death()
 				return
 			spawn(1) Breathe(TimeLeft)
-		CheckFlamable()
+		CheckFlammable()
 			var/Burn = 0
 			for(var/obj/Items/I in src)
 				if(I.Fuel && I.OnFire == 0)
@@ -966,7 +966,7 @@ mob
 								src.Target = Suspect.loc
 							else if(Suspect)
 								if(Suspect.WBack)
-									Suspect << "<font color = teal>[src] points at you, and shouts for everyone to attack. You dident stop to let [src] remove your cloak."
+									Suspect << "<font color = teal>[src] points at you, and shouts for everyone to attack because you did not stop to let [src] remove your cloak."
 									for(var/mob/M in oview(8,src))
 										if(M.Target == null && M.Faction == src.Faction)
 											M.Target = Suspect
@@ -1126,7 +1126,7 @@ mob
 			for(var/mob/M in hearers(SpeakRange,src))
 				var/NewText = null
 				var/Text = null
-				var/TextLength = lentext(T)
+				var/TextLength = length(T)
 				var/Understands = 0
 				if(src.CurrentLanguage)
 					for(var/obj/Misc/Languages/HL in M.LangKnow)
@@ -1144,7 +1144,7 @@ mob
 				if(Understands == 0)
 					M.LearnRaceLanguages("[src.CurrentLanguage]")
 				while(TextLength >= 1)
-					Text ="[copytext(T,(lentext(T)-TextLength)+1,(lentext(T)-TextLength)+2)]"
+					Text ="[copytext(T,(length(T)-TextLength)+1,(length(T)-TextLength)+2)]"
 					var/Change = 0
 					Change = prob(100 - Understands)
 					if(Change)
@@ -1152,7 +1152,7 @@ mob
 						NewText+="[M.TextOutput]"
 						M.TextOutput = null
 					if(Change == 0)
-						NewText+="[copytext(T,(lentext(T)-TextLength)+1,(lentext(T)-TextLength)+2)]"
+						NewText+="[copytext(T,(length(T)-TextLength)+1,(length(T)-TextLength)+2)]"
 					TextLength--
 				if(src.OriginalName == null)
 					M << "<font color=teal>[src] says in [SL.name]: [NewText]<br>"
@@ -1200,7 +1200,7 @@ mob
 				src << "<font color = blue>Cyclops hate the following races by default, Undead, Giants, Humans<br>"
 				src << "<font color = blue>Cyclops have heard of, but do not know how to use, Elemental Magic, Nature Magic, Blood Magic, Chaos Magic, and Necromancy<br>"
 				src << "<font color = blue>Cyclops know the location of all their caves.<br>"
-				src << "<font color = blue>Cyclops get angry at anything they do not understand, which is most things. They have a short temper and hate anything beautiful. They get pychotic if hurt or hungry, which means they hate everyone they meet, even other Cyclops.<br>"
+				src << "<font color = blue>Cyclops get angry at anything they do not understand, which is most things. They have a short temper and hate anything beautiful. They get psychotic if hurt or hungry, which means they hate everyone they meet, even other Cyclops.<br>"
 				src << "<font color = blue>Cyclops do not understand the concept of death, and thus do not fear it.<br>"
 			if(src.Race == "Giant")
 				src << "<font color = blue>Race - Giant<br>"
@@ -1243,7 +1243,7 @@ mob
 				src << "<font color = blue>Race - Snakeman<br>"
 				src << "<font color = blue>Snakeman know the following races, Wolfmen, Ratlings, Giants, Cyclops, Frogmen, Altherions, Humans, Stahlite, Undead<br>"
 				src << "<font color = blue>Snakeman have heard of but not seen, Liches, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
-				src << "<font color = blue>Snakeman are obessed with prolonging their own lives, so they worship the Gods of Blood, Death and Wisdom..<br>"
+				src << "<font color = blue>Snakeman are obsessed with prolonging their own lives, so they worship the Gods of Blood, Death and Wisdom..<br>"
 				src << "<font color = blue>Snakeman hate the following races by default, Ratlings, Cyclops, Frogmen, Altherians.<br>"
 				src << "<font color = blue>Snakeman know all the magics of the world, but are mainly intrested in ones that manipulate others, or prolong ones life.<br>"
 				src << "<font color = blue>Snakeman know the location of the Humans, Altherians and Stahlite settlements, as well as their own. And also know of the Ratlings hiding locations.<br>"
@@ -1369,7 +1369,7 @@ mob
 				src.BoneCraftMulti = 0.6
 				var/obj/Items/Armour/Chest/Robe/R = new
 				R.overlays += image(/obj/HUD/E/)
-				R.Defence = 2
+				R.Defense = 2
 				R.suffix = "Equip"
 				R.icon_state = R.EquipState
 				R.layer = 20
@@ -1492,7 +1492,7 @@ mob
 				if(PlayerBorn == 0)
 					var/obj/Items/Armour/UpperBody/LeatherVest/LV = new
 					LV.overlays += image(/obj/HUD/E/)
-					LV.Defence = 2
+					LV.Defense = 2
 					LV.suffix = "Equip"
 					LV.icon_state = LV.EquipState
 					LV.layer = 20
@@ -1501,7 +1501,7 @@ mob
 					src.overlays+=image(LV.icon,LV.icon_state,LV.ItemLayer)
 					var/obj/Items/Armour/Legs/LeatherLeggings/LL = new
 					LL.overlays += image(/obj/HUD/E/)
-					LL.Defence = 2
+					LL.Defense = 2
 					src.WLegs = LL
 					LL.suffix = "Equip"
 					LL.icon_state = LL.EquipState
@@ -1509,7 +1509,7 @@ mob
 					src.overlays+=image(LL.icon,LL.icon_state,LL.ItemLayer)
 					var/obj/Items/Armour/LeftFoot/LeatherBootLeft/LBL = new
 					LBL.overlays += image(/obj/HUD/E/)
-					LBL.Defence = 2
+					LBL.Defense = 2
 					src.WLeftFoot = LBL
 					LBL.icon_state = LBL.EquipState
 					LBL.suffix = "Equip"
@@ -1517,7 +1517,7 @@ mob
 					src.overlays+=image(LBL.icon,LBL.icon_state,LBL.ItemLayer)
 					var/obj/Items/Armour/RightFoot/LeatherBootRight/LBR = new
 					LBR.overlays += image(/obj/HUD/E/)
-					LBR.Defence = 2
+					LBR.Defense = 2
 					src.WRightFoot = LBR
 					LBR.suffix = "Equip"
 					LBR.icon_state = LBR.EquipState
@@ -1525,7 +1525,7 @@ mob
 					src.overlays+=image(LBR.icon,LBR.icon_state,LBR.ItemLayer)
 					var/obj/Items/Armour/LeftArm/LeatherGloveLeft/LGL = new
 					LGL.overlays += image(/obj/HUD/E/)
-					LGL.Defence = 2
+					LGL.Defense = 2
 					src.WLeftHand = LGL
 					LGL.suffix = "Equip"
 					LGL.icon_state = LGL.EquipState
@@ -1533,7 +1533,7 @@ mob
 					src.overlays+=image(LGL.icon,LGL.icon_state,LGL.ItemLayer)
 					var/obj/Items/Armour/RightArm/LeatherGloveRight/LGR = new
 					LGR.overlays += image(/obj/HUD/E/)
-					LGR.Defence = 2
+					LGR.Defense = 2
 					src.WRightHand = LGR
 					LGR.suffix = "Equip"
 					LGR.icon_state = LGR.EquipState
@@ -1643,7 +1643,7 @@ mob
 					IC.Material = "Iron"
 					IC.RandomItemQuality()
 					IC.overlays += image(/obj/HUD/E/)
-					IC.Defence = 4
+					IC.Defense = 4
 					src.WChest = IC
 					IC.suffix = "Equip"
 					IC.Move(src)
@@ -1653,7 +1653,7 @@ mob
 					LL.Material = "Iron"
 					LL.RandomItemQuality()
 					LL.overlays += image(/obj/HUD/E/)
-					LL.Defence = 4
+					LL.Defense = 4
 					src.WLegs = LL
 					LL.suffix = "Equip"
 					LL.Move(src)
@@ -1765,7 +1765,7 @@ mob
 				if(PlayerBorn == 0)
 					var/obj/Items/Armour/UpperBody/GiantLeatherVest/LV = new
 					LV.overlays += image(/obj/HUD/E/)
-					LV.Defence = 2
+					LV.Defense = 2
 					src.WUpperBody = LV
 					LV.suffix = "Equip"
 					LV.Move(src)
@@ -1773,7 +1773,7 @@ mob
 					src.overlays+=image(LV.icon,LV.icon_state,LV.ItemLayer)
 					var/obj/Items/Armour/Legs/GiantLeatherLeggings/LL = new
 					LL.overlays += image(/obj/HUD/E/)
-					LL.Defence = 2
+					LL.Defense = 2
 					src.WLegs = LL
 					LL.suffix = "Equip"
 					LL.Move(src)
@@ -2038,7 +2038,7 @@ mob
 				if(PlayerBorn == 0)
 					var/obj/Items/Armour/UpperBody/LeatherVest/LV = new
 					LV.overlays += image(/obj/HUD/E/)
-					LV.Defence = 2
+					LV.Defense = 2
 					LV.suffix = "Equip"
 					LV.icon_state = LV.EquipState
 					LV.layer = 20
@@ -2047,7 +2047,7 @@ mob
 					src.overlays+=image(LV.icon,LV.icon_state,LV.ItemLayer)
 					var/obj/Items/Armour/Legs/LeatherLeggings/LL = new
 					LL.overlays += image(/obj/HUD/E/)
-					LL.Defence = 2
+					LL.Defense = 2
 					src.WLegs = LL
 					LL.suffix = "Equip"
 					LL.icon_state = LL.EquipState
@@ -2055,7 +2055,7 @@ mob
 					src.overlays+=image(LL.icon,LL.icon_state,LL.ItemLayer)
 					var/obj/Items/Armour/LeftFoot/LeatherBootLeft/LBL = new
 					LBL.overlays += image(/obj/HUD/E/)
-					LBL.Defence = 2
+					LBL.Defense = 2
 					src.WLeftFoot = LBL
 					LBL.icon_state = LBL.EquipState
 					LBL.suffix = "Equip"
@@ -2063,7 +2063,7 @@ mob
 					src.overlays+=image(LBL.icon,LBL.icon_state,LBL.ItemLayer)
 					var/obj/Items/Armour/RightFoot/LeatherBootRight/LBR = new
 					LBR.overlays += image(/obj/HUD/E/)
-					LBR.Defence = 2
+					LBR.Defense = 2
 					src.WRightFoot = LBR
 					LBR.suffix = "Equip"
 					LBR.icon_state = LBR.EquipState
@@ -2071,7 +2071,7 @@ mob
 					src.overlays+=image(LBR.icon,LBR.icon_state,LBR.ItemLayer)
 					var/obj/Items/Armour/LeftArm/LeatherGloveLeft/LGL = new
 					LGL.overlays += image(/obj/HUD/E/)
-					LGL.Defence = 2
+					LGL.Defense = 2
 					src.WLeftHand = LGL
 					LGL.suffix = "Equip"
 					LGL.icon_state = LGL.EquipState
@@ -2079,7 +2079,7 @@ mob
 					src.overlays+=image(LGL.icon,LGL.icon_state,LGL.ItemLayer)
 					var/obj/Items/Armour/RightArm/LeatherGloveRight/LGR = new
 					LGR.overlays += image(/obj/HUD/E/)
-					LGR.Defence = 2
+					LGR.Defense = 2
 					src.WRightHand = LGR
 					LGR.suffix = "Equip"
 					LGR.icon_state = LGR.EquipState
@@ -2178,7 +2178,7 @@ mob
 				if(PlayerBorn == 0)
 					var/obj/Items/Armour/UpperBody/GiantLeatherVest/LV = new
 					LV.overlays += image(/obj/HUD/E/)
-					LV.Defence = 2
+					LV.Defense = 2
 					src.WUpperBody = LV
 					LV.suffix = "Equip"
 					LV.Move(src)
@@ -2186,7 +2186,7 @@ mob
 					src.overlays+=image(LV.icon,LV.icon_state,LV.ItemLayer)
 					var/obj/Items/Armour/Legs/GiantLeatherLeggings/LL = new
 					LL.overlays += image(/obj/HUD/E/)
-					LL.Defence = 2
+					LL.Defense = 2
 					src.WLegs = LL
 					LL.suffix = "Equip"
 					LL.Move(src)
@@ -2393,7 +2393,7 @@ mob
 				if(PlayerBorn == 0)
 					var/obj/Items/Armour/UpperBody/LeatherVest/LV = new
 					LV.overlays += image(/obj/HUD/E/)
-					LV.Defence = 2
+					LV.Defense = 2
 					LV.suffix = "Equip"
 					LV.icon_state = LV.EquipState
 					LV.layer = 20
@@ -2402,7 +2402,7 @@ mob
 					src.overlays+=image(LV.icon,LV.icon_state,LV.ItemLayer)
 					var/obj/Items/Armour/LeftArm/LeatherGloveLeft/LGL = new
 					LGL.overlays += image(/obj/HUD/E/)
-					LGL.Defence = 2
+					LGL.Defense = 2
 					src.WLeftHand = LGL
 					LGL.suffix = "Equip"
 					LGL.icon_state = LGL.EquipState
@@ -2410,7 +2410,7 @@ mob
 					src.overlays+=image(LGL.icon,LGL.icon_state,LGL.ItemLayer)
 					var/obj/Items/Armour/RightArm/LeatherGloveRight/LGR = new
 					LGR.overlays += image(/obj/HUD/E/)
-					LGR.Defence = 2
+					LGR.Defense = 2
 					src.WRightHand = LGR
 					LGR.suffix = "Equip"
 					LGR.icon_state = LGR.EquipState
@@ -2497,7 +2497,7 @@ mob
 					if(PlayerBorn == 0)
 						var/obj/Items/Armour/UpperBody/LeatherVest/LV = new
 						LV.overlays += image(/obj/HUD/E/)
-						LV.Defence = 2
+						LV.Defense = 2
 						LV.suffix = "Equip"
 						LV.icon_state = LV.EquipState
 						LV.layer = 20
@@ -2506,7 +2506,7 @@ mob
 						src.overlays+=image(LV.icon,LV.icon_state,LV.ItemLayer)
 						var/obj/Items/Armour/Legs/LeatherLeggings/LL = new
 						LL.overlays += image(/obj/HUD/E/)
-						LL.Defence = 2
+						LL.Defense = 2
 						src.WLegs = LL
 						LL.suffix = "Equip"
 						LL.icon_state = LL.EquipState
@@ -2514,7 +2514,7 @@ mob
 						src.overlays+=image(LL.icon,LL.icon_state,LL.ItemLayer)
 						var/obj/Items/Armour/LeftFoot/LeatherBootLeft/LBL = new
 						LBL.overlays += image(/obj/HUD/E/)
-						LBL.Defence = 2
+						LBL.Defense = 2
 						src.WLeftFoot = LBL
 						LBL.icon_state = LBL.EquipState
 						LBL.suffix = "Equip"
@@ -2522,7 +2522,7 @@ mob
 						src.overlays+=image(LBL.icon,LBL.icon_state,LBL.ItemLayer)
 						var/obj/Items/Armour/RightFoot/LeatherBootRight/LBR = new
 						LBR.overlays += image(/obj/HUD/E/)
-						LBR.Defence = 2
+						LBR.Defense = 2
 						src.WRightFoot = LBR
 						LBR.suffix = "Equip"
 						LBR.icon_state = LBR.EquipState
@@ -2530,7 +2530,7 @@ mob
 						src.overlays+=image(LBR.icon,LBR.icon_state,LBR.ItemLayer)
 						var/obj/Items/Armour/LeftArm/LeatherGloveLeft/LGL = new
 						LGL.overlays += image(/obj/HUD/E/)
-						LGL.Defence = 2
+						LGL.Defense = 2
 						src.WLeftHand = LGL
 						LGL.suffix = "Equip"
 						LGL.icon_state = LGL.EquipState
@@ -2538,7 +2538,7 @@ mob
 						src.overlays+=image(LGL.icon,LGL.icon_state,LGL.ItemLayer)
 						var/obj/Items/Armour/RightArm/LeatherGloveRight/LGR = new
 						LGR.overlays += image(/obj/HUD/E/)
-						LGR.Defence = 2
+						LGR.Defense = 2
 						src.WRightHand = LGR
 						LGR.suffix = "Equip"
 						LGR.icon_state = LGR.EquipState
@@ -3788,7 +3788,7 @@ mob
 					var/Harm = 33
 					if(src.WLeftFoot)
 						var/obj/Z = src.WLeftFoot
-						Harm -= Z.Defence
+						Harm -= Z.Defense
 					var/Harms = prob(Harm)
 					if(Harms)
 						src.Blood -= 10
@@ -3803,7 +3803,7 @@ mob
 					var/Harm = 33
 					if(src.WRightFoot)
 						var/obj/Z = src.WRightFoot
-						Harm -= Z.Defence
+						Harm -= Z.Defense
 					var/Harms = prob(Harm)
 					if(Harms)
 						src.Blood -= 10
@@ -3818,7 +3818,7 @@ mob
 					var/Harm = 33
 					if(src.WLeftHand)
 						var/obj/Z = src.WLeftHand
-						Harm -= Z.Defence
+						Harm -= Z.Defense
 					var/Harms = prob(Harm)
 					if(Harms)
 						src.Blood -= 10
@@ -3833,7 +3833,7 @@ mob
 					var/Harm = 33
 					if(src.WRightHand)
 						var/obj/Z = src.WRightHand
-						Harm -= Z.Defence
+						Harm -= Z.Defense
 					var/Harms = prob(Harm)
 					if(Harms)
 						src.Blood -= 10
@@ -5588,8 +5588,8 @@ mob
 						src.Text("BoxDelete",src,WeightLocX,WeightLocY,8,13,"Weight-[I.Weight]")
 						if(I.CraftPotential)
 							src.Text("BoxDelete",src,PurityX,PurityY,8,13,"Potential-[I.CraftPotential]")
-						if(I.Defence)
-							src.Text("BoxDelete",src,SlotLocX,SlotLocY,8,13,"Defence-[I.Defence]")
+						if(I.Defense)
+							src.Text("BoxDelete",src,SlotLocX,SlotLocY,8,13,"Defense-[I.Defense]")
 						if(I.Quality)
 							var/DMG = I.Quality
 							src.Text("BoxDelete",src,SlotLocX,SlotLocY,8,13,"Damage-[DMG]")
@@ -6160,7 +6160,7 @@ mob
 			src.Text("SkillDisplay",src,10,10,10,14,"Swimming-[src.SwimmingSkill]")
 			src.Text("SkillDisplay",src,10,9,10,14,"BoneCraft-[src.BoneCraftSkill]")
 			src.Text("SkillDisplay",src,10,8,10,14,"Astral Magic-[src.AstralMagic]")
-			src.Text("SkillDisplay",src,10,7,10,14,"Necromancy-[src.Necromancery]")
+			src.Text("SkillDisplay",src,10,7,10,14,"Necromancy-[src.Necromancy]")
 			src.Text("SkillDisplay",src,10,6,10,14,"Blood Magic-[src.BloodMagic]")
 		CreateHealthDisplay()
 			var/obj/H = new/obj/HUD/Menus/Scroll/ScrollMiddle(src.client)
@@ -6295,7 +6295,7 @@ mob
 							I.icon_state = "Corruption7"
 							I.EquipState = I.icon_state
 							src.overlays+=image(I.icon,I.icon_state,I.ItemLayer)
-							I.Defence += 5
+							I.Defense += 5
 							I.Dura += 50
 							if(src.WHead)
 								var/obj/Q = src.WHead
@@ -6313,7 +6313,7 @@ mob
 							I.icon_state = "Corruption6"
 							I.EquipState = I.icon_state
 							src.overlays+=image(I.icon,I.icon_state,I.ItemLayer)
-							I.Defence += 5
+							I.Defense += 5
 							I.Dura += 50
 							src.Pain += 50
 							I.Weight += 2
@@ -6324,7 +6324,7 @@ mob
 							I.icon_state = "Corruption5"
 							I.EquipState = I.icon_state
 							src.overlays+=image(I.icon,I.icon_state,I.ItemLayer)
-							I.Defence += 5
+							I.Defense += 5
 							I.Dura += 50
 							src.Pain += 50
 							if(src.WLegs)
@@ -6350,7 +6350,7 @@ mob
 							I.icon_state = "Corruption4"
 							I.EquipState = I.icon_state
 							src.overlays+=image(I.icon,I.icon_state,I.ItemLayer)
-							I.Defence += 5
+							I.Defense += 5
 							I.Dura += 25
 							src.Pain += 50
 							if(src.WLeftHand)
@@ -6366,7 +6366,7 @@ mob
 							I.icon_state = "Corruption3"
 							I.EquipState = I.icon_state
 							src.overlays+=image(I.icon,I.icon_state,I.ItemLayer)
-							I.Defence += 5
+							I.Defense += 5
 							I.Dura += 25
 							src.Pain += 50
 							if(src.WShoulders)
@@ -6391,7 +6391,7 @@ mob
 							src.overlays-=image(I.icon,I.icon_state,I.ItemLayer)
 							I.icon_state = "Corruption2"
 							I.EquipState = I.icon_state
-							I.Defence += 5
+							I.Defense += 5
 							I.Dura += 25
 							I.name = "Armour of Corruption"
 							I.Weight += 5
@@ -6999,7 +6999,7 @@ mob
 
 					var/obj/Items/Armour/Head/PlateHelmet3/H = new
 					H.Move(src)
-					H.Defence = 10
+					H.Defense = 10
 					H.Dura = 100
 					H.CarryState = "Gold [H.icon_state]"
 					H.EquipState = "Gold [H.icon_state] equip"
@@ -7009,7 +7009,7 @@ mob
 					H.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/UpperBody/ChestPlate/CP = new
 					CP.Move(src)
-					CP.Defence = 10
+					CP.Defense = 10
 					CP.Dura = 100
 					CP.CarryState = "Gold [CP.icon_state]"
 					CP.EquipState = "Gold [CP.icon_state] equip"
@@ -7019,7 +7019,7 @@ mob
 					CP.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/Shoulders/PlatePauldrons/S = new
 					S.Move(src)
-					S.Defence = 10
+					S.Defense = 10
 					S.Dura = 100
 					S.CarryState = "Gold [S.icon_state]"
 					S.EquipState = "Gold [S.icon_state] equip"
@@ -7029,7 +7029,7 @@ mob
 					S.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/LeftArm/PlateGauntletLeft/LG = new
 					LG.Move(src)
-					LG.Defence = 10
+					LG.Defense = 10
 					LG.Dura = 100
 					LG.CarryState = "Gold [LG.icon_state]"
 					LG.EquipState = "Gold [LG.icon_state] equip"
@@ -7039,7 +7039,7 @@ mob
 					LG.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/RightArm/PlateGauntletRight/RG = new
 					RG.Move(src)
-					RG.Defence = 10
+					RG.Defense = 10
 					RG.Dura = 100
 					RG.CarryState = "Gold [RG.icon_state]"
 					RG.EquipState = "Gold [RG.icon_state] equip"
@@ -7049,7 +7049,7 @@ mob
 					RG.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/LeftFoot/PlateBootLeft/LB = new
 					LB.Move(src)
-					LB.Defence = 10
+					LB.Defense = 10
 					LB.Dura = 100
 					LB.CarryState = "Gold [LB.icon_state]"
 					LB.EquipState = "Gold [LB.icon_state] equip"
@@ -7059,7 +7059,7 @@ mob
 					LB.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/RightFoot/PlateBootRight/RB = new
 					RB.Move(src)
-					RB.Defence = 10
+					RB.Defense = 10
 					RB.Dura = 100
 					RB.CarryState = "Gold [RB.icon_state]"
 					RB.EquipState = "Gold [RB.icon_state] equip"
@@ -7073,7 +7073,7 @@ mob
 					SmallRace = 1
 					var/obj/Items/Armour/Head/SmallDwarvenHelmet2/H = new
 					H.Move(src)
-					H.Defence = 10
+					H.Defense = 10
 					H.Dura = 100
 					H.CarryState = "Gold [H.icon_state]"
 					H.EquipState = "Gold [H.icon_state] equip"
@@ -7083,7 +7083,7 @@ mob
 					H.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/UpperBody/SmallChestPlate/CP = new
 					CP.Move(src)
-					CP.Defence = 10
+					CP.Defense = 10
 					CP.Dura = 100
 					CP.CarryState = "Gold [CP.icon_state]"
 					CP.EquipState = "Gold [CP.icon_state] equip"
@@ -7093,7 +7093,7 @@ mob
 					CP.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/Shoulders/SmallPlatePauldrons/S = new
 					S.Move(src)
-					S.Defence = 10
+					S.Defense = 10
 					S.Dura = 100
 					S.CarryState = "Gold [S.icon_state]"
 					S.EquipState = "Gold [S.icon_state] equip"
@@ -7103,7 +7103,7 @@ mob
 					S.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/LeftArm/SmallPlateGauntletLeft/LG = new
 					LG.Move(src)
-					LG.Defence = 10
+					LG.Defense = 10
 					LG.Dura = 100
 					LG.CarryState = "Gold [LG.icon_state]"
 					LG.EquipState = "Gold [LG.icon_state] equip"
@@ -7113,7 +7113,7 @@ mob
 					LG.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/RightArm/SmallPlateGauntletRight/RG = new
 					RG.Move(src)
-					RG.Defence = 10
+					RG.Defense = 10
 					RG.Dura = 100
 					RG.CarryState = "Gold [RG.icon_state]"
 					RG.EquipState = "Gold [RG.icon_state] equip"
@@ -7123,7 +7123,7 @@ mob
 					RG.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/LeftFoot/SmallPlateBootLeft/LB = new
 					LB.Move(src)
-					LB.Defence = 10
+					LB.Defense = 10
 					LB.Dura = 100
 					LB.CarryState = "Gold [LB.icon_state]"
 					LB.EquipState = "Gold [LB.icon_state] equip"
@@ -7133,7 +7133,7 @@ mob
 					LB.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/RightFoot/SmallPlateBootRight/RB = new
 					RB.Move(src)
-					RB.Defence = 10
+					RB.Defense = 10
 					RB.Dura = 100
 					RB.CarryState = "Gold [RB.icon_state]"
 					RB.EquipState = "Gold [RB.icon_state] equip"
@@ -7145,7 +7145,7 @@ mob
 					SmallRace = 1
 					var/obj/Items/Armour/Head/PlateHelmetRat/H = new
 					H.Move(src)
-					H.Defence = 10
+					H.Defense = 10
 					H.Dura = 100
 					H.CarryState = "Iron rat plate helm"
 					H.EquipState = "Iron rat plate helm equip"
@@ -7155,7 +7155,7 @@ mob
 					H.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/Chest/RatChainShirt/CP = new
 					CP.Move(src)
-					CP.Defence = 10
+					CP.Defense = 10
 					CP.Dura = 100
 					CP.CarryState = "Iron folded chain"
 					CP.EquipState = "Iron [CP.EquipState] equip"
@@ -7165,7 +7165,7 @@ mob
 					CP.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/UpperBody/RatChestPlate/GCP = new
 					GCP.Move(src)
-					GCP.Defence = 10
+					GCP.Defense = 10
 					GCP.Dura = 100
 					GCP.CarryState = "Iron rat chestplate"
 					GCP.EquipState = "Iron rat chestplate equip"
@@ -7175,7 +7175,7 @@ mob
 					GCP.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/Legs/RatChainLeggings/L = new
 					L.Move(src)
-					L.Defence = 10
+					L.Defense = 10
 					L.Dura = 100
 					L.CarryState = "Iron folded chain"
 					L.EquipState = "Iron [L.EquipState] equip"
@@ -7185,7 +7185,7 @@ mob
 					L.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/LeftArm/RatPlateGauntletLeft/LG = new
 					LG.Move(src)
-					LG.Defence = 10
+					LG.Defense = 10
 					LG.Dura = 100
 					LG.CarryState = "Iron rat plateglove left"
 					LG.EquipState = "Iron rat plateglove left equip"
@@ -7195,7 +7195,7 @@ mob
 					LG.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/RightArm/RatPlateGauntletRight/RG = new
 					RG.Move(src)
-					RG.Defence = 10
+					RG.Defense = 10
 					RG.Dura = 100
 					RG.CarryState = "Iron rat plateglove right"
 					RG.EquipState = "Iron rat plateglove right equip"
@@ -7205,7 +7205,7 @@ mob
 					RG.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/LeftFoot/RatPlateBootLeft/LB = new
 					LB.Move(src)
-					LB.Defence = 10
+					LB.Defense = 10
 					LB.Dura = 100
 					LB.CarryState = "Iron rat plateboot left"
 					LB.EquipState = "Iron rat plateboot left equip"
@@ -7215,7 +7215,7 @@ mob
 					LB.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/RightFoot/RatPlateBootRight/RB = new
 					RB.Move(src)
-					RB.Defence = 10
+					RB.Defense = 10
 					RB.Dura = 100
 					RB.CarryState = "Iron rat plateboot right"
 					RB.EquipState = "Iron rat plateboot right equip"
@@ -7225,7 +7225,7 @@ mob
 					RB.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/Shoulders/RatPlatePauldrons/S = new
 					S.Move(src)
-					S.Defence = 10
+					S.Defense = 10
 					S.Dura = 100
 					S.CarryState = "Iron rat shoulders"
 					S.EquipState = "Iron rat shoulders equip"
@@ -7252,7 +7252,7 @@ mob
 
 					var/obj/Items/Armour/Head/GiantChainCoif/H = new
 					H.Move(src)
-					H.Defence = 10
+					H.Defense = 10
 					H.Dura = 100
 					H.CarryState = "Iron folded chain"
 					H.EquipState = "Iron [H.EquipState] equip"
@@ -7262,7 +7262,7 @@ mob
 					H.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/Chest/GiantChainShirt/CP = new
 					CP.Move(src)
-					CP.Defence = 10
+					CP.Defense = 10
 					CP.Dura = 100
 					CP.CarryState = "Iron folded chain"
 					CP.EquipState = "Iron [CP.EquipState] equip"
@@ -7272,7 +7272,7 @@ mob
 					CP.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/UpperBody/GiantChestPlate/GCP = new
 					GCP.Move(src)
-					GCP.Defence = 10
+					GCP.Defense = 10
 					GCP.Dura = 100
 					GCP.CarryState = "Iron giant chestplate"
 					GCP.EquipState = "Iron giant chestplate equip"
@@ -7282,7 +7282,7 @@ mob
 					GCP.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/Legs/GiantChainLeggings/L = new
 					L.Move(src)
-					L.Defence = 10
+					L.Defense = 10
 					L.Dura = 100
 					L.CarryState = "Iron folded chain"
 					L.EquipState = "Iron [L.EquipState] equip"
@@ -7292,7 +7292,7 @@ mob
 					L.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/LeftArm/GiantPlateGloveLeft/LG = new
 					LG.Move(src)
-					LG.Defence = 10
+					LG.Defense = 10
 					LG.Dura = 100
 					LG.CarryState = "Iron giant plateglove left"
 					LG.EquipState = "Iron giant plateglove left equip"
@@ -7302,7 +7302,7 @@ mob
 					LG.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/RightArm/GiantPlateGloveRight/RG = new
 					RG.Move(src)
-					RG.Defence = 10
+					RG.Defense = 10
 					RG.Dura = 100
 					RG.CarryState = "Iron giant plateglove right"
 					RG.EquipState = "Iron giant plateglove right equip"
@@ -7312,7 +7312,7 @@ mob
 					RG.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/LeftFoot/GiantPlateBootLeft/LB = new
 					LB.Move(src)
-					LB.Defence = 10
+					LB.Defense = 10
 					LB.Dura = 100
 					LB.CarryState = "Iron giant plateboot left"
 					LB.EquipState = "Iron giant plateboot left equip"
@@ -7322,7 +7322,7 @@ mob
 					LB.overlays+=image(/obj/HUD/C/)
 					var/obj/Items/Armour/RightFoot/GiantPlateBootRight/RB = new
 					RB.Move(src)
-					RB.Defence = 10
+					RB.Defense = 10
 					RB.Dura = 100
 					RB.CarryState = "Iron giant plateboot right"
 					RB.EquipState = "Iron giant plateboot right equip"

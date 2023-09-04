@@ -88,7 +88,7 @@ mob
 							var/Harm = 33
 							if(src.WLeftFoot)
 								var/obj/O = src.WLeftFoot
-								Harm -= O.Defence
+								Harm -= O.Defense
 							var/Harms = prob(Harm)
 							if(Harms)
 								src.Blood -= Dmg / 1.5
@@ -103,7 +103,7 @@ mob
 							var/Harm = 33
 							if(src.WRightFoot)
 								var/obj/O = src.WRightFoot
-								Harm -= O.Defence
+								Harm -= O.Defense
 							var/Harms = prob(Harm)
 							if(Harms)
 								src.Blood -= Dmg / 1.5
@@ -118,7 +118,7 @@ mob
 							var/Harm = 33
 							if(src.WLeftHand)
 								var/obj/O = src.WLeftHand
-								Harm -= O.Defence
+								Harm -= O.Defense
 							var/Harms = prob(Harm)
 							if(Harms)
 								src.Blood -= Dmg / 1.5
@@ -133,7 +133,7 @@ mob
 							var/Harm = 33
 							if(src.WRightHand)
 								var/obj/O = src.WRightHand
-								Harm -= O.Defence
+								Harm -= O.Defense
 							var/Harms = prob(Harm)
 							if(Harms)
 								src.Blood -= Dmg / 1.5
@@ -662,8 +662,8 @@ mob
 										Val += 20
 									if(I.Quality)
 										Val += I.Quality / 1.5
-									if(I.Defence)
-										Val += I.Defence / 2
+									if(I.Defense)
+										Val += I.Defense / 2
 									var/RoundedVal = round(Val)
 									src.Speak("Ah, I see you've chosen a [I], a fine choice indeed! That item has a total value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
@@ -1423,7 +1423,7 @@ mob
 							L.Move(src)
 
 							R.Material = "Cloth"
-							R.Defence = 3
+							R.Defense = 3
 							L.Material = "Iron"
 							L.RandomItemQuality()
 							RB.Material = "Iron"
@@ -1460,7 +1460,7 @@ mob
 							src.GuardAI()
 							src.Regen()
 							src.GiveName()
-							src.Ressurect()
+							src.Resurrect()
 							src.name = "[src.name] The Priest"
 			Altherian_Guardsman
 				icon = 'elf.dmi'
@@ -1741,8 +1741,8 @@ mob
 										Val += 20
 									if(I.Quality)
 										Val += I.Quality / 1.5
-									if(I.Defence)
-										Val += I.Defence / 2
+									if(I.Defense)
+										Val += I.Defense / 2
 									var/RoundedVal = round(Val)
 									src.Speak("Ah, I see you've chosen a [I], a fine choice indeed! That item has a total Value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
@@ -2785,70 +2785,70 @@ mob
 					var/obj/Items/Armour/Chest/SmallChainShirt/IC = new
 					IC.Material = "Gold"
 					IC.RandomItemQuality()
-					IC.Defence = 10
+					IC.Defense = 10
 					src.WChest = IC
 					IC.suffix = "Equip"
 					IC.Move(src)
 					var/obj/Items/Armour/Legs/SmallChainLeggings/LL = new
 					LL.Material = "Gold"
 					LL.RandomItemQuality()
-					LL.Defence = 10
+					LL.Defense = 10
 					src.WLegs = LL
 					LL.suffix = "Equip"
 					LL.Move(src)
 					var/obj/Items/Armour/UpperBody/SmallChestPlate/C = new
 					C.Material = "Gold"
 					C.RandomItemQuality()
-					C.Defence = 10
+					C.Defense = 10
 					src.WUpperBody = C
 					C.suffix = "Equip"
 					C.Move(src)
 					var/obj/Items/Armour/Head/SmallDwarvenHelmet3/H = new
 					H.Material = "Gold"
 					H.RandomItemQuality()
-					H.Defence = 10
+					H.Defense = 10
 					src.WHead = H
 					H.suffix = "Equip"
 					H.Move(src)
 					var/obj/Items/Armour/LeftArm/SmallPlateGauntletLeft/LG = new
 					LG.Material = "Gold"
 					LG.RandomItemQuality()
-					LG.Defence = 10
+					LG.Defense = 10
 					src.WLeftHand = LG
 					LG.suffix = "Equip"
 					LG.Move(src)
 					var/obj/Items/Armour/RightArm/SmallPlateGauntletRight/RG = new
 					RG.Material = "Gold"
 					RG.RandomItemQuality()
-					RG.Defence = 10
+					RG.Defense = 10
 					src.WLeftHand = RG
 					RG.suffix = "Equip"
 					RG.Move(src)
 					var/obj/Items/Armour/RightFoot/SmallPlateBootRight/RB = new
 					RB.Material = "Gold"
 					RB.RandomItemQuality()
-					RB.Defence = 10
+					RB.Defense = 10
 					src.WLeftHand = RB
 					RB.suffix = "Equip"
 					RB.Move(src)
 					var/obj/Items/Armour/LeftFoot/SmallPlateBootLeft/LB = new
 					LB.Material = "Gold"
 					LB.RandomItemQuality()
-					LB.Defence = 10
+					LB.Defense = 10
 					src.WLeftHand = LB
 					LB.suffix = "Equip"
 					LB.Move(src)
 					var/obj/Items/Armour/Waist/SmallPlateBelt/B = new
 					B.Material = "Gold"
 					B.RandomItemQuality()
-					B.Defence = 10
+					B.Defense = 10
 					src.WLeftHand = B
 					B.suffix = "Equip"
 					B.Move(src)
 					var/obj/Items/Armour/Shoulders/SmallPlatePauldrons/S = new
 					S.Material = "Gold"
 					S.RandomItemQuality()
-					S.Defence = 10
+					S.Defense = 10
 					src.WShoulders = S
 					S.suffix = "Equip"
 					S.Move(src)
@@ -2981,8 +2981,8 @@ mob
 										Val += 20
 									if(I.Quality)
 										Val += I.Quality / 1.5
-									if(I.Defence)
-										Val += I.Defence / 2
+									if(I.Defense)
+										Val += I.Defense / 2
 									var/RoundedVal = round(Val)
 									src.Speak("Ah, I see you've chosen a [I], a fine choice my friend! That item has a total Value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
@@ -3042,70 +3042,70 @@ mob
 							var/obj/Items/Armour/Chest/SmallChainShirt/IC = new
 							IC.Material = "Iron"
 							IC.RandomItemQuality()
-							IC.Defence = 10
+							IC.Defense = 10
 							src.WChest = IC
 							IC.suffix = "Equip"
 							IC.Move(src)
 							var/obj/Items/Armour/Legs/SmallChainLeggings/LL = new
 							LL.Material = "Iron"
 							LL.RandomItemQuality()
-							LL.Defence = 10
+							LL.Defense = 10
 							src.WLegs = LL
 							LL.suffix = "Equip"
 							LL.Move(src)
 							var/obj/Items/Armour/UpperBody/SmallChestPlate/C = new
 							C.Material = "Iron"
 							C.RandomItemQuality()
-							C.Defence = 10
+							C.Defense = 10
 							src.WUpperBody = C
 							C.suffix = "Equip"
 							C.Move(src)
 							var/obj/Items/Armour/Head/SmallDwarvenHelmet3/H = new
 							H.Material = "Iron"
 							H.RandomItemQuality()
-							H.Defence = 10
+							H.Defense = 10
 							src.WHead = H
 							H.suffix = "Equip"
 							H.Move(src)
 							var/obj/Items/Armour/LeftArm/SmallPlateGauntletLeft/LG = new
 							LG.Material = "Iron"
 							LG.RandomItemQuality()
-							LG.Defence = 10
+							LG.Defense = 10
 							src.WLeftHand = LG
 							LG.suffix = "Equip"
 							LG.Move(src)
 							var/obj/Items/Armour/RightArm/SmallPlateGauntletRight/RG = new
 							RG.Material = "Iron"
 							RG.RandomItemQuality()
-							RG.Defence = 10
+							RG.Defense = 10
 							src.WLeftHand = RG
 							RG.suffix = "Equip"
 							RG.Move(src)
 							var/obj/Items/Armour/RightFoot/SmallPlateBootRight/RB = new
 							RB.Material = "Iron"
 							RB.RandomItemQuality()
-							RB.Defence = 10
+							RB.Defense = 10
 							src.WLeftHand = RB
 							RB.suffix = "Equip"
 							RB.Move(src)
 							var/obj/Items/Armour/LeftFoot/SmallPlateBootLeft/LB = new
 							LB.Material = "Iron"
 							LB.RandomItemQuality()
-							LB.Defence = 10
+							LB.Defense = 10
 							src.WLeftHand = LB
 							LB.suffix = "Equip"
 							LB.Move(src)
 							var/obj/Items/Armour/Waist/SmallPlateBelt/B = new
 							B.Material = "Iron"
 							B.RandomItemQuality()
-							B.Defence = 10
+							B.Defense = 10
 							src.WLeftHand = B
 							B.suffix = "Equip"
 							B.Move(src)
 							var/obj/Items/Armour/Shoulders/SmallPlatePauldrons/S = new
 							S.Material = "Iron"
 							S.RandomItemQuality()
-							S.Defence = 10
+							S.Defense = 10
 							src.WShoulders = S
 							S.suffix = "Equip"
 							S.Move(src)
@@ -3225,70 +3225,70 @@ mob
 							var/obj/Items/Armour/Chest/SmallChainShirt/IC = new
 							IC.Material = "Iron"
 							IC.RandomItemQuality()
-							IC.Defence = 10
+							IC.Defense = 10
 							src.WChest = IC
 							IC.suffix = "Equip"
 							IC.Move(src)
 							var/obj/Items/Armour/Legs/SmallChainLeggings/LL = new
 							LL.Material = "Iron"
 							LL.RandomItemQuality()
-							LL.Defence = 10
+							LL.Defense = 10
 							src.WLegs = LL
 							LL.suffix = "Equip"
 							LL.Move(src)
 							var/obj/Items/Armour/UpperBody/SmallChestPlate/C = new
 							C.Material = "Iron"
 							C.RandomItemQuality()
-							C.Defence = 10
+							C.Defense = 10
 							src.WUpperBody = C
 							C.suffix = "Equip"
 							C.Move(src)
 							var/obj/Items/Armour/Head/SmallDwarvenHelmet3/H = new
 							H.Material = "Iron"
 							H.RandomItemQuality()
-							H.Defence = 10
+							H.Defense = 10
 							src.WHead = H
 							H.suffix = "Equip"
 							H.Move(src)
 							var/obj/Items/Armour/LeftArm/SmallPlateGauntletLeft/LG = new
 							LG.Material = "Iron"
 							LG.RandomItemQuality()
-							LG.Defence = 10
+							LG.Defense = 10
 							src.WLeftHand = LG
 							LG.suffix = "Equip"
 							LG.Move(src)
 							var/obj/Items/Armour/RightArm/SmallPlateGauntletRight/RG = new
 							RG.Material = "Iron"
 							RG.RandomItemQuality()
-							RG.Defence = 10
+							RG.Defense = 10
 							src.WLeftHand = RG
 							RG.suffix = "Equip"
 							RG.Move(src)
 							var/obj/Items/Armour/RightFoot/SmallPlateBootRight/RB = new
 							RB.Material = "Iron"
 							RB.RandomItemQuality()
-							RB.Defence = 10
+							RB.Defense = 10
 							src.WLeftHand = RB
 							RB.suffix = "Equip"
 							RB.Move(src)
 							var/obj/Items/Armour/LeftFoot/SmallPlateBootLeft/LB = new
 							LB.Material = "Iron"
 							LB.RandomItemQuality()
-							LB.Defence = 10
+							LB.Defense = 10
 							src.WLeftHand = LB
 							LB.suffix = "Equip"
 							LB.Move(src)
 							var/obj/Items/Armour/Waist/SmallPlateBelt/B = new
 							B.Material = "Iron"
 							B.RandomItemQuality()
-							B.Defence = 10
+							B.Defense = 10
 							src.WLeftHand = B
 							B.suffix = "Equip"
 							B.Move(src)
 							var/obj/Items/Armour/Shoulders/SmallPlatePauldrons/S = new
 							S.Material = "Iron"
 							S.RandomItemQuality()
-							S.Defence = 10
+							S.Defense = 10
 							src.WShoulders = S
 							S.suffix = "Equip"
 							S.Move(src)
@@ -3439,8 +3439,8 @@ mob
 							src.WLegs = L
 							src.Weapon = SW
 							for(var/obj/Items/Z in src)
-								if(Z.Defence)
-									Z.Defence = Z.Defence / 2
+								if(Z.Defense)
+									Z.Defense = Z.Defense / 2
 								Z.Dura = 100
 								Z.icon_state = Z.EquipState
 								Z.layer = Z.ItemLayer
@@ -3601,8 +3601,8 @@ mob
 					T.EquipState = "[T.EquipState] left"
 					src.Weapon2 = T
 					for(var/obj/Items/Z in src)
-						if(Z.Defence)
-							Z.Defence = Z.Defence / 2
+						if(Z.Defense)
+							Z.Defense = Z.Defense / 2
 						Z.Dura = 100
 						Z.icon_state = Z.EquipState
 						Z.layer = Z.ItemLayer
@@ -3766,8 +3766,8 @@ mob
 					T.EquipState = "[T.EquipState] left"
 					src.Weapon2 = T
 					for(var/obj/Items/Z in src)
-						if(Z.Defence)
-							Z.Defence = Z.Defence / 2
+						if(Z.Defense)
+							Z.Defense = Z.Defense / 2
 						Z.Dura = 100
 						Z.icon_state = Z.EquipState
 						Z.layer = Z.ItemLayer
@@ -4006,7 +4006,7 @@ mob
 							src.InquisitiveAI()
 							src.Regen()
 							src.GiveName()
-							src.Ressurect()
+							src.Resurrect()
 							src.name = "[src.name] The Monk"
 			Human_Priest_of_Order
 				icon = 'human.dmi'
@@ -4126,8 +4126,8 @@ mob
 							src.WHead = H
 							src.Weapon = SW
 							for(var/obj/Items/Z in src)
-								if(Z.Defence)
-									Z.Defence = Z.Defence / 2
+								if(Z.Defense)
+									Z.Defense = Z.Defense / 2
 								Z.Dura = 100
 								Z.icon_state = Z.EquipState
 								Z.layer = Z.ItemLayer
@@ -4150,7 +4150,7 @@ mob
 							src.GuardAI()
 							src.Regen()
 							src.GiveName()
-							src.Ressurect()
+							src.Resurrect()
 							src.name = "[src.name] The Priest"
 							var/obj/Items/Currency/GoldCoin/Gold = new
 							Gold.loc = src
@@ -4848,7 +4848,7 @@ mob
 								src.GuardLoc = src.loc
 								src.GuardDir = src.dir
 								src.GuardAI()
-								src.EvilRessurect()
+								src.EvilResurrect()
 								var/image/I = new('Target.dmi',src)
 								src.TargetIcon = I
 								var/obj/Items/Armour/Chest/Robe/CP = new
@@ -6254,7 +6254,7 @@ mob
 								src.BloodFlow()
 								src.GuardAI()
 								src.Regen()
-								src.Ressurect()
+								src.Resurrect()
 				Cyclops_Shaman
 					name = "{NPC} Cyclops Shaman"
 					icon = 'cyclops.dmi'
@@ -6388,7 +6388,7 @@ mob
 								src.BloodFlow()
 								src.GuardAI()
 								src.Regen()
-								src.Ressurect()
+								src.Resurrect()
 				Cyclops_Guardsman_Patrol
 					icon = 'cyclops.dmi'
 					icon_state = "N"
@@ -7422,8 +7422,8 @@ mob
 											Val += 20
 										if(I.Quality)
 											Val += I.Quality / 1.5
-										if(I.Defence)
-											Val += I.Defence / 2
+										if(I.Defense)
+											Val += I.Defense / 2
 										var/RoundedVal = round(Val)
 										src.Speak("You choose [I], good good! Give [RoundedVal] shinies!.",7)
 										var/list/menu = new()
@@ -7709,7 +7709,7 @@ mob
 						src.BloodFlow()
 						src.GuardAI()
 						src.Regen()
-						src.Ressurect()
+						src.Resurrect()
 						var/obj/Items/Currency/GoldCoin/Gold = new
 						Gold.loc = src
 						Gold.suffix = "Carried"
@@ -8134,7 +8134,7 @@ mob
 						L.WritePercent = 100
 						src.LangKnow += L
 						src.CurrentLanguage = L
-						src.Ressurect()
+						src.Resurrect()
 				Chaos_Entity
 					name = "{NPC} Chaos Entity"
 					icon = 'creatures.dmi'
@@ -8484,8 +8484,8 @@ mob
 										Val += 20
 									if(I.Quality)
 										Val += I.Quality / 1.5
-									if(I.Defence)
-										Val += I.Defence / 2
+									if(I.Defense)
+										Val += I.Defense / 2
 									var/RoundedVal = round(Val)
 									src.Speak("Ah, I see you've chosen a [I], a fine choice indeed! That item has a total Value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
@@ -8829,7 +8829,7 @@ mob
 							src.BloodFlow()
 							src.GuardAI()
 							src.Regen()
-							src.Ressurect()
+							src.Resurrect()
 			Snake
 				name = "{NPC} Snake"
 				icon = 'creatures.dmi'
