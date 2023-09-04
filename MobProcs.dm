@@ -1042,7 +1042,7 @@ mob
 								src.Target = Suspect.loc
 							else if(Suspect)
 								if(Suspect.WBack)
-									Suspect << "<font color = teal>[src] points at you, and shouts for everyone to attack. You dident stop to let [src] remove your cloak."
+									Suspect << "<font color = teal>[src] points at you, and shouts for everyone to attack. You did not stop to let [src] remove your cloak."
 									for(var/mob/M in oview(8,src))
 										if(M.Target == null && M.Faction == src.Faction)
 											M.Target = Suspect
@@ -1164,27 +1164,27 @@ mob
 			src << "<font color = blue>These are the guidelines to Role Playing with the race you have selected, these guidelines do not effect your character stat wise.<br>"
 			if(src.Race == "Alther")
 				src << "<font color = blue>Race - Alther<br>"
-				src << "<font color = blue>Altherions know all races<br>"
-				src << "<font color = blue>Altherions can worship any good god, they start out worshipping the God of Harvest or Beasts.<br>"
-				src << "<font color = blue>Altherions hate the following races by default, Undead, Cyclops, Ratlings<br>"
-				src << "<font color = blue>Altherions have heard of, but do not know how to use, Elemental Magic, Blood Magic, Chaos Magic, Astral Magic, Necromancy.<br>"
-				src << "<font color = blue>Altherions can use Nature Magic for various tasks<br>"
-				src << "<font color = blue>Altherions know of all their settlements and all Human towns.<br>"
-				src << "<font color = blue>Altherions are a very proud race, and have very strong opinions on things they belive in. They are easily offended and can be quite arrogant at times. They do not wish to harm living beings, but will kill if needed, they hate the Undead, Demonic and Chaos races and have made it their mission to destroy them.<br>."
-				src << "<font color = blue>Altherions do not fear death, but do not seek it.<br>"
+				src << "<font color = blue>Altherians know all races<br>"
+				src << "<font color = blue>Altherians can worship any good god, they start out worshipping the God of Harvest or Beasts.<br>"
+				src << "<font color = blue>Altherians hate the following races by default, Undead, Cyclops, Ratlings<br>"
+				src << "<font color = blue>Altherians have heard of, but do not know how to use, Elemental Magic, Blood Magic, Chaos Magic, Astral Magic, Necromancy.<br>"
+				src << "<font color = blue>Altherians can use Nature Magic for various tasks<br>"
+				src << "<font color = blue>Altherians know of all their settlements and all Human towns.<br>"
+				src << "<font color = blue>Altherians are a very proud race, and have very strong opinions on things they believe in. They are easily offended and can be quite arrogant at times. They do not wish to harm living beings, but will kill if needed, they hate the Undead, Demonic and Chaos races and have made it their mission to destroy them.<br>."
+				src << "<font color = blue>Altherians do not fear death, but do not seek it.<br>"
 			if(src.Race == "Ratling")
 				src << "<font color = blue>Race - Ratling<br>"
-				src << "<font color = blue>Ratlings know the following races, Giants, Cyclops, Undead, Humans, Altherions, Ratlings, Flesh Beast<br>"
+				src << "<font color = blue>Ratlings know the following races, Giants, Cyclops, Undead, Humans, Altherians, Ratlings, Flesh Beast<br>"
 				src << "<font color = blue>Ratlings have heard of but not seen, Liches, Chaos Entity, Corpse Devourer<br>"
 				src << "<font color = blue>Ratlings can worship any god, they start out worshipping the God of Death.<br>"
-				src << "<font color = blue>Ratlings hate the following races by default, Undead, Cyclops, Humans, Altherions, Giants<br>"
+				src << "<font color = blue>Ratlings hate the following races by default, Undead, Cyclops, Humans, Altherians, Giants<br>"
 				src << "<font color = blue>Ratlings have heard of, but do not know how to use, Blood Magic, Chaos Magic, Necromancy.<br>"
 				src << "<font color = blue>Ratlings only know of the sewer they are born in, they do however know there are more sewers in other towns.<br>"
 				src << "<font color = blue>Ratlings are very alert and paranoid, they often fight each other over sleeping/living space and food. They tend to hate the sun light and wear cloaks to conceal them selves at day time. They are cunning and quick to anger, but will not openly appear so, they would rather hate an enemy secretly and back stab them later.<br>."
 				src << "<font color = blue>Ratlings fear death when outnumbered.<br>"
 			if(src.Race == "Frogman")
 				src << "<font color = blue>Race - Frogman<br>"
-				src << "<font color = blue>Frogmen know the following races, Altherions, Ratlings, Humans, Frogmen<br>"
+				src << "<font color = blue>Frogmen know the following races, Altherians, Ratlings, Humans, Frogmen<br>"
 				src << "<font color = blue>Frogmen have heard of but not seen, Giants, Cyclops, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
 				src << "<font color = blue>Frogmen can worship any god, they start out worshipping the Gods of Harvest and Beasts.<br>"
 				src << "<font color = blue>Frogmen hate the following races by default, Ratlings<br>"
@@ -1195,7 +1195,7 @@ mob
 			if(src.Race == "Cyclops")
 				src << "<font color = blue>Race - Cyclops<br>"
 				src << "<font color = blue>Cyclops know the following races, Ratlings, Giants, Cyclops, Humans, Undead<br>"
-				src << "<font color = blue>Cyclops have heard of but not seen, Altherions, Frogmen, Liches, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
+				src << "<font color = blue>Cyclops have heard of but not seen, Altherians, Frogmen, Liches, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
 				src << "<font color = blue>Cyclops can worship the Blood and Death god, but start off worshipping the God of Destruction.<br>"
 				src << "<font color = blue>Cyclops hate the following races by default, Undead, Giants, Humans<br>"
 				src << "<font color = blue>Cyclops have heard of, but do not know how to use, Elemental Magic, Nature Magic, Blood Magic, Chaos Magic, and Necromancy<br>"
@@ -1205,7 +1205,7 @@ mob
 			if(src.Race == "Giant")
 				src << "<font color = blue>Race - Giant<br>"
 				src << "<font color = blue>Giants know the following races, Giants, Cyclops, Undead, Humans<br>"
-				src << "<font color = blue>Giants have heard of but not seen, Altherions, Frogmen, Ratlings, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
+				src << "<font color = blue>Giants have heard of but not seen, Altherians, Frogmen, Ratlings, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
 				src << "<font color = blue>Giants can worship any god, they start out with no worship to any god.<br>"
 				src << "<font color = blue>Giants hate the following races by default, Undead, Cyclops<br>"
 				src << "<font color = blue>Giants have heard of, but do not know how to use, Elemental Magic, Nature Magic<br>"
@@ -1214,7 +1214,7 @@ mob
 				src << "<font color = blue>Giants fear death and do not seek it. They can however enter a berzerk state and ignore the thought of pain/death<br>"
 			if(src.Race == "Stahlite")
 				src << "<font color = blue>Race - Stahlite<br>"
-				src << "<font color = blue>Stahlites know the following races, Ratlings, Giants, Cyclops, Frogmen, Altherions, Humans, Undead, Chaos Entity<br>"
+				src << "<font color = blue>Stahlites know the following races, Ratlings, Giants, Cyclops, Frogmen, Altherians, Humans, Undead, Chaos Entity<br>"
 				src << "<font color = blue>Stahlites have heard of but not seen, Liches, Flesh Beast, Corpse Devourer<br>"
 				src << "<font color = blue>Stahlites can worship any god, they start out worshipping the God of Crafts.<br>"
 				src << "<font color = blue>Stahlites hate the following races by default, Ratlings, Undead, Cyclops, Giants<br>"
@@ -1223,7 +1223,7 @@ mob
 				src << "<font color = blue>Stahlites do not fear pain, but are a little wary of death, unless drunk.<br>"
 			if(src.Race == "Human")
 				src << "<font color = blue>Race - Human<br>"
-				src << "<font color = blue>Humans know the following races, Ratlings, Giants, Cyclops, Frogmen, Altherions, Undead<br>"
+				src << "<font color = blue>Humans know the following races, Ratlings, Giants, Cyclops, Frogmen, Altherians, Undead<br>"
 				src << "<font color = blue>Humans have heard of but not seen, Liches, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
 				src << "<font color = blue>Humans can worship any god, they start out with no worship to any god.<br>"
 				src << "<font color = blue>Humans hate the following races by default, Ratlings, Undead, Cyclops<br>"
@@ -1232,20 +1232,20 @@ mob
 				src << "<font color = blue>Humans fear death and do not seek it.<br>"
 			if(src.Race == "Wolfman")
 				src << "<font color = blue>Race - Wolfman<br>"
-				src << "<font color = blue>Wolfmen know the following races, Ratlings, Giants, Cyclops, Frogmen, Altherions, Humans, Stahlite, Undead<br>"
+				src << "<font color = blue>Wolfmen know the following races, Ratlings, Giants, Cyclops, Frogmen, Altherians, Humans, Stahlite, Undead<br>"
 				src << "<font color = blue>Wolfmen have heard of but not seen, Liches, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
 				src << "<font color = blue>Wolfmen tend to worship the gods of Beasts, Destruction and very rarely, Death.<br>"
 				src << "<font color = blue>Wolfmen hate the following races by default, Ratlings, Humans, Cyclops, Giants, Frogmen, Altherians, Stahlite. <br>"
 				src << "<font color = blue>Wolfmen do not know of any magics, except Nature magic, of which they know very little about.<br>"
 				src << "<font color = blue>Wolfmen only know the location of their own camps or caves and requently fight with other packs.<br>"
-				src << "<font color = blue>Wolfmen do not fear death, and being in a pack sends them berzerk in battle.<br>"
+				src << "<font color = blue>Wolfmen do not fear death, and being in a pack sends them berserk in battle.<br>"
 			if(src.Race == "Snakeman")
 				src << "<font color = blue>Race - Snakeman<br>"
-				src << "<font color = blue>Snakeman know the following races, Wolfmen, Ratlings, Giants, Cyclops, Frogmen, Altherions, Humans, Stahlite, Undead<br>"
+				src << "<font color = blue>Snakeman know the following races, Wolfmen, Ratlings, Giants, Cyclops, Frogmen, Altherians, Humans, Stahlite, Undead<br>"
 				src << "<font color = blue>Snakeman have heard of but not seen, Liches, Chaos Entity, Flesh Beast, Corpse Devourer<br>"
 				src << "<font color = blue>Snakeman are obsessed with prolonging their own lives, so they worship the Gods of Blood, Death and Wisdom..<br>"
 				src << "<font color = blue>Snakeman hate the following races by default, Ratlings, Cyclops, Frogmen, Altherians.<br>"
-				src << "<font color = blue>Snakeman know all the magics of the world, but are mainly intrested in ones that manipulate others, or prolong ones life.<br>"
+				src << "<font color = blue>Snakeman know all the magics of the world, but are mainly interested in ones that manipulate others, or prolong ones life.<br>"
 				src << "<font color = blue>Snakeman know the location of the Humans, Altherians and Stahlite settlements, as well as their own. And also know of the Ratlings hiding locations.<br>"
 				src << "<font color = blue>Snakeman fear death above all else, and go to great lengths to make sure they do not meet their demise.<br>"
 			if(src.Race == "Illithid")
@@ -1257,7 +1257,7 @@ mob
 				src << "<font color = blue>Illithid do not openly seek death but embrace it in the name of their god if needed.<br>"
 				src << "<font color = blue>Illithid are bent on enslaving all races, using them as labour to rebuild their once massive Empire. Arriving upon this world many hundreds of years ago using a great Astral Gate, the Illithid originally enslaved much of the known races. However, thanks to the few free Altheiran mages, they were stopped and stranded here. Having no means to power their Astral Gate, the Illithids must use slaves to gather minerals needed. Illithids also eat and collect brains for their Elder God.<br>"
 				src << "<font color = blue>Illithid can use Telekinesis on objects and people while the Interact button is on and they click and drag, it will drain their Tiredness, at which point they can not continue. Upon being attacked, you will deflect the damage with your mind but be drained of tiredness based on the damage.<br>"
-			src << "<font color = blue><b>Remember, these are just guidelines, you may role play your character in any direction, so long as the RolePlay is consistant and makes sense.<br>"
+			src << "<font color = blue><b>Remember, these are just guidelines, you may role play your character in any direction, so long as the RolePlay is consistent and makes sense.<br>"
 		CreateCharacter()
 			src.DeleteAll()
 			var/find_player = "players/[ckey].sav"
@@ -2693,7 +2693,7 @@ mob
 			for(var/obj/HUD/Text/T in src.client.screen)
 				del(T)
 			for(var/obj/HUD/RaceSelection/S in src.client.screen)
-				if(S.Type != "DontChange")
+				if(S.Type != "Don'tChange")
 					S.icon_state = "[S.Type] off"
 			src.Gender = null
 			src.Race = null
@@ -3468,7 +3468,7 @@ mob
 			if(src.Type >= 2)
 				view(src) << "<font color =purple>[src] gurgles and splutters violently, then spits out a large sack of goo! The sack lands on the ground and slowly hardens!<br>"
 				src.Type -= 2
-				var/mob/NPC/Evil/Undead/Corpse_Devourer_Cacoon/C = new
+				var/mob/NPC/Evil/Undead/Corpse_Devourer_Cocoon/C = new
 				C.Owner = src.Owner
 				C.Move(src.loc)
 			if(src.Target == null)
@@ -3523,7 +3523,7 @@ mob
 									if(src)
 										del(src)
 								return
-		DevourerCacoonHatch()
+		DevourerCocoonHatch()
 			spawn(5000)
 				if(src)
 					view(src) << "<font color = red>[src] begins to stir with life...<br>"

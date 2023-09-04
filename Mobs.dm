@@ -668,9 +668,9 @@ mob
 									src.Speak("Ah, I see you've chosen a [I], a fine choice indeed! That item has a total value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
 									menu += "Buy"
-									menu += "Dont Buy"
+									menu += "Don't Buy"
 									var/Result = input(usr,"[src] says - Would you like to purchase the [I] for [RoundedVal] Gold Coins?", "Choose", null) in menu
-									if(Result == "Dont Buy")
+									if(Result == "Don't Buy")
 										return
 									if(Result == "Buy")
 										for(var/obj/Items/Currency/GoldCoin/Gold in usr)
@@ -1747,9 +1747,9 @@ mob
 									src.Speak("Ah, I see you've chosen a [I], a fine choice indeed! That item has a total Value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
 									menu += "Buy"
-									menu += "Dont Buy"
+									menu += "Don't Buy"
 									var/Result = input(usr,"[src] says - Would you like to purchase the [I] for [RoundedVal] Gold Coins?", "Choose", null) in menu
-									if(Result == "Dont Buy")
+									if(Result == "Don't Buy")
 										return
 									if(Result == "Buy")
 										for(var/obj/Items/Currency/GoldCoin/Gold in usr)
@@ -2987,9 +2987,9 @@ mob
 									src.Speak("Ah, I see you've chosen a [I], a fine choice my friend! That item has a total Value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
 									menu += "Buy"
-									menu += "Dont Buy"
+									menu += "Don't Buy"
 									var/Result = input(usr,"[src] says - Would you like to purchase the [I] for [RoundedVal] Gold Coins?", "Choose", null) in menu
-									if(Result == "Dont Buy")
+									if(Result == "Don't Buy")
 										return
 									if(Result == "Buy")
 										for(var/obj/Items/Currency/GoldCoin/Gold in usr)
@@ -3470,7 +3470,7 @@ mob
 							Gold.Type = rand(10,25)
 							Gold.name = "[Gold.Type] Gold Coins"
 							Gold.CoinAdjust()
-			Human_Inquisitor_Patroler
+			Human_Inquisitor_Patroller
 				name = "Human Inquisitor"
 				icon = 'human.dmi'
 				icon_state = "N"
@@ -3634,14 +3634,14 @@ mob
 					Gold.CoinAdjust()
 					spawn(10)
 						var/Found = 0
-						for(var/mob/NPC/Good/Human_Priest_Patroler/P in view(4,src))
+						for(var/mob/NPC/Good/Human_Priest_Patroller/P in view(4,src))
 							Found = 1
 							src.Owner = P
 						if(Found)
 							src.FollowAI()
 						else
 							src.InquisitiveAI()
-			Human_Priest_Patroler
+			Human_Priest_Patroller
 				name = "Human Priest of Order"
 				icon = 'human.dmi'
 				icon_state = "N"
@@ -4430,7 +4430,7 @@ mob
 						src.CurrentLanguage = L
 			Undead
 				see_in_dark = 6
-				Corpse_Devourer_Cacoon
+				Corpse_Devourer_Cocoon
 					icon = 'misc.dmi'
 					icon_state = "devourer cacoon"
 
@@ -4477,7 +4477,7 @@ mob
 						src.DeadIcon = 'misc.dmi'
 						src.DeadState = "devourer cacoon dead"
 						src.BloodFlow()
-						src.DevourerCacoonHatch()
+						src.DevourerCocoonHatch()
 				Corpse_Devourer
 					name = "{NPC} Corpse Devourer"
 					icon = 'creatures.dmi'
@@ -7428,9 +7428,9 @@ mob
 										src.Speak("You choose [I], good good! Give [RoundedVal] shinies!.",7)
 										var/list/menu = new()
 										menu += "Buy"
-										menu += "Dont Buy"
+										menu += "Don't Buy"
 										var/Result = input(usr,"[src] says - Buy [I] for [RoundedVal] shinies?", "Choose", null) in menu
-										if(Result == "Dont Buy")
+										if(Result == "Don't Buy")
 											return
 										if(Result == "Buy")
 											for(var/obj/Items/Currency/GoldCoin/Gold in usr)
@@ -8490,9 +8490,9 @@ mob
 									src.Speak("Ah, I see you've chosen a [I], a fine choice indeed! That item has a total Value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
 									menu += "Buy"
-									menu += "Dont Buy"
+									menu += "Don't Buy"
 									var/Result = input(usr,"[src] says - Would you like to purchase the [I] for [RoundedVal] Gold Coins?", "Choose", null) in menu
-									if(Result == "Dont Buy")
+									if(Result == "Don't Buy")
 										return
 									if(Result == "Buy")
 										for(var/obj/Items/Currency/GoldCoin/Gold in usr)

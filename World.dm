@@ -14,7 +14,7 @@ world
 		LoadMisc()
 		CreateOre()
 		LoadMap()
-		DayNightCyle()
+		DayNightCycle()
 		var/Finish_Remote_Server_Access
 		for(var/turf/T in block(locate(98,42,3),locate(114,38,3)))
 			var/InTiles = 0
@@ -809,7 +809,7 @@ client
 		if(EventNum == null)
 			EventNum = rand(1,5)
 		if(EventNum == 1)
-			world << "<font color = yellow><b>From under the ground, hundreds upon hundreds of sounds could be heard. Thumps and pitter pattering of tiny feet, hordes of Ratling invaders forming an army and rushing through the dark underpaths of the known world. From every passage leading to the upper kingdoms, these creatures pour forth and attack the surface dwellers.<br>"
+			world << "<font color = yellow><b>From under the ground, hundreds upon hundreds of sounds could be heard. Thumps and pitter pattering of tiny feet, hordes of Ratling invaders forming an army and rushing through the depths of the earth. From every passage leading to the upper kingdoms, these creatures pour forth and attack the surface dwellers.<br>"
 			for(var/obj/Misc/SewerGrate/G in world)
 				var/Invaders = rand(35,50)
 				while(Invaders)
@@ -822,7 +822,7 @@ client
 					var/mob/NPC/Evil/Chaos/Ratling_Assassin/A = new
 					A.loc = G.loc
 		if(EventNum == 2)
-			world << "<font color = yellow><b>A strange cold wind begins to blow as dark clouds form. Strange noises from under the ground could be heard across the country side. Dealthly screams, moans and voices echoe in all directions as the wind settles and a faint mist begins to set. From ancient graves the deceased begin to rise, grouping together and heading towards the living, hungry for flesh and vengence.<br>"
+			world << "<font color = yellow><b>A strange cold wind begins to blow as dark clouds form. Strange noises from under the ground could be heard across the country side. Dealthly screams, moans and voices echo in all directions as the wind settles and a faint mist begins to set. From ancient graves the deceased begin to rise, grouping together and heading towards the living, hungry for flesh and vengeance.<br>"
 			for(var/obj/Items/Misc/GraveStone/G in world)
 				var/Skeletons = rand(2,5)
 				while(Skeletons)
@@ -830,7 +830,7 @@ client
 					var/mob/NPC/Evil/Undead/Undead_Skeleton/S = new
 					S.loc = G.loc
 		if(EventNum == 3)
-			world << "<font color = yellow><b>The number of bandits in the area begins to steadily increase accross the land. After a while, it becomes apprant to those who wander the country side that all is not well. Once in a while, the Bandit leaders decide to form up and attack the Human Kingdom and anyone else who got in their way, and this was one such gathering. The massive, but sligthly clunky and un-organised army, begins to decend down upon the inhabbitants of the world.<br>"
+			world << "<font color = yellow><b>The number of bandits in the area begins to steadily increase across the land. After a while, it becomes apparent to those who wander the country side that all is not well. Once in a while, the Bandit leaders decide to form up and attack the Human Kingdom and anyone else who got in their way, and this was one such gathering. The massive, but slightly clunky and unorganized army, begins to descend down upon the inhabitants of the world.<br>"
 			var/Bandits = rand(40,60)
 			var/mob/NPC/Evil/Misc/Human_Bandit/B = new
 			B.Type = "Leader"
@@ -842,7 +842,7 @@ client
 						var/mob/NPC/Evil/Misc/Human_Bandit/Ba = new
 						Ba.loc = B.loc
 		if(EventNum == 4)
-			world << "<font color = yellow><b>Goblin numbers start to rise frantically, signs of a large horde begin to show. After some time, a rag tag squabble forms and starts to roam the country side in search of shiney objects. The Goblins leave destruction in their wake and appear to be following a large Troll.<br>"
+			world << "<font color = yellow><b>Goblin numbers start to rise frantically, signs of a large horde begin to show. After some time, a rag tag squabble forms and starts to roam the country side in search of shiny objects. The Goblins leave destruction in their wake and appear to be following a large Troll.<br>"
 			var/Gobs = rand(40,60)
 			var/mob/NPC/Evil/Misc/Troll/Troll/T = new
 			T.Type = "Leader"
@@ -854,7 +854,7 @@ client
 						var/mob/NPC/Evil/Misc/Goblin/G = new
 						G.loc = T.loc
 		if(EventNum == 5)
-			world << "<font color = yellow><b>Like a torrent, hundreds of Kobold suddenly burst forth from a cave that leads to a vast underground network. After many years of inner fighting, this immense disgusting force of creatures had finally reached the limit on living space and had little choice to venture out. However, food was short and before long the horde was massing upon the country side in search of Nurishment.<br>"
+			world << "<font color = yellow><b>Like a torrent, hundreds of Kobold suddenly burst forth from a cave that leads to a vast underground network. After many years of inner fighting, this immense disgusting force of creatures had finally reached the limit on living space and had little choice to venture out. However, food was short and before long the horde was massing upon the country side in search of nourishment.<br>"
 			var/Bandits = rand(50,70)
 			var/mob/NPC/Evil/Misc/Kobold/KL = new
 			KL.Type = "Leader"
@@ -903,7 +903,7 @@ client
 			Season = "Winter"
 			world << "<font color = blue><font size = 4><b>It is now Winter<br>"
 			Populate()
-	DayNightCyle()
+	DayNightCycle()
 		var/Delay
 		if(Night == 0)
 			Night = 1
@@ -913,7 +913,7 @@ client
 				if(T.OnFire == 0)
 					T.luminosity = 0
 			spawn(Delay)
-				DayNightCyle()
+				DayNightCycle()
 			return
 		if(Night)
 			Night = 0
@@ -924,7 +924,7 @@ client
 					if(T.OnFire == 0)
 						T.luminosity = 1
 			spawn(Delay)
-				DayNightCyle()
+				DayNightCycle()
 			return
 	Time()
 		Month += 1

@@ -1261,7 +1261,7 @@ obj
 				if(src)
 					var/mob/NPC/Evil/Chaos/Chaos_Entity/C = new
 					C.loc = src.loc
-					view(src) << "<font color = purple>The [src] swirls and crackles with chaotic energy, suddenly the [src] flares violently and expells a strange dark mist of pure energy!<br>"
+					view(src) << "<font color = purple>The [src] swirls and crackles with chaotic energy, suddenly the [src] flares violently and expels a strange dark mist of pure energy!<br>"
 					ChaosGate()
 		PressurePlateTrap()
 			for(var/mob/M in range(0,src))
@@ -2731,11 +2731,11 @@ obj
 														view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -3036,11 +3036,11 @@ obj
 														view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -3340,11 +3340,11 @@ obj
 														view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -3857,11 +3857,11 @@ obj
 														view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -4180,11 +4180,11 @@ obj
 														view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -4515,11 +4515,11 @@ obj
 														view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -5451,11 +5451,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -6068,11 +6068,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -6597,11 +6597,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -7171,11 +7171,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -7772,11 +7772,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -8350,11 +8350,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -8761,11 +8761,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -9563,11 +9563,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -10125,11 +10125,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -10630,11 +10630,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -16038,11 +16038,11 @@ obj
 														W.KeyCode = K
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -16248,11 +16248,11 @@ obj
 														W.KeyCode = K
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -16483,11 +16483,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -17739,11 +17739,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -18158,11 +18158,11 @@ obj
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
 												else
-													usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+													usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
-												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+												usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 												usr.MovementCheck()
 												return
 										else
@@ -19302,11 +19302,11 @@ obj
 														usr << "<font color = teal>The gate is now laying flat on the floor, in order to make it dense, you must Click Interact then Click the gate while its in your Inventory.<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -20755,11 +20755,11 @@ obj
 														usr << "<font color = teal>The door is now laying flat on the floor, in order to make it dense, you must Click Interact then Click the door while its in your Inventory.<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -21951,11 +21951,11 @@ obj
 														usr << "<font color = teal>The door is now laying flat on the floor, in order to make it dense, you must Click Interact then Click the door while its in your Inventory.<br>"
 														return
 													else
-														usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+														usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
-													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+													usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 													usr.MovementCheck()
 													return
 											else
@@ -24730,11 +24730,11 @@ obj
 															view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 															return
 														else
-															usr << "<font color = red>The Anvil was moved, or you moved away from it, forgeing failed!<br>"
+															usr << "<font color = red>The Anvil was moved, or you moved away from it, forging failed!<br>"
 															usr.MovementCheck()
 															return
 													else
-														usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forgeing failed!<br>"
+														usr << "<font color = red>The Forge was moved, or you moved away from it, or the forge was not lit, forging failed!<br>"
 														usr.MovementCheck()
 														return
 												else
@@ -26566,7 +26566,7 @@ obj
 			Accept
 				icon = 'books.dmi'
 				icon_state = "accept"
-				Type = "DontChange"
+				Type = "Don'tChange"
 				Click()
 					if(usr.Race)
 						if(usr.Gender)
@@ -26583,7 +26583,7 @@ obj
 			Cancel
 				icon = 'books.dmi'
 				icon_state = "cancel"
-				Type = "DontChange"
+				Type = "Don'tChange"
 				Click()
 					usr.ResetSelections()
 			Human
@@ -26743,13 +26743,13 @@ obj
 					if(usr.Race ==null)
 						src.icon_state = "elf on"
 						usr.Race = "Alther"
-						usr.Text("RaceInfo",usr,7,13,10,14,"--Altherions--")
-						usr.Text("RaceInfo",usr,2,12,10,14,"The Altherions are a highly intelligent race")
+						usr.Text("RaceInfo",usr,7,13,10,14,"--Altherians--")
+						usr.Text("RaceInfo",usr,2,12,10,14,"The Altherians are a highly intelligent race")
 						usr.Text("RaceInfo",usr,2,11,10,14,"who specialize in magical and spiritial culture.")
 						usr.Text("RaceInfo",usr,2,10,10,14,"They worship the Gods of Harvest,Beasts and")
 						usr.Text("RaceInfo",usr,2,9,10,14,"Wisdom and somtimes the God of Order.They have good")
 						usr.Text("RaceInfo",usr,2,8,10,14,"Agility and very good intelligence but lack in")
-						usr.Text("RaceInfo",usr,2,7,10,14,"Strength and Endurance. Altherions have good skill")
+						usr.Text("RaceInfo",usr,2,7,10,14,"Strength and Endurance. Altherians have good skill")
 						usr.Text("RaceInfo",usr,2,6,10,14,"in all weapons except axes.They are skilled at")
 						usr.Text("RaceInfo",usr,2,5,10,14,"Stone Work,Contruction and Hunting.They tend to")
 						usr.Text("RaceInfo",usr,2,4,10,14,"live for 200 years.")
@@ -29040,6 +29040,4 @@ obj
 							usr.CreateRaceSelection()
 							usr.loc = locate(28,91,1)
 							alert("Choose a race by clicking on a face portrait! Once your happy with your selection choose a Gender and click Accept!")
-/**
-						usr << "<font color = green>You arrive in Holthormus and decide to seek shelter in the Chapel of Order<br>"
-//
+

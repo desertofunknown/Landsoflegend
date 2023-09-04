@@ -1194,7 +1194,7 @@ mob
 							view(src) << "<font color =red>[src] is bleeding [src.Bleed]!<br>"
 							src.BleedLast = src.Bleed
 				if(Die)
-					view(src) << "<font color=red>[src] dies from exsanguination.<br>"
+					view(src) << "<font color=red>[src] dies from blood loss.<br>"
 					if(src.BloodColour == /obj/Misc/Gore/BloodSplat/)
 						var/obj/BS = new src.BloodColour()
 						BS.Move(src.loc)
