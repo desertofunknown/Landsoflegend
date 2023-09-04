@@ -15,9 +15,9 @@ mob
 					I.icon_state = I.CarryState
 				if(I.Delete)
 					del(I)
-			if(src.OrginalName)
-				src.name = src.OrginalName
-				src.OrginalName = null
+			if(src.OriginalName)
+				src.name = src.OriginalName
+				src.OriginalName = null
 			if(src.StoredFaction)
 				src.Faction = src.StoredFaction
 				src.StoredFaction = null
@@ -951,9 +951,9 @@ mob
 								O.icon_state = O.CarryState
 								O.layer = 20
 								Suspect.DeleteInventoryMenu()
-								if(Suspect.OrginalName)
-									Suspect.name = Suspect.OrginalName
-									Suspect.OrginalName = null
+								if(Suspect.OriginalName)
+									Suspect.name = Suspect.OriginalName
+									Suspect.OriginalName = null
 								if(Suspect.StoredFaction)
 									Suspect.Faction = Suspect.StoredFaction
 									Suspect.StoredFaction = null
@@ -1028,9 +1028,9 @@ mob
 								O.icon_state = O.CarryState
 								O.layer = 20
 								Suspect.DeleteInventoryMenu()
-								if(Suspect.OrginalName)
-									Suspect.name = Suspect.OrginalName
-									Suspect.OrginalName = null
+								if(Suspect.OriginalName)
+									Suspect.name = Suspect.OriginalName
+									Suspect.OriginalName = null
 								if(Suspect.StoredFaction)
 									Suspect.Faction = Suspect.StoredFaction
 									Suspect.StoredFaction = null
@@ -1154,14 +1154,14 @@ mob
 					if(Change == 0)
 						NewText+="[copytext(T,(lentext(T)-TextLength)+1,(lentext(T)-TextLength)+2)]"
 					TextLength--
-				if(src.OrginalName == null)
+				if(src.OriginalName == null)
 					M << "<font color=teal>[src] says in [SL.name]: [NewText]<br>"
 				else
-					M << "<font color=teal>([src.OrginalName])[src] says in [SL.name]: [NewText]<br>"
+					M << "<font color=teal>([src.OriginalName])[src] says in [SL.name]: [NewText]<br>"
 				if(Target)
 					Target << "<font color=teal>[src] says in [SL.name]: [NewText]<br>"
 		RaceRules()
-			src << "<font color = blue>These are the guidelines to Role Playing with the Race you have selected, these guidelines do not effect your character stat wise.<br>"
+			src << "<font color = blue>These are the guidelines to Role Playing with the race you have selected, these guidelines do not effect your character stat wise.<br>"
 			if(src.Race == "Alther")
 				src << "<font color = blue>Race - Alther<br>"
 				src << "<font color = blue>Altherions know all races<br>"
@@ -1201,7 +1201,7 @@ mob
 				src << "<font color = blue>Cyclops have heard of, but do not know how to use, Elemental Magic, Nature Magic, Blood Magic, Chaos Magic, and Necromancy<br>"
 				src << "<font color = blue>Cyclops know the location of all their caves.<br>"
 				src << "<font color = blue>Cyclops get angry at anything they do not understand, which is most things. They have a short temper and hate anything beautiful. They get pychotic if hurt or hungry, which means they hate everyone they meet, even other Cyclops.<br>"
-				src << "<font color = blue>Cyclops dont understand the concept of death, and thus do not fear it.<br>"
+				src << "<font color = blue>Cyclops do not understand the concept of death, and thus do not fear it.<br>"
 			if(src.Race == "Giant")
 				src << "<font color = blue>Race - Giant<br>"
 				src << "<font color = blue>Giants know the following races, Giants, Cyclops, Undead, Humans<br>"
@@ -1306,7 +1306,7 @@ mob
 				src.HungerMulti = 1
 				src.CanUseTK = 1
 				src.DieAge = rand(200,500)
-				src.MagicPotentcy = rand(50,150)
+				src.MagicPotency = rand(50,150)
 				src.loc = locate(286,173,3)
 				src.icon = 'illithid.dmi'
 				src.icon_state = "N"
@@ -1351,7 +1351,7 @@ mob
 
 				src.CarpentrySkillMulti = 0.6
 				src.MiningSkillMulti = 0.2
-				src.MasonarySkillMulti = 0.6
+				src.MasonrySkillMulti = 0.6
 				src.SmeltingSkillMulti = 0.6
 				src.ForgingSkillMulti = 0.6
 				src.WoodCuttingSkillMulti = 0.6
@@ -1405,7 +1405,7 @@ mob
 				src.PregType = "Womb"
 				src.HungerMulti = 1
 				src.DieAge = rand(150,200)
-				src.MagicPotentcy = rand(20,101)
+				src.MagicPotency = rand(20,101)
 				src.loc = locate(237,82,1)
 				src.icon_state = "N"
 				src.WeightMax = 90
@@ -1426,7 +1426,7 @@ mob
 				for(var/mob/M in Players)
 					if(M.Race == src.Race && M.Gender == "Female" && M.Preg == 2)
 						if(src.client.address == M.client.address && M != src)
-							world << "<font color = teal><b>([src.key])[src] - [src.OrginalName] was booted for Alt Key Interaction involving character creation!<br>"
+							world << "<font color = teal><b>([src.key])[src] - [src.OriginalName] was booted for Alt Key Interaction involving character creation!<br>"
 							del(src)
 							return
 						PlayerBorn = 1
@@ -1473,7 +1473,7 @@ mob
 
 				src.CarpentrySkillMulti = 0.4
 				src.MiningSkillMulti = 0.2
-				src.MasonarySkillMulti = 0.8
+				src.MasonrySkillMulti = 0.8
 				src.SmeltingSkillMulti = 0.8
 				src.ForgingSkillMulti = 0.8
 				src.WoodCuttingSkillMulti = 0.2
@@ -1591,7 +1591,7 @@ mob
 				for(var/mob/M in Players)
 					if(M.Race == src.Race && M.Gender == "Female" && M.Preg == 2)
 						if(src.client.address == M.client.address && M != src)
-							world << "<font color = teal><b>([src.key])[src] - [src.OrginalName] was booted for Alt Key Interaction involving character creation!<br>"
+							world << "<font color = teal><b>([src.key])[src] - [src.OriginalName] was booted for Alt Key Interaction involving character creation!<br>"
 							del(src)
 							return
 						PlayerBorn = 1
@@ -1670,7 +1670,7 @@ mob
 					src.Weapon = A
 				src.CarpentrySkillMulti = 0.4
 				src.MiningSkillMulti = 0.4
-				src.MasonarySkillMulti = 0.8
+				src.MasonrySkillMulti = 0.8
 				src.SmeltingSkillMulti = 0.8
 				src.ForgingSkillMulti = 0.8
 				src.WoodCuttingSkillMulti = 0.4
@@ -1700,7 +1700,7 @@ mob
 				src.WeightMax = 115
 				src.Strength += 11
 				src.DieAge = rand(80,110)
-				src.MagicPotentcy = rand(0,25)
+				src.MagicPotency = rand(0,25)
 				src.Agility += 4.5
 				src.Endurance += 11
 				src.Intelligence += 5
@@ -1717,7 +1717,7 @@ mob
 				for(var/mob/M in Players)
 					if(M.Race == src.Race && M.Gender == "Female" && M.Preg == 2)
 						if(src.client.address == M.client.address && M != src)
-							world << "<font color = teal><b>([src.key])[src] - [src.OrginalName] was booted for Alt Key Interaction involving character creation!<br>"
+							world << "<font color = teal><b>([src.key])[src] - [src.OriginalName] was booted for Alt Key Interaction involving character creation!<br>"
 							del(src)
 							return
 						PlayerBorn = 1
@@ -1790,7 +1790,7 @@ mob
 					src.Weapon = H
 				src.CarpentrySkillMulti = 0.6
 				src.MiningSkillMulti = 0.4
-				src.MasonarySkillMulti = 0.6
+				src.MasonrySkillMulti = 0.6
 				src.SmeltingSkillMulti = 0.6
 				src.ForgingSkillMulti = 0.6
 				src.WoodCuttingSkillMulti = 0.8
@@ -1831,7 +1831,7 @@ mob
 				src.icon_state = "N"
 				src.PregType = "Womb"
 				src.DieAge = rand(60,80)
-				src.MagicPotentcy = rand(0,75)
+				src.MagicPotency = rand(0,75)
 				src.WeightMax = 85
 				src.Strength += 3.5
 				src.Agility += 12.5
@@ -1851,7 +1851,7 @@ mob
 				for(var/mob/M in Players)
 					if(M.Race == src.Race && M.Gender == "Female" && M.Preg == 2)
 						if(src.client.address == M.client.address && M != src)
-							world << "<font color = teal><b>([src.key])[src] - [src.OrginalName] was booted for Alt Key Interaction involving character creation!<br>"
+							world << "<font color = teal><b>([src.key])[src] - [src.OriginalName] was booted for Alt Key Interaction involving character creation!<br>"
 							del(src)
 							return
 						PlayerBorn = 1
@@ -1899,7 +1899,7 @@ mob
 
 				src.CarpentrySkillMulti = 0.4
 				src.MiningSkillMulti = 0.4
-				src.MasonarySkillMulti = 0.8
+				src.MasonrySkillMulti = 0.8
 				src.SmeltingSkillMulti = 0.6
 				src.ForgingSkillMulti = 0.6
 				src.WoodCuttingSkillMulti = 0.6
@@ -1963,7 +1963,7 @@ mob
 				src.CanRegenLimbs = 1
 				src.SwimmingSkill += 25
 				src.loc = locate(287,228,1)
-				src.MagicPotentcy = rand(0,75)
+				src.MagicPotency = rand(0,75)
 				src.WeightMax = 100
 				src.Strength += 4
 				src.Agility += 12.5
@@ -2018,7 +2018,7 @@ mob
 
 				src.CarpentrySkillMulti = 0.6
 				src.MiningSkillMulti = 0.2
-				src.MasonarySkillMulti = 0.6
+				src.MasonrySkillMulti = 0.6
 				src.SmeltingSkillMulti = 0.6
 				src.ForgingSkillMulti = 0.6
 				src.WoodCuttingSkillMulti = 0.8
@@ -2110,7 +2110,7 @@ mob
 				src.icon_state = "N"
 				src.PregType = "Womb"
 				src.DieAge = rand(90,120)
-				src.MagicPotentcy = rand(0,30)
+				src.MagicPotency = rand(0,30)
 				src.loc = locate(28,75,1)
 				src.WeightMax = 125
 				src.Strength += 12.5
@@ -2130,7 +2130,7 @@ mob
 				for(var/mob/M in Players)
 					if(M.Race == src.Race && M.Gender == "Female" && M.Preg == 2)
 						if(src.client.address == M.client.address && M != src)
-							world << "<font color = teal><b>([src.key])[src] - [src.OrginalName] was booted for Alt Key Interaction involving character creation!<br>"
+							world << "<font color = teal><b>([src.key])[src] - [src.OriginalName] was booted for Alt Key Interaction involving character creation!<br>"
 							del(src)
 							return
 						PlayerBorn = 1
@@ -2203,7 +2203,7 @@ mob
 					src.Weapon = H
 				src.CarpentrySkillMulti = 0.6
 				src.MiningSkillMulti = 0.4
-				src.MasonarySkillMulti = 0.8
+				src.MasonrySkillMulti = 0.8
 				src.SmeltingSkillMulti = 0.8
 				src.ForgingSkillMulti = 0.8
 				src.WoodCuttingSkillMulti = 0.8
@@ -2241,7 +2241,7 @@ mob
 				src.PregType = "Womb"
 				src.WeightMax = 150
 				src.DieAge = rand(80,120)
-				src.MagicPotentcy = rand(0,85)
+				src.MagicPotency = rand(0,85)
 				src.Strength += 7.5
 				src.Agility += 7.5
 				src.Endurance += 4
@@ -2281,7 +2281,7 @@ mob
 				src.ShieldSkillMulti = 0.2
 				src.CarpentrySkillMulti = 0.2
 				src.MiningSkillMulti = 0.2
-				src.MasonarySkillMulti = 0.2
+				src.MasonrySkillMulti = 0.2
 				src.SmeltingSkillMulti = 0.2
 				src.ForgingSkillMulti = 0.2
 				src.WoodCuttingSkillMulti = 0.4
@@ -2306,7 +2306,7 @@ mob
 				for(var/mob/M in Players)
 					if(M.Race == src.Race && M.Gender == "Female" && M.Preg == 2)
 						if(src.client.address == M.client.address && M != src)
-							world << "<font color = teal><b>([src.key])[src] - [src.OrginalName] was booted for Alt Key Interaction involving character creation!<br>"
+							world << "<font color = teal><b>([src.key])[src] - [src.OriginalName] was booted for Alt Key Interaction involving character creation!<br>"
 							del(src)
 							return
 						src.Strength += M.Strength / 8
@@ -2338,7 +2338,7 @@ mob
 				src.PregType = "Egg"
 				src.WeightMax = 100
 				src.DieAge = rand(75,100)
-				src.MagicPotentcy = rand(0,101)
+				src.MagicPotency = rand(0,101)
 				src.Strength += 8.5
 				src.Agility += 11
 				src.Endurance += 3.75
@@ -2427,7 +2427,7 @@ mob
 					src.Weapon = S
 				src.CarpentrySkillMulti = 1
 				src.MiningSkillMulti = 0.2
-				src.MasonarySkillMulti = 0.8
+				src.MasonrySkillMulti = 0.8
 				src.SmeltingSkillMulti = 0.8
 				src.ForgingSkillMulti = 0.8
 				src.WoodCuttingSkillMulti = 1
@@ -2461,7 +2461,7 @@ mob
 				for(var/mob/M in Players)
 					if(M.Race == src.Race && M.Gender == "Female" && M.Preg == 2)
 						if(src.client.address == M.client.address && M != src)
-							world << "<font color = teal><b>([src.key])[src] - [src.OrginalName] was booted for Alt Key Interaction involving character creation!<br>"
+							world << "<font color = teal><b>([src.key])[src] - [src.OriginalName] was booted for Alt Key Interaction involving character creation!<br>"
 							del(src)
 							return
 						PlayerBorn = 1
@@ -2602,7 +2602,7 @@ mob
 				src.PregType = "Womb"
 				src.WeightMax = 100
 				src.DieAge = rand(65,90)
-				src.MagicPotentcy = rand(0,100)
+				src.MagicPotency = rand(0,100)
 				src.Strength += 5
 				src.Agility += 5
 				src.Endurance += 5
@@ -2641,7 +2641,7 @@ mob
 				src.ShieldSkillMulti = 0.4
 				src.CarpentrySkillMulti = 1
 				src.MiningSkillMulti = 0.2
-				src.MasonarySkillMulti = 0.8
+				src.MasonrySkillMulti = 0.8
 				src.SmeltingSkillMulti = 0.8
 				src.ForgingSkillMulti = 0.8
 				src.WoodCuttingSkillMulti = 1
@@ -2700,7 +2700,7 @@ mob
 		PickUpObjects()
 			for(var/obj/Items/Armour/Chest/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WChest == null && CanUse)
 					src.WChest = A
@@ -2711,7 +2711,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Armour/Head/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WHead == null && CanUse)
 					src.WHead = A
@@ -2722,7 +2722,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Armour/LeftArm/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WLeftHand == null && src.LeftArm && CanUse)
 					src.WLeftHand = A
@@ -2733,7 +2733,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Armour/RightArm/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WRightHand == null && src.RightArm && CanUse)
 					src.WRightHand = A
@@ -2744,7 +2744,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Armour/Legs/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WLegs == null && src.RightLeg && src.LeftLeg && CanUse)
 					src.WLegs = A
@@ -2755,7 +2755,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Armour/LeftFoot/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WLeftFoot == null && src.LeftLeg && CanUse)
 					src.WLeftFoot = A
@@ -2766,7 +2766,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Armour/RightFoot/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WRightFoot == null && src.RightLeg && CanUse)
 					src.WRightFoot = A
@@ -2777,7 +2777,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Armour/Shields/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.Weapon2 == null && src.LeftArm && CanUse)
 					src.Weapon2 = A
@@ -2788,7 +2788,7 @@ mob
 					src.overlays+=image(A.icon,"[A.EquipState] left",A.ItemLayer)
 			for(var/obj/Items/Armour/Shoulders/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WShoulders == null && CanUse)
 					src.WShoulders = A
@@ -2799,7 +2799,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Armour/UpperBody/A in range(0,src))
 				var/CanUse = 1
-				if(src.Race in A.CantRaces)
+				if(src.Race in A.CannotRaces)
 					CanUse = 0
 				if(src.WUpperBody == null && CanUse)
 					src.WUpperBody = A
@@ -2810,7 +2810,7 @@ mob
 					src.overlays+=image(A.icon,A.icon_state,A.ItemLayer)
 			for(var/obj/Items/Weapons/W in range(0,src))
 				var/CanUse = 1
-				if(src.Race in W.CantRaces)
+				if(src.Race in W.CannotRaces)
 					CanUse = 0
 				if(src.Weapon == null && src.RightArm && CanUse)
 					src.Weapon = W
@@ -3074,7 +3074,7 @@ mob
 		FleshBurst()
 			spawn(10000)
 				if(src)
-					view(src) << "<font color=red>[src] begins to bubble and twitch violently as their innards tear open and spew disgusting fluids everywhere, suddenly three new born flesh beasts appear from the mess!<br>"
+					view(src) << "<font color=red>[src] begins to bubble and twitch violently as their innards tear open and spew disgusting fluids everywhere! Suddenly, three newborn flesh beasts spawn from the mess!<br>"
 					var/mob/NPC/Evil/Chaos/Flesh_Beast/B1 = new
 					B1.Move(src.loc)
 					var/mob/NPC/Evil/Chaos/Flesh_Beast/B2 = new
@@ -3314,7 +3314,7 @@ mob
 		FleshAI()
 			src.LastLoc = src.loc
 			if(src.Type >= 6)
-				view(src) << "<font color =purple>[src] begins to bubble and swell, blood guts and pus spew everywhere as they expand to a massive size<br>"
+				view(src) << "<font color =purple>[src] begins to bubble and swell. Blood, guts, and pus spew everywhere as they expand to a massive size!<br>"
 				var/mob/NPC/Evil/Chaos/Large_Flesh_Beasts/Large_Flesh_Beast/C = new
 				C.Owner = src.Owner
 				C.Move(src.loc)
@@ -3352,7 +3352,7 @@ mob
 						else
 							if(src.Target in range(0,src))
 								if(isobj(src.Target))
-									view(src) << "<font color = red>[src] grasps hold of [src.Target] and begins to absorb it into their disgusting mass of bodies...<br>"
+									view(src) << "<font color = red>[src] grasps hold of [src.Target] and aborbs it into their disgusting mass of bodies...<br>"
 									src.Type += 1
 									del(src.Target)
 			if(src.Target == null)
@@ -3383,7 +3383,7 @@ mob
 						else
 							if(src.Target in range(0,src))
 								if(isobj(src.Target))
-									view(src) << "<font color = red>[src] decends upon [src.Target] and begins to smother it, suddenly the body begins to twist and mutate into a digusting bubbling mass of blood and guts!<br>"
+									view(src) << "<font color = red>[src] decends upon [src.Target] and smothers it.The body then twists and mutates into a digusting bubbling mass of blood and guts!<br>"
 									var/mob/NPC/Evil/Chaos/Flesh_Beast/B = new
 									B.Move(src.loc)
 									del(src.Target)
@@ -3429,7 +3429,7 @@ mob
 			if(src.Type >= 4)
 				var/Lay = prob(2)
 				if(Lay)
-					view(src) << "<font color =purple>[src] fangs twitch and create a loud pitch noise as [src] lays low to the ground. Suddenly [src] begins to lay a massive egg that flops to the floor!<br>"
+					view(src) << "<font color =purple>[src] fangs twitch and create a loud pitch noise as [src] lays low to the ground. Suddenly [src] lays a massive egg that flops to the floor!<br>"
 					src.Type -= 4
 					var/mob/NPC/Evil/Misc/Spider_Egg/C = new
 					C.Owner = src.Owner
@@ -3458,7 +3458,7 @@ mob
 						else
 							if(src.Target in range(0,src))
 								if(isobj(src.Target))
-									view(src) << "<font color = red>[src] grabs hold of [src.Target] and tears it to shreds, they then begin to eat the remains...<br>"
+									view(src) << "<font color = red>[src] grabs hold of [src.Target] and tears it to shreds! They consume the remains, thereafter...<br>"
 									src.Type += 1
 									del(src.Target)
 			if(src.Target == null)
@@ -3466,7 +3466,7 @@ mob
 			spawn(9) SpiderAI()
 		DevourerAI()
 			if(src.Type >= 2)
-				view(src) << "<font color =purple>[src] gurgles and splutters violently then spits out a large sack of goo, the sack lands on the ground and begins to harden!<br>"
+				view(src) << "<font color =purple>[src] gurgles and splutters violently, then spits out a large sack of goo! The sack lands on the ground and slowly hardens!<br>"
 				src.Type -= 2
 				var/mob/NPC/Evil/Undead/Corpse_Devourer_Cacoon/C = new
 				C.Owner = src.Owner
@@ -3564,7 +3564,7 @@ mob
 					return
 				var/Die = prob(1)
 				if(Die)
-					view(src) << "<font color = purple>[src] dies from Mortals Wounds to their Organs!<br>"
+					view(src) << "<font color = purple>[src] dies from catastrophic wounds to their organs!<br>"
 					src.Death()
 					return
 			else
@@ -3871,7 +3871,7 @@ mob
 							if(W.Type == "PickAxe")
 								CanDig = 1
 						if(CanDig)
-							if(src.Job == null && src.CantDoTask == 0)
+							if(src.Job == null && src.CannotDoTask == 0)
 								view() << "<font color=yellow>[src] begins to dig away at the solid stone wall!<br>"
 								W.Dura -= rand(0.5,1)
 								src.Job = "Dig"
@@ -3882,7 +3882,7 @@ mob
 								spawn(Time)
 									if(src)
 										if(T in range(1,src))
-											if(src.Job == "Dig" && T.density && T.Dura >= 0 && src.CantDoTask == 0)
+											if(src.Job == "Dig" && T.density && T.Dura >= 0 && src.CannotDoTask == 0)
 												src.Job = null
 												src.MiningSkill += src.MiningSkillMulti
 												src.GainStats(3)
@@ -3921,24 +3921,24 @@ mob
 						W = src.Weapon
 						if(W.suffix == "Equip")
 							if(W.ObjectType == "Dagger")
-								src << "<font color = red>A dagger wont be able to damage this wall!<br>"
+								src << "<font color = red>A dagger won't be able to damage this wall!<br>"
 								return
 							if(W.Type == "Ranged")
-								src << "<font color = red>A bow wont be able to damage this wall!<br>"
+								src << "<font color = red>A bow won't be able to damage this wall!<br>"
 								return
 							CanAttack = 1
 					if(src.Weapon2)
 						W = src.Weapon2
 						if(W.suffix == "Equip")
 							if(W.ObjectType == "Dagger")
-								src << "<font color = red>A dagger wont be able to damage this wall!<br>"
+								src << "<font color = red>A dagger won't be able to damage this wall!<br>"
 								return
 							if(W.Type == "Ranged")
-								src << "<font color = red>A bow wont be able to damage this wall!<br>"
+								src << "<font color = red>A bow won't be able to damage this wall!<br>"
 								return
 							CanAttack = 1
 					if(CanAttack)
-						if(src.Job == null && src.CantDoTask == 0)
+						if(src.Job == null && src.CannotDoTask == 0)
 							src.DetermineWeaponSkill()
 							view() << "<font color=red>[src] begins an attempt at destroying the [T]!<br>"
 							src.Job = "Dig"
@@ -3949,7 +3949,7 @@ mob
 							spawn(Time)
 								if(src)
 									if(T in range(1,src))
-										if(src.Job == "Dig" && T.Dura >= 0 && src.CantDoTask == 0)
+										if(src.Job == "Dig" && T.Dura >= 0 && src.CannotDoTask == 0)
 											src.Job = null
 											src.GainStats(3)
 											W.Dura -= rand(0.5,1)
@@ -4394,10 +4394,10 @@ mob
 					Delay = 10
 				if(Q && Q.Type == "Quiver" && T)
 					var/DIS = get_dist(src,T)
-					var/Cant = 0
+					var/Cannot = 0
 					if(DIS >= 7)
-						Cant = 1
-					if(Cant == 0)
+						Cannot = 1
+					if(Cannot == 0)
 						var/obj/A
 						for(var/obj/Z in Q)
 							A = Z
@@ -4451,12 +4451,12 @@ mob
 					if(FallOut)
 						src.overlays -= src.Hair
 						src.overlays -= src.Beard
-						view(src) << "<font color = yellow>[src]'s hair begins to fall out!<br>"
+						view(src) << "<font color = yellow>[src]'s hair begins to fall out from their follicles!<br>"
 			else
 				return
 			spawn(1200) UndeadProc()
 		MakeSkeleton()
-			view(src) << "<font color = yellow>[src]'s flesh begins to rot and fall away from their body, leaving behind an empty skeletal frame!<br>"
+			view(src) << "<font color = yellow>[src]'s flesh begins to rot and fall away from their body, leaving behind an empty, skeletal frame!<br>"
 			src.icon = 'Skeleton.dmi'
 			src.Agility = src.Agility * 2
 			src.LimbLoss()
@@ -4511,7 +4511,7 @@ mob
 							src.Agility = src.Agility / 2
 							src.Endurance = src.Endurance / 2
 							src.CanEat = 0
-							src << "<font color = purple>[src]'s stomach gurgles and splutters before exspelling itself out of [src]'s mouth in a liquidated form! They seem alot weaker now!<br>"
+							src << "<font color = purple>[src]'s stomach gurgles and splutters before it expells out of [src]'s mouth in a putrefied form! They seem a lot weaker, now!<br>"
 						spawn(1000)
 							if(src)
 								src.EatNotice = 0
@@ -4564,7 +4564,7 @@ mob
 					if(src.Admin)
 						ShowRace = "- [M.Race]"
 						ShowIP = "- [M.client.address]"
-					src << "([M.key])[M] - [M.OrginalName][ShowRace][ShowIP]"
+					src << "([M.key])[M] - [M.OriginalName][ShowRace][ShowIP]"
 					Num += 1
 			src << "Total - [Num]"
 			return
@@ -4767,9 +4767,9 @@ mob
 						if(M.Race == "Illithid")
 							var/Speaks = rand(1,5)
 							if(Speaks == 1)
-								Speaks = "Enslave the lesser beings of this world [M]..."
+								Speaks = "Enslave the lesser beings of this world, [M]..."
 							if(Speaks == 2)
-								Speaks = "Bring me nurishment..."
+								Speaks = "Bring me nourishment..."
 							if(Speaks == 3)
 								Speaks = "May the star empower us..."
 							if(Speaks == 4)
@@ -4800,12 +4800,12 @@ mob
 						if(Critical)
 							M.Brain -= rand(5,7)
 							M.Brain -= src.Intelligence / 10
-							view(6,M) << "<font color = yellow>[M]'s head becomes ruptured!<br>"
+							view(6,M) << "<font color = yellow>[M] suffers from a small stroke!<br>"
 							M.Blood -= rand(15,30)
 							M.Bleed()
 							M.Splat()
 						if(M.Brain <= 1 && M.Humanoid)
-							view(6,M) << "<font color = yellow>[M]'s Brain begins to leak through their nose! Slowly they drop down to the ground, dead.<br>"
+							view(6,M) << "<font color = yellow>[M]'s brain matter disintegrates and leaks out of their nose. The drop to the ground, dying instantly!<br>"
 							M.Brain = 0
 							M.Death()
 			for(var/obj/Items/Foods/Brain/B in view(3,src))
@@ -4961,7 +4961,7 @@ mob
 			src.client.screen += Heal
 			src.client.screen += ServerOptions
 			src.client.screen += GiveAdmin
-		CreateMasonaryMenu(var/obj/Stone)
+		CreateMasonryMenu(var/obj/Stone)
 			src.DeleteInventoryMenu()
 			src.InvenUp = 0
 			var/obj/H = new/obj/HUD/Menus/Inventory/Middle(src.client)
@@ -4973,7 +4973,7 @@ mob
 			var/obj/E = new/obj/HUD/Menus/Inventory/BottomMiddle(src.client)
 			var/obj/F = new/obj/HUD/Menus/Inventory/LeftMiddle(src.client)
 			var/obj/G = new/obj/HUD/Menus/Inventory/RightMiddle(src.client)
-			var/obj/Cl = new/obj/HUD/Menus/Inventory/CloseMasonary(src.client)
+			var/obj/Cl = new/obj/HUD/Menus/Inventory/CloseMasonry(src.client)
 			H.screen_loc = "2,2 to 12,10"
 			O.screen_loc = "2,10"
 			A.screen_loc = "12,10"
@@ -4994,16 +4994,16 @@ mob
 			src.client.screen += F
 			src.client.screen += G
 			src.client.screen += Cl
-			H.Type = "Masonary"
-			O.Type = "Masonary"
-			A.Type = "Masonary"
-			B.Type = "Masonary"
-			C.Type = "Masonary"
-			D.Type = "Masonary"
-			E.Type = "Masonary"
-			F.Type = "Masonary"
-			G.Type = "Masonary"
-			src.Text("Masonary",src,4,10,0,10,"--Masonary Menu--")
+			H.Type = "Masonry"
+			O.Type = "Masonry"
+			A.Type = "Masonry"
+			B.Type = "Masonry"
+			C.Type = "Masonry"
+			D.Type = "Masonry"
+			E.Type = "Masonry"
+			F.Type = "Masonry"
+			G.Type = "Masonry"
+			src.Text("Masonry",src,4,10,0,10,"--Masonry Menu--")
 			var/X = 3
 			var/Y = 9
 			if(Stone)
@@ -5739,22 +5739,22 @@ mob
 							src.FollowUp = null
 				if(Type == "Question - History")
 					if(src.FollowUp == "Asking Name")
-						Message = "<font color = teal>[src] says: Yes yes, You have already asked about my history, now what is your name?<br>"
+						Message = "<font color = teal>[src] says: You have already asked about my history. Now, please tell me, what is your name?<br>"
 					if(Speaker.name in src.KnowList)
 						Knows = Speaker.name
 					if(Knows && Message == null)
 						Message = "<font color = teal>[src] says: Well, I'm part of the [src.Faction].<br>"
 						src.SpeakingWith = Speaker
 					if(Knows == null && Message == null)
-						Message = "<font color = teal>[src] says:First tell me your name, then maybe we can discuss such things.<br>"
+						Message = "<font color = teal>[src] says: I did not ask you for your faction. Tell me your name, first.<br>"
 						src.SpeakingWith = Speaker
 						src.FollowUp = "Asking Name"
 				if(Type == "Question - Identity")
 					if(Knows && Message == null)
-						Message = "<font color = teal>[src] says: Why do you ask my name [Speaker] when I,ve already told you it!<br>"
+						Message = "<font color = teal>[src] says: Why must you ask for my name, again? I have already told you, it is [Speaker]!<br>"
 						src.SpeakingWith = Speaker
 					if(Knows == null && Message == null)
-						Message = "<font color = teal>[src] says:Whats your name first?<br>"
+						Message = "<font color = teal>[src] says:What is your name?<br>"
 						src.SpeakingWith = Speaker
 						src.FollowUp = "Asking Name"
 				if(Type == "Greeting")
@@ -6144,7 +6144,7 @@ mob
 			src.Text("SkillDisplay",src,2,4,10,14,"Smelting-[src.SmeltingSkill]")
 			src.Text("SkillDisplay",src,2,3,10,14,"FirstAid-[src.FirstAidSkill]")
 			src.Text("SkillDisplay",src,6,13,10,14,"Forging-[src.ForgingSkill]")
-			src.Text("SkillDisplay",src,6,12,10,14,"Masonary-[src.MasonarySkill]")
+			src.Text("SkillDisplay",src,6,12,10,14,"Masonry-[src.MasonrySkill]")
 			src.Text("SkillDisplay",src,6,11,10,14,"Cooking-[src.CookingSkill]")
 			src.Text("SkillDisplay",src,6,10,10,14,"Fishing-[src.FishingSkill]")
 			src.Text("SkillDisplay",src,6,9,10,14,"Alchemy-[src.AlchemySkill]")
@@ -6290,7 +6290,7 @@ mob
 						var/obj/I = src.WRightHand
 						src.Heal()
 						if(I.icon_state == "Corruption6")
-							src << "<font color = red>Your mind begins to spiral into oblivion, images of death, detruction, and doom plague your very sight. All of your senses feel numb, robbed from you by the [I], no emotion, no memory, only the overwhelming desire to obliterate all in your path. You begin to twitch violently, your entire body burns with pain. You slowly begin to float just off the ground as your entire being flares with the most immense pain that could ever be felt by a mortal. After what seems hours,but merely seconds, you fall to the ground. The [I] begins to spread all over your head, covering your body compleatly in a near impossible to break barrier of strange metal. You slowly rise from the ground with a new sense of purpose, one purpose, to kill all living beings. You feel no pain anymore, only numbness, and the cold whisper of doom in your ear, forever urging you to kill.<br>"
+							src << "<font color = red>Your mind begins to spiral into oblivion; images of death, destruction, and doom plague your very sight. Everything suddenly feels numb, your senses robbed from you by the [I]. You have no emotion, no memory, no remorse; all that remains is an overwhelming desire to obliterate all in your path. You suddenly twitch violently as your entire body burns with pain. You slowly begin to float just off the ground as your entire being flares with the most immense pain that could ever be felt by a mortal. After what seems hours,but merely seconds, you fall to the ground. The [I] slowly spreads over your head until it completely covers your body in an unbreakable wall of steel. You slowly rise from the ground with a new sense of purpose: to kill all living beings. You feel no pain anymore, only numbness, and the cold whisper of doom in your ear, forever urging you to kill.<br>"
 							src.overlays-=image(I.icon,I.icon_state,I.ItemLayer)
 							I.icon_state = "Corruption7"
 							I.EquipState = I.icon_state
@@ -6308,7 +6308,7 @@ mob
 							src.Weight += 2
 							return
 						if(I.icon_state == "Corruption5")
-							src << "<font color = red>Your mind explodes with images of death, slaughter, blood shed and decay. You hear whispers in your head, telling you to kill every being you see. Your entire body begins to pulse with energy as the [I] begins to spread, it wont be long now before it compleatly consumes your body and soul. You fall to the floor once more as the [I] fuses to your neck!<br>"
+							src << "<font color = red>Your mind explodes with images of death, slaughter, bloodshed, and decay. You hear whispers in your head, telling you to kill everything you see. Your entire body begins to pulse with energy as the [I] begins to spread, consuming your entire body and soul. You writhe in pain as the [I] fuses to your neck!<br>"
 							src.overlays-=image(I.icon,I.icon_state,I.ItemLayer)
 							I.icon_state = "Corruption6"
 							I.EquipState = I.icon_state
@@ -6319,7 +6319,7 @@ mob
 							I.Weight += 2
 							src.Weight += 2
 						if(I.icon_state == "Corruption4")
-							src << "<font color = red>Your legs go compleatly dead as a numb feeling creeps down them, suddenly a massive bolt of pain expands all across your body as the [I] begins to spread down onto your legs. You fall flat on your face un-able to move as images of doom fill your mind and whisper for you to.....Kill...<br>"
+							src << "<font color = red>Your legs suddenly feel completely numb and you collapse on the ground, unable to hold yourself up. Suddenly, a massive wave of pain crashes across your body as the [I] begins to spread down onto your legs. You fall flat on your face, uable to move as images of doom fill your mind and whisper for you to... kill... everything.<br>"
 							src.overlays-=image(I.icon,I.icon_state,I.ItemLayer)
 							I.icon_state = "Corruption5"
 							I.EquipState = I.icon_state
@@ -6345,7 +6345,7 @@ mob
 							I.Weight += 10
 							src.Weight += 10
 						if(I.icon_state == "Corruption3")
-							src << "<font color = red>Images of death, rage and destruction fill your mind as the [I] begins to expand even further over your chest. You roll on the ground in pain as it begins to fuse to your body!<br>"
+							src << "<font color = red>Images of death, rage and destruction fill your mind as the [I] expands even further over your chest. You roll on the ground in pain as it begins to fuse to your body!<br>"
 							src.overlays-=image(I.icon,I.icon_state,I.ItemLayer)
 							I.icon_state = "Corruption4"
 							I.EquipState = I.icon_state
@@ -6361,7 +6361,7 @@ mob
 							I.Weight += 5
 							src.Weight += 5
 						if(I.icon_state == "Corruption2")
-							src << "<font color = red>You fall to the ground with a loud thud as your body fills with agony, the [I] begins to spread onto your torso, you scream with rage as it begins to bind its self to your chest!<br>"
+							src << "<font color = red>You fall to the ground with a loud thud, your body filled with agony as the [I] spreads onto your torso. You scream with rage as it begins to bind itself to your chest!<br>"
 							src.overlays-=image(I.icon,I.icon_state,I.ItemLayer)
 							I.icon_state = "Corruption3"
 							I.EquipState = I.icon_state
@@ -6387,7 +6387,7 @@ mob
 							I.Weight += 10
 							src.Weight += 10
 						if(I.icon_state == "Corruption1")
-							src << "<font color = red>You feel a very sharp pain shoot up your arm as the [I] begins to spread further, you fall to the floor in agony as it begins to fuse to your body even more!<br>"
+							src << "<font color = red>You feel a very sharp pain shoot up your arm as the [I] begins to spread further. The pain swells until you finally fall to the floor in agony as it begins to fuse to your body even more!<br>"
 							src.overlays-=image(I.icon,I.icon_state,I.ItemLayer)
 							I.icon_state = "Corruption2"
 							I.EquipState = I.icon_state
@@ -6583,7 +6583,7 @@ mob
 			for(var/turf/T in range(0,src))
 				if(T.density && T.opacity)
 					src.loc = locate(1,1,1)
-					src << "<font color = teal>You were teleported to 1,1,1 because the Load Proc detected that you spawned on Dense Turf. It is possible that a Map wipe or Bug happened, please report this to an Admin.<br>"
+					src << "<font color = teal>You were teleported to 1,1,1 because the the load proc detected that you spawned on Dense Turf. It is possible that a map wipe or bug happened, please report this to an Admin.<br>"
 			src << "<font color = teal>You are [src.Age] years old!<br>"
 		CheckAfflictions()
 			for(var/A in src.Afflictions)
@@ -6777,8 +6777,8 @@ mob
 				G.name = "[G.Type] [G.name]"
 				G.icon_state = "gold coin >100"
 				SaveMap()
-				src << "<font color = teal>You have been granted the Rank of Human Priest of Order. Your Job will be to Role Play a high ranking Monk, making sure that no harm comes to anyone involved with the Human Empire, or the Inquisition. The King and Queen of the Human Empire know of you. You have been granted a full set of Priest Armour, and a Priest Staff, and also a very powerful Book of Order. You must never, ever, give this book to anyone, not even the King or Queen, the same goes for your armour. They belong to you, and they belong to the God of Order. If there is no offical King or Queen, the Priest rules in place, however, the Priest is never higher rank than the King and Queen, and as such, can not overule any orders that they give. You must be a Good Person, and not Evil, however, you are allowed to be Paranoid. If you suspect someone of being Evil, you can Torture them until they admit to wrong doings or Evil involement, but this all requires good RP reasons, ect. The Book of Order can Revive NPC and Players, but each time you use it, you Must Role Play doing so. Breaking any of the previously mentioned requirements or rules that involve the Priest Rank, will get you stripped of said Rank or even Ban. Your character now has knowledge of all Undead creatures, and also where the Undead lands are, ect. You also know of Demons, and all Gods, as well as any and all Evil Relics, Artifacts, or Books. You have also learned alot of the Ancient Language, from old Scrolls and Books, and have been given a Plus 15 Intelligence boost to help you learn other Languages faster. You've also been given a special key to un-lock the Inquisitor Artifact Vault. You are NOT to take ANYTHING from this vault without having both a Good Role Play Reason and having asked an Admin first. The vaults location is in the bottom of the Inquisitor Tower and is mainly used to lock away dangerous things.<br>"
-				world << "<font color = yellow>All around the Human kingdom people far and wide begin to hear of a ceremony. A new Priest of Order had been selected by ancient Decree and instated with the responsibility of ruling the Inquisition and even the entire Human Empire when needed. Word of this slowly spreads outside of the Humans lands as both ally and enemy hear the news."
+				src << "<font color = teal>You have been granted the Rank of Human Priest of Order. Your job will be to Role Play a high ranking Monk, making sure that no harm comes to anyone involved with the Human Empire, or the Inquisition. The King and Queen of the Human Empire know of you. You have been granted a full set of Priest Armour, and a Priest Staff, and also a very powerful Book of Order. You must never, ever, give this book to anyone, not even the King or Queen; the same goes for your armour. They belong to you, and they belong to the God of Order. If there is no offical King or Queen, the Priest rules in place, however, the Priest is never higher rank than the King and Queen, and as such, can not overule any orders that they give. You must set a good example for all people, and do no harm in return. However, you are allowed to be paranoid. If you suspect someone of being evil, you can torture them until they admit to wrong doings or evil involement, but this all requires good RP reasons, ect. The Book of Order can revive NPC and Players, but each time you use it, you must Role Play doing so. Breaking any of the previously mentioned requirements or rules that involve the Priest Rank, will get you stripped of said rank or even receive a ban. Your character now has knowledge of all Undead creatures, and their whereabouts. You also know of Demons, all Gods, and all Evil Relics, Artifacts, or Books. You have also learned alot of the Ancient Language, from old scrolls and books, and have been given a +15 Intelligence boost to help you learn other languages faster. You've also been given a special key to un-lock the Inquisitor Artifact Vault. You are NOT to take ANYTHING from this vault without having a reasonable in-character reason and having asked an Admin first. The vault's location is in the bottom of the Inquisitor Tower and is mainly used to lock away dangerous things.<br>"
+				world << "<font color = yellow>All around the Human kingdom people far and wide begin to hear of a ceremony. A new Priest of Order had been selected by ancient decree and instated with the responsibility of ruling the Inquisition and even the entire Human Empire when needed. Word of this slowly spreads outside of the Humans lands as both ally and enemy hear the news."
 			if(Rank == "Diplomat")
 				src.LangKnow = null
 				src.LangKnow = list()
@@ -6824,7 +6824,7 @@ mob
 				W.WritePercent = 100
 				src.LangKnow += W
 
-				src << "<font color = teal>You have been Granted the Rank of Diplomat, your task is to work along side your King/Queen and his/her minions, translating what other races say and also being a messanger. You have all the Languages and are 100% Fluent in them all. The King/Queen of your Kingdom is aware of you ICly as soon as your Rank is given.<br>"
+				src << "<font color = teal>You have been Granted the rank of Diplomat! Your task is to work along side your King/Queen and his/her minions, translating what other races say and also being a messanger. You have the knowledge of all-known languages and are 100% fluent in them all. The King/Queen of your Kingdom is aware of you ICly as soon as your rank is given.<br>"
 			if(Rank == "Weapon Master")
 				src.Agility += 5
 				src.Strength += 5
@@ -6890,12 +6890,12 @@ mob
 				Wep.EquipState = "Iron [Wep.EquipState] equip"
 				Wep.icon_state = Wep.CarryState
 				Wep.overlays+=image(/obj/HUD/C/)
-				Wep.desc = "This is a [Wep], it is made from Iron. The Date it was created is etched on the side, Year 1, Month 0. The [Wep] seems to be of Grand Quality."
+				Wep.desc = "This is a [Wep], made from Iron. The date it was created is etched on the side, Year 1, Month 0. The [Wep] seems to be of Grand Quality."
 				var/list/looks = new()
 				looks += "Default"
 				looks += "Artifact"
 				looks += "Corrupted"
-				var/Result2 = input(src,"Choose an apperance for your Custom Weapon.", "Choose", null) in looks
+				var/Result2 = input(src,"Choose an appearance for your Custom Weapon.", "Choose", null) in looks
 				if(Result2 == "Artifact")
 					if(Wep.name == "LongSword")
 						Wep.icon_state = "Artifact sword"
@@ -6964,7 +6964,7 @@ mob
 						Wep.EquipState = "Corrupted bow equip"
 				var/WepName=input(src,"Name your weapon.")as text
 				Wep.name = WepName
-				src << "<font color = teal>You have been Granted the Rank of Weapon Master, this Rank has no True Static Purpose, you could choose to be a Teacher, Hermit, General, Leader, Villian, anything you desire, but you cant instantly use your skills to attack any of the Kings/Queens directly until Year 15+, if you attempt to, you will be Stripped of your Rank and Deducted. You have also been granted a +5 in Strength, Endurance, and Agility. You are now Twenty Five(25) Years older than before, and you will now live +5 more Years longer than your Average Race. No one knows of you ICly.<br>"
+				src << "<font color = teal>You have been Granted the Rank of Weapon Master! With your exemplary skills, you may choose to be a Teacher, Hermit, General, Leader, Villian, pr anything you desire! However, you cannot instantly use your skills to attack any of the Kings/Queens directly until Year 15+, if you attempt to, you will be Stripped of your Rank and Deducted. You have also been granted a +5 in Strength, Endurance, and Agility. You are now Twenty Five(25) Years older than before, and you will now live +5 more Years longer than your Average Race. No one knows of you ICly.<br>"
 			if(Rank == "King/Queen")
 				var/list/kingdom = new()
 				kingdom += "Human Kingdom"
@@ -6976,7 +6976,7 @@ mob
 				kingdom += "Giant Kingdom"
 				kingdom += "Cyclops Horde"
 				var/KingdomResult = input(usr,"Which Kingdom will they rule?", "Choose", null) in kingdom
-				world << "<font color = yellow>All around the [KingdomResult] followers far and wide begin to hear of a ceremony. Someone of supposed royal blood had been elected ruler this day. Word of this grand event travels to every corner of the known world, even to those on ill terms with the [KingdomResult].<br>"
+				world << "<font color = yellow>All around the [KingdomResult], followers far and wide begin to hear of a ceremony. Someone of supposed royal blood had been elected ruler this day. Word of this grand event travels to every corner of the known world, even to those on ill terms with the [KingdomResult].<br>"
 				src.DieAge += 10
 				var/obj/Items/Currency/GoldCoin/G = new
 				G.Type = 500
@@ -7376,12 +7376,12 @@ mob
 				Wep.icon_state = Wep.CarryState
 				Wep.suffix = "Carried"
 				Wep.overlays+=image(/obj/HUD/C/)
-				Wep.desc = "This is a [Wep], it is made from Iron. The Date it was created is etched on the side, Year 1, Month 0. The [Wep] seems to be of Grand Quality."
+				Wep.desc = "This is a [Wep], made from Iron. The date it was created is etched on the side, Year 1, Month 0. The [Wep] seems to be of Grand Quality."
 				var/list/looks = new()
 				looks += "Default"
 				looks += "Artifact"
 				looks += "Corrupted"
-				var/Result2 = input(src,"Choose an apperance for your Custom Weapon.", "Choose", null) in looks
+				var/Result2 = input(src,"Choose an appearance for your Custom Weapon.", "Choose", null) in looks
 				if(Result2 == "Artifact")
 					if(Wep.name == "LongSword")
 						Wep.icon_state = "Artifact sword"
@@ -7450,7 +7450,7 @@ mob
 						Wep.EquipState = "Corrupted bow equip"
 				var/WepName=input(src,"Name your weapon.")as text
 				Wep.name = WepName
-				src << "<font color = teal>You have been granted the rank of King/Queen, it is your duty to unite your Race under your banner and keep Order, or Choas, within your lands. Lead your Race to glory and create allies with the other Races, or become an Evil Tyrant and crush all that stand in your way. You will need to be fairly Active with this Rank and also Interact with others often. You can choose someone you deem worthy of being a good role player, intelligent, and active to be your spouse, and can also Appoint your own Diplomat and Blacksmith, but you must let an Admin know so they can grant the Player the Rank. As a King/Queen, you will live an extra Ten(10) years longer than anyone else of your race, depending on what your Die Age was orginally. You have been granted a Crown and Weapon, do not give either to anyone at any cost. All of your Race that make a character -After- you are crowned know your name and appearance ICly. You are aware of the Diplomat and BlackSmiths of your race ICly as soon as they recive their Ranks.<br>"
+				src << "<font color = teal>You have been granted the rank of King/Queen! it is your duty to unite your race under your banner and keep order or chaos, within your lands. Lead your race to glory and create allies with the other races, or become an evil tyrant and crush all that stand in your way. You will need to be fairly active with this rank and also interact with others often. You can choose someone you deem worthy of being a good role player, intelligent, and active to be your spouse, and can also appoint your own diplomat and blacksmith, but you must let an Admin know so they can grant the Player the Rank. As a King/Queen, you will live an extra Ten(10) years longer than anyone else of your race, depending on what your death age e was orginally. You have been granted a Crown and Weapon; do not give either to anyone at any cost. All of your races that make a character -After- you are crowned know your name and appearance ICly. You are aware of the Diplomat and BlackSmiths of your race ICly as soon as they recive their Ranks.<br>"
 			if(Rank == "BlackSmith")
 				src.SmeltingSkill += 10
 				src.ForgingSkill += 10
@@ -7854,4 +7854,4 @@ mob
 
 					else
 						del(I)
-				src << "<font color = teal>You have been granted the Rank of Black Smith, you will have the knowledge to craft any and all Designs for Armour and Weapons. You are currently in the service of your Kingdoms King and/or Queen but you may Role Play in any direction, so long as it makes sense. No one knows you are a Black Smith currently, except for the King and/or Queen of your Kingdom. You have also been granted a bonus to your blacksmithing skills and +5 to your strength. You also have +100 carrying Weight.<br>"
+				src << "<font color = teal>You have been granted the rank of Blackmith! You will have the knowledge to craft any and all designs for armour and weapons. You are currently in the service of your Kingdoms' King and/or Queen, but you may Role Play in any direction, so long as it makes sense. No one knows you are a Blacksmith currently, except for the King and/or Queen of your Kingdom. You have also been granted a bonus to your blacksmithing skills and +5 to your strength. You also have +100 carrying Weight.<br>"

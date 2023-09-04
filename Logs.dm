@@ -61,7 +61,7 @@ mob
 				if(T)
 					for(var/mob/M in Players)
 						if(M.Admin)
-							M << "<font color = teal>Admin Chat - {Lvl [usr.Admin]}([usr.key])[usr] - [usr.OrginalName]: [T]<br>"
+							M << "<font color = teal>Admin Chat - {Lvl [usr.Admin]}([usr.key])[usr] - [usr.OriginalName]: [T]<br>"
 		OOC()
 			set hidden = 1
 			usr.OOCToggle()

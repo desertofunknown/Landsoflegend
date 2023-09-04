@@ -1525,16 +1525,16 @@ obj
 						usr.InWater = 0
 				if(usr.Function == "Combat" && src.suffix == "Stuck" && usr.Job == null)
 					if(usr in range(1,src))
-						if(usr.CantDoTask)
-							usr << "<font color = red>Cant attack that for a while!<br>"
+						if(usr.CannotDoTask)
+							usr << "<font color = red>Cannot attack that for a while!<br>"
 							return
 						view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src]!<br>"
 						usr.Job = "SmashStair"
 						usr.CanMove = 0
-						usr.CantDoTask = 1
+						usr.CannotDoTask = 1
 						spawn(150)
 							if(usr)
-								usr.CantDoTask = 0
+								usr.CannotDoTask = 0
 						var/LOC = usr.loc
 						var/Time = 300 - usr.Agility / 2
 						if(Time <= 50)
@@ -1552,7 +1552,7 @@ obj
 										W.Dura -= rand(0.1,2)
 										if(W.ObjectType == "Blunt")
 											DMG += 10
-										if(W.TwoHander && usr.Weapon2 == null)
+										if(W.TwoHanded && usr.Weapon2 == null)
 											DMG += W.Weight / 2
 										usr.CheckWeaponDura(W)
 								if(usr.Weapon2)
@@ -1564,7 +1564,7 @@ obj
 										W.Dura -= rand(0.1,2)
 										if(W.ObjectType == "Blunt")
 											DMG += 10
-										if(W.TwoHander && usr.Weapon == null)
+										if(W.TwoHanded && usr.Weapon == null)
 											DMG += W.Weight / 2
 										usr.CheckWeaponDura(W)
 								if(Holding == 2)
@@ -1575,8 +1575,8 @@ obj
 								usr.Job = null
 								usr.MovementCheck()
 								var/WontDamage = 75 - DMG
-								var/CantDamage = prob(WontDamage)
-								if(DMG >= 0 && CantDamage != 1)
+								var/CannotDamage = prob(WontDamage)
+								if(DMG >= 0 && CannotDamage != 1)
 									src.Dura -= DMG
 									if(src.Dura <= 0)
 										range(src) << "<font color = red>[src] begins to crumble and fall away as [usr] smashes it!<br>"
@@ -1625,16 +1625,16 @@ obj
 						usr.InWater = 0
 				if(usr.Function == "Combat" && src.suffix == "Stuck" && usr.Job == null)
 					if(usr in range(1,src))
-						if(usr.CantDoTask)
-							usr << "<font color = red>Cant attack that for a while!<br>"
+						if(usr.CannotDoTask)
+							usr << "<font color = red>Cannot attack that for a while!<br>"
 							return
 						view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src]!<br>"
 						usr.Job = "SmashStair"
 						usr.CanMove = 0
-						usr.CantDoTask = 1
+						usr.CannotDoTask = 1
 						spawn(150)
 							if(usr)
-								usr.CantDoTask = 0
+								usr.CannotDoTask = 0
 						var/LOC = usr.loc
 						var/Time = 300 - usr.Agility / 2
 						if(Time <= 50)
@@ -1652,7 +1652,7 @@ obj
 										W.Dura -= rand(0.1,2)
 										if(W.ObjectType == "Blunt")
 											DMG += 10
-										if(W.TwoHander && usr.Weapon2 == null)
+										if(W.TwoHanded && usr.Weapon2 == null)
 											DMG += W.Weight / 2
 										usr.CheckWeaponDura(W)
 								if(usr.Weapon2)
@@ -1664,7 +1664,7 @@ obj
 										W.Dura -= rand(0.1,2)
 										if(W.ObjectType == "Blunt")
 											DMG += 10
-										if(W.TwoHander && usr.Weapon == null)
+										if(W.TwoHanded && usr.Weapon == null)
 											DMG += W.Weight / 2
 										usr.CheckWeaponDura(W)
 								if(Holding == 2)
@@ -1675,8 +1675,8 @@ obj
 								usr.Job = null
 								usr.MovementCheck()
 								var/WontDamage = 75 - DMG
-								var/CantDamage = prob(WontDamage)
-								if(DMG >= 0 && CantDamage != 1)
+								var/CannotDamage = prob(WontDamage)
+								if(DMG >= 0 && CannotDamage != 1)
 									src.Dura -= DMG
 									if(src.Dura <= 0)
 										range(src) << "<font color = red>[src] begins to crumble and fall away as [usr] smashes it!<br>"
@@ -1821,7 +1821,7 @@ obj
 									var/LOC = usr.loc
 									usr.Job = "CreateStoneStair"
 									usr.CanMove = 0
-									var/Time = 300 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+									var/Time = 300 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 									if(Time <= 50)
 										Time = 50
 									usr.DeleteInventoryMenu()
@@ -1843,7 +1843,7 @@ obj
 														BrickNum += 1
 														Bricks += B
 												if(BrickNum == 4 && O && usr.Job == "CreateStoneStair")
-													var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+													var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 													usr.Job = null
 													usr.MovementCheck()
 													if(Fail)
@@ -1853,14 +1853,14 @@ obj
 																BrickNum -= 1
 																usr.Weight -= I.Weight
 																del(I)
-														usr.MasonarySkill += usr.MasonarySkillMulti / 2
+														usr.MasonrySkill += usr.MasonrySkillMulti / 2
 														usr.BuildingSkill += usr.BuildingSkillMulti / 2
 														usr.GainStats(3,"Yes")
 														return
 													var/obj/Misc/StairsDown/S = new
 													S.loc = src.loc
 													S.Dura += usr.BuildingSkill
-													S.Dura += usr.MasonarySkill
+													S.Dura += usr.MasonrySkill
 													var/obj/X = new
 													if(S.z == 1)
 														X.loc = locate(S.x,S.y,3)
@@ -1879,7 +1879,7 @@ obj
 															BrickNum -= 1
 															usr.Weight -= I.Weight
 															del(I)
-													usr.MasonarySkill += usr.MasonarySkillMulti
+													usr.MasonrySkill += usr.MasonrySkillMulti
 													usr.BuildingSkill += usr.BuildingSkillMulti
 													usr.GainStats(2,"Yes")
 													view(usr) << "<font color = yellow>[usr] finishes creating a stone stairs!<br>"
@@ -1927,7 +1927,7 @@ obj
 										spawn(Time)
 											if(usr)
 												if(src in range(1,usr))
-													if(usr.Job == "Fill" && usr.CantDoTask == 0)
+													if(usr.Job == "Fill" && usr.CannotDoTask == 0)
 														usr.Job = null
 														usr.MiningSkill += usr.MiningSkillMulti / 2
 														usr.GainStats(3)
@@ -1964,16 +1964,16 @@ obj
 						usr.InWater = 0
 				if(usr.Function == "Combat" && src.suffix == "Stuck" && usr.Job == null)
 					if(usr in range(1,src))
-						if(usr.CantDoTask)
-							usr << "<font color = red>Cant attack that for a while!<br>"
+						if(usr.CannotDoTask)
+							usr << "<font color = red>Cannot attack that for a while!<br>"
 							return
 						view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src]!<br>"
 						usr.Job = "SmashStair"
 						usr.CanMove = 0
-						usr.CantDoTask = 1
+						usr.CannotDoTask = 1
 						spawn(150)
 							if(usr)
-								usr.CantDoTask = 0
+								usr.CannotDoTask = 0
 						var/LOC = usr.loc
 						var/Time = 300 - usr.Agility / 2
 						if(Time <= 50)
@@ -1991,7 +1991,7 @@ obj
 										W.Dura -= rand(0.1,2)
 										if(W.ObjectType == "Blunt")
 											DMG += 10
-										if(W.TwoHander && usr.Weapon2 == null)
+										if(W.TwoHanded && usr.Weapon2 == null)
 											DMG += W.Weight / 2
 										usr.CheckWeaponDura(W)
 								if(usr.Weapon2)
@@ -2003,7 +2003,7 @@ obj
 										W.Dura -= rand(0.1,2)
 										if(W.ObjectType == "Blunt")
 											DMG += 10
-										if(W.TwoHander && usr.Weapon == null)
+										if(W.TwoHanded && usr.Weapon == null)
 											DMG += W.Weight / 2
 										usr.CheckWeaponDura(W)
 								if(Holding == 2)
@@ -2014,8 +2014,8 @@ obj
 								usr.Job = null
 								usr.MovementCheck()
 								var/WontDamage = 75 - DMG
-								var/CantDamage = prob(WontDamage)
-								if(DMG >= 0 && CantDamage != 1)
+								var/CannotDamage = prob(WontDamage)
+								if(DMG >= 0 && CannotDamage != 1)
 									src.Dura -= DMG
 									if(src.Dura <= 0)
 										range(src) << "<font color = red>[src] begins to crumble and fall away as [usr] smashes it!<br>"
@@ -2064,16 +2064,16 @@ obj
 						usr.InWater = 0
 				if(usr.Function == "Combat" && src.suffix == "Stuck" && usr.Job == null)
 					if(usr in range(1,src))
-						if(usr.CantDoTask)
-							usr << "<font color = red>Cant attack that for a while!<br>"
+						if(usr.CannotDoTask)
+							usr << "<font color = red>Cannot attack that for a while!<br>"
 							return
 						view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src]!<br>"
 						usr.Job = "SmashStair"
 						usr.CanMove = 0
-						usr.CantDoTask = 1
+						usr.CannotDoTask = 1
 						spawn(150)
 							if(usr)
-								usr.CantDoTask = 0
+								usr.CannotDoTask = 0
 						var/LOC = usr.loc
 						var/Time = 300 - usr.Agility / 2
 						if(Time <= 50)
@@ -2091,7 +2091,7 @@ obj
 										W.Dura -= rand(0.1,2)
 										if(W.ObjectType == "Blunt")
 											DMG += 10
-										if(W.TwoHander && usr.Weapon2 == null)
+										if(W.TwoHanded && usr.Weapon2 == null)
 											DMG += W.Weight / 2
 										usr.CheckWeaponDura(W)
 								if(usr.Weapon2)
@@ -2103,7 +2103,7 @@ obj
 										W.Dura -= rand(0.1,2)
 										if(W.ObjectType == "Blunt")
 											DMG += 10
-										if(W.TwoHander && usr.Weapon == null)
+										if(W.TwoHanded && usr.Weapon == null)
 											DMG += W.Weight / 2
 										usr.CheckWeaponDura(W)
 								if(Holding == 2)
@@ -2114,8 +2114,8 @@ obj
 								usr.Job = null
 								usr.MovementCheck()
 								var/WontDamage = 75 - DMG
-								var/CantDamage = prob(WontDamage)
-								if(DMG >= 0 && CantDamage != 1)
+								var/CannotDamage = prob(WontDamage)
+								if(DMG >= 0 && CannotDamage != 1)
 									src.Dura -= DMG
 									if(src.Dura <= 0)
 										range(src) << "<font color = red>[src] begins to crumble and fall away as [usr] smashes it!<br>"
@@ -2933,10 +2933,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				WoodenBow
 					icon = 'weapons.dmi'
@@ -3110,7 +3110,7 @@ obj
 						if(src.suffix == "Carried")
 							if(src in usr)
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.CurrentHand == "Right")
 									if(usr.Weapon == null)
@@ -3132,7 +3132,7 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 								if(usr.CurrentHand == "Left")
 									if(usr.Weapon2 == null)
@@ -3154,7 +3154,7 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 						if(src.suffix == "Equip")
 							if(src in usr)
@@ -3239,10 +3239,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				Trident
 					icon = 'weapons.dmi'
@@ -3262,7 +3262,7 @@ obj
 					EquipState = "spear"
 					CarryState = "spear"
 					CanBeCrafted = 1
-					TwoHander = 1
+					TwoHanded = 1
 					Weight = 4
 					BaseMaterial = "Metal"
 					New()
@@ -3366,7 +3366,7 @@ obj
 									return
 								usr.MovementCheck()
 								if(usr.CanMove)
-									usr.CreateMasonaryMenu(O)
+									usr.CreateMasonryMenu(O)
 								return
 							if(O.Type == "Ingot")
 								if(src.suffix != "Equip")
@@ -3538,7 +3538,7 @@ obj
 						if(src.suffix == "Carried")
 							if(src in usr)
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.CurrentHand == "Right")
 									if(usr.Weapon == null)
@@ -3560,7 +3560,7 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 								if(usr.CurrentHand == "Left")
 									if(usr.Weapon2 == null)
@@ -3582,7 +3582,7 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 						if(src.suffix == "Equip")
 							if(src in usr)
@@ -3667,10 +3667,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				InquisitorsMaul
 					icon = 'weapons.dmi'
@@ -3683,7 +3683,7 @@ obj
 					Dura = 100
 					ItemLayer = 7
 					Quality = 18
-					TwoHander = 1
+					TwoHanded = 1
 					Delete = 1
 					Material = "Silver"
 					New()
@@ -3700,7 +3700,7 @@ obj
 					Dura = 100
 					Quality = 15
 					Delete = 1
-					TwoHander = 1
+					TwoHanded = 1
 					Material = "Silver"
 					New()
 						src.icon_state = src.CarryState
@@ -3727,7 +3727,7 @@ obj
 					DamageType = "Blunt"
 					Type = "Shovel"
 					CanBeCrafted = 1
-					TwoHander = 1
+					TwoHanded = 1
 					Weight = 4
 					BaseMaterial = "Metal"
 					New()
@@ -3765,7 +3765,7 @@ obj
 					CarryState = "maul"
 					DamageType = "Blunt"
 					CanBeCrafted = 1
-					TwoHander = 1
+					TwoHanded = 1
 					BaseMaterial = "Metal"
 					Weight = 8
 					New()
@@ -3779,7 +3779,7 @@ obj
 					CarryState = "maul2"
 					DamageType = "Blunt"
 					CanBeCrafted = 1
-					TwoHander = 1
+					TwoHanded = 1
 					Weight = 8
 					BaseMaterial = "Metal"
 					New()
@@ -3931,7 +3931,7 @@ obj
 						if(src.suffix == "Carried")
 							if(src in usr)
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.CurrentHand == "Right")
 									if(usr.Weapon == null)
@@ -3953,7 +3953,7 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 								if(usr.CurrentHand == "Left")
 									if(usr.Weapon2 == null)
@@ -3975,7 +3975,7 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 						if(src.suffix == "Equip")
 							if(src in usr)
@@ -4060,10 +4060,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				PickAxe
 					icon = 'tools.dmi'
@@ -4075,7 +4075,7 @@ obj
 					ItemLayer = 7
 					CanBeCrafted = 1
 					Quality = 5
-					TwoHander = 1
+					TwoHanded = 1
 					Weight = 7
 					BaseMaterial = "Metal"
 					New()
@@ -4102,7 +4102,7 @@ obj
 					CarryState = "doubleaxe"
 					ItemLayer = 7
 					CanBeCrafted = 1
-					TwoHander = 1
+					TwoHanded = 1
 					Weight = 8
 					BaseMaterial = "Metal"
 					New()
@@ -4268,13 +4268,13 @@ obj
 						if(src.suffix == "Carried")
 							if(src in usr)
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.CurrentHand == "Right")
 									if(usr.Weapon == null)
 										if(usr.Weapon2)
 											var/obj/W = usr.Weapon2
-											if(W.ObjectTag == "Weapon" && W.TwoHander)
+											if(W.ObjectTag == "Weapon" && W.TwoHanded)
 												usr << "<font color = red>You can not dual wield when using large two handed swords!<br>"
 												return
 										if(usr.RightArm >= 25)
@@ -4289,13 +4289,13 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 								if(usr.CurrentHand == "Left")
 									if(usr.Weapon2 == null)
 										if(usr.Weapon)
 											var/obj/W = usr.Weapon
-											if(W.ObjectTag == "Weapon" && W.TwoHander)
+											if(W.ObjectTag == "Weapon" && W.TwoHanded)
 												usr << "<font color = red>You can not dual wield when using large two handed swords!<br>"
 												return
 										if(usr.LeftArm >= 25)
@@ -4310,7 +4310,7 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 						if(src.suffix == "Equip")
 							if(src in usr)
@@ -4395,10 +4395,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				Dagger
 					icon = 'weapons.dmi'
@@ -4589,16 +4589,16 @@ obj
 						if(src.suffix == "Carried")
 							if(src in usr)
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.CurrentHand == "Right")
 									if(usr.Weapon == null)
 										if(usr.Weapon2)
 											var/obj/W = usr.Weapon2
-											if(W.ObjectTag == "Weapon" && W.TwoHander)
+											if(W.ObjectTag == "Weapon" && W.TwoHanded)
 												usr << "<font color = red>You can not dual wield when using large two handed swords!<br>"
 												return
-											if(W.ObjectTag == "Weapon" && src.TwoHander)
+											if(W.ObjectTag == "Weapon" && src.TwoHanded)
 												usr << "<font color = red>You can not dual wield when using large two handed swords!<br>"
 												return
 											if(W.ObjectTag == "Weapon" && W.ObjectType == "Axe")
@@ -4621,16 +4621,16 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 								if(usr.CurrentHand == "Left")
 									if(usr.Weapon2 == null)
 										if(usr.Weapon)
 											var/obj/W = usr.Weapon
-											if(W.ObjectTag == "Weapon" && W.TwoHander)
+											if(W.ObjectTag == "Weapon" && W.TwoHanded)
 												usr << "<font color = red>You can not dual wield when using large two handed swords!<br>"
 												return
-											if(W.ObjectTag == "Weapon" && src.TwoHander)
+											if(W.ObjectTag == "Weapon" && src.TwoHanded)
 												usr << "<font color = red>You can not dual wield when using large two handed swords!<br>"
 												return
 											if(W.ObjectTag == "Weapon" && W.ObjectType == "Axe")
@@ -4653,7 +4653,7 @@ obj
 											usr.CreateInventory()
 											return
 										else
-											usr << "<font color =red>You cant do that with a damaged arm!<br>"
+											usr << "<font color =red>can notdo that with a damaged arm!<br>"
 											return
 						if(src.suffix == "Equip")
 							if(src in usr)
@@ -4738,10 +4738,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				DemonicSword
 					icon = 'weapons.dmi'
@@ -4762,7 +4762,7 @@ obj
 					EquipState = "broadsword"
 					CarryState = "broadsword"
 					CanBeCrafted = 1
-					TwoHander = 1
+					TwoHanded = 1
 					Weight = 8
 					BaseMaterial = "Metal"
 					New()
@@ -4923,10 +4923,10 @@ obj
 								view() << "<b>[usr] picks up [src]<br>"
 								return
 							else
-								usr << "<b>You cant carry too much weight!<br>"
+								usr << "<b>can notcarry too much weight!<br>"
 								return
 						else
-							usr << "<b>You cant pick that item up!<br>"
+							usr << "<b>can notpick that item up!<br>"
 							return
 		Body
 			Fuel = 90
@@ -4961,7 +4961,7 @@ obj
 									usr << "<font color = red>Equip the dagger first before trying to skin anything!<br>"
 									return
 								if(R.Dura <= 1)
-									usr << "<font color = red>This dagger is broken, you cant use it for skinning!!<br>"
+									usr << "<font color = red>This dagger is broken, you can not use it for skinning!<br>"
 									return
 								CanSkin = 1
 							else
@@ -5028,7 +5028,7 @@ obj
 									usr << "<font color = red>Equip a weapon first before trying to butcher anything!<br>"
 									return
 								if(R.Dura <= 1)
-									usr << "<font color = red>This weapon is broken, you cant use it for butchery!!<br>"
+									usr << "<font color = red>This weapon is broken, you can not use it for butchery!<br>"
 									return
 							if(usr.Dead == 0 && usr.Job == null)
 								var/Loc = usr.loc
@@ -5177,7 +5177,7 @@ obj
 								del(src)
 								return
 							else
-								usr << "<font color = red>You dont feel quite hungry enough to eat an entire corpse! (33 Hunger needed.)<br>"
+								usr << "<font color = red>You do not feel quite hungry enough to eat an entire corpse! (33 Hunger needed.)<br>"
 								return
 				if(usr.Function == "Pull")
 					if(src in range(1,usr))
@@ -5219,10 +5219,10 @@ obj
 					if(usr.Function == "Interact")
 						if(src in range(1,usr))
 							if(usr.Fainted)
-								usr << "<font color =red>You have fainted and cant do that!<br>"
+								usr << "<font color =red>You have fainted and can not do that!<br>"
 								return
 							if(usr.Stunned)
-								usr << "<font color =red>You are stunned and cant do that!<br>"
+								usr << "<font color =red>You are stunned and can not do that!<br>"
 								return
 							if(usr.Weapon)
 								var/obj/I = usr.Weapon
@@ -5521,11 +5521,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								var/HasLeg = 0
 								if(usr.LeftLeg)
@@ -5618,10 +5618,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				GiantLeatherLeggings
 					icon = 'equipment.dmi'
@@ -5631,7 +5631,7 @@ obj
 					DefenceType = "Leather"
 					Material = "Leather"
 					ItemLayer = 4.3
-					CantRaces = list("Human","Ratling","Alther","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Human","Ratling","Alther","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
 					CanBeCrafted = 1
 					Dura = 100
 					Fuel = 75
@@ -5646,7 +5646,7 @@ obj
 					CarryState = "leather pants"
 					DefenceType = "Leather"
 					Material = "Leather"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
 					ItemLayer = 4.3
 					Defence = 3
 					CanBeCrafted = 1
@@ -5662,7 +5662,7 @@ obj
 					EquipState = "rat chainlegs"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Giant","Cyclops","Stahlite","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Stahlite","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.3
 					CanBeCrafted = 1
 					Weight = 4
@@ -5676,7 +5676,7 @@ obj
 					EquipState = "chainlegs"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
 					ItemLayer = 4.3
 					CanBeCrafted = 1
 					Weight = 7
@@ -5690,7 +5690,7 @@ obj
 					EquipState = "giant chainlegs"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.3
 					CanBeCrafted = 1
 					Weight = 10
@@ -5704,7 +5704,7 @@ obj
 					EquipState = "small chainlegs"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.3
 					CanBeCrafted = 1
 					Weight = 5
@@ -5773,11 +5773,11 @@ obj
 									return
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
-							if(usr.Race in src.CantRaces)
-								usr << "<font color = red>Your race cant wear that item!<br>"
+							if(usr.Race in src.CannotRaces)
+								usr << "<font color = red>Your race can not wear that item!<br>"
 								return
 							if(src.Dura <= 0)
-								usr << "<font color = red>[src] is broken, you cant use that!<br>"
+								usr << "<font color = red>[src] is broken, you can not use that!<br>"
 								return
 							if(src in usr)
 								if(usr.WWaist == null)
@@ -5838,10 +5838,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				SmallPlateBelt
 					icon = 'equipment.dmi'
@@ -5849,7 +5849,7 @@ obj
 					EquipState = "small platebelt"
 					CarryState = "small platebelt"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Illithid")
 					ItemLayer = 4.4
 					Weight = 3
 					CanBeCrafted = 1
@@ -5863,7 +5863,7 @@ obj
 					EquipState = "priest belt"
 					CarryState = "inquisitor priest belt"
 					Weight = 3
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
 					DefenceType = "Plate"
 					Dura = 100
 					ItemLayer = 4.6
@@ -6133,11 +6133,11 @@ obj
 									return
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
-							if(usr.Race in src.CantRaces)
-								usr << "<font color = red>Your race cant wear that item!<br>"
+							if(usr.Race in src.CannotRaces)
+								usr << "<font color = red>Your race can not wear that item!<br>"
 								return
 							if(src.Dura <= 0)
-								usr << "<font color = red>[src] is broken, you cant use that!<br>"
+								usr << "<font color = red>[src] is broken, you can not use that!<br>"
 								return
 							if(src in usr)
 								if(usr.WShoulders == null)
@@ -6226,10 +6226,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				PriestsPauldrons
 					icon = 'equipment.dmi'
@@ -6239,7 +6239,7 @@ obj
 					Weight = 15
 					DefenceType = "Plate"
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.7
 					Defence = 20
 					Delete = 1
@@ -6255,7 +6255,7 @@ obj
 					Weight = 5
 					DefenceType = "Chain"
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 5
 					Defence = 4
 					Material = "Bone"
@@ -6271,7 +6271,7 @@ obj
 					Weight = 20
 					DefenceType = "Plate"
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.6
 					Defence = 20
 					Delete = 1
@@ -6285,7 +6285,7 @@ obj
 					EquipState = "small shoulders"
 					CarryState = "small shoulders"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Illithid")
 					ItemLayer = 4.7
 					CanBeCrafted = 1
 					Weight = 7
@@ -6299,7 +6299,7 @@ obj
 					EquipState = "rat shoulders"
 					CarryState = "rat shoulders"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 5
 					CanBeCrafted = 1
 					Weight = 6
@@ -6313,7 +6313,7 @@ obj
 					EquipState = "shoulders"
 					CarryState = "shoulders"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman")
 					ItemLayer = 4.7
 					Weight = 10
 					CanBeCrafted = 1
@@ -6663,11 +6663,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.LeftArm)
 									if(usr.WLeftHand == null)
@@ -6756,10 +6756,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				BoneLeftGauntlet
 					icon = 'equipment.dmi'
@@ -6769,7 +6769,7 @@ obj
 					DefenceType = "Chain"
 					Weight = 1
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					Defence = 3
 					Material = "Bone"
@@ -6784,7 +6784,7 @@ obj
 					CarryState = "leather glove left"
 					DefenceType = "Leather"
 					Material = "Leather"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Defence = 3
@@ -6800,7 +6800,7 @@ obj
 					CarryState = "priest gauntlet L"
 					DefenceType = "Plate"
 					Weight = 8
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					Dura = 100
 					ItemLayer = 4.5
 					Defence = 20
@@ -6817,7 +6817,7 @@ obj
 					DefenceType = "Plate"
 					Weight = 8
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					Defence = 20
 					Delete = 1
@@ -6831,7 +6831,7 @@ obj
 					EquipState = "rat plateglove left"
 					CarryState = "rat plateglove left"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -6845,7 +6845,7 @@ obj
 					EquipState = "small plateglove left"
 					CarryState = "small plateglove left"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -6859,7 +6859,7 @@ obj
 					EquipState = "plateglove left"
 					CarryState = "plateglove left"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -6873,7 +6873,7 @@ obj
 					EquipState = "giant chainleft glove"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -6887,7 +6887,7 @@ obj
 					EquipState = "giant plateglove left"
 					CarryState = "giant plateglove left"
 					DefenceType = "Plate"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -7237,11 +7237,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.RightArm)
 									if(usr.WRightHand == null)
@@ -7263,7 +7263,7 @@ obj
 											usr.Corruption()
 										return
 						if(src.suffix == "Fused")
-							usr << "<font color = red>You try to pull the [src] off, but its no use, its fused to your body and wont budge!<br>"
+							usr << "<font color = red>You try to pull the [src] off, but its no use, its fused to your body and won't budge!<br>"
 							return
 						if(src.suffix == "Equip")
 							if(src in usr)
@@ -7340,10 +7340,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				BoneRightGauntlet
 					icon = 'equipment.dmi'
@@ -7353,7 +7353,7 @@ obj
 					DefenceType = "Chain"
 					Weight = 1
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					Defence = 3
 					Material = "Bone"
@@ -7368,7 +7368,7 @@ obj
 					CarryState = "leather glove right"
 					DefenceType = "Leather"
 					Material = "Leather"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Defence = 3
@@ -7384,7 +7384,7 @@ obj
 					CarryState = "priest gauntlet R"
 					DefenceType = "Plate"
 					Weight = 1
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					Dura = 100
 					ItemLayer = 4.5
 					Defence = 20
@@ -7402,7 +7402,7 @@ obj
 					Type = "Corruption"
 					Weight = 10
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
 					ItemLayer = 4.5
 					Defence = 1
 					BaseMaterial = "Metal"
@@ -7419,7 +7419,7 @@ obj
 					Weight = 2
 					Dura = 100
 					ItemLayer = 4.5
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					Defence = 20
 					Delete = 1
 					BaseMaterial = "Metal"
@@ -7432,7 +7432,7 @@ obj
 					EquipState = "giant chainright glove"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -7446,7 +7446,7 @@ obj
 					EquipState = "giant plateglove right"
 					CarryState = "giant plateglove right"
 					DefenceType = "Plate"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -7460,7 +7460,7 @@ obj
 					EquipState = "small plateglove right"
 					CarryState = "small plateglove right"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -7474,7 +7474,7 @@ obj
 					EquipState = "rat plateglove right"
 					CarryState = "rat plateglove right"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -7488,7 +7488,7 @@ obj
 					EquipState = "plateglove right"
 					CarryState = "plateglove right"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -7838,11 +7838,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.RightLeg)
 									if(usr.WRightFoot == null)
@@ -7931,10 +7931,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				BoneBootRight
 					icon = 'equipment.dmi'
@@ -7945,7 +7945,7 @@ obj
 					Weight = 1
 					Dura = 100
 					ItemLayer = 4.6
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					Defence = 3
 					Dura = 100
 					Material = "Bone"
@@ -7960,7 +7960,7 @@ obj
 					CarryState = "leather boot right"
 					DefenceType = "Leather"
 					Material = "Leather"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
 					ItemLayer = 4.6
 					Defence = 3
 					CanBeCrafted = 1
@@ -7977,7 +7977,7 @@ obj
 					CarryState = "inquisitor priest boot R"
 					DefenceType = "Plate"
 					Weight = 8
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
 					Dura = 100
 					ItemLayer = 4.6
 					Defence = 20
@@ -7994,7 +7994,7 @@ obj
 					CarryState = "inquisitor boots right"
 					DefenceType = "Plate"
 					Weight = 8
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
 					Dura = 100
 					ItemLayer = 4.6
 					Defence = 20
@@ -8010,7 +8010,7 @@ obj
 					EquipState = "giant chainright boot"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8024,7 +8024,7 @@ obj
 					EquipState = "giant plateboot right"
 					CarryState = "giant plateboot right"
 					DefenceType = "Plate"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8038,7 +8038,7 @@ obj
 					EquipState = "small plateboot right"
 					CarryState = "small plateboot right"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8052,7 +8052,7 @@ obj
 					EquipState = "rat plateboot right"
 					CarryState = "rat plateboot right"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8066,7 +8066,7 @@ obj
 					EquipState = "plateboot right"
 					CarryState = "plateboot right"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8416,11 +8416,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.LeftLeg)
 									if(usr.WLeftFoot == null)
@@ -8509,10 +8509,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				BoneBootLeft
 					icon = 'equipment.dmi'
@@ -8523,7 +8523,7 @@ obj
 					Weight = 1
 					Dura = 100
 					ItemLayer = 4.6
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					Defence = 3
 					Material = "Bone"
 					CanBeCrafted = 1
@@ -8543,7 +8543,7 @@ obj
 					Dura = 100
 					Fuel = 75
 					Weight = 1
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman")
 					New()
 						src.icon_state = src.CarryState
 						src.layer = 4
@@ -8556,7 +8556,7 @@ obj
 					Weight = 8
 					Dura = 100
 					ItemLayer = 4.6
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
 					Defence = 20
 					Delete = 1
 					BaseMaterial = "Metal"
@@ -8572,7 +8572,7 @@ obj
 					Weight = 8
 					Dura = 100
 					ItemLayer = 4.6
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Snakeman","Illithid")
 					Defence = 20
 					Delete = 1
 					BaseMaterial = "Metal"
@@ -8585,7 +8585,7 @@ obj
 					EquipState = "giant chainleft boot"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8599,7 +8599,7 @@ obj
 					EquipState = "giant plateboot left"
 					CarryState = "giant plateboot left"
 					DefenceType = "Plate"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8613,7 +8613,7 @@ obj
 					EquipState = "rat plateboot left"
 					CarryState = "rat plateboot left"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8627,7 +8627,7 @@ obj
 					EquipState = "small plateboot left"
 					CarryState = "small plateboot left"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8641,7 +8641,7 @@ obj
 					EquipState = "plateboot left"
 					CarryState = "plateboot left"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Snakeman","Illithid")
 					ItemLayer = 4.6
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -8832,7 +8832,7 @@ obj
 						if(src.suffix == "Carried")
 							if(src in usr)
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.CurrentHand == "Right")
 									if(usr.RightArm <= 25)
@@ -8957,10 +8957,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				WoodenBuckler
 					icon = 'shields.dmi'
@@ -9161,11 +9161,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.WExtra == null)
 									src.layer = src.ItemLayer
@@ -9223,10 +9223,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				LeatherQuiver
 					icon = 'equipment.dmi'
@@ -9316,11 +9316,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.WBack == null)
 									src.layer = src.ItemLayer
@@ -9333,7 +9333,7 @@ obj
 									usr.DeleteInventoryMenu()
 									usr.CreateInventory()
 									if(src.Type == "Conceals")
-										usr.OrginalName = usr.name
+										usr.OriginalName = usr.name
 										usr.name = "Unknown"
 										usr.StoredFaction = usr.Faction
 										usr.Faction = "None"
@@ -9351,9 +9351,9 @@ obj
 									src.layer = 20
 									usr.DeleteInventoryMenu()
 									usr.CreateInventory()
-									if(usr.OrginalName)
-										usr.name = usr.OrginalName
-										usr.OrginalName = null
+									if(usr.OriginalName)
+										usr.name = usr.OriginalName
+										usr.OriginalName = null
 									if(usr.StoredFaction)
 										usr.Faction = usr.StoredFaction
 										usr.StoredFaction = null
@@ -9387,10 +9387,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				SmallClothCloak
 					icon = 'clothes.dmi'
@@ -9400,7 +9400,7 @@ obj
 					DefenceType = "Cloth"
 					Type = "Conceals"
 					Weight = 1
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Wolfman","Snakeman","Illithid")
 					Dura = 100
 					ItemLayer = 4.9
 					Defence = 1
@@ -9415,7 +9415,7 @@ obj
 					DefenceType = "Cloth"
 					Type = "Conceals"
 					Weight = 2
-					CantRaces = list("Giant","Cyclops")
+					CannotRaces = list("Giant","Cyclops")
 					Dura = 100
 					ItemLayer = 4.9
 					Defence = 1
@@ -9429,7 +9429,7 @@ obj
 					CarryState = "folded cloth"
 					DefenceType = "Cloth"
 					Weight = 1
-					CantRaces = list("Stahlite","Giant","Cyclops","Human","Frogman","Alther","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Giant","Cyclops","Human","Frogman","Alther","Wolfman","Snakeman","Illithid")
 					Dura = 100
 					Fuel = 50
 					ItemLayer = 4.9
@@ -9444,7 +9444,7 @@ obj
 					CarryState = "folded cloth"
 					DefenceType = "Cloth"
 					Weight = 1
-					CantRaces = list("Giant","Cyclops","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Stahlite")
 					Dura = 100
 					Fuel = 50
 					ItemLayer = 4.9
@@ -9633,11 +9633,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.WChest == null)
 									src.layer = src.ItemLayer
@@ -9710,10 +9710,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				KingsRobe
 					icon = 'clothes.dmi'
@@ -9724,7 +9724,7 @@ obj
 					Weight = 1
 					Dura = 100
 					Fuel = 50
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.5
 					Defence = 1
 					New()
@@ -9739,7 +9739,7 @@ obj
 					Weight = 1
 					Dura = 100
 					Fuel = 50
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.5
 					Defence = 1
 					New()
@@ -9754,7 +9754,7 @@ obj
 					Weight = 1
 					Dura = 100
 					Fuel = 50
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.5
 					Defence = 1
 					New()
@@ -9769,7 +9769,7 @@ obj
 					Weight = 1
 					Dura = 100
 					Fuel = 50
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.5
 					Defence = 1
 					New()
@@ -9784,7 +9784,7 @@ obj
 					Weight = 1
 					Dura = 100
 					Fuel = 50
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.5
 					Defence = 1
 					New()
@@ -9796,7 +9796,7 @@ obj
 					EquipState = "chainshirt"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.3
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -9810,7 +9810,7 @@ obj
 					EquipState = "giant chainshirt"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman")
+					CannotRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman")
 					ItemLayer = 4.3
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -9824,7 +9824,7 @@ obj
 					EquipState = "rat chainshirt"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Giant","Cyclops","Stahlite","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Stahlite","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.3
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -9838,7 +9838,7 @@ obj
 					EquipState = "small chainshirt"
 					CarryState = "folded chain"
 					DefenceType = "Chain"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.3
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -10191,11 +10191,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.WUpperBody == null)
 									src.suffix = "Equip"
@@ -10279,10 +10279,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				BoneChestPlate
 					icon = 'equipment.dmi'
@@ -10292,7 +10292,7 @@ obj
 					DefenceType = "Chain"
 					Weight = 5
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					Defence = 3
 					Material = "Bone"
@@ -10307,7 +10307,7 @@ obj
 					CarryState = "inquisitor priest chestplate"
 					DefenceType = "Plate"
 					Weight = 15
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					Dura = 100
 					ItemLayer = 4.7
 					Defence = 20
@@ -10322,7 +10322,7 @@ obj
 					EquipState = "chest piece"
 					CarryState = "chest piece"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman")
 					ItemLayer = 4.7
 					CanBeCrafted = 1
 					Weight = 7
@@ -10336,7 +10336,7 @@ obj
 					EquipState = "chestplate"
 					CarryState = "chestplate"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Weight = 10
@@ -10350,7 +10350,7 @@ obj
 					EquipState = "giant chestplate"
 					CarryState = "giant chestplate"
 					DefenceType = "Plate"
-					CantRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Stahlite","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Weight = 13
@@ -10364,7 +10364,7 @@ obj
 					EquipState = "small chestplate"
 					CarryState = "small chestplate"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Weight = 7
@@ -10378,7 +10378,7 @@ obj
 					EquipState = "rat chestplate"
 					CarryState = "rat chestplate"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Weight = 6
@@ -10393,7 +10393,7 @@ obj
 					CarryState = "giant leather vest"
 					DefenceType = "Leather"
 					Material = "Leather"
-					CantRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Weight = 2
@@ -10410,7 +10410,7 @@ obj
 					CarryState = "leather vest"
 					DefenceType = "Leather"
 					Material = "Leather"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite")
 					ItemLayer = 4.5
 					Weight = 1
 					CanBeCrafted = 1
@@ -10427,7 +10427,7 @@ obj
 					DefenceType = "Plate"
 					Weight = 20
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					Defence = 20
 					Delete = 1
@@ -10696,11 +10696,11 @@ obj
 					if(usr.Function == "Equip")
 						if(src.suffix == "Carried")
 							if(src in usr)
-								if(usr.Race in src.CantRaces)
-									usr << "<font color = red>Your race cant wear that item!<br>"
+								if(usr.Race in src.CannotRaces)
+									usr << "<font color = red>Your race can not wear that item!<br>"
 									return
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.WHead == null)
 									src.layer = src.ItemLayer
@@ -10798,10 +10798,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 				Turban
 					icon = 'clothes.dmi'
@@ -10811,7 +10811,7 @@ obj
 					DefenceType = "Cloth"
 					Weight = 1
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Snakeman","Illithid")
 					ItemLayer = 4.6
 					Defence = 2
 					BaseMaterial = "Cloth"
@@ -10826,7 +10826,7 @@ obj
 					DefenceType = "Cloth"
 					Weight = 1
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Snakeman","Illithid")
 					ItemLayer = 4.6
 					Defence = 2
 					BaseMaterial = "Cloth"
@@ -10841,7 +10841,7 @@ obj
 					DefenceType = "Plate"
 					Weight = 20
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					Defence = 20
 					Delete = 1
@@ -10857,7 +10857,7 @@ obj
 					DefenceType = "Plate"
 					Weight = 4
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					Defence = 15
 					BaseMaterial = "Metal"
@@ -10874,7 +10874,7 @@ obj
 					DefenceType = "Plate"
 					Weight = 5
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling")
+					CannotRaces = list("Giant","Cyclops","Ratling")
 					ItemLayer = 4.9
 					Defence = 15
 					BaseMaterial = "Metal"
@@ -10891,7 +10891,7 @@ obj
 					DefenceType = "Plate"
 					Weight = 6
 					Dura = 100
-					CantRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.9
 					Defence = 15
 					BaseMaterial = "Metal"
@@ -10908,7 +10908,7 @@ obj
 					DefenceType = "Plate"
 					Weight = 22
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Ratling","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					Defence = 20
 					Delete = 1
@@ -10924,7 +10924,7 @@ obj
 					DefenceType = "Chain"
 					Weight = 5
 					Dura = 100
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					Defence = 5
 					Material = "Bone"
@@ -10939,7 +10939,7 @@ obj
 					EquipState = "plate helm5"
 					CarryState = "plate helm5"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					Weight = 10
 					CanBeCrafted = 1
@@ -10954,7 +10954,7 @@ obj
 					EquipState = "plate helm4"
 					CarryState = "plate helm4"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					Weight = 10
 					CanBeCrafted = 1
@@ -10969,7 +10969,7 @@ obj
 					EquipState = "plate helm3"
 					CarryState = "plate helm3"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					Weight = 10
 					CanBeCrafted = 1
@@ -10984,7 +10984,7 @@ obj
 					EquipState = "plate helm2"
 					CarryState = "plate helm2"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					Weight = 10
 					CanBeCrafted = 1
@@ -10998,7 +10998,7 @@ obj
 					EquipState = "plate helm1"
 					CarryState = "plate helm1"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Stahlite","Wolfman","Illithid")
 					ItemLayer = 4.5
 					Weight = 10
 					CanBeCrafted = 1
@@ -11012,7 +11012,7 @@ obj
 					EquipState = "rat plate helm"
 					CarryState = "rat plate helm"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Human","Frogman","Alther","Stahlite","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					Weight = 7
 					CanBeCrafted = 1
@@ -11026,7 +11026,7 @@ obj
 					EquipState = "wolfman plate helm"
 					CarryState = "wolfman plate helm"
 					DefenceType = "Plate"
-					CantRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Giant","Snakeman","Cyclops","Illithid")
+					CannotRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Giant","Snakeman","Cyclops","Illithid")
 					ItemLayer = 4.5
 					Weight = 8
 					CanBeCrafted = 1
@@ -11041,7 +11041,7 @@ obj
 					CarryState = "folded chain"
 					DefenceType = "Chain"
 					ItemLayer = 4.5
-					CantRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Human","Alther","Ratling","Frogman","Stahlite","Wolfman","Snakeman","Illithid")
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
 					Weight = 10
@@ -11054,7 +11054,7 @@ obj
 					EquipState = "small stahlite helm3"
 					CarryState = "small stahlite helm3"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Weight = 7
@@ -11068,7 +11068,7 @@ obj
 					EquipState = "small stahlite helm2"
 					CarryState = "small stahlite helm2"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					Weight = 7
@@ -11082,7 +11082,7 @@ obj
 					EquipState = "small stahlite helm1"
 					CarryState = "small stahlite helm1"
 					DefenceType = "Plate"
-					CantRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
+					CannotRaces = list("Giant","Cyclops","Ratling","Human","Alther","Frogman","Wolfman","Snakeman","Illithid")
 					ItemLayer = 4.5
 					CanBeCrafted = 1
 					BaseMaterial = "Metal"
@@ -11225,10 +11225,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			Cake
 				icon = 'food.dmi'
@@ -11799,7 +11799,7 @@ obj
 									del(src)
 									return
 								else
-									usr << "<font color = red>You cant do that with hurt arms!<br>"
+									usr << "<font color = red>can notdo that with hurt arms!<br>"
 									return
 						if(usr.Function == "Interact")
 							if(usr.Dead == 0)
@@ -12010,10 +12010,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -12112,10 +12112,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -12208,10 +12208,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -12310,10 +12310,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -12417,10 +12417,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -12530,10 +12530,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -12563,10 +12563,10 @@ obj
 				Click()
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src.suffix == null)
 							if(src in range(1,usr))
@@ -12594,7 +12594,7 @@ obj
 										usr.CheckWeaponDura(W)
 										usr.Job = "MakeShards"
 										usr.CanMove = 0
-										var/Time = 150 - usr.MasonarySkill * 2
+										var/Time = 150 - usr.MasonrySkill * 2
 										if(Time <= 20)
 											Time = 20
 										spawn(Time)
@@ -12602,7 +12602,7 @@ obj
 												if(src in range(1,usr))
 													if(usr.Job == "MakeShards")
 														usr.Job = null
-														usr.MasonarySkill += usr.MasonarySkillMulti
+														usr.MasonrySkill += usr.MasonrySkillMulti
 														var/Shards = 2
 														while(Shards)
 															var/obj/Items/Resources/StoneShard/SS = new
@@ -12684,10 +12684,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Interact")
 						usr << "<font color=green>Click another object to interact with this one!<br>"
@@ -12788,10 +12788,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -12888,10 +12888,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -12958,10 +12958,10 @@ obj
 											return
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src.suffix == null)
 							if(src in range(1,usr))
@@ -12989,7 +12989,7 @@ obj
 										usr.CheckWeaponDura(W)
 										usr.Job = "MakeBricks"
 										usr.CanMove = 0
-										var/Time = 150 - usr.MasonarySkill * 2
+										var/Time = 150 - usr.MasonrySkill * 2
 										if(Time <= 20)
 											Time = 20
 										spawn(Time)
@@ -12998,9 +12998,9 @@ obj
 													if(usr.Job == "MakeBricks")
 														usr.Job = null
 														view(usr) << "<font color=yellow>[usr] finishes hammering the large brick into smaller bricks!<br>"
-														usr.MasonarySkill += usr.MasonarySkillMulti
+														usr.MasonrySkill += usr.MasonrySkillMulti
 														var/Bricks = 4
-														var/ExtraBrick = prob(usr.MasonarySkill)
+														var/ExtraBrick = prob(usr.MasonrySkill)
 														if(ExtraBrick)
 															Bricks += rand(1,4)
 														while(Bricks)
@@ -13048,10 +13048,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -13223,10 +13223,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			SpiderWeb
 				icon = 'materials.dmi'
@@ -13344,10 +13344,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			Ash
 				icon = 'materials.dmi'
@@ -13441,10 +13441,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			Branch
 				icon = 'materials.dmi'
@@ -13465,7 +13465,7 @@ obj
 						if(src.suffix == "Carried")
 							if(src in usr)
 								if(src.Dura <= 0)
-									usr << "<font color = red>[src] is broken, you cant use that!<br>"
+									usr << "<font color = red>[src] is broken, you can not use that!<br>"
 									return
 								if(usr.Weapon == null)
 									if(usr.RightArm >= 25)
@@ -13480,7 +13480,7 @@ obj
 										usr.CreateInventory()
 										return
 									else
-										usr << "<font color =red>You cant do that with a damaged arm!<br>"
+										usr << "<font color =red>can notdo that with a damaged arm!<br>"
 										return
 						if(src.suffix == "Equip")
 							if(src in usr)
@@ -13535,10 +13535,10 @@ obj
 											return
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src in usr)
 							usr << "<font color=green>Click another object to interact with this one!<br>"
@@ -13633,10 +13633,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			Stone
 				icon = 'materials.dmi'
@@ -13681,10 +13681,10 @@ obj
 											return
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src.suffix == null)
 							if(src in range(1,usr))
@@ -13712,7 +13712,7 @@ obj
 										usr.CheckWeaponDura(W)
 										usr.Job = "MakeBrick"
 										usr.CanMove = 0
-										var/Time = 150 - usr.MasonarySkill * 2
+										var/Time = 150 - usr.MasonrySkill * 2
 										if(Time <= 20)
 											Time = 20
 										spawn(Time)
@@ -13721,9 +13721,9 @@ obj
 													if(usr.Job == "MakeBrick")
 														usr.Job = null
 														view(usr) << "<font color=yellow>[usr] finishes hammering the stone into a large brick!<br>"
-														usr.MasonarySkill += usr.MasonarySkillMulti
+														usr.MasonrySkill += usr.MasonrySkillMulti
 														var/Bricks = 1
-														var/ExtraBrick = prob(usr.MasonarySkill)
+														var/ExtraBrick = prob(usr.MasonrySkill)
 														if(ExtraBrick)
 															Bricks += 1
 														while(Bricks)
@@ -13852,10 +13852,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			Plank
 				icon = 'materials.dmi'
@@ -13954,10 +13954,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			CampSite
 				icon = 'misc.dmi'
@@ -13968,10 +13968,10 @@ obj
 						if(usr.Function == "Interact")
 							if(src.icon_state == "campfire")
 								if(usr.Fainted)
-									usr << "<font color =red>You have fainted and cant do that!<br>"
+									usr << "<font color =red>You have fainted and can not do that!<br>"
 									return
 								if(usr.Stunned)
-									usr << "<font color =red>You are stunned and cant do that!<br>"
+									usr << "<font color =red>You are stunned and can not do that!<br>"
 									return
 								if(usr.Ref)
 									var/obj/O = usr.Ref
@@ -13986,10 +13986,10 @@ obj
 										return
 							if(src.icon_state == "campsite")
 								if(usr.Fainted)
-									usr << "<font color =red>You have fainted and cant do that!<br>"
+									usr << "<font color =red>You have fainted and can not do that!<br>"
 									return
 								if(usr.Stunned)
-									usr << "<font color =red>You are stunned and cant do that!<br>"
+									usr << "<font color =red>You are stunned and can not do that!<br>"
 									return
 								if(usr.Weapon)
 									var/obj/I = usr.Weapon
@@ -14033,10 +14033,10 @@ obj
 										return
 							if(src.icon_state == "campfire")
 								if(usr.Fainted)
-									usr << "<font color =red>You have fainted and cant do that!<br>"
+									usr << "<font color =red>You have fainted and can not do that!<br>"
 									return
 								if(usr.Stunned)
-									usr << "<font color =red>You are stunned and cant do that!<br>"
+									usr << "<font color =red>You are stunned and can not do that!<br>"
 									return
 								if(usr.Weapon)
 									var/obj/I = usr.Weapon
@@ -14070,10 +14070,10 @@ obj
 				Click()
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src.suffix == null)
 							if(src in range(1,usr))
@@ -14218,10 +14218,10 @@ obj
 									return
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src in range(1,usr))
 							var/obj/W = null
@@ -14296,10 +14296,10 @@ obj
 				Click()
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src in range(1,usr))
 							var/obj/W = null
@@ -14529,10 +14529,10 @@ obj
 									view() << "<b>[usr] picks up some gold coins.<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 		Books_Scrolls
 			icon = 'books.dmi'
@@ -14578,10 +14578,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			Book_of_Order
 				Fuel = 30
@@ -14642,7 +14642,7 @@ obj
 								if(HasOwner && HasOwner.CanBeRevived)
 									view(usr) << "<font color = yellow>[usr] opens their Book of Order, and begins to use its Healing Magics that are written within to revive [B].<br>"
 									if(usr.AstralMagic <= 20)
-										usr.AstralMagic += usr.MagicPotentcy / 100
+										usr.AstralMagic += usr.MagicPotency / 100
 										if(usr.Intelligence <= usr.IntCap && usr.Intelligence <= WorldIntCap && usr.Intelligence <= usr.IntelligenceMax)
 											usr.Intelligence += usr.IntelligenceMulti / 3
 											var/Harm = prob(10)
@@ -14730,10 +14730,10 @@ obj
 											M << "<font color = teal><b>([usr.key])[usr] picks up [src] at [src.x],[src.y],[src.z].<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			Book
 				Fuel = 30
@@ -14793,10 +14793,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			Book_of_Necromancy
 				Fuel = 30
@@ -14858,7 +14858,7 @@ obj
 						if(HasSkull && HasBones)
 							view(usr) << "<font color = purple>[usr] opens their [src] and begins to use its foul power to raise an undead minion!<br>"
 							if(usr.Necromancery <= 20)
-								usr.Necromancery += usr.MagicPotentcy / 100
+								usr.Necromancery += usr.MagicPotency / 100
 								if(usr.Intelligence <= usr.IntCap && usr.Intelligence <= WorldIntCap && usr.Intelligence <= usr.IntelligenceMax)
 									usr.Intelligence += usr.IntelligenceMulti / 3
 								var/Harm = prob(15)
@@ -14934,7 +14934,7 @@ obj
 												HasOwner = M
 									view(usr) << "<font color = purple>[usr] opens their [src] and begins to use its foul power to raise [B] to false life!<br>"
 									if(usr.Necromancery <= 20)
-										usr.Necromancery += usr.MagicPotentcy / 100
+										usr.Necromancery += usr.MagicPotency / 100
 										if(usr.Intelligence <= usr.IntCap && usr.Intelligence <= WorldIntCap && usr.Intelligence <= usr.IntelligenceMax)
 											usr.Intelligence += usr.IntelligenceMulti / 3
 										var/Harm = prob(15)
@@ -15028,10 +15028,10 @@ obj
 											M << "<font color = teal><b>([usr.key])[usr] picks up [src] at [src.x],[src.y],[src.z].<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 		Magical
 			icon = 'magical artifacts.dmi'
@@ -15043,7 +15043,7 @@ obj
 					if(usr.Function == "Interact")
 						if(src in range(1,usr))
 							if(usr.CanInteract == 0)
-								usr << "<font color = red>You cant do that for a while!<br>"
+								usr << "<font color = red>can notdo that for a while!<br>"
 								return
 							if(usr.Sleeping)
 								return
@@ -15101,7 +15101,7 @@ obj
 											if(usr)
 												usr.overlays -= /obj/Misc/SpellEffects/Dispel/
 										view(6,usr) << "<font color = purple>[src] reacts in a negative way. [usr]'s body is wreaked with leathal Magical energies due to lack in skill with the Orb.<br>"
-									usr.AstralMagic += usr.MagicPotentcy / 100
+									usr.AstralMagic += usr.MagicPotency / 100
 									if(usr.Intelligence <= usr.IntCap && usr.Intelligence <= WorldIntCap && usr.Intelligence <= usr.IntelligenceMax)
 										usr.Intelligence += usr.IntelligenceMulti / 3
 								else
@@ -15139,11 +15139,11 @@ obj
 										if(Y <= 1)
 											Y = 1
 										if(src.suffix == "Stuck")
-											var/Cant = 0
+											var/Cannot = 0
 											for(var/turf/T in block(locate(97,45,3),locate(115,38,3)))
 												if(T.x == X && T.y == Y)
-													Cant = 1
-											if(Cant)
+													Cannot = 1
+											if(Cannot)
 												usr << "<font color = red>You are un-able to open a portal there, strange Magics prevent it!<br>"
 												return
 										if(src in range(1,usr))
@@ -15172,8 +15172,8 @@ obj
 									for(var/mob/M in world)
 										if(M.client)
 											menu2 += "[M.name]"
-											if(M.OrginalName)
-												menu2 += "[M.OrginalName]"
+											if(M.OriginalName)
+												menu2 += "[M.OriginalName]"
 											Mobs += M
 									menu2 += "Cancel"
 									var/Result2 = input("Choose someone you want to Locate.", "Choose", null) in menu2
@@ -15184,7 +15184,7 @@ obj
 										for(var/mob/M in Mobs)
 											if(M.name == Result2)
 												Found = M
-											if(M.OrginalName == Result2)
+											if(M.OriginalName == Result2)
 												Found = M
 										if(Found)
 											if(src in range(1,usr))
@@ -15207,8 +15207,8 @@ obj
 									for(var/mob/M in world)
 										if(M.client)
 											menu2 += "[M.name]"
-											if(M.OrginalName)
-												menu2 += "[M.OrginalName]"
+											if(M.OriginalName)
+												menu2 += "[M.OriginalName]"
 											Mobs += M
 									menu2 += "Cancel"
 									var/Result2 = input("Choose someone you want to Telepath.", "Choose", null) in menu2
@@ -15219,12 +15219,12 @@ obj
 										for(var/mob/M in Mobs)
 											if(M.name == Result2)
 												Found = M
-											if(M.OrginalName == Result2)
+											if(M.OriginalName == Result2)
 												Found = M
 										if(Found)
 											if(src in range(1,usr))
 												if(usr.Muted)
-													usr << "<font color =red>You cant talk, your Muted!<br>"
+													usr << "<font color =red>can nottalk, your Muted!<br>"
 													return
 												var/T = input("Telepath - In Character")as null|text
 												if(!T)
@@ -15269,7 +15269,7 @@ obj
 								return
 							else
 								if(usr.AstralMagic <= 20)
-									usr.AstralMagic += usr.MagicPotentcy / 200
+									usr.AstralMagic += usr.MagicPotency / 200
 									if(usr.Intelligence <= usr.IntCap && usr.Intelligence <= WorldIntCap && usr.Intelligence <= usr.IntelligenceMax)
 										usr.Intelligence += usr.IntelligenceMulti / 3
 								usr << "<font color = teal>You failed to activate the balls Magic.<br>"
@@ -15317,10 +15317,10 @@ obj
 									usr << "<font color = teal>[src] seems to react to your touch, glowing slightly.<br><br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 		Misc
 			Skull
@@ -15425,10 +15425,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Combat")
 						var/CanCrush = 0
@@ -15477,7 +15477,7 @@ obj
 								var/LOC = usr.loc
 								usr.Job = "CreateStoneFountain"
 								usr.CanMove = 0
-								var/Time = 200 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+								var/Time = 200 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 								if(Time <= 50)
 									Time = 50
 								usr.DeleteInventoryMenu()
@@ -15499,7 +15499,7 @@ obj
 													BrickNum += 1
 													Bricks += B
 											if(BrickNum == 4 && O && usr.Job == "CreateStoneFountain")
-												var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+												var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 												usr.Job = null
 												usr.MovementCheck()
 												if(Fail)
@@ -15509,19 +15509,19 @@ obj
 															BrickNum -= 1
 															usr.Weight -= I.Weight
 															del(I)
-													usr.MasonarySkill += usr.MasonarySkillMulti / 2
+													usr.MasonrySkill += usr.MasonrySkillMulti / 2
 													usr.GainStats(3,"Yes")
 													return
 												var/obj/W = new src.type(usr.loc)
 												W.Material = O.Material
-												W.Dura += usr.MasonarySkill * 2
+												W.Dura += usr.MasonrySkill * 2
 												W.suffix = null
 												for(var/obj/I in Bricks)
 													if(BrickNum != 0)
 														BrickNum -= 1
 														usr.Weight -= I.Weight
 														del(I)
-												usr.MasonarySkill += usr.MasonarySkillMulti
+												usr.MasonrySkill += usr.MasonrySkillMulti
 												usr.GainStats(2,"Yes")
 												view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 												return
@@ -15586,7 +15586,7 @@ obj
 								var/LOC = usr.loc
 								usr.Job = "CreateOven"
 								usr.CanMove = 0
-								var/Time = 200 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+								var/Time = 200 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 								if(Time <= 50)
 									Time = 50
 								usr.DeleteInventoryMenu()
@@ -15608,7 +15608,7 @@ obj
 													BrickNum += 1
 													Bricks += B
 											if(BrickNum == 12 && O && usr.Job == "CreateOven")
-												var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+												var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 												usr.Job = null
 												usr.MovementCheck()
 												if(Fail)
@@ -15618,18 +15618,18 @@ obj
 															BrickNum -= 1
 															usr.Weight -= I.Weight
 															del(I)
-													usr.MasonarySkill += usr.MasonarySkillMulti / 2
+													usr.MasonrySkill += usr.MasonrySkillMulti / 2
 													usr.GainStats(3,"Yes")
 													return
 												var/obj/W = new src.type(usr.loc)
 												W.Material = O.Material
-												W.Dura += usr.MasonarySkill * 2
+												W.Dura += usr.MasonrySkill * 2
 												for(var/obj/I in Bricks)
 													if(BrickNum != 0)
 														BrickNum -= 1
 														usr.Weight -= I.Weight
 														del(I)
-												usr.MasonarySkill += usr.MasonarySkillMulti
+												usr.MasonrySkill += usr.MasonrySkillMulti
 												usr.GainStats(2,"Yes")
 												view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 												return
@@ -15689,10 +15689,10 @@ obj
 				Click()
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src.Type == "Lit")
 							if(src in range(1,usr))
@@ -15700,7 +15700,7 @@ obj
 									var/obj/R = usr.Ref
 									if(R.Type == "Ore" && R in usr)
 										if(usr.Job == null)
-											view(usr) << "<font color=yellow>[usr] places the [R] into the [src] and begins to smelt it into an ingot!!<br>"
+											view(usr) << "<font color=yellow>[usr] places the [R] into the [src] and begins to smelt it into an ingot!<br>"
 											usr.Job = "MakeIngot"
 											usr.CanMove = 0
 											var/Time = 200 - usr.SmeltingSkill * 2
@@ -15773,7 +15773,7 @@ obj
 								var/LOC = usr.loc
 								usr.Job = "CreateForge"
 								usr.CanMove = 0
-								var/Time = 200 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+								var/Time = 200 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 								if(Time <= 50)
 									Time = 50
 								usr.DeleteInventoryMenu()
@@ -15795,7 +15795,7 @@ obj
 													BrickNum += 1
 													Bricks += B
 											if(BrickNum == 8 && O && usr.Job == "CreateForge")
-												var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+												var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 												usr.Job = null
 												usr.MovementCheck()
 												if(Fail)
@@ -15805,19 +15805,19 @@ obj
 															BrickNum -= 1
 															usr.Weight -= I.Weight
 															del(I)
-													usr.MasonarySkill += usr.MasonarySkillMulti / 2
+													usr.MasonrySkill += usr.MasonrySkillMulti / 2
 													usr.GainStats(3,"Yes")
 													return
 												var/obj/W = new src.type(usr.loc)
 												W.Material = O.Material
-												W.Dura += usr.MasonarySkill * 2
+												W.Dura += usr.MasonrySkill * 2
 												W.suffix = null
 												for(var/obj/I in Bricks)
 													if(BrickNum != 0)
 														BrickNum -= 1
 														usr.Weight -= I.Weight
 														del(I)
-												usr.MasonarySkill += usr.MasonarySkillMulti
+												usr.MasonrySkill += usr.MasonrySkillMulti
 												usr.GainStats(2,"Yes")
 												view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 												return
@@ -15863,10 +15863,10 @@ obj
 						return
 					if(usr.Function == "Interact")
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						if(src.Type == "Lit")
 							if(usr.Weapon)
@@ -16118,10 +16118,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -16328,10 +16328,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -16626,10 +16626,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 			GraveStone
 				icon = 'misc.dmi'
@@ -16710,21 +16710,21 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(src in usr)
 						if(src.suffix == "Carried" && usr.Dead == 0 && usr.Job == null && usr.Fainted == 0 && usr.Stunned == 0 && usr.Sleeping == 0 && usr.Function == "Interact")
 							if(usr.Target)
 								usr << "<font color = red>You have a target, you are busy fighting!<br>"
 								return
-							var/Cant = 0
+							var/Cannot = 0
 							for(var/mob/Z in range(1,usr))
 								if(Z.Target == usr)
-									Cant = 1
-							if(Cant)
+									Cannot = 1
+							if(Cannot)
 								usr << "<font color = red>You are in combat and can not do that!<br>"
 								return
 							var/Arms = 1
@@ -17199,10 +17199,10 @@ obj
 									view() << "<b>[usr] picks up [src]<br>"
 									return
 								else
-									usr << "<b>You cant carry too much weight!<br>"
+									usr << "<b>can notcarry too much weight!<br>"
 									return
 							else
-								usr << "<b>You cant pick that item up!<br>"
+								usr << "<b>can notpick that item up!<br>"
 								return
 					if(usr.Function == "Pull")
 						if(src in range(1,usr))
@@ -17479,7 +17479,7 @@ obj
 								var/LOC = usr.loc
 								usr.Job = "CreateStoneCoffin"
 								usr.CanMove = 0
-								var/Time = 200 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+								var/Time = 200 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 								if(Time <= 50)
 									Time = 50
 								usr.DeleteInventoryMenu()
@@ -17501,7 +17501,7 @@ obj
 													BrickNum += 1
 													Bricks += B
 											if(BrickNum == 3 && O && usr.Job == "CreateStoneCoffin")
-												var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+												var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 												usr.Job = null
 												usr.MovementCheck()
 												if(Fail)
@@ -17511,19 +17511,19 @@ obj
 															BrickNum -= 1
 															usr.Weight -= I.Weight
 															del(I)
-													usr.MasonarySkill += usr.MasonarySkillMulti / 2
+													usr.MasonrySkill += usr.MasonrySkillMulti / 2
 													usr.GainStats(3,"Yes")
 													return
 												var/obj/W = new src.type(usr.loc)
 												W.Material = O.Material
-												W.Dura += usr.MasonarySkill * 2
+												W.Dura += usr.MasonrySkill * 2
 												W.suffix = null
 												for(var/obj/I in Bricks)
 													if(BrickNum != 0)
 														BrickNum -= 1
 														usr.Weight -= I.Weight
 														del(I)
-												usr.MasonarySkill += usr.MasonarySkillMulti
+												usr.MasonrySkill += usr.MasonrySkillMulti
 												usr.GainStats(2,"Yes")
 												view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 												return
@@ -17887,7 +17887,7 @@ obj
 											usr << "<font color = red>You will need one Iron Ingot to Repair this chest!<br>"
 											return
 										if(CanRepair == 0)
-											usr << "<font color = red>Cant Repair with others near!<br>"
+											usr << "<font color = red>Cannot Repair with others near!<br>"
 											return
 										if(src.Dura >= usr.ForgingSkill * 2 + 100)
 											usr << "<font color = red>This chest is beyond your skill to repair!<br>"
@@ -17940,7 +17940,7 @@ obj
 											if(M != usr)
 												CanRepair = 0
 										if(CanRepair == 0)
-											usr << "<font color = red>Cant Repair with others near!<br>"
+											usr << "<font color = red>Cannot Repair with others near!<br>"
 											return
 										if(Lock.Dura >= usr.ForgingSkill * 2)
 											usr << "<font color = red>This lock is beyond your skill to repair!<br>"
@@ -18199,7 +18199,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon2 == null)
+														if(W.TwoHanded && usr.Weapon2 == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(usr.Weapon2)
@@ -18210,7 +18210,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon == null)
+														if(W.TwoHanded && usr.Weapon == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												usr.DetermineWeaponSkill()
@@ -18219,8 +18219,8 @@ obj
 												usr.Job = null
 												usr.MovementCheck()
 												var/WontDamage = 25 - DMG
-												var/CantDamage = prob(WontDamage)
-												if(DMG >= 0 && CantDamage != 1)
+												var/CannotDamage = prob(WontDamage)
+												if(DMG >= 0 && CannotDamage != 1)
 													L.Dura -= DMG
 													if(L.Dura <= 0)
 														usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [L] open<br>")
@@ -18262,7 +18262,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -18273,7 +18273,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											usr.DetermineWeaponSkill()
@@ -18282,8 +18282,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 33 - DMG
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -18449,7 +18449,7 @@ obj
 											usr << "<font color = red>You will need one Wooden Plank to Repair this chest!<br>"
 											return
 										if(CanRepair == 0)
-											usr << "<font color = red>Cant Repair with others near!<br>"
+											usr << "<font color = red>Cannot Repair with others near!<br>"
 											return
 										if(src.Dura >= usr.CarpentrySkill * 2 + 50)
 											usr << "<font color = red>This chest is beyond your skill to repair!<br>"
@@ -18502,7 +18502,7 @@ obj
 											if(M != usr)
 												CanRepair = 0
 										if(CanRepair == 0)
-											usr << "<font color = red>Cant Repair with others near!<br>"
+											usr << "<font color = red>Cannot Repair with others near!<br>"
 											return
 										if(Lock.Dura >= usr.ForgingSkill * 2)
 											usr << "<font color = red>This lock is beyond your skill to repair!<br>"
@@ -18650,7 +18650,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon2 == null)
+														if(W.TwoHanded && usr.Weapon2 == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(usr.Weapon2)
@@ -18661,7 +18661,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon == null)
+														if(W.TwoHanded && usr.Weapon == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												usr.DetermineWeaponSkill()
@@ -18670,8 +18670,8 @@ obj
 												usr.Job = null
 												usr.MovementCheck()
 												var/WontDamage = 25 - DMG
-												var/CantDamage = prob(WontDamage)
-												if(DMG >= 0 && CantDamage != 1)
+												var/CannotDamage = prob(WontDamage)
+												if(DMG >= 0 && CannotDamage != 1)
 													L.Dura -= DMG
 													if(L.Dura <= 0)
 														range(src) << "<font color = red>[src] makes a loud creaking noise as the [L] inside it breaks away after [usr] attacks it!<br>"
@@ -18714,7 +18714,7 @@ obj
 														DMG += 15
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -18727,7 +18727,7 @@ obj
 														DMG += 15
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											usr.DetermineWeaponSkill()
@@ -18736,8 +18736,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 25 - DMG
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -19154,7 +19154,7 @@ obj
 												usr << "<font color = red>You will need one Iron Ingot to Repair this gate!<br>"
 												return
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(src.Dura >= usr.ForgingSkill * 2 + 300)
 												usr << "<font color = red>This gate is beyond your skill to repair!<br>"
@@ -19177,7 +19177,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Gate" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Gate" && usr.CannotDoTask == 0)
 															HasIngot = 0
 															for(var/obj/Items/Resources/Ingot/I in usr)
 																usr.Weight -= I.Weight
@@ -19336,16 +19336,16 @@ obj
 								if (Result == "Cancel")
 									return
 								if (Result == "Attack Gate")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src] down!<br>"
 									usr.Job = "SmashGate"
 									usr.CanMove = 0
-									usr.CantDoTask = 1
+									usr.CannotDoTask = 1
 									spawn(150)
 										if(usr)
-											usr.CantDoTask = 0
+											usr.CannotDoTask = 0
 									var/LOC = usr.loc
 									var/Time = 150 - usr.Agility / 2
 									if(Time <= 10)
@@ -19362,7 +19362,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -19373,7 +19373,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(Holding == 2)
@@ -19384,8 +19384,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 75 - usr.Strength
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -19500,10 +19500,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Interact")
 							var/CanOpen = 0
@@ -19645,10 +19645,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Interact")
 							if(usr in range(1,src))
@@ -19714,9 +19714,9 @@ obj
 												usr << "<font color = red>You will need one Small Brick to Repair this door!<br>"
 												return
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
-											if(src.Dura >= usr.MasonarySkill * 2 + 400)
+											if(src.Dura >= usr.MasonrySkill * 2 + 400)
 												usr << "<font color = red>This door is beyond your skill to repair!<br>"
 												return
 											var/LOC = usr.loc
@@ -19737,7 +19737,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Door" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Door" && usr.CannotDoTask == 0)
 															HasBrick = 0
 															for(var/obj/Items/Resources/Brick/B in usr)
 																usr.Weight -= B.Weight
@@ -19753,8 +19753,8 @@ obj
 															if(Fail)
 																range(src) << "<font color = yellow>[usr] fails at Repairing the [src]!<br>"
 																return
-															if(src.Dura <= usr.MasonarySkill * 2 + 401)
-																src.Dura = usr.MasonarySkill * 2 + 401
+															if(src.Dura <= usr.MasonrySkill * 2 + 401)
+																src.Dura = usr.MasonrySkill * 2 + 401
 															range(src) << "<font color = yellow>[usr] finishes Repairing the [src]!<br>"
 															return
 											return
@@ -19767,7 +19767,7 @@ obj
 												if(M != usr)
 													CanRepair = 0
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(Lock.Dura >= usr.ForgingSkill * 2)
 												usr << "<font color = red>This lock is beyond your skill to repair!<br>"
@@ -19790,7 +19790,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Lock" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Lock" && usr.CannotDoTask == 0)
 															var/Fail = prob(50 - usr.Agility / 2 - usr.Intelligence / 2)
 															usr.Job = null
 															usr.MovementCheck()
@@ -19851,7 +19851,7 @@ obj
 												usr.Job = "Fit Lock"
 												usr.Ref = null
 												usr.CanMove = 0
-												var/Time = 300 - usr.MasonarySkill * 1.5 - usr.Agility / 2 - usr.Intelligence
+												var/Time = 300 - usr.MasonrySkill * 1.5 - usr.Agility / 2 - usr.Intelligence
 												if(Time <= 50)
 													Time = 50
 												usr.DeleteInventoryMenu()
@@ -19865,13 +19865,13 @@ obj
 												spawn(Time)
 													if(usr)
 														if(src && O && usr.loc == LOC)
-															if(usr.Job == "Fit Lock" && usr.CantDoTask == 0)
-																var/Fail = prob(50 - usr.MasonarySkill - usr.Agility / 4 - usr.Intelligence / 2)
+															if(usr.Job == "Fit Lock" && usr.CannotDoTask == 0)
+																var/Fail = prob(50 - usr.MasonrySkill - usr.Agility / 4 - usr.Intelligence / 2)
 																usr.Job = null
 																usr.MovementCheck()
 																if(Fail)
 																	view(usr) << "<font color = yellow>[usr] fails at fitting a [O] into [src]!<br>"
-																	usr.MasonarySkill += usr.MasonarySkillMulti / 2
+																	usr.MasonrySkill += usr.MasonrySkillMulti / 2
 																	usr.GainStats(3,"Yes")
 																	return
 																usr.Weight -= O.Weight
@@ -19883,7 +19883,7 @@ obj
 																O.pixel_y = 2
 																src.KeyCode = O.KeyCode
 																src.overlays += O
-																usr.MasonarySkill += usr.MasonarySkillMulti
+																usr.MasonrySkill += usr.MasonrySkillMulti
 																usr.GainStats(2,"Yes")
 																view(usr) << "<font color = yellow>[usr] finishes fitting the [O] into [src]!<br>"
 																return
@@ -19987,7 +19987,7 @@ obj
 									var/LOC = usr.loc
 									usr.Job = "CreateStoneDoor"
 									usr.CanMove = 0
-									var/Time = 200 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+									var/Time = 200 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 									if(Time <= 50)
 										Time = 50
 									usr.DeleteInventoryMenu()
@@ -20009,7 +20009,7 @@ obj
 														BrickNum += 1
 														Bricks += B
 												if(BrickNum == 4 && O && usr.Job == "CreateStoneDoor")
-													var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+													var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 													usr.Job = null
 													usr.MovementCheck()
 													if(Fail)
@@ -20019,12 +20019,12 @@ obj
 																BrickNum -= 1
 																usr.Weight -= I.Weight
 																del(I)
-														usr.MasonarySkill += usr.MasonarySkillMulti / 2
+														usr.MasonrySkill += usr.MasonrySkillMulti / 2
 														usr.GainStats(3,"Yes")
 														return
 													var/obj/W = new src.type(usr.loc)
 													W.Material = O.Material
-													W.Dura += usr.MasonarySkill * 3
+													W.Dura += usr.MasonrySkill * 3
 													W.suffix = null
 													W.density = 0
 													W.opacity = 0
@@ -20033,7 +20033,7 @@ obj
 															BrickNum -= 1
 															usr.Weight -= I.Weight
 															del(I)
-													usr.MasonarySkill += usr.MasonarySkillMulti
+													usr.MasonrySkill += usr.MasonrySkillMulti
 													usr.GainStats(2,"Yes")
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													usr << "<font color = teal>The door is now laying flat on the floor, in order to make it dense, you must Click Interact then Click the door while its in your Inventory.<br>"
@@ -20102,17 +20102,17 @@ obj
 								if (Result == "Cancel")
 									return
 								if (Result == "Attack Lock")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									for(var/obj/Items/Misc/Lock/L in src)
 										view(usr) << "<font color = red>[usr] begins an attempt at breaking [src]'s [L]!<br>"
 										usr.Job = "SmashLock"
 										usr.CanMove = 0
-										usr.CantDoTask = 1
+										usr.CannotDoTask = 1
 										spawn(150)
 											if(usr)
-												usr.CantDoTask = 0
+												usr.CannotDoTask = 0
 										var/LOC = usr.loc
 										var/Time = 150 - usr.Agility / 2
 										if(Time <= 10)
@@ -20129,7 +20129,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon2 == null)
+														if(W.TwoHanded && usr.Weapon2 == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(usr.Weapon2)
@@ -20140,7 +20140,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon == null)
+														if(W.TwoHanded && usr.Weapon == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(Holding == 2)
@@ -20151,8 +20151,8 @@ obj
 												usr.Job = null
 												usr.MovementCheck()
 												var/WontDamage = 50 - usr.Strength
-												var/CantDamage = prob(WontDamage)
-												if(DMG >= 0 && CantDamage != 1)
+												var/CannotDamage = prob(WontDamage)
+												if(DMG >= 0 && CannotDamage != 1)
 													L.Dura -= DMG
 													if(L.Dura <= 0)
 														usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [L] open<br>")
@@ -20176,16 +20176,16 @@ obj
 													usr.MovementCheck()
 										return
 								if (Result == "Attack Door")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src] down!<br>"
 									usr.Job = "SmashDoor"
 									usr.CanMove = 0
-									usr.CantDoTask = 1
+									usr.CannotDoTask = 1
 									spawn(150)
 										if(usr)
-											usr.CantDoTask = 0
+											usr.CannotDoTask = 0
 									var/LOC = usr.loc
 									var/Time = 150 - usr.Agility / 2
 									if(Time <= 10)
@@ -20202,7 +20202,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -20213,7 +20213,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(Holding == 2)
@@ -20224,8 +20224,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 50 - usr.Strength
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -20270,10 +20270,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Interact" && src.suffix == "Stuck")
 							switch(alert("Knock on the door, or open/close it?",,"Cancel","Knock","Open/Close"))
@@ -20401,16 +20401,16 @@ obj
 								if (Result == "Cancel")
 									return
 								if (Result == "Attack Door")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src] down!<br>"
 									usr.Job = "SmashDoor"
 									usr.CanMove = 0
-									usr.CantDoTask = 1
+									usr.CannotDoTask = 1
 									spawn(150)
 										if(usr)
-											usr.CantDoTask = 0
+											usr.CannotDoTask = 0
 									var/LOC = usr.loc
 									var/Time = 150 - usr.Agility / 2
 									if(Time <= 10)
@@ -20427,7 +20427,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -20438,7 +20438,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(Holding == 2)
@@ -20449,8 +20449,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 75 - usr.Strength
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -20516,7 +20516,7 @@ obj
 												usr << "<font color = red>You will need one Iron Ingot to Repair this door!<br>"
 												return
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(src.Dura >= usr.ForgingSkill * 2 + 400)
 												usr << "<font color = red>This door is beyond your skill to repair!<br>"
@@ -20539,7 +20539,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Door" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Door" && usr.CannotDoTask == 0)
 															HasIngot = 0
 															for(var/obj/Items/Resources/Ingot/I in usr)
 																usr.Weight -= I.Weight
@@ -20569,7 +20569,7 @@ obj
 												if(M != usr)
 													CanRepair = 0
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(Lock.Dura >= usr.ForgingSkill * 2)
 												usr << "<font color = red>This lock is beyond your skill to repair!<br>"
@@ -20592,7 +20592,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Lock" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Lock" && usr.CannotDoTask == 0)
 															var/Fail = prob(50 - usr.Agility / 2 - usr.Intelligence / 2)
 															usr.Job = null
 															usr.MovementCheck()
@@ -20792,17 +20792,17 @@ obj
 								if (Result == "Cancel")
 									return
 								if (Result == "Attack Lock")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									for(var/obj/Items/Misc/Lock/L in src)
 										view(usr) << "<font color = red>[usr] begins an attempt at breaking [src]'s [L]!<br>"
 										usr.Job = "SmashLock"
 										usr.CanMove = 0
-										usr.CantDoTask = 1
+										usr.CannotDoTask = 1
 										spawn(150)
 											if(usr)
-												usr.CantDoTask = 0
+												usr.CannotDoTask = 0
 										var/LOC = usr.loc
 										var/Time = 150 - usr.Agility / 2
 										if(Time <= 10)
@@ -20819,7 +20819,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon2 == null)
+														if(W.TwoHanded && usr.Weapon2 == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(usr.Weapon2)
@@ -20830,7 +20830,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon == null)
+														if(W.TwoHanded && usr.Weapon == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(Holding == 2)
@@ -20841,8 +20841,8 @@ obj
 												usr.Job = null
 												usr.MovementCheck()
 												var/WontDamage = 50 - usr.Strength
-												var/CantDamage = prob(WontDamage)
-												if(DMG >= 0 && CantDamage != 1)
+												var/CannotDamage = prob(WontDamage)
+												if(DMG >= 0 && CannotDamage != 1)
 													L.Dura -= DMG
 													if(L.Dura <= 0)
 														usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [L] open<br>")
@@ -20866,16 +20866,16 @@ obj
 													usr.MovementCheck()
 										return
 								if (Result == "Attack Door")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src] down!<br>"
 									usr.Job = "SmashDoor"
 									usr.CanMove = 0
-									usr.CantDoTask = 1
+									usr.CannotDoTask = 1
 									spawn(150)
 										if(usr)
-											usr.CantDoTask = 0
+											usr.CannotDoTask = 0
 									var/LOC = usr.loc
 									var/Time = 150 - usr.Agility / 2
 									if(Time <= 10)
@@ -20892,7 +20892,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -20903,7 +20903,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(Holding == 2)
@@ -20914,8 +20914,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 75 - usr.Strength
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -21056,10 +21056,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Interact" && src.suffix == "Stuck")
 							var/CanOpen = 0
@@ -21166,7 +21166,7 @@ obj
 												usr << "<font color = red>You will need one Iron Ingot to Repair this door!<br>"
 												return
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(src.Dura >= usr.ForgingSkill * 2 + 4000)
 												usr << "<font color = red>This door is beyond your skill to repair!<br>"
@@ -21189,7 +21189,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Door" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Door" && usr.CannotDoTask == 0)
 															HasIngot = 0
 															for(var/obj/Items/Resources/Ingot/I in usr)
 																usr.Weight -= I.Weight
@@ -21219,7 +21219,7 @@ obj
 												if(M != usr)
 													CanRepair = 0
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(Lock.Dura >= usr.ForgingSkill * 2)
 												usr << "<font color = red>This lock is beyond your skill to repair!<br>"
@@ -21242,7 +21242,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Lock" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Lock" && usr.CannotDoTask == 0)
 															var/Fail = prob(50 - usr.Agility / 2 - usr.Intelligence / 2)
 															usr.Job = null
 															usr.MovementCheck()
@@ -21325,7 +21325,7 @@ obj
 												spawn(Time)
 													if(usr)
 														if(src && O && usr.loc == LOC)
-															if(usr.Job == "Fit Lock" && usr.CantDoTask == 0)
+															if(usr.Job == "Fit Lock" && usr.CannotDoTask == 0)
 																var/Fail = prob(50 - usr.ForgingSkill - usr.Agility / 4 - usr.Intelligence / 2)
 																usr.Job = null
 																usr.MovementCheck()
@@ -21369,17 +21369,17 @@ obj
 								if (Result == "Cancel")
 									return
 								if (Result == "Attack Lock")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									for(var/obj/Items/Misc/Lock/L in src)
 										view(usr) << "<font color = red>[usr] begins an attempt at breaking [src]'s [L]!<br>"
 										usr.Job = "SmashLock"
 										usr.CanMove = 0
-										usr.CantDoTask = 1
+										usr.CannotDoTask = 1
 										spawn(150)
 											if(usr)
-												usr.CantDoTask = 0
+												usr.CannotDoTask = 0
 										var/LOC = usr.loc
 										var/Time = 150 - usr.Agility / 2
 										if(Time <= 10)
@@ -21396,7 +21396,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon2 == null)
+														if(W.TwoHanded && usr.Weapon2 == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(usr.Weapon2)
@@ -21407,7 +21407,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon == null)
+														if(W.TwoHanded && usr.Weapon == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(Holding == 2)
@@ -21418,8 +21418,8 @@ obj
 												usr.Job = null
 												usr.MovementCheck()
 												var/WontDamage = 50 - usr.Strength
-												var/CantDamage = prob(WontDamage)
-												if(DMG >= 0 && CantDamage != 1)
+												var/CannotDamage = prob(WontDamage)
+												if(DMG >= 0 && CannotDamage != 1)
 													L.Dura -= DMG
 													if(L.Dura <= 0)
 														usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [L] open<br>")
@@ -21443,16 +21443,16 @@ obj
 													usr.MovementCheck()
 										return
 								if (Result == "Attack Door")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src] down!<br>"
 									usr.Job = "SmashDoor"
 									usr.CanMove = 0
-									usr.CantDoTask = 1
+									usr.CannotDoTask = 1
 									spawn(150)
 										if(usr)
-											usr.CantDoTask = 0
+											usr.CannotDoTask = 0
 									var/LOC = usr.loc
 									var/Time = 150 - usr.Agility / 2
 									if(Time <= 10)
@@ -21469,7 +21469,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -21480,7 +21480,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(Holding == 2)
@@ -21491,8 +21491,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 75 - usr.Strength
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -21665,7 +21665,7 @@ obj
 												usr << "<font color = red>You will need one Iron Ingot to Repair this door!<br>"
 												return
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(src.Dura >= usr.ForgingSkill * 2 + 450)
 												usr << "<font color = red>This door is beyond your skill to repair!<br>"
@@ -21688,7 +21688,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Door" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Door" && usr.CannotDoTask == 0)
 															HasIngot = 0
 															for(var/obj/Items/Resources/Ingot/I in usr)
 																usr.Weight -= I.Weight
@@ -21718,7 +21718,7 @@ obj
 												if(M != usr)
 													CanRepair = 0
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(Lock.Dura >= usr.ForgingSkill * 2)
 												usr << "<font color = red>This lock is beyond your skill to repair!<br>"
@@ -21741,7 +21741,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Lock" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Lock" && usr.CannotDoTask == 0)
 															var/Fail = prob(50 - usr.Agility / 2 - usr.Intelligence / 2)
 															usr.Job = null
 															usr.MovementCheck()
@@ -21816,7 +21816,7 @@ obj
 												spawn(Time)
 													if(usr)
 														if(src && O && usr.loc == LOC)
-															if(usr.Job == "Fit Lock" && usr.CantDoTask == 0)
+															if(usr.Job == "Fit Lock" && usr.CannotDoTask == 0)
 																var/Fail = prob(50 - usr.ForgingSkill - usr.Agility / 4 - usr.Intelligence / 2)
 																usr.Job = null
 																usr.MovementCheck()
@@ -21989,17 +21989,17 @@ obj
 								if (Result == "Cancel")
 									return
 								if (Result == "Attack Lock")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									for(var/obj/Items/Misc/Lock/L in src)
 										view(usr) << "<font color = red>[usr] begins an attempt at breaking [src]'s [L]!<br>"
 										usr.Job = "SmashLock"
 										usr.CanMove = 0
-										usr.CantDoTask = 1
+										usr.CannotDoTask = 1
 										spawn(150)
 											if(usr)
-												usr.CantDoTask = 0
+												usr.CannotDoTask = 0
 										var/LOC = usr.loc
 										var/Time = 150 - usr.Agility / 2
 										if(Time <= 10)
@@ -22016,7 +22016,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon2 == null)
+														if(W.TwoHanded && usr.Weapon2 == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(usr.Weapon2)
@@ -22027,7 +22027,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon == null)
+														if(W.TwoHanded && usr.Weapon == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(Holding == 2)
@@ -22038,8 +22038,8 @@ obj
 												usr.Job = null
 												usr.MovementCheck()
 												var/WontDamage = 50 - usr.Strength
-												var/CantDamage = prob(WontDamage)
-												if(DMG >= 0 && CantDamage != 1)
+												var/CannotDamage = prob(WontDamage)
+												if(DMG >= 0 && CannotDamage != 1)
 													L.Dura -= DMG
 													if(L.Dura <= 0)
 														range(src) << "<font color = red>[src] makes a loud metallic noise as the [L] inside it breaks away after [usr] attacks it!<br>"
@@ -22063,16 +22063,16 @@ obj
 													usr.MovementCheck()
 										return
 								if (Result == "Attack Door")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src] down!<br>"
 									usr.Job = "SmashDoor"
 									usr.CanMove = 0
-									usr.CantDoTask = 1
+									usr.CannotDoTask = 1
 									spawn(150)
 										if(usr)
-											usr.CantDoTask = 0
+											usr.CannotDoTask = 0
 									var/LOC = usr.loc
 									var/Time = 150 - usr.Agility / 2
 									if(Time <= 10)
@@ -22089,7 +22089,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -22100,7 +22100,7 @@ obj
 													W.Dura -= rand(0.1,2)
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(Holding == 2)
@@ -22111,8 +22111,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 75 - usr.Strength
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -22258,10 +22258,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Interact" && src.suffix == "Stuck")
 							switch(alert("Knock on the door, or open/close it?",,"Cancel","Knock","Open/Close"))
@@ -22379,7 +22379,7 @@ obj
 												usr << "<font color = red>You will need one Wooden Plank to Repair this door!<br>"
 												return
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(src.Dura >= usr.CarpentrySkill * 2 + 150)
 												usr << "<font color = red>This door is beyond your skill to repair!<br>"
@@ -22402,7 +22402,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Door" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Door" && usr.CannotDoTask == 0)
 															HasPlank = 0
 															for(var/obj/Items/Resources/Plank/P in usr)
 																usr.Weight -= P.Weight
@@ -22432,7 +22432,7 @@ obj
 												if(M != usr)
 													CanRepair = 0
 											if(CanRepair == 0)
-												usr << "<font color = red>Cant Repair with others near!<br>"
+												usr << "<font color = red>Cannot Repair with others near!<br>"
 												return
 											if(Lock.Dura >= usr.ForgingSkill * 2)
 												usr << "<font color = red>This lock is beyond your skill to repair!<br>"
@@ -22455,7 +22455,7 @@ obj
 											spawn(Time)
 												if(usr)
 													if(src && O && usr.loc == LOC)
-														if(usr.Job == "Repair Lock" && usr.CantDoTask == 0)
+														if(usr.Job == "Repair Lock" && usr.CannotDoTask == 0)
 															var/Fail = prob(50 - usr.Agility / 2 - usr.Intelligence / 2)
 															usr.Job = null
 															usr.MovementCheck()
@@ -22530,7 +22530,7 @@ obj
 												spawn(Time)
 													if(usr)
 														if(src && O && usr.loc == LOC)
-															if(usr.Job == "Fit Lock" && usr.CantDoTask == 0)
+															if(usr.Job == "Fit Lock" && usr.CannotDoTask == 0)
 																var/Fail = prob(50 - usr.CarpentrySkill - usr.Agility / 4 - usr.Intelligence / 2)
 																usr.Job = null
 																usr.MovementCheck()
@@ -22568,17 +22568,17 @@ obj
 								if (Result == "Cancel")
 									return
 								if (Result == "Attack Lock")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									for(var/obj/Items/Misc/Lock/L in src)
 										view(usr) << "<font color = red>[usr] begins an attempt at breaking [src]'s [L]!<br>"
 										usr.Job = "SmashLock"
 										usr.CanMove = 0
-										usr.CantDoTask = 1
+										usr.CannotDoTask = 1
 										spawn(150)
 											if(usr)
-												usr.CantDoTask = 0
+												usr.CannotDoTask = 0
 										var/LOC = usr.loc
 										var/Time = 150 - usr.Agility / 2
 										if(Time <= 10)
@@ -22595,7 +22595,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon2 == null)
+														if(W.TwoHanded && usr.Weapon2 == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(usr.Weapon2)
@@ -22606,7 +22606,7 @@ obj
 														W.Dura -= rand(0.1,2)
 														if(W.ObjectType == "Blunt")
 															DMG += 10
-														if(W.TwoHander && usr.Weapon == null)
+														if(W.TwoHanded && usr.Weapon == null)
 															DMG += W.Weight / 2
 														usr.CheckWeaponDura(W)
 												if(Holding == 2)
@@ -22617,8 +22617,8 @@ obj
 												usr.Job = null
 												usr.MovementCheck()
 												var/WontDamage = 50 - usr.Strength
-												var/CantDamage = prob(WontDamage)
-												if(DMG >= 0 && CantDamage != 1)
+												var/CannotDamage = prob(WontDamage)
+												if(DMG >= 0 && CannotDamage != 1)
 													L.Dura -= DMG
 													if(L.Dura <= 0)
 														usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [L] open<br>")
@@ -22642,16 +22642,16 @@ obj
 													usr.MovementCheck()
 										return
 								if (Result == "Attack Door")
-									if(usr.CantDoTask)
-										usr << "<font color = red>Cant attack that for a while!<br>"
+									if(usr.CannotDoTask)
+										usr << "<font color = red>Cannot attack that for a while!<br>"
 										return
 									view(usr) << "<font color = red>[usr] begins an attempt at breaking the [src] down!<br>"
 									usr.Job = "SmashDoor"
 									usr.CanMove = 0
-									usr.CantDoTask = 1
+									usr.CannotDoTask = 1
 									spawn(150)
 										if(usr)
-											usr.CantDoTask = 0
+											usr.CannotDoTask = 0
 									var/LOC = usr.loc
 									var/Time = 150 - usr.Agility / 2
 									if(Time <= 10)
@@ -22670,7 +22670,7 @@ obj
 														DMG += 15
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon2 == null)
+													if(W.TwoHanded && usr.Weapon2 == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(usr.Weapon2)
@@ -22683,7 +22683,7 @@ obj
 														DMG += 15
 													if(W.ObjectType == "Blunt")
 														DMG += 10
-													if(W.TwoHander && usr.Weapon == null)
+													if(W.TwoHanded && usr.Weapon == null)
 														DMG += W.Weight / 2
 													usr.CheckWeaponDura(W)
 											if(Holding == 2)
@@ -22694,8 +22694,8 @@ obj
 											usr.Job = null
 											usr.MovementCheck()
 											var/WontDamage = 50 - usr.Strength
-											var/CantDamage = prob(WontDamage)
-											if(DMG >= 0 && CantDamage != 1)
+											var/CannotDamage = prob(WontDamage)
+											if(DMG >= 0 && CannotDamage != 1)
 												src.Dura -= DMG
 												if(src.Dura <= 0)
 													usr.Log_player("<font color = red><b>([usr.key])[usr]-[usr.x],[usr.y],[usr.z]-smashes a [src] open<br>")
@@ -22941,10 +22941,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Interact" && src.suffix == "Stuck")
 							switch(alert("Knock on the door, or open/close it?",,"Cancel","Knock","Open/Close"))
@@ -23082,13 +23082,13 @@ obj
 									if(usr.Stunned)
 										return
 									if(usr.Weapon)
-										usr << "<font color = red>You wont be able to sleep with a [usr.Weapon] on!!<br>"
+										usr << "<font color = red>You won't be able to sleep with a [usr.Weapon] on!<br>"
 										return
 									if(usr.Weapon2)
-										usr << "<font color = red>You wont be able to sleep with a [usr.Weapon2] on!!<br>"
+										usr << "<font color = red>You won't be able to sleep with a [usr.Weapon2] on!<br>"
 									for(var/obj/Items/Armour/A in usr)
 										if(A.suffix == "Equip" && A.DefenceType == "Plate")
-											usr << "<font color = red>You wont be able to sleep with Plate Armour on!<br>"
+											usr << "<font color = red>You won't be able to sleep with Plate Armour on!<br>"
 											return
 									usr.ResetButtons()
 									usr.Function = null
@@ -23122,7 +23122,7 @@ obj
 							if(src in range(1,usr))
 								for(var/mob/M in range(0,src))
 									if(M.Sleeping)
-										usr << "<font color = red>Cant move a bed while someone is sleeping on it!<br>"
+										usr << "<font color = red>Cannot move a bed while someone is sleeping on it!<br>"
 										return
 								if(usr.Pull == src)
 									usr.Pull = null
@@ -23161,7 +23161,7 @@ obj
 							if(usr in range(1,src))
 								for(var/mob/M in range(0,src))
 									if(M.Sleeping)
-										usr << "<font color = red>Cant move a bed while someone is sleeping on it!<br>"
+										usr << "<font color = red>Cannot move a bed while someone is sleeping on it!<br>"
 										return
 								if(src.suffix == null)
 									if(usr.Weight <= usr.WeightMax)
@@ -23176,10 +23176,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 				Bed
 					icon = 'furniture.dmi'
@@ -23316,13 +23316,13 @@ obj
 									if(usr.Stunned)
 										return
 									if(usr.Weapon)
-										usr << "<font color = red>You wont be able to sleep with a [usr.Weapon] on!!<br>"
+										usr << "<font color = red>You won't be able to sleep with a [usr.Weapon] on!<br>"
 										return
 									if(usr.Weapon2)
-										usr << "<font color = red>You wont be able to sleep with a [usr.Weapon2] on!!<br>"
+										usr << "<font color = red>You won't be able to sleep with a [usr.Weapon2] on!<br>"
 									for(var/obj/Items/Armour/A in usr)
 										if(A.suffix == "Equip" && A.DefenceType == "Plate")
-											usr << "<font color = red>You wont be able to sleep with Plate Armour on!<br>"
+											usr << "<font color = red>You won't be able to sleep with Plate Armour on!<br>"
 											return
 									usr.ResetButtons()
 									usr.Function = null
@@ -23355,7 +23355,7 @@ obj
 						if(usr.Function == "Pull")
 							for(var/mob/M in range(0,src))
 								if(M.Sleeping)
-									usr << "<font color = red>Cant move a bed while someone is sleeping on it!<br>"
+									usr << "<font color = red>Cannot move a bed while someone is sleeping on it!<br>"
 									return
 							if(src in range(1,usr))
 								if(usr.Pull == src)
@@ -23575,7 +23575,7 @@ obj
 											usr.UnarmedSkill += usr.UnarmedSkillMulti / 2
 									else
 										usr << "<font color = red>You will not gain from training off this, your skills are too high!<br>"
-									src.Type = "CantHit"
+									src.Type = "CannotHit"
 									if(src.Dura <= 1)
 										src.icon_state = "broken training doll"
 										src.Dura = 0
@@ -23680,10 +23680,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 				ArmourRack
 					icon = 'misc.dmi'
@@ -23870,10 +23870,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 				WeaponRack
 					icon = 'misc.dmi'
@@ -24060,10 +24060,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 				WoodenCounter
 					icon = 'furniture.dmi'
@@ -24436,7 +24436,7 @@ obj
 											src.suffix = null
 											return
 										else
-											usr << "<font color = red>You cant do that with hurt arms!<br>"
+											usr << "<font color = red>can notdo that with hurt arms!<br>"
 											return
 							if(src.Type == "NotStuck" && src in usr)
 								var/N=input("What do you want written on this sign?")as text
@@ -24458,7 +24458,7 @@ obj
 										src.suffix = "Stuck"
 										return
 									else
-										usr << "<font color = red>You cant do that with hurt arms!<br>"
+										usr << "<font color = red>can notdo that with hurt arms!<br>"
 										return
 						if(usr.Function == "PickUp")
 							if(src.suffix == "Carried" && src in usr)
@@ -24489,10 +24489,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 				BookCase
 					icon = 'furniture.dmi'
@@ -24772,10 +24772,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Examine")
 							usr << "<font color=teal>[src.desc]"
@@ -24819,10 +24819,10 @@ obj
 					Click()
 						if(usr.Function == "Interact")
 							if(usr.Fainted)
-								usr << "<font color =red>You have fainted and cant do that!<br>"
+								usr << "<font color =red>You have fainted and can not do that!<br>"
 								return
 							if(usr.Stunned)
-								usr << "<font color =red>You are stunned and cant do that!<br>"
+								usr << "<font color =red>You are stunned and can not do that!<br>"
 								return
 							if(usr.Weapon)
 								if(src in range(1,usr))
@@ -24948,10 +24948,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 				TempleCandle
 					icon = 'misc.dmi'
@@ -24961,10 +24961,10 @@ obj
 					Click()
 						if(usr.Function == "Interact")
 							if(usr.Fainted)
-								usr << "<font color =red>You have fainted and cant do that!<br>"
+								usr << "<font color =red>You have fainted and can not do that!<br>"
 								return
 							if(usr.Stunned)
-								usr << "<font color =red>You are stunned and cant do that!<br>"
+								usr << "<font color =red>You are stunned and can not do that!<br>"
 								return
 							if(usr.Weapon)
 								if(src in range(1,usr))
@@ -25077,10 +25077,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 			Chairs
 				WoodenChair
@@ -25269,10 +25269,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Interact")
 							if(usr in range(1,src))
@@ -25372,10 +25372,10 @@ obj
 										view() << "<b>[usr] picks up [src]<br>"
 										return
 									else
-										usr << "<b>You cant carry too much weight!<br>"
+										usr << "<b>can notcarry too much weight!<br>"
 										return
 								else
-									usr << "<b>You cant pick that item up!<br>"
+									usr << "<b>can notpick that item up!<br>"
 									return
 						if(usr.Function == "Interact")
 							if(usr in range(1,src))
@@ -25416,7 +25416,7 @@ obj
 									var/LOC = usr.loc
 									usr.Job = "CreateStonePillar"
 									usr.CanMove = 0
-									var/Time = 200 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+									var/Time = 200 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 									if(Time <= 50)
 										Time = 50
 									usr.DeleteInventoryMenu()
@@ -25438,7 +25438,7 @@ obj
 														BrickNum += 1
 														Bricks += B
 												if(BrickNum == 3 && O && usr.Job == "CreateStonePillar")
-													var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+													var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 													usr.Job = null
 													usr.MovementCheck()
 													if(Fail)
@@ -25448,19 +25448,19 @@ obj
 																BrickNum -= 1
 																usr.Weight -= I.Weight
 																del(I)
-														usr.MasonarySkill += usr.MasonarySkillMulti / 2
+														usr.MasonrySkill += usr.MasonrySkillMulti / 2
 														usr.GainStats(3,"Yes")
 														return
 													var/obj/W = new src.type(usr.loc)
 													W.Material = O.Material
-													W.Dura += usr.MasonarySkill * 2
+													W.Dura += usr.MasonrySkill * 2
 													W.suffix = null
 													for(var/obj/I in Bricks)
 														if(BrickNum != 0)
 															BrickNum -= 1
 															usr.Weight -= I.Weight
 															del(I)
-													usr.MasonarySkill += usr.MasonarySkillMulti
+													usr.MasonrySkill += usr.MasonrySkillMulti
 													usr.GainStats(2,"Yes")
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
@@ -25521,7 +25521,7 @@ obj
 									var/LOC = usr.loc
 									usr.Job = "CreateStonePillar"
 									usr.CanMove = 0
-									var/Time = 200 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+									var/Time = 200 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 									if(Time <= 50)
 										Time = 50
 									usr.DeleteInventoryMenu()
@@ -25543,7 +25543,7 @@ obj
 														BrickNum += 1
 														Bricks += B
 												if(BrickNum == 3 && O && usr.Job == "CreateStonePillar")
-													var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+													var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 													usr.Job = null
 													usr.MovementCheck()
 													if(Fail)
@@ -25553,19 +25553,19 @@ obj
 																BrickNum -= 1
 																usr.Weight -= I.Weight
 																del(I)
-														usr.MasonarySkill += usr.MasonarySkillMulti / 2
+														usr.MasonrySkill += usr.MasonrySkillMulti / 2
 														usr.GainStats(3,"Yes")
 														return
 													var/obj/W = new src.type(usr.loc)
 													W.Material = O.Material
-													W.Dura += usr.MasonarySkill * 2
+													W.Dura += usr.MasonrySkill * 2
 													W.suffix = null
 													for(var/obj/I in Bricks)
 														if(BrickNum != 0)
 															BrickNum -= 1
 															usr.Weight -= I.Weight
 															del(I)
-													usr.MasonarySkill += usr.MasonarySkillMulti
+													usr.MasonrySkill += usr.MasonrySkillMulti
 													usr.GainStats(2,"Yes")
 													view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 													return
@@ -25632,7 +25632,7 @@ obj
 										var/LOC = usr.loc
 										usr.Job = "CreateStoneCoffin"
 										usr.CanMove = 0
-										var/Time = 200 - usr.MasonarySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
+										var/Time = 200 - usr.MasonrySkill * 1.5 - usr.Strength / 2 - usr.Intelligence
 										if(Time <= 50)
 											Time = 50
 										usr.DeleteInventoryMenu()
@@ -25654,7 +25654,7 @@ obj
 															BrickNum += 1
 															Bricks += B
 													if(BrickNum == 5 && O && usr.Job == "CreateStoneCoffin")
-														var/Fail = prob(50 - usr.MasonarySkill - usr.Strength / 4 - usr.Intelligence / 2)
+														var/Fail = prob(50 - usr.MasonrySkill - usr.Strength / 4 - usr.Intelligence / 2)
 														usr.Job = null
 														usr.MovementCheck()
 														if(Fail)
@@ -25664,19 +25664,19 @@ obj
 																	BrickNum -= 1
 																	usr.Weight -= I.Weight
 																	del(I)
-															usr.MasonarySkill += usr.MasonarySkillMulti / 2
+															usr.MasonrySkill += usr.MasonrySkillMulti / 2
 															usr.GainStats(3,"Yes")
 															return
 														var/obj/W = new src.type(usr.loc)
 														W.Material = O.Material
-														W.Dura += usr.MasonarySkill * 2
+														W.Dura += usr.MasonrySkill * 2
 														W.suffix = null
 														for(var/obj/I in Bricks)
 															if(BrickNum != 0)
 																BrickNum -= 1
 																usr.Weight -= I.Weight
 																del(I)
-														usr.MasonarySkill += usr.MasonarySkillMulti
+														usr.MasonrySkill += usr.MasonrySkillMulti
 														usr.GainStats(2,"Yes")
 														view(usr) << "<font color = yellow>[usr] finishes creating the [W] !<br>"
 														return
@@ -25755,10 +25755,10 @@ obj
 					icon_state = "bulky brick wall"
 					Click()
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						var/Arms = 1
 						if(usr.LeftArm <= 25)
@@ -25782,7 +25782,7 @@ obj
 									usr.Job = "MakeBrickWall"
 									usr.CanMove = 0
 									var/Time = 350
-									Time -= usr.MasonarySkill * 1.5
+									Time -= usr.MasonrySkill * 1.5
 									Time -= usr.BuildingSkill * 1.5
 									if(Time <= 75)
 										Time = 75
@@ -25792,7 +25792,7 @@ obj
 												if(usr.Job == "MakeBrickWall")
 													usr.Job = null
 													usr.BuildingSkill += usr.BuildingSkillMulti
-													usr.MasonarySkill += usr.MasonarySkillMulti
+													usr.MasonrySkill += usr.MasonrySkillMulti
 													usr.GainStats(3)
 													usr << "<font color =green>You finish construction of a large brick wall!<br>"
 													for(var/obj/I in Bricks)
@@ -25807,7 +25807,7 @@ obj
 														T.AttachedKey = "[usr.key]"
 														T.ManMade = 1
 														T.Material = "Stone"
-														T.Dura += usr.MasonarySkill
+														T.Dura += usr.MasonrySkill
 														T.Dura += usr.BuildingSkill
 														T.desc = "Made by ([usr])[usr.name]"
 														T.name = "Large Brick Wall"
@@ -25830,10 +25830,10 @@ obj
 					icon_state = "brick wall"
 					Click()
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						var/Arms = 1
 						if(usr.LeftArm <= 25)
@@ -25857,7 +25857,7 @@ obj
 									usr.Job = "MakeBrickWall"
 									usr.CanMove = 0
 									var/Time = 300
-									Time -= usr.MasonarySkill * 1.5
+									Time -= usr.MasonrySkill * 1.5
 									Time -= usr.BuildingSkill * 1.5
 									if(Time <= 75)
 										Time = 75
@@ -25867,7 +25867,7 @@ obj
 												if(usr.Job == "MakeBrickWall")
 													usr.Job = null
 													usr.BuildingSkill += usr.BuildingSkillMulti
-													usr.MasonarySkill += usr.MasonarySkillMulti
+													usr.MasonrySkill += usr.MasonrySkillMulti
 													usr.GainStats(3)
 													usr << "<font color =green>You finish construction of a brick wall!<br>"
 													for(var/obj/I in Bricks)
@@ -25882,7 +25882,7 @@ obj
 														T.AttachedKey = "[usr.key]"
 														T.ManMade = 1
 														T.Material = "Stone"
-														T.Dura += usr.MasonarySkill
+														T.Dura += usr.MasonrySkill
 														T.Dura += usr.BuildingSkill
 														T.desc = "Made by ([usr])[usr.name]"
 														T.name = "Brick Wall"
@@ -25905,10 +25905,10 @@ obj
 					icon_state = "stairs up"
 					Click()
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						var/Arms = 1
 						if(usr.LeftArm <= 25)
@@ -25949,7 +25949,7 @@ obj
 										usr.Job = "MakeStoneStair"
 										usr.CanMove = 0
 										var/Time = 300
-										Time -= usr.MasonarySkill
+										Time -= usr.MasonrySkill
 										Time -= usr.BuildingSkill
 										if(Time <= 75)
 											Time = 75
@@ -25959,7 +25959,7 @@ obj
 													if(usr.Job == "MakeStoneStair")
 														usr.Job = null
 														usr.BuildingSkill += usr.BuildingSkillMulti
-														usr.MasonarySkill += usr.MasonarySkillMulti
+														usr.MasonrySkill += usr.MasonrySkillMulti
 														usr.GainStats(3)
 														usr << "<font color =green>You finish construction of a stairs!<br>"
 														for(var/obj/I in Bricks)
@@ -25968,14 +25968,14 @@ obj
 														var/obj/Misc/StairsUp/S = new
 														S.loc = usr.loc
 														S.Dura += usr.BuildingSkill
-														S.Dura += usr.MasonarySkill
+														S.Dura += usr.MasonrySkill
 														var/obj/Q2 = new
 														Q2.loc = locate(usr.x,usr.y,Z)
 														for(var/turf/T3 in range(0,Q2))
 															var/obj/Misc/StairsDown/S2 = new
 															S2.loc = Q2.loc
 															S2.Dura += usr.BuildingSkill
-															S2.Dura += usr.MasonarySkill
+															S2.Dura += usr.MasonrySkill
 															Tiles += T3
 															for(var/obj/Misc/Hole/H in range(0,S2))
 																del(H)
@@ -25996,10 +25996,10 @@ obj
 					icon_state = "slab stone floor"
 					Click()
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						var/Arms = 1
 						if(usr.LeftArm <= 25)
@@ -26023,7 +26023,7 @@ obj
 									usr.Job = "MakeStoneSlab"
 									usr.CanMove = 0
 									var/Time = 300
-									Time -= usr.MasonarySkill * 1.5
+									Time -= usr.MasonrySkill * 1.5
 									Time -= usr.BuildingSkill * 1.5
 									if(Time <= 75)
 										Time = 75
@@ -26033,7 +26033,7 @@ obj
 												if(usr.Job == "MakeStoneSlab")
 													usr.Job = null
 													usr.BuildingSkill += usr.BuildingSkillMulti
-													usr.MasonarySkill += usr.MasonarySkillMulti
+													usr.MasonrySkill += usr.MasonrySkillMulti
 													usr.GainStats(3)
 													usr << "<font color =green>You finish construction of a stone slab!<br>"
 													for(var/obj/I in Bricks)
@@ -26068,10 +26068,10 @@ obj
 					icon_state = "wood wall"
 					Click()
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						var/Arms = 1
 						if(usr.LeftArm <= 25)
@@ -26144,10 +26144,10 @@ obj
 					icon_state = "wood floor"
 					Click()
 						if(usr.Fainted)
-							usr << "<font color =red>You have fainted and cant do that!<br>"
+							usr << "<font color =red>You have fainted and can not do that!<br>"
 							return
 						if(usr.Stunned)
-							usr << "<font color =red>You are stunned and cant do that!<br>"
+							usr << "<font color =red>You are stunned and can not do that!<br>"
 							return
 						var/Arms = 1
 						if(usr.LeftArm <= 25)
@@ -26400,12 +26400,12 @@ obj
 				Middle
 					icon_state = "M"
 					icon = 'HUD.dmi'
-				CloseMasonary
+				CloseMasonry
 					icon_state = "close"
 					Type = "Close"
 					icon = 'HUD.dmi'
 					Click()
-						usr.Delete("Masonary","Masonary")
+						usr.Delete("Masonry","Masonry")
 						usr.Ref = null
 						for(var/obj/I in usr.client.screen)
 							if(I in usr.CreateList)
@@ -26481,7 +26481,7 @@ obj
 							usr << "<font color = red>You are busy doing somthing else!<br>"
 							return
 						if(usr.Dead)
-							usr << "<b>Cant do that while dead!<br>"
+							usr << "<b>Cannot do that while dead!<br>"
 							return
 						if(src.icon_state == "trade button off")
 							usr.Function = "Transfer"
@@ -26501,10 +26501,10 @@ obj
 							usr << "<font color = red>You are busy doing somthing else!<br>"
 							return
 						if(usr.Dead)
-							usr << "<b>Cant do that while dead!<br>"
+							usr << "<b>Cannot do that while dead!<br>"
 							return
 						if(usr.CanEat == 0)
-							usr << "<font color =red>You cant eat anything!<br>"
+							usr << "<font color =red>can noteat anything!<br>"
 							return
 						if(src.icon_state == "eat button off")
 							usr.Function = "Eat"
@@ -26524,7 +26524,7 @@ obj
 							usr << "<font color = red>You are busy doing somthing else!<br>"
 							return
 						if(usr.Dead)
-							usr << "<b>Cant do that while dead!<br>"
+							usr << "<b>Cannot do that while dead!<br>"
 							return
 						if(src.icon_state == "equip button off")
 							usr.ResetButtons()
@@ -26784,8 +26784,8 @@ obj
 						var/Mobs = list()
 						for(var/mob/M in world)
 							menu += "[M.name]"
-							if(M.OrginalName)
-								menu += "[M.OrginalName]"
+							if(M.OriginalName)
+								menu += "[M.OriginalName]"
 							Mobs += M
 						menu += "Cancel"
 						var/Result = input("Who do you wish to summon?", "Choose", null) in menu
@@ -26797,7 +26797,7 @@ obj
 							for(var/mob/M in Mobs)
 								if(M.name == Result)
 									Found = M
-								if(M.OrginalName == Result)
+								if(M.OriginalName == Result)
 									Found = M
 							if(Found)
 								Found.loc = usr.loc
@@ -26836,8 +26836,8 @@ obj
 								var/Mobs = list()
 								for(var/mob/M in world)
 									menu += "[M.name]"
-									if(M.OrginalName)
-										menu += "[M.OrginalName]"
+									if(M.OriginalName)
+										menu += "[M.OriginalName]"
 									Mobs += M
 								menu += "Cancel"
 								var/Result = input("Who do you wish to teleport to?", "Choose", null) in menu
@@ -26849,7 +26849,7 @@ obj
 									for(var/mob/M in Mobs)
 										if(M.name == Result)
 											Found = M
-										if(M.OrginalName == Result)
+										if(M.OriginalName == Result)
 											Found = M
 									if(Found)
 										usr.loc = Found.loc
@@ -26992,8 +26992,8 @@ obj
 						var/Mobs = list()
 						for(var/mob/M in world)
 							menu += "[M.name]"
-							if(M.OrginalName)
-								menu += "[M.OrginalName]"
+							if(M.OriginalName)
+								menu += "[M.OriginalName]"
 							Mobs += M
 						menu += "Cancel"
 						var/Result = input("Who do you wish to In-Prison?", "Choose", null) in menu
@@ -27005,7 +27005,7 @@ obj
 							for(var/mob/M in Mobs)
 								if(M.name == Result)
 									Found = M
-								if(M.OrginalName == Result)
+								if(M.OriginalName == Result)
 									Found = M
 							if(Found)
 								switch(alert("Send them to a Prison, or to Hell?",,"Prison","Hell"))
@@ -27068,8 +27068,8 @@ obj
 								var/Mobs = list()
 								for(var/mob/M in Players)
 									menu += "[M.name]"
-									if(M.OrginalName)
-										menu += "[M.OrginalName]"
+									if(M.OriginalName)
+										menu += "[M.OriginalName]"
 									Mobs += M
 								menu += "Cancel"
 								var/Result = input("Who do you wish to Mute?", "Choose", null) in menu
@@ -27081,7 +27081,7 @@ obj
 									for(var/mob/M in Mobs)
 										if(M.name == Result)
 											Found = M
-										if(M.OrginalName == Result)
+										if(M.OriginalName == Result)
 											Found = M
 									if(Found)
 										if(Found.Muted == 0)
@@ -27188,8 +27188,8 @@ obj
 							var/Mobs = list()
 							for(var/mob/M in world)
 								menu2 += "[M.name]"
-								if(M.OrginalName)
-									menu2 += "[M.OrginalName]"
+								if(M.OriginalName)
+									menu2 += "[M.OriginalName]"
 								Mobs += M
 							menu2 += "Cancel"
 							var/Result2 = input("Who do you wish to Check?", "Choose", null) in menu2
@@ -27201,7 +27201,7 @@ obj
 								for(var/mob/M in Mobs)
 									if(M.name == Result2)
 										Found = M
-									if(M.OrginalName == Result2)
+									if(M.OriginalName == Result2)
 										Found = M
 								if(Found)
 									for(var/obj/Items/I in Found)
@@ -27425,8 +27425,8 @@ obj
 							var/Mobs = list()
 							for(var/mob/M in Players)
 								players += "[M.name]"
-								if(M.OrginalName)
-									players += "[M.OrginalName]"
+								if(M.OriginalName)
+									players += "[M.OriginalName]"
 								Mobs += M
 							players += "Cancel"
 							var/Results = input("Read Which Log?", "Choose", null) in players
@@ -27438,7 +27438,7 @@ obj
 								for(var/mob/M in Mobs)
 									if(M.name == Results)
 										Found = M
-									if(M.OrginalName == Results)
+									if(M.OriginalName == Results)
 										Found = M
 								if(Found)
 									usr<<browse(file("logs/Log([Found.key]).html"))
@@ -27482,7 +27482,7 @@ obj
 										return
 									if("Yes")
 										src.icon_state = "reboot off"
-										world << "<font color=yellow><font size =10>Server will now shut down - ([usr.key])[usr] - [usr.OrginalName]<br>"
+										world << "<font color=yellow><font size =10>Server will now shut down - ([usr.key])[usr] - [usr.OriginalName]<br>"
 										usr.Log_admin("([usr.key])[usr] shuts the world down")
 										SaveMap()
 										SaveMisc()
@@ -27572,8 +27572,8 @@ obj
 								for(var/mob/M in world)
 									if(M.client)
 										menu += "[M.name]"
-										if(M.OrginalName)
-											menu += "[M.OrginalName]"
+										if(M.OriginalName)
+											menu += "[M.OriginalName]"
 										Mobs += M
 								menu += "Cancel"
 								var/Result = input("Who do you wish to Reward with a Race?", "Choose", null) in menu
@@ -27585,14 +27585,14 @@ obj
 									for(var/mob/M in Mobs)
 										if(M.name == Result)
 											Found = M
-										if(M.OrginalName == Result)
+										if(M.OriginalName == Result)
 											Found = M
 									if(Found)
 										var/list/races = new()
 										races += "Lizardmen"
 										races += "Illithids"
 										races += "Cancel"
-										var/R = input("Choose a Race to give.", "Choose", null) in races
+										var/R = input("Choose a race to give.", "Choose", null) in races
 										if(R == "Cancel")
 											return
 										if(R == "Illithids")
@@ -27613,8 +27613,8 @@ obj
 							for(var/mob/M in world)
 								if(M.client)
 									menu += "[M.name]"
-									if(M.OrginalName)
-										menu += "[M.OrginalName]"
+									if(M.OriginalName)
+										menu += "[M.OriginalName]"
 									Mobs += M
 							menu += "Cancel"
 							var/Result = input("Who do you wish to Reward with a Language?", "Choose", null) in menu
@@ -27626,7 +27626,7 @@ obj
 								for(var/mob/M in Mobs)
 									if(M.name == Result)
 										Found = M
-									if(M.OrginalName == Result)
+									if(M.OriginalName == Result)
 										Found = M
 								if(Found)
 									var/Langs = list()
@@ -27669,8 +27669,8 @@ obj
 									var/Mobs = list()
 									for(var/mob/M in world)
 										menu2 += "[M.name]"
-										if(M.OrginalName)
-											menu2 += "[M.OrginalName]"
+										if(M.OriginalName)
+											menu2 += "[M.OriginalName]"
 										Mobs += M
 									menu2 += "Cancel"
 									var/Result2 = input("Who do you wish to Rank as [Result]?", "Choose", null) in menu2
@@ -27682,7 +27682,7 @@ obj
 										for(var/mob/M in Mobs)
 											if(M.name == Result2)
 												Found = M
-											if(M.OrginalName == Result2)
+											if(M.OriginalName == Result2)
 												Found = M
 										if(Found)
 											Found.GiveRank(Result)
@@ -27718,8 +27718,8 @@ obj
 									var/Mobs = list()
 									for(var/mob/M in Players)
 										menu += "[M.name]"
-										if(M.OrginalName)
-											menu += "[M.OrginalName]"
+										if(M.OriginalName)
+											menu += "[M.OriginalName]"
 										Mobs += M
 									menu += "Cancel"
 									var/Result = input("Who do you wish to Reward?", "Choose", null) in menu
@@ -27731,7 +27731,7 @@ obj
 										for(var/mob/M in Mobs)
 											if(M.name == Result)
 												Found = M
-											if(M.OrginalName == Result)
+											if(M.OriginalName == Result)
 												Found = M
 										if(Found)
 											usr << "<font color = teal>[Found] has [Found.Strength] Strength<br>"
@@ -27791,8 +27791,8 @@ obj
 								var/Mobs = list()
 								for(var/mob/M in world)
 									menu += "[M.name]"
-									if(M.OrginalName)
-										menu += "[M.OrginalName]"
+									if(M.OriginalName)
+										menu += "[M.OriginalName]"
 									Mobs += M
 								menu += "Cancel"
 								var/Result = input("Who do you wish to Heal?", "Choose", null) in menu
@@ -27804,7 +27804,7 @@ obj
 									for(var/mob/M in Mobs)
 										if(M.name == Result)
 											Found = M
-										if(M.OrginalName == Result)
+										if(M.OriginalName == Result)
 											Found = M
 									if(Found)
 										src.icon_state = "heal off"
@@ -27819,8 +27819,8 @@ obj
 								for(var/mob/M in Players)
 									if(M.Dead && M.client)
 										menu += "[M.name]"
-										if(M.OrginalName)
-											menu += "[M.OrginalName]"
+										if(M.OriginalName)
+											menu += "[M.OriginalName]"
 										Mobs += M
 								menu += "Cancel"
 								var/Result = input("Who do you wish to Revive?", "Choose", null) in menu
@@ -27832,7 +27832,7 @@ obj
 									for(var/mob/M in Mobs)
 										if(M.name == Result)
 											Found = M
-										if(M.OrginalName == Result)
+										if(M.OriginalName == Result)
 											Found = M
 									if(Found)
 										var/Bod = 0
@@ -28115,7 +28115,7 @@ obj
 															usr << "<font color = teal>[M] has [I] [I.suffix]<br>"
 													var/LearnName = prob(100 - M.Intelligence)
 													if(LearnName)
-														usr << "<font color = teal>You learn [M.OrginalName][M]'s name.<br>"
+														usr << "<font color = teal>You learn [M.OriginalName][M]'s name.<br>"
 													var/LearnGender = prob(100 - M.Intelligence)
 													if(LearnGender)
 														usr << "<font color = teal>You learn that [M] is a [M.Gender].<br>"
@@ -28134,8 +28134,8 @@ obj
 						var/Mobs = list()
 						for(var/mob/M in world)
 							menu2 += "[M.name]"
-							if(M.OrginalName)
-								menu2 += "[M.OrginalName]"
+							if(M.OriginalName)
+								menu2 += "[M.OriginalName]"
 							Mobs += M
 						menu2 += "Cancel"
 						var/Result2 = input("Choose someone you want to Observe with your mind.", "Choose", null) in menu2
@@ -28146,7 +28146,7 @@ obj
 							for(var/mob/M in Mobs)
 								if(M.name == Result2)
 									Found = M
-								if(M.OrginalName == Result2)
+								if(M.OriginalName == Result2)
 									Found = M
 							if(Found)
 								if(src in usr.client.screen)
@@ -28160,8 +28160,8 @@ obj
 						for(var/mob/M in world)
 							if(M.client)
 								menu2 += "[M.name]"
-								if(M.OrginalName)
-									menu2 += "[M.OrginalName]"
+								if(M.OriginalName)
+									menu2 += "[M.OriginalName]"
 								Mobs += M
 						menu2 += "Cancel"
 						var/Result2 = input("Choose someone you want to Locate.", "Choose", null) in menu2
@@ -28172,7 +28172,7 @@ obj
 							for(var/mob/M in Mobs)
 								if(M.name == Result2)
 									Found = M
-								if(M.OrginalName == Result2)
+								if(M.OriginalName == Result2)
 									Found = M
 							if(Found)
 								if(src in usr.client.screen)
@@ -28190,8 +28190,8 @@ obj
 						for(var/mob/M in world)
 							if(M.client)
 								menu2 += "[M.name]"
-								if(M.OrginalName)
-									menu2 += "[M.OrginalName]"
+								if(M.OriginalName)
+									menu2 += "[M.OriginalName]"
 								Mobs += M
 						menu2 += "Cancel"
 						var/Result2 = input("Choose someone you want to Telepath.", "Choose", null) in menu2
@@ -28202,12 +28202,12 @@ obj
 							for(var/mob/M in Mobs)
 								if(M.name == Result2)
 									Found = M
-								if(M.OrginalName == Result2)
+								if(M.OriginalName == Result2)
 									Found = M
 							if(Found)
 								if(src in usr.client.screen)
 									if(usr.Muted)
-										usr << "<font color =red>You cant talk, your Muted!<br>"
+										usr << "<font color =red>can nottalk, your Muted!<br>"
 										return
 									var/T = input("Telepath - In Character")as null|text
 									if(!T)
@@ -28297,7 +28297,7 @@ obj
 								return
 							if(usr.Sleeping)
 								return
-							if(usr.CantDoTask)
+							if(usr.CannotDoTask)
 								usr << "<font color = red>Must wait a little while before trying to climb out again!<br>"
 								return
 							var/Climbs = prob(10 + usr.Agility / 2)
@@ -28305,27 +28305,27 @@ obj
 								view(6,usr) << "<font color = yellow>[usr] manages to climb up and out of the Hole above!<br>"
 								usr.loc = locate(usr.x,usr.y,Z)
 								oview(6,usr) << "<font color = yellow>[usr] manages to climb up and out of the Hole!<br>"
-								usr.CantDoTask = 1
+								usr.CannotDoTask = 1
 								spawn(200)
 									if(usr)
-										usr.CantDoTask = 0
+										usr.CannotDoTask = 0
 								return
 							else
 								view(6,usr) << "<font color = yellow>[usr] tries to climb up and out of the Hole above but fails!<br>"
-								usr.CantDoTask = 1
+								usr.CannotDoTask = 1
 								spawn(200)
 									if(usr)
-										usr.CantDoTask = 0
+										usr.CannotDoTask = 0
 								return
 					if(Result == "Rules")
 						usr<<browse(Rules,"window=Rules")
 						return
 					if(Result == "Initiate CountDown")
-						view(8,usr) << "<font color = teal>([usr.OrginalName])[usr] is Waiting 1 Minute.<br>"
+						view(8,usr) << "<font color = teal>([usr.OriginalName])[usr] is Waiting 1 Minute.<br>"
 						usr.Log_player("([usr.key])[usr] Initiated a CountDown.")
 						spawn(600)
 							if(usr)
-								view(8,usr) << "<font color = teal>([usr.OrginalName])[usr] has Waited 1 Minute.<br>"
+								view(8,usr) << "<font color = teal>([usr.OriginalName])[usr] has Waited 1 Minute.<br>"
 								usr.Log_player("([usr.key])[usr] has waited for the CountDown.")
 					if(Result == "Toggle Sparring")
 						if(usr.SparMode == 0)
@@ -28344,11 +28344,11 @@ obj
 						if(!T)
 							return
 						if(T)
-							usr.Log_reports("([usr.key])[usr] - [usr.OrginalName] used Report Player - [T]<p>")
+							usr.Log_reports("([usr.key])[usr] - [usr.OriginalName] used Report Player - [T]<p>")
 							usr << "<font color = teal>Player reported!<br>"
 							for(var/mob/M in Players)
 								if(M.Admin)
-									M << "([usr.key])[usr] - [usr.OrginalName] used Report Player - [T]<p>"
+									M << "([usr.key])[usr] - [usr.OriginalName] used Report Player - [T]<p>"
 							return
 					if(Result == "Report Bug")
 						if(usr.Muted)
@@ -28358,7 +28358,7 @@ obj
 						if(!T)
 							return
 						if(T)
-							usr.Log_reports("([usr.key])[usr] - [usr.OrginalName] used Report Bug - [T]<p>")
+							usr.Log_reports("([usr.key])[usr] - [usr.OriginalName] used Report Bug - [T]<p>")
 							usr << "<font color = teal>Bug reported!<br>"
 							return
 					if(Result == "Admin Help")
@@ -28372,13 +28372,13 @@ obj
 						for(var/mob/M in Players)
 							if(M.Admin)
 								FindsAdmin = 1
-								M << "<b><font color = teal>([usr.key])[usr] - [usr.OrginalName]: [T]<br>"
+								M << "<b><font color = teal>([usr.key])[usr] - [usr.OriginalName]: [T]<br>"
 						if(FindsAdmin)
 							usr << "<font color = teal>Your message has been broadcast to the Admins!<br>"
-							usr.Log_player("([usr.key])[usr] - [usr.OrginalName] used Admin Help - [T]")
+							usr.Log_player("([usr.key])[usr] - [usr.OriginalName] used Admin Help - [T]")
 							return
 						else
-							usr.Log_player("([usr.key])[usr] - [usr.OrginalName] used Admin Help but no Admins were online. - [T]")
+							usr.Log_player("([usr.key])[usr] - [usr.OriginalName] used Admin Help but no Admins were online. - [T]")
 							usr << "<font color = teal>There are currently no Admins online right now!<br>"
 							return
 					if(Result == "Music Off")
@@ -28386,7 +28386,7 @@ obj
 						usr << "Music is now off, relog if you want it back on again.<br>"
 						return
 					if(Result == "Updates")
-						var/html_doc="<head><title>Updates</title></head><body bgcolor=#000000 text=#FFFF00><center><b><font color = teal><p><u>Version 0.596 Updates</u><br><p>Fixed a bug where several items could not be pulled or transfered into containers.<p>You can now interact with and apologize to NPC who are in your faction, this will stop them attacking you if you've done something bad, although you must pay a fee of 10 Gold.<p>Tweaked the Illithids TK damage, since its easy to max their Intelligence out and before you could do 26 damage per hit, lowered it to 16 at 80 Intelligence.<p>Fixed a bug where you could drown from not being in water after using stairs.<p><u>Version 0.595 Updates</u><br><p>Fixed a bug with repairing items.<p>NPC Guards will now recognise players who attack same faction NPC, so if you attack a Human Villager as a Human then run away, any guards who see you do this will always attack you on sight, unless you wear a cloak.<p>You can now only be Kicked if you walk near a body of one of your previous characters and you have Pickup or Pull modes activated.<p>Tweaked the starting stats for all races based on exact stat mods and fixed a small bug with Giants Strength mod and Snakeman having a Giants Strength mod.<p>Fixed a bug with the new death system where after making a new char and getting killed then remaking, you could add around +5 to your stats each time, resulting in new chars with more than 5, 10 and even 15+ stats.<p>Fixed a bug where NPC would target you even when your on another z level.<p><u>Version 0.594 Updates</u><br><p>30 second timer on the count down was changed to one minute.<p>Inquisitor now have half as much armour as before, in terms of defence and 10 less Agility than before.<p><b><font color = teal><p><u>Version 0.593 Updates</u><br><p>Anyone who attacks the Inquis Vault doors near an Inquis will get attacked.<p><u>Version 0.592 Updates</u><br><p>Inquis weapons do extra to undead now.<p>May have fixed a bug with being propelled back and slamming into a mob. The mob would get stuck and not be able to move.<p>Changed how potential on an item used for crafting works. Now it will take the Potential number and divide it by 40. Depending on your skill, it will remove 5 from 40 and so on each major skill level. So by about Epic, it becomes 20 and by Legendary, 18. The number left once devided will be added to the damage/defence of the item.<p>Fixed an issue with some mountains not having a second floor and being sky.<p><u>Version 0.591 Updates</u><br><p>Added Gold and Copper doors.<p>Doors were being damaged too easily, tweaked the code a litte.<p>Doors can now be knocked on.<p>The smithing rank now gives a +0.1 to Forging, Smelting and Mining skill mods.<p>Player logs will now display if a player destroys a door/chest/lock or creates a fire near wooden walls or floors.<p>Fixed a bug where stairs built under a hole were never turning the hole into stairs, allowing people to fill the hole in for a secret exit.<p>Version 0.59 Updates</u><br><p>Being stunned no longer allows you to attack.<p>Torches burn out slower than before.<p>Stairs can be built over Holes by Interacting with a Large Brick then the Hole. They can also be destroyed the same way as doors.<p>Player created turf now have a key attached to them so Admins can track those who abuse building.<p>If you fall down a Hole you can now use the ? Button to try and Climb Out, but its a low chance.<p>The chance to swim up was made easier. Instead of taking both the players weight and what they wear, it'll just take what they are carrying instead.<p>Players can now dual wield daggers and swords. Also, using the new hand buttons, you can switch between left and right hands for all weapons. Players could now use their left arm for things if their right is broken.<p>Fixed a bug where Keys would delete.<p>Ratlings now have claws.<p>Illithids Mind Blast was made easier to enter someones mind with slightly.<p>Fixed a bug with doors opening inside a players inventory.<p>Fixed a bug where Skulls from undead could not be used to craft with.<p>Ratling Kings/Queens get Plate armor now and Smiths can create it.<p>Holes can be dug now by using Interact on a shovel or being a Ratling. Double Clicking on turf begins the digging. They can also be filled or climbed down carefully by Interaction.<p>Mining skill goes up slower now because people were having 200+ easily.<p>Giant and Cyclops Kings/Queens/Smiths can now get Plate armor.<p>Ratling no longer start with bone armor but know how to make it instead.<p>Map now saves every year instead of every 6 months.<p>Copper long sword icon was fixed.<p>King rank now gives Defence 10 Plate/Chain, depending on race.<p>Stat gains were way too high, made them adjust better to a players stats, it gets harder to raise as they rise now.<p>Can now repair items with lower than 33 dura instead of lower than 1.<p>Fixed a bug where some Armor could not be repaired.<p>Lowered Kings/Queens weapons from 20 damage to 15.<p>If your unarmed skill is higher than 20, you wont take hand damage when fighting, unless hitting someone in plate/chain/<p>Ammount of Max Weight gained when strength rises was lowered a little.<p>Version 0.58 Updates</u><br><p>Can gain stats from swimming now.<p>Training dummies give a little more weapon skill than before each hit and are twice as endurant than before, but can be improved by repairing.<p>Wolfmen can no longer where shoulder armor. Felt they were already powerful enough.<p>Sligthly Bigger map.<p>Illithid Int Cap is now 80 instead of 100 and Alther Int cap is now 70 instead of 75. Illithid Agility cap is now 40 instead of 60.<p>Tweaked Illithid TK damage a little. Before armor would not give the full defence when being slammed against objects.<p>Version 0.573 Updates</u><br><p>Fixed a bug where Legendary items could not be crafted.<p>Fixed Human hair growth and overlay bugs.<p>Added yearly random events.<p>Illithid mind blast and mind probe are sligthly faster with a shorter cool down.<p>Iron gates can now be crafted.<p>All crafting skills and jobs take twice as less time to do and have had their mininum time lowered.<p>Fixed a bug where anything could be used to skin or butcher.<p>Silver weapons now do extra damage to Undead.<p>NPC Guard now respawn every month.<p>Fixed a bug where players could not learn Ancient.<p>Removed one group of Inquisitors because the maps too small for two groups and players keep getting killed constantly by them.<p>Bandits can roam free now.<p>Small stone bricks now give shards instead of the larger ones.<p>Added Inquisitor inside the Vault.<p>Added an Extra Door to the Inquisitor Vault.<p>Made the Inquisitor Vault Walls Impossible to break due to people Abusing.<p>Fixed a bug where if you had a smithing rank, you could examine weapons that you already knew how to create.<p>Version 0.57 Updates</u><br><p>Fixed a bug with Weapons where if you Examine an iron weapon, you would'nt get the other material types added to your craft list.<p>Added bone crafting.<p>Inventory will now close when a crafting menu opens.<p>Wolfmen can now Skin and Butcher with their claws.<p>Added Silver weapons.<p>Fixed a bug where NPC would smash you on the head and knock you out, even if you had a helmet on.<p>Intelligence is halved now when you get infected and turn into a zombie.<p>Infect chance for zombies is 1% again.<p>Illthid doors can now be attacked.<p>Illthids can no longer use TK + Observe on people.<p>Made NPC guard stronger.<p>Removed the stat boost for newly made players based on old players stats.<p>Fixed an overlay bug regarding Hair and Crowns.<p>Version 0.56 Updates</u><br><p>Wolfmen no longer get their Claws Damage Boost if holding a shield in combat.<p>You can now attack and destroy any walls or floors.<p>Doors are now half as durable as before by default.<p>Town walls can no longer be seen through.<p>Extended the Wolfmans field of vision while in the dark by one tile.<p>Added an Altherian Priest to help Altherian players.<p>Admin reward now takes the number entered by the Admin and Times it by the player race Multi in that stat Area. So for a Alther with an Agility Mod of 0.2, they would get Num X 0.2 added to their stats.<p>Very very sligthly lowered the chance to die depending on Blood loss.<p>Being stunned now sometimes lasts twice as long as before.<p>Zombies now have a 2% chance to infect instead of 1%.<p>NPC will now re-populate the world every two months instead of three.<p>Fixed an icon problem with Stahlites gloves.<p>Zombie NPC and players will no longer rise up from the dead if their brain is damaged badly.<p>Zombie NPC and Players now have a 10% chance per hit to die if they have no limbs.<p>Version 0.55 Updates</u><br><p>The count down on RP's was made seperate from the Emote button.<p>Leather hides can no longer get over 100 Craft Potential.<p>Trees now fall left and right. If they land on the tile your in they will take into account your Wood Cutting Skill, which helps you judge where it'll fall giving a lower chance of being hit.<p>Fixed a bug where if the server rebooted and there was a lit forge, that forge would stay lit forever.<p>Wolves can wear plate pauldrons again.<p>Wolves can no longer use Human style plate helmets. Instead they get their own kind, made by ranked smiths.<p>Wolves can use leather gloves again now, but not plate.<p>Made the new stat system for newly made late joiners divide the best stats by 5 instead of 3.<p>World will now only re-populate withy NPC's every Three months, instead of each month.<p>Wounds now heal twice as quickly as before.<p>Frogmen now have a 1% chance every 2.5 seconds to regenerate a lost limb.<p>Frogmen now get a bonus to swimming skill upon creation.<p>Frogmen no longer drown in water, ever.<p>Frogmen can move faster in water now.<p>Fixed a bug with leather hides not drying out correctly.<p>Fixed a bug where it was impossible to gain Max Weight through non-combat related skills.<p>You can now Examine people for information.<p>Made the System where you gain a portion of the strongest player onlines stats when making a new char differant. Instead it will take the stats of all players online, then add them together and devide by the players, getting the average stats, then dividing by four. It wont do this if theres less than 3 players.<p>Added swimming. You move faster in water depending on your swimming skill and strength. Wearing or Carrying anything increases your chances to sink as well as decreasing your chances to swim up from the water. There is also a Delay on how often you can swim up from underwater now. You can hold your breathe for two minutes, after which you die.<p>You can now wear leggings even if you've a leg missing.<p>Fixed a bug where people could attack a door and force the delay to non-exsistant, resulting in a destroyed door in 1/100 the normal time.<p>Wolfmen and Wolfwomen can no longer wear plate armour on their chest or hands, since this would distrupt their natural movements to the extent of damage to their bodies and realisticly, would cause possible death.<p>Fixed a bug with Stahlites icons.<p>Major Organs now Heal, but slower than other lesser ones.<p>Removed the Lich Npc, can only become un-dead through the Necro book or infection.<p>The game will now track the people with the Highest stats and save that number. When anyone makes a new char, they get that number divided by 3 added to their stats. This is to help lessen the impact upon players when they die after grinding for hours and get killed by a rabid chicken.<p>Moved the Inquisitor tower closer to the Human towns since it made no sense it was miles away. Also added a Vault inside.<p>Limbs and damaged Organs no longer magically heal after a year.<p>Fixed a bug where Transfering an Item would constantly shut your Inventory off each time.<p>You can now Forge Locks and Keys. When you Examine a door, Locks and Keys should be added to your Craft List.<p>You can Damage Doors and Chests using Combat Mode and repair them using certain tools.<p>You can now place Locks into Doors and Chests using Interact.<p>Iron doors can now be crafted.<p>Made it so when one of your legs health drops below 50 you move slower.<p>Made it so when you Target an NPC of your own Race, any other NPC who are friendly to the one you targetted attack you also.<p>There is now a chance to get extra Large and Small Bricks when smashing them with a hammer based on your Masonary Skills.<p>The max ammount of time to build something was lowered from 50 seconds to 30 seconds. This makes building walls and floors quicker but still based on skill as always.<p>There is now a chance based on your Wood Cutting skill to gain an extra Log when chopping a felled tree.<p>Pulling things now makes you slower.<p>Made Stat Gains from crafting slightly higher.<p>Wearing Armour now effects Dodge, Block and Parry when fighting, based on your Strength and Weight of Armour you wear.<p>Wearing Armour will now slow your attacking speed down.<p>There is now a chance based on your wood cutting skill to get extra Blocks or Blanks.<p>Code will now devide your MaxWeight by 1.1 and 1.2 when moving or attacking. If your current Weight is over that number you will Attack and Move slower.<p>There is now stat caps on Races. It starts at 50 for Humans and varies from Race to Race.<p>Lowered default stat gain chance from 33% to 22% per sucessful hit due to a change in stat codes.<p>When you Examine Metal objects, you can now craft them in all Materials, and not just the Material that the object you Examined was made from.<p>Added a Priest Rank.<p>All Humanoid NPC should now act correctly when they turn into a zombie.<p>All Humanoid NPC should now be able to be either infected, or revived, as Zombies.<p>Added a Female Stahlite icon, with hair.<p>Version 0.54 Updates</u><br><p>Added the ability to Mate, simply Click Interact, then click another player. Frogmen and Snakemen lay eggs. The child has a 50/50 chance of either being a player or NPC. If player, the next person to make a new character and pick the same race as the mother, is born to her. If NPC, the mother will give birth, and an NPC child will be created. Later on, if one of the parents die, they will become the child. Both NPC and Player get 1/8 stats from each parent.<p>Fixed the no Dura on Leather items bug.<p>Reverted the map back to the old Version, because its easier to find people and Role Play.<p>Bone armour now has a defence similar to Chain, instead of Leather.<p>Fixed a bug where getting knocked back, slamming into something, and dropping your weapon or shield made them bugged.<p>Fixed a bug that stopped Claws from growing back or healing.<p>Version 0.531 Updates</u><br><p>Was forced to remove the EXP Feature, due to it creating a massive bug.<p>Version 0.53 Updates</u><br><p>Added Bandit Raiders who travel in groups.<p>Fixed a bug where Ranged Combat Skill was not teaching correctly to a Learner when they Dodge,Bat away, Block, or get hit by an Arrow..<p>-May- have fixed a bug with Map Saving, will require alot of testing.<p>Fixed a bug where Large Brick Walls were not showing up in the Build Menu for Construction.<p>Players can now Push other Players who have targetted them, where as before, pushing someone who had targetted you did not work.<p>Players will now gain EXP when they Gain Weapon Skill or Stats, this EXP will then Save when they log out. When the Player dies and makes a new Character, the EXP from the previous Character carries over and adds a small Bonus to the New Characters Stats and Weapon Skills. This was added to lessen the impact of Perm Death. EXP will not go any higher than 100, when a New Character is made, they get EXP devided by 4.5 added to their stats, which is +22 for someone at 100 stats.<p>Version 0.52 Updates</u><br><p>Fixed a bug where Forging would break at 90 skill.<p>Fixed a bug where NPC were talking to players...<p>Mined out tiles that players have created will no longer spawn with hundreds of Rocks scattered about.<p>Hopefully, Plants, Rocks, and other un-wanted objects will now Delete when someone builds a wall/floor over them.<p>Gain chance on Shield Skill was changed to 50% from 33% per successful Block.<p>Base Fail chance on Crafting was lowered to 50% from 60%.<p>Purity of Ores renamed to Craft Potential.<p>Leather now has Craft Potential, like Ore, but depends on the players Skinning Skill.<p>Skin from creatures will now Dry out after a few minutes.<p>Anything with no Blood no longer leaves a blood trail when knocked back.<p>Version 0.51 Updates</u><br><p>Clicking Examine now displays your Cords, this is a Temp feature until I code in a more RP way of locating your position.<p>Added Gold Armour.<p>Months now go slightly faster.<p>Goblins now randomly spawn on the map in groups.<p>Gold and Silver Veins are alot more Rare now.<p>Re-added the dreaded Inquisitors.<p>Skill/Stat Caps now raise when your offline.<p>There is now a universal skill/stat cap that rises each Month.<p>Auto Heals now happen every Month instead of Year.<p>Made the Multi Cap increase by 3 every Month, instead of 10 every Year.<p>Made NPC re-spawn every Month instead of Year.<p>Version 0.50 Updates</u><br><p>May have fixed the Eternal Forge Lit bug.<p>Removed the Heir Rank and added Weapon Master and Diplomat Ranks.<p>All Tools now have a Weight, so they dont attack really fast.<p>Most NPC who dont have a home, such as a Cave or Tomb will now randomly spawn accross the Map every in game Year, this is to avoid them spawning on Player Made houses.<p>Fighting someone with higher Skill now has a 15% chance for you to gain in the Skill Area of the Weapon they use, as long as your Skill is not already higher than theirs. For instance, you wont gain anything from someone if your Skill in Swords is 30 and theirs 50, this is because it Halves their Skill, only allowing you to gain up to 25 of their Skill. This allows you to slowly learn from someone else and their combat Skills, opening up a Teacher-Learner Role Play and at the same time, wont allow you to constantly Gain Skill points from each other Infinitely.<p>Admin Logs will now display Edits, to help prevent abuse.<p>The Map will now save every Six(6) in game Months, instead of Twelve(12).<p>Months and Years now pass Three times as Slower.<p>Day and Night Cycles are now seperate from Months and Years.<p>Crafted items will now display when they were created, their quality, and other information when examined.<p>Fixed a bug with Lit Torches never burning out and giving the player 5 luminosity while not using one.<p>Skeletons die for good when their skulls are smashed during combat.<p>There is now a 15% chance that a sucessful attack to the skull will instantly KO someone. There is also a 33% chance that if your Brain is hurt, you also get instantly KO'ed<p>There is now a chance, based on your strength, that you will knock someone flying back.<p>Stat gain default chance was lowered to 33% from 50% per sucessful hit.<p>Fixed a bug where if your stats were too high, you would never gain, no matter what. Fixed it back to a 2% chance to gain if your stats are very high like it was before.<p>Meat, Limbs, Skulls and Bones now have a much shoter name than before.<p>Admin rewards now raise your stat Multi, where as before they would raise your stats past your multi and possibly bug them.<p>Skill caps will no longer update along with your age when you log in, this means if you dont play for a day, then log in, your skill caps wont go up. You will need to be present each in game year for them to rise now.<p>Fixed a bug where two players could cut down the same tree and get double resources from it.<p>Wolfmen NPC no longer attack Cloaked players.<p>Version 0.491 Updates</u><br><p>May have fixed a bug with Map Saving, but just in case, Maps are backed up every Three IC years.<p>Underground walls can now be dug into.<p>Fixed a bug where the contents of a container would never save.<p>Expanded the map a tiny bit.<p>Frogmen now have a Swamp area.<p>You can now Toggle a Spar mode, this will make you do 1/4 the damage to players. (Not NPC)<p>Fixed a bug related to Quivers, Arrows and Weight.<p>Added a Report Bug and Report Player Option on the Question mark button, if you abuse or spam these features, you will be punished.<p>Added an Admin Help option to the Question Mark button.<p>You can now open stat windows while fighting.<p>Common is now only given to Stahlites, Humans, Snakemen and Altherians.<p>You can now get to 97% instead of 95% with Languages.<p>Version 0.487 Updates</u><br><p>May have fixed the Language bug, needs testing with other players.<p>Due to popular demand, a Common language was added to all races.<p>Fixed a bug where 100 or higher crafting skill would bug up your item creation.<p>Crafts fail chance was lowered again. It was at 70%, it is now 60%, it will now stay at 60%.<p>Wolfmen, Giants and Cyclops Hunger will now go down twice as fast as before. Undead's Hunger will go down Three times as fast.<p>Made forging skill based on your Multi Cap, like with Melee skills and stats.<p>Made smelting skill based on your Multi Cap, like with Melee skills and stats.<p>Training dummies now have alot more dura, but will still need to be repaired. Repairing them makes them stronger than before, based on your Carpentry skills.<p>Butchery Skill Multi's were not active on players, you can now gain Butchery skill,<p>Added Snakemen guards to the Snakeman starting area.<p>Charcoal no longer has a Weight of 5, but 2 instead.<p>Tools placed on the map were given Weight, instead of before where they had 0 Weight and attacked really fast.<p>Added Shoulder Protection for Ratlings.<p>Shield users now have a chance to block arrows based on their Shield Skill and Agility.<p>Added guards to the Wolf Shaman's Cave.<p>Fixed a bug where the Lich NPC would never revive anyone.<p>Money now has no Weight.<p>Attack speed with Heavey weapons is now slower than before.<p>You can pull Arrows out by Interacting on them, depending where it was lodged depends on how much you will bleed.<p>Arrows have a chance to lodge into people when they hit, depending on their armour.<p>Arrows now have a chance to break on some Armours.<p>Worked on the Ranged combat a little, it will now work a lot more like Melee where the enemy can be stunned and faint.<p>Removed the Hell map to help reduce lag until it has a use.<p>Added more Masonary objects in for Masons.<p>Stat gains from Crafting/Building now work like those from fighting, they will increase at a chance based on your current stats.<p>You can now no longer sleep with a Weapon Equipped, Plate Armour, or a Shield Equipped.<p><u>Version 0.47 Updates</u><br><p>Made the language system work better and fixed a bug related to it.<p>You can now create some of the Stone items in game, including the Forge.<p>You can now forge an Anvil.<p>Added different Languages for different Races, the more you hear a Language, the better you become at speaking it, based off your Intelligence.<p>You can now place a lit torch in water to put it out.<p>Meat will now actually cook when you try to. Before it had a chance of the fire going out before finished.<p>You will now no longer have any chance of dieing if you get hungry or tired but you will still get ill.<p>Fixed a bug where you could not create training dummies or armour racks.<p>Stats and Combat skills now have a Cap on them, it starts at 11 and goes up by 10 every year, this means by the time your age 1 you can get your stats to 21, and by age 2, 31, ect ect.<p>Made it so you gain Agility and Endurance when doing crafting skills, where as before it was just strength, which messed up your overall gain chance later on if you decided to fight and become a warrior.<p>Slightly lowered the ammount of Endurance and Strength gained from being a Zombie.<p>Fixed a bug where blunt weapons were able to cut off a limb.<p>You will now only grow a beard if your older than 15.<p>Fixed a bug with the spiders not attacking.<p>Fixed a bug where if you logged out dead and then logged in again, and you were revived just as you go to click load or new game, you would be revived in your old body.<p>Players bodies will now not rot over time.<p>You can now light a forge using two stone shards.<p>Fixed a bug where certain NPC would never respawn.<p>Fixed a bug where targetting a player then killing them would still display the Target icon.<p>Made it so when you become a Zombie you loose your crafting memeory.<br>"
+						var/html_doc="<head><title>Updates</title></head><body bgcolor=#000000 text=#FFFF00><center><b><font color = teal><p><u>Version 0.596 Updates</u><br><p>Fixed a bug where several items could not be pulled or transfered into containers.<p>You can now interact with and apologize to NPC who are in your faction, this will stop them attacking you if you've done something bad, although you must pay a fee of 10 Gold.<p>Tweaked the Illithids TK damage, since its easy to max their Intelligence out and before you could do 26 damage per hit, lowered it to 16 at 80 Intelligence.<p>Fixed a bug where you could drown from not being in water after using stairs.<p><u>Version 0.595 Updates</u><br><p>Fixed a bug with repairing items.<p>NPC Guards will now recognise players who attack same faction NPC, so if you attack a Human Villager as a Human then run away, any guards who see you do this will always attack you on sight, unless you wear a cloak.<p>You can now only be Kicked if you walk near a body of one of your previous characters and you have Pickup or Pull modes activated.<p>Tweaked the starting stats for all races based on exact stat mods and fixed a small bug with Giants Strength mod and Snakeman having a Giants Strength mod.<p>Fixed a bug with the new death system where after making a new char and getting killed then remaking, you could add around +5 to your stats each time, resulting in new chars with more than 5, 10 and even 15+ stats.<p>Fixed a bug where NPC would target you even when your on another z level.<p><u>Version 0.594 Updates</u><br><p>30 second timer on the count down was changed to one minute.<p>Inquisitor now have half as much armour as before, in terms of defence and 10 less Agility than before.<p><b><font color = teal><p><u>Version 0.593 Updates</u><br><p>Anyone who attacks the Inquis Vault doors near an Inquis will get attacked.<p><u>Version 0.592 Updates</u><br><p>Inquis weapons do extra to undead now.<p>May have fixed a bug with being propelled back and slamming into a mob. The mob would get stuck and not be able to move.<p>Changed how potential on an item used for crafting works. Now it will take the Potential number and divide it by 40. Depending on your skill, it will remove 5 from 40 and so on each major skill level. So by about Epic, it becomes 20 and by Legendary, 18. The number left once devided will be added to the damage/defence of the item.<p>Fixed an issue with some mountains not having a second floor and being sky.<p><u>Version 0.591 Updates</u><br><p>Added Gold and Copper doors.<p>Doors were being damaged too easily, tweaked the code a litte.<p>Doors can now be knocked on.<p>The smithing rank now gives a +0.1 to Forging, Smelting and Mining skill mods.<p>Player logs will now display if a player destroys a door/chest/lock or creates a fire near wooden walls or floors.<p>Fixed a bug where stairs built under a hole were never turning the hole into stairs, allowing people to fill the hole in for a secret exit.<p>Version 0.59 Updates</u><br><p>Being stunned no longer allows you to attack.<p>Torches burn out slower than before.<p>Stairs can be built over Holes by Interacting with a Large Brick then the Hole. They can also be destroyed the same way as doors.<p>Player created turf now have a key attached to them so Admins can track those who abuse building.<p>If you fall down a Hole you can now use the ? Button to try and Climb Out, but its a low chance.<p>The chance to swim up was made easier. Instead of taking both the players weight and what they wear, it'll just take what they are carrying instead.<p>Players can now dual wield daggers and swords. Also, using the new hand buttons, you can switch between left and right hands for all weapons. Players could now use their left arm for things if their right is broken.<p>Fixed a bug where Keys would delete.<p>Ratlings now have claws.<p>Illithids Mind Blast was made easier to enter someones mind with slightly.<p>Fixed a bug with doors opening inside a players inventory.<p>Fixed a bug where Skulls from undead could not be used to craft with.<p>Ratling Kings/Queens get Plate armor now and Smiths can create it.<p>Holes can be dug now by using Interact on a shovel or being a Ratling. Double Clicking on turf begins the digging. They can also be filled or climbed down carefully by Interaction.<p>Mining skill goes up slower now because people were having 200+ easily.<p>Giant and Cyclops Kings/Queens/Smiths can now get Plate armor.<p>Ratling no longer start with bone armor but know how to make it instead.<p>Map now saves every year instead of every 6 months.<p>Copper long sword icon was fixed.<p>King rank now gives Defence 10 Plate/Chain, depending on race.<p>Stat gains were way too high, made them adjust better to a players stats, it gets harder to raise as they rise now.<p>Can now repair items with lower than 33 dura instead of lower than 1.<p>Fixed a bug where some Armor could not be repaired.<p>Lowered Kings/Queens weapons from 20 damage to 15.<p>If your unarmed skill is higher than 20, you won't take hand damage when fighting, unless hitting someone in plate/chain/<p>Ammount of Max Weight gained when strength rises was lowered a little.<p>Version 0.58 Updates</u><br><p>Can gain stats from swimming now.<p>Training dummies give a little more weapon skill than before each hit and are twice as endurant than before, but can be improved by repairing.<p>Wolfmen can no longer where shoulder armor. Felt they were already powerful enough.<p>Sligthly Bigger map.<p>Illithid Int Cap is now 80 instead of 100 and Alther Int cap is now 70 instead of 75. Illithid Agility cap is now 40 instead of 60.<p>Tweaked Illithid TK damage a little. Before armor would not give the full defence when being slammed against objects.<p>Version 0.573 Updates</u><br><p>Fixed a bug where Legendary items could not be crafted.<p>Fixed Human hair growth and overlay bugs.<p>Added yearly random events.<p>Illithid mind blast and mind probe are sligthly faster with a shorter cool down.<p>Iron gates can now be crafted.<p>All crafting skills and jobs take twice as less time to do and have had their mininum time lowered.<p>Fixed a bug where anything could be used to skin or butcher.<p>Silver weapons now do extra damage to Undead.<p>NPC Guard now respawn every month.<p>Fixed a bug where players could not learn Ancient.<p>Removed one group of Inquisitors because the maps too small for two groups and players keep getting killed constantly by them.<p>Bandits can roam free now.<p>Small stone bricks now give shards instead of the larger ones.<p>Added Inquisitor inside the Vault.<p>Added an Extra Door to the Inquisitor Vault.<p>Made the Inquisitor Vault Walls Impossible to break due to people Abusing.<p>Fixed a bug where if you had a smithing rank, you could examine weapons that you already knew how to create.<p>Version 0.57 Updates</u><br><p>Fixed a bug with Weapons where if you Examine an iron weapon, you would'nt get the other material types added to your craft list.<p>Added bone crafting.<p>Inventory will now close when a crafting menu opens.<p>Wolfmen can now Skin and Butcher with their claws.<p>Added Silver weapons.<p>Fixed a bug where NPC would smash you on the head and knock you out, even if you had a helmet on.<p>Intelligence is halved now when you get infected and turn into a zombie.<p>Infect chance for zombies is 1% again.<p>Illthid doors can now be attacked.<p>Illthids can no longer use TK + Observe on people.<p>Made NPC guard stronger.<p>Removed the stat boost for newly made players based on old players stats.<p>Fixed an overlay bug regarding Hair and Crowns.<p>Version 0.56 Updates</u><br><p>Wolfmen no longer get their Claws Damage Boost if holding a shield in combat.<p>You can now attack and destroy any walls or floors.<p>Doors are now half as durable as before by default.<p>Town walls can no longer be seen through.<p>Extended the Wolfmans field of vision while in the dark by one tile.<p>Added an Altherian Priest to help Altherian players.<p>Admin reward now takes the number entered by the Admin and Times it by the player race Multi in that stat Area. So for a Alther with an Agility Mod of 0.2, they would get Num X 0.2 added to their stats.<p>Very very sligthly lowered the chance to die depending on Blood loss.<p>Being stunned now sometimes lasts twice as long as before.<p>Zombies now have a 2% chance to infect instead of 1%.<p>NPC will now re-populate the world every two months instead of three.<p>Fixed an icon problem with Stahlites gloves.<p>Zombie NPC and players will no longer rise up from the dead if their brain is damaged badly.<p>Zombie NPC and Players now have a 10% chance per hit to die if they have no limbs.<p>Version 0.55 Updates</u><br><p>The count down on RP's was made seperate from the Emote button.<p>Leather hides can no longer get over 100 Craft Potential.<p>Trees now fall left and right. If they land on the tile your in they will take into account your Wood Cutting Skill, which helps you judge where it'll fall giving a lower chance of being hit.<p>Fixed a bug where if the server rebooted and there was a lit forge, that forge would stay lit forever.<p>Wolves can wear plate pauldrons again.<p>Wolves can no longer use Human style plate helmets. Instead they get their own kind, made by ranked smiths.<p>Wolves can use leather gloves again now, but not plate.<p>Made the new stat system for newly made late joiners divide the best stats by 5 instead of 3.<p>World will now only re-populate withy NPC's every Three months, instead of each month.<p>Wounds now heal twice as quickly as before.<p>Frogmen now have a 1% chance every 2.5 seconds to regenerate a lost limb.<p>Frogmen now get a bonus to swimming skill upon creation.<p>Frogmen no longer drown in water, ever.<p>Frogmen can move faster in water now.<p>Fixed a bug with leather hides not drying out correctly.<p>Fixed a bug where it was impossible to gain Max Weight through non-combat related skills.<p>You can now Examine people for information.<p>Made the System where you gain a portion of the strongest player onlines stats when making a new char differant. Instead it will take the stats of all players online, then add them together and devide by the players, getting the average stats, then dividing by four. It won't do this if theres less than 3 players.<p>Added swimming. You move faster in water depending on your swimming skill and strength. Wearing or Carrying anything increases your chances to sink as well as decreasing your chances to swim up from the water. There is also a Delay on how often you can swim up from underwater now. You can hold your breath for two minutes, after which you die.<p>You can now wear leggings even if you've a leg missing.<p>Fixed a bug where people could attack a door and force the delay to non-exsistant, resulting in a destroyed door in 1/100 the normal time.<p>Wolfmen and Wolfwomen can no longer wear plate armour on their chest or hands, since this would distrupt their natural movements to the extent of damage to their bodies and realisticly, would cause possible death.<p>Fixed a bug with Stahlites icons.<p>Major Organs now Heal, but slower than other lesser ones.<p>Removed the Lich Npc, can only become un-dead through the Necro book or infection.<p>The game will now track the people with the Highest stats and save that number. When anyone makes a new char, they get that number divided by 3 added to their stats. This is to help lessen the impact upon players when they die after grinding for hours and get killed by a rabid chicken.<p>Moved the Inquisitor tower closer to the Human towns since it made no sense it was miles away. Also added a Vault inside.<p>Limbs and damaged Organs no longer magically heal after a year.<p>Fixed a bug where Transfering an Item would constantly shut your Inventory off each time.<p>You can now Forge Locks and Keys. When you Examine a door, Locks and Keys should be added to your Craft List.<p>You can Damage Doors and Chests using Combat Mode and repair them using certain tools.<p>You can now place Locks into Doors and Chests using Interact.<p>Iron doors can now be crafted.<p>Made it so when one of your legs health drops below 50 you move slower.<p>Made it so when you Target an NPC of your own Race, any other NPC who are friendly to the one you targetted attack you also.<p>There is now a chance to get extra Large and Small Bricks when smashing them with a hammer based on your Masonry Skills.<p>The max ammount of time to build something was lowered from 50 seconds to 30 seconds. This makes building walls and floors quicker but still based on skill as always.<p>There is now a chance based on your Wood Cutting skill to gain an extra Log when chopping a felled tree.<p>Pulling things now makes you slower.<p>Made Stat Gains from crafting slightly higher.<p>Wearing Armour now effects Dodge, Block and Parry when fighting, based on your Strength and Weight of Armour you wear.<p>Wearing Armour will now slow your attacking speed down.<p>There is now a chance based on your wood cutting skill to get extra Blocks or Blanks.<p>Code will now devide your MaxWeight by 1.1 and 1.2 when moving or attacking. If your current Weight is over that number you will Attack and Move slower.<p>There is now stat caps on races. It starts at 50 for Humans and varies from race to Race.<p>Lowered default stat gain chance from 33% to 22% per sucessful hit due to a change in stat codes.<p>When you Examine Metal objects, you can now craft them in all Materials, and not just the Material that the object you Examined was made from.<p>Added a Priest Rank.<p>All Humanoid NPC should now act correctly when they turn into a zombie.<p>All Humanoid NPC should now be able to be either infected, or revived, as Zombies.<p>Added a Female Stahlite icon, with hair.<p>Version 0.54 Updates</u><br><p>Added the ability to Mate, simply Click Interact, then click another player. Frogmen and Snakemen lay eggs. The child has a 50/50 chance of either being a player or NPC. If player, the next person to make a new character and pick the same race as the mother, is born to her. If NPC, the mother will give birth, and an NPC child will be created. Later on, if one of the parents die, they will become the child. Both NPC and Player get 1/8 stats from each parent.<p>Fixed the no Dura on Leather items bug.<p>Reverted the map back to the old Version, because its easier to find people and Role Play.<p>Bone armour now has a defence similar to Chain, instead of Leather.<p>Fixed a bug where getting knocked back, slamming into something, and dropping your weapon or shield made them bugged.<p>Fixed a bug that stopped Claws from growing back or healing.<p>Version 0.531 Updates</u><br><p>Was forced to remove the EXP Feature, due to it creating a massive bug.<p>Version 0.53 Updates</u><br><p>Added Bandit Raiders who travel in groups.<p>Fixed a bug where Ranged Combat Skill was not teaching correctly to a Learner when they Dodge,Bat away, Block, or get hit by an Arrow..<p>-May- have fixed a bug with Map Saving, will require alot of testing.<p>Fixed a bug where Large Brick Walls were not showing up in the Build Menu for Construction.<p>Players can now Push other Players who have targetted them, where as before, pushing someone who had targetted you did not work.<p>Players will now gain EXP when they Gain Weapon Skill or Stats, this EXP will then Save when they log out. When the Player dies and makes a new Character, the EXP from the previous Character carries over and adds a small Bonus to the New Characters Stats and Weapon Skills. This was added to lessen the impact of Perm Death. EXP will not go any higher than 100, when a New Character is made, they get EXP devided by 4.5 added to their stats, which is +22 for someone at 100 stats.<p>Version 0.52 Updates</u><br><p>Fixed a bug where Forging would break at 90 skill.<p>Fixed a bug where NPC were talking to players...<p>Mined out tiles that players have created will no longer spawn with hundreds of Rocks scattered about.<p>Hopefully, Plants, Rocks, and other un-wanted objects will now Delete when someone builds a wall/floor over them.<p>Gain chance on Shield Skill was changed to 50% from 33% per successful Block.<p>Base Fail chance on Crafting was lowered to 50% from 60%.<p>Purity of Ores renamed to Craft Potential.<p>Leather now has Craft Potential, like Ore, but depends on the players Skinning Skill.<p>Skin from creatures will now Dry out after a few minutes.<p>Anything with no Blood no longer leaves a blood trail when knocked back.<p>Version 0.51 Updates</u><br><p>Clicking Examine now displays your Cords, this is a Temp feature until I code in a more RP way of locating your position.<p>Added Gold Armour.<p>Months now go slightly faster.<p>Goblins now randomly spawn on the map in groups.<p>Gold and Silver Veins are alot more Rare now.<p>Re-added the dreaded Inquisitors.<p>Skill/Stat Caps now raise when your offline.<p>There is now a universal skill/stat cap that rises each Month.<p>Auto Heals now happen every Month instead of Year.<p>Made the Multi Cap increase by 3 every Month, instead of 10 every Year.<p>Made NPC re-spawn every Month instead of Year.<p>Version 0.50 Updates</u><br><p>May have fixed the Eternal Forge Lit bug.<p>Removed the Heir Rank and added Weapon Master and Diplomat Ranks.<p>All Tools now have a Weight, so they do not attack really fast.<p>Most NPC who do not have a home, such as a Cave or Tomb will now randomly spawn accross the Map every in game Year, this is to avoid them spawning on Player Made houses.<p>Fighting someone with higher Skill now has a 15% chance for you to gain in the Skill Area of the Weapon they use, as long as your Skill is not already higher than theirs. For instance, you won't gain anything from someone if your Skill in Swords is 30 and theirs 50, this is because it Halves their Skill, only allowing you to gain up to 25 of their Skill. This allows you to slowly learn from someone else and their combat Skills, opening up a Teacher-Learner Role Play and at the same time, won't allow you to constantly Gain Skill points from each other Infinitely.<p>Admin Logs will now display Edits, to help prevent abuse.<p>The Map will now save every Six(6) in game Months, instead of Twelve(12).<p>Months and Years now pass Three times as Slower.<p>Day and Night Cycles are now seperate from Months and Years.<p>Crafted items will now display when they were created, their quality, and other information when examined.<p>Fixed a bug with Lit Torches never burning out and giving the player 5 luminosity while not using one.<p>Skeletons die for good when their skulls are smashed during combat.<p>There is now a 15% chance that a sucessful attack to the skull will instantly KO someone. There is also a 33% chance that if your Brain is hurt, you also get instantly KO'ed<p>There is now a chance, based on your strength, that you will knock someone flying back.<p>Stat gain default chance was lowered to 33% from 50% per sucessful hit.<p>Fixed a bug where if your stats were too high, you would never gain, no matter what. Fixed it back to a 2% chance to gain if your stats are very high like it was before.<p>Meat, Limbs, Skulls and Bones now have a much shoter name than before.<p>Admin rewards now raise your stat Multi, where as before they would raise your stats past your multi and possibly bug them.<p>Skill caps will no longer update along with your age when you log in, this means if you do not play for a day, then log in, your skill caps won't go up. You will need to be present each in game year for them to rise now.<p>Fixed a bug where two players could cut down the same tree and get double resources from it.<p>Wolfmen NPC no longer attack Cloaked players.<p>Version 0.491 Updates</u><br><p>May have fixed a bug with Map Saving, but just in case, Maps are backed up every Three IC years.<p>Underground walls can now be dug into.<p>Fixed a bug where the contents of a container would never save.<p>Expanded the map a tiny bit.<p>Frogmen now have a Swamp area.<p>You can now Toggle a Spar mode, this will make you do 1/4 the damage to players. (Not NPC)<p>Fixed a bug related to Quivers, Arrows and Weight.<p>Added a Report Bug and Report Player Option on the Question mark button, if you abuse or spam these features, you will be punished.<p>Added an Admin Help option to the Question Mark button.<p>You can now open stat windows while fighting.<p>Common is now only given to Stahlites, Humans, Snakemen and Altherians.<p>You can now get to 97% instead of 95% with Languages.<p>Version 0.487 Updates</u><br><p>May have fixed the Language bug, needs testing with other players.<p>Due to popular demand, a Common language was added to all races.<p>Fixed a bug where 100 or higher crafting skill would bug up your item creation.<p>Crafts fail chance was lowered again. It was at 70%, it is now 60%, it will now stay at 60%.<p>Wolfmen, Giants and Cyclops Hunger will now go down twice as fast as before. Undead's Hunger will go down Three times as fast.<p>Made forging skill based on your Multi Cap, like with Melee skills and stats.<p>Made smelting skill based on your Multi Cap, like with Melee skills and stats.<p>Training dummies now have alot more dura, but will still need to be repaired. Repairing them makes them stronger than before, based on your Carpentry skills.<p>Butchery Skill Multi's were not active on players, you can now gain Butchery skill,<p>Added Snakemen guards to the Snakeman starting area.<p>Charcoal no longer has a Weight of 5, but 2 instead.<p>Tools placed on the map were given Weight, instead of before where they had 0 Weight and attacked really fast.<p>Added Shoulder Protection for Ratlings.<p>Shield users now have a chance to block arrows based on their Shield Skill and Agility.<p>Added guards to the Wolf Shaman's Cave.<p>Fixed a bug where the Lich NPC would never revive anyone.<p>Money now has no Weight.<p>Attack speed with Heavey weapons is now slower than before.<p>You can pull Arrows out by Interacting on them, depending where it was lodged depends on how much you will bleed.<p>Arrows have a chance to lodge into people when they hit, depending on their armour.<p>Arrows now have a chance to break on some Armours.<p>Worked on the Ranged combat a little, it will now work a lot more like Melee where the enemy can be stunned and faint.<p>Removed the Hell map to help reduce lag until it has a use.<p>Added more Masonry objects in for Masons.<p>Stat gains from Crafting/Building now work like those from fighting, they will increase at a chance based on your current stats.<p>You can now no longer sleep with a Weapon Equipped, Plate Armour, or a Shield Equipped.<p><u>Version 0.47 Updates</u><br><p>Made the language system work better and fixed a bug related to it.<p>You can now create some of the Stone items in game, including the Forge.<p>You can now forge an Anvil.<p>Added different Languages for different races, the more you hear a Language, the better you become at speaking it, based off your Intelligence.<p>You can now place a lit torch in water to put it out.<p>Meat will now actually cook when you try to. Before it had a chance of the fire going out before finished.<p>You will now no longer have any chance of dieing if you get hungry or tired but you will still get ill.<p>Fixed a bug where you could not create training dummies or armour racks.<p>Stats and Combat skills now have a Cap on them, it starts at 11 and goes up by 10 every year, this means by the time your age 1 you can get your stats to 21, and by age 2, 31, ect ect.<p>Made it so you gain Agility and Endurance when doing crafting skills, where as before it was just strength, which messed up your overall gain chance later on if you decided to fight and become a warrior.<p>Slightly lowered the ammount of Endurance and Strength gained from being a Zombie.<p>Fixed a bug where blunt weapons were able to cut off a limb.<p>You will now only grow a beard if your older than 15.<p>Fixed a bug with the spiders not attacking.<p>Fixed a bug where if you logged out dead and then logged in again, and you were revived just as you go to click load or new game, you would be revived in your old body.<p>Players bodies will now not rot over time.<p>You can now light a forge using two stone shards.<p>Fixed a bug where certain NPC would never respawn.<p>Fixed a bug where targetting a player then killing them would still display the Target icon.<p>Made it so when you become a Zombie you loose your crafting memeory.<br>"
 						usr<<browse(html_doc,"window=Updates")
 					if(Result == "Admin Rules")
 						var/html_doc="<head><title>Admin Rules</title></head><body bgcolor=#000000 text=#FFFF00><center>[AdminRules]"
@@ -28472,10 +28472,10 @@ obj
 							usr << "<font color = teal><font size = 3><u><b>.:Pulling & Pushing:.</u></b> <p> <font color = teal>Alot of Items can be Pulled. Some because they are too big to be carried in your Inventory. In order to pull an object, Click the Pull Button, then Simply Click an object to Pull. You can Click that object again in order to stop Pulling it. While the Pull button is active you can also Push players around if they have no current Target.<br>"
 							return
 						if(HelpResult == "Camp Site Contruction")
-							usr << "<font color = teal><font size = 3><u><b>.:Camp Site Contruction:.</u></b> <p> <font color = teal> Camp sites are useful for cooking food with, but dont stand in them, or you may catch on fire and die. In order to create a Camp Site, you will need Three branches placed down on the ground near you. Once you have Three on the ground, Click the Interact button, then click any of the Three Branches. Remember to have all the Branches in the same tile, and if you need to cancel a Job, Click the Combat Button. There are two ways of lighting a Camp Site on fire. The first is to Mine out a Large Boulder from a Solid Wall, then use a Hammer on the Boulder to get Stone Shards. With Two stone shards in your inventory, Interact with one, then click the other, and this will create sparks and light the camp site. The second way is to get a Torch, Equip it, then Interact with a Wall Torch to light your Torch, then Interact with the Camp Site. Please remember that if you start to spread fire on purpose or have no Role Play Reason to do so, you will be Ban. Admins know when a player start a fire.<br>"
+							usr << "<font color = teal><font size = 3><u><b>.:Camp Site Contruction:.</u></b> <p> <font color = teal> Camp sites are useful for cooking food with, but do not stand in them, or you may catch on fire and die. In order to create a Camp Site, you will need Three branches placed down on the ground near you. Once you have Three on the ground, Click the Interact button, then click any of the Three Branches. Remember to have all the Branches in the same tile, and if you need to cancel a Job, Click the Combat Button. There are two ways of lighting a Camp Site on fire. The first is to Mine out a Large Boulder from a Solid Wall, then use a Hammer on the Boulder to get Stone Shards. With Two stone shards in your inventory, Interact with one, then click the other, and this will create sparks and light the camp site. The second way is to get a Torch, Equip it, then Interact with a Wall Torch to light your Torch, then Interact with the Camp Site. Please remember that if you start to spread fire on purpose or have no Role Play Reason to do so, you will be Ban. Admins know when a player start a fire.<br>"
 							return
 						if(HelpResult == "Pick Up & Dropping Items")
-							usr << "<font color = teal><font size = 3><u><b>.:Pick Up & Dropping Items:.</u></b> <p> <font color = teal> In order to pick an Item up, Click the Pick Up button, then click an Item that is near you. Remember that if you carry too much you wont be able to pick anything up. To Drop an Items, Click the Pick Up Button again, then Click an Item in your Inventory, this will Drop the item. Remember that the Pick Up Button Both Picks up & Drops Items.<br>"
+							usr << "<font color = teal><font size = 3><u><b>.:Pick Up & Dropping Items:.</u></b> <p> <font color = teal> In order to pick an Item up, Click the Pick Up button, then click an Item that is near you. Remember that if you carry too much you won't be able to pick anything up. To Drop an Items, Click the Pick Up Button again, then Click an Item in your Inventory, this will Drop the item. Remember that the Pick Up Button Both Picks up & Drops Items.<br>"
 							return
 						if(HelpResult == "Combat")
 							usr << "<font color = teal><font size = 3><u><b>.:Combat:.</u></b> <p> <font color = teal>In order to attack an enemy you need to Click the Combat Mode Button, then simply Click someone. This button also Cancels any Jobs that you may be doing. Please remember that this is a Role Play Game, Admins keep records of players actions, and Non-Role Play kills will result in a ban. Now that you have a target you can Click the Combat button again to loose that target. Combat starts off slow when you first start out, but as your Agility rises, the speed of your attacks become more requent. Also note that some objects in game can be attacked and broken, like Wooden Doors for instance.<br>"
@@ -28484,10 +28484,10 @@ obj
 							usr << "<font color = teal><font size = 3><u><b>.:Wounds:.</u></b> <p> <font color = teal>When you deal damage to an enemy you will hurt certain body parts. You can check the status of your Wounds in the Health Information Button. All Limbs will slowly heal over time, and some organs such as Eyes will Heal up to a point. Sleeping will increase the speed at which you Heal. The best way to Heal a Wound is to use a bandage.<br>"
 							return
 						if(HelpResult == "Sleeping")
-							usr << "<font color = teal><font size = 3><u><b>.:Sleeping:.</u></b> <p> <font color = teal>Eventually your character will become sleepy. But do not worry, you dont need to sleep, but not sleeping will make you quite alot slower in Combat and has a chance to make you Ill. In order to sleep, find a bed and Interact with it. To wake up, Interact with it again.<br>"
+							usr << "<font color = teal><font size = 3><u><b>.:Sleeping:.</u></b> <p> <font color = teal>Eventually your character will become sleepy. But do not worry, you do not need to sleep, but not sleeping will make you quite alot slower in Combat and has a chance to make you Ill. In order to sleep, find a bed and Interact with it. To wake up, Interact with it again.<br>"
 							return
 						if(HelpResult == "Eating")
-							usr << "<font color = teal><font size = 3><u><b>.:Eating:.</u></b> <p> <font color = teal>Eventually your character will become hungry. But do not worry, you dont need to eat, but not eating will make you quite alot slower in Combat and has a chance to make you Ill. In order to eat, simply find some food, open your Inventory and click the Eat button, then click the Food. Some Foods will make you see strange, others will need to be cooked. You can Eat raw meats or limbs, but depending on your race, you may get Ill if the foods not cooked. Small foods, such as berries, will never fill you up past a certain Point, you will be required to find somthing a little bigger. Some races can eat an entire corpse, to do this, Click the Eat button in your inventory, then Click the Corpse.<br>"
+							usr << "<font color = teal><font size = 3><u><b>.:Eating:.</u></b> <p> <font color = teal>Eventually your character will become hungry. But do not worry, you do not need to eat, but not eating will make you quite alot slower in Combat and has a chance to make you Ill. In order to eat, simply find some food, open your Inventory and click the Eat button, then click the Food. Some Foods will make you see strange, others will need to be cooked. You can Eat raw meats or limbs, but depending on your race, you may get Ill if the foods not cooked. Small foods, such as berries, will never fill you up past a certain Point, you will be required to find somthing a little bigger. Some races can eat an entire corpse, to do this, Click the Eat button in your inventory, then Click the Corpse.<br>"
 							return
 						if(HelpResult == "Cooking")
 							usr << "<font color = teal><font size = 3><u><b>.:Cooking:.</u></b> <p> <font color = teal>Some races will need to have their food cooked if they want to eat safely. There is currently only one way to cook food. Light up a Camp Fire, then drop the food down next to it. Depending on your cooking skill, the food should cook slowly. If you leave the food near the fire too long you will be alerted that the food will burn.<br>"
@@ -28521,7 +28521,7 @@ obj
 				layer = 10
 				Click()
 					if(usr.Job)
-						usr << "<b>You cant open or close this while busy!<br>"
+						usr << "<b>can notopen or close this while busy!<br>"
 						return
 					if(usr.InvenUp)
 						usr << "<b>Close your inventory first!<br>"
@@ -28546,7 +28546,7 @@ obj
 				layer = 10
 				Click()
 					if(usr.Job)
-						usr << "<b>You cant open or close this while busy!<br>"
+						usr << "<b>can notopen or close this while busy!<br>"
 						return
 					if(usr.InvenUp)
 						usr << "<b>Close your inventory first!<br>"
@@ -28571,7 +28571,7 @@ obj
 				layer = 10
 				Click()
 					if(usr.Job)
-						usr << "<b>You cant open or close this while busy!<br>"
+						usr << "<b>can notopen or close this while busy!<br>"
 						return
 					if(usr.InvenUp)
 						usr << "<b>Close your inventory first!<br>"
@@ -28596,7 +28596,7 @@ obj
 				layer = 10
 				Click()
 					if(usr.Job)
-						usr << "<b>You cant open or close this while busy!<br>"
+						usr << "<b>can notopen or close this while busy!<br>"
 						return
 					if(src.icon_state == "inv off")
 						usr.ResetButtons()
@@ -28630,10 +28630,10 @@ obj
 					if(usr.Job)
 						usr.Job = null
 						usr << "<font color=green>You stop doing a task and must wait to do another!<br>"
-						usr.CantDoTask = 1
+						usr.CannotDoTask = 1
 						spawn(301)
 							if(usr)
-								usr.CantDoTask = 0
+								usr.CannotDoTask = 0
 						usr.MovementCheck()
 					if(src.icon_state == "combat off")
 						usr.ResetButtons()
@@ -28662,20 +28662,20 @@ obj
 					var/T = input("Role Play - In Character")as null|message
 					if(!T)
 						return
-					if(usr.OrginalName == null)
+					if(usr.OriginalName == null)
 						hearers(usr) << "<font color =yellow>[usr] [T]<br>"
 					else
-						hearers(usr) << "<font color=yellow>([usr.OrginalName])[usr] [T]<br>"
-					var/Cant = 0
+						hearers(usr) << "<font color=yellow>([usr.OriginalName])[usr] [T]<br>"
+					var/Cannot = 0
 					if(findtext(T,"(",1,0))
-						Cant = 1
+						Cannot = 1
 					if(findtext(T,")",1,0))
-						Cant = 1
+						Cannot = 1
 					if(findtext(T,"{",1,0))
-						Cant = 1
+						Cannot = 1
 					if(findtext(T,"}",1,0))
-						Cant = 1
-					if(Cant == 0)
+						Cannot = 1
+					if(Cannot == 0)
 						var/TextLength = lentext(T)
 						while(TextLength)
 							TextLength -= 1
@@ -28699,7 +28699,7 @@ obj
 						usr << "<font color = red>OOC Disabled!<br>"
 						return
 					if(usr.Muted)
-						usr << "<font color =red>You cant talk, you're Muted!<br>"
+						usr << "<font color =red>can nottalk, you're Muted!<br>"
 						return
 					if(usr)
 						for(var/mob/M in Players)
@@ -28715,7 +28715,7 @@ obj
 				layer = 10
 				Click()
 					if(usr.Fainted)
-						usr << "<font color =red>You cant speak while un-conscious!<br>"
+						usr << "<font color =red>can notspeak while un-conscious!<br>"
 						return
 					if(usr.CurrentLanguage == null)
 						usr << "<font color =red>Select a Language to speak first!<br>"
@@ -28758,20 +28758,20 @@ obj
 							if(Change == 0)
 								NewText+="[copytext(T,(lentext(T)-TextLength)+1,(lentext(T)-TextLength)+2)]"
 							TextLength--
-						if(usr.OrginalName == null)
+						if(usr.OriginalName == null)
 							M << "<font color=teal>[usr] says in [SL.name]: [Safe_Guard(NewText)]<br>"
 						else
-							M << "<font color=teal>([usr.OrginalName])[usr] says in [SL.name]: [Safe_Guard(NewText)]<br>"
-						var/Cant = 0
+							M << "<font color=teal>([usr.OriginalName])[usr] says in [SL.name]: [Safe_Guard(NewText)]<br>"
+						var/Cannot = 0
 						if(findtext(T,"(",1,0))
-							Cant = 1
+							Cannot = 1
 						if(findtext(T,")",1,0))
-							Cant = 1
+							Cannot = 1
 						if(findtext(T,"{",1,0))
-							Cant = 1
+							Cannot = 1
 						if(findtext(T,"}",1,0))
-							Cant = 1
-						if(Cant == 0)
+							Cannot = 1
+						if(Cannot == 0)
 							var/SayLength = lentext(T)
 							while(SayLength)
 								SayLength -= 1
@@ -28819,7 +28819,7 @@ obj
 				layer = 10
 				Click()
 					if(usr.Job)
-						usr << "<b>You cant use this while busy!<br>"
+						usr << "<b>can notuse this while busy!<br>"
 						return
 					if(usr.CanSee == 0)
 						usr << "<font color=red>You are blind and can not see objects!<br>"
@@ -28846,10 +28846,10 @@ obj
 				layer = 10
 				Click()
 					if(usr.Dead)
-						usr << "<b>You cant do that while dead!<br>"
+						usr << "<b>can notdo that while dead!<br>"
 						return
 					if(usr.Job)
-						usr << "<b>You cant open or close this while busy!<br>"
+						usr << "<b>can notopen or close this while busy!<br>"
 						return
 					if(usr.LeftArm == 0)
 						if(usr.RightArm == 0)
@@ -28880,7 +28880,7 @@ obj
 				layer = 10
 				Click()
 					if(usr.Job)
-						usr << "<b>You cant use this while busy!<br>"
+						usr << "<b>can notuse this while busy!<br>"
 						return
 					if(usr.CanSee == 0)
 						usr << "<font color=red>You are blind and can not see objects!<br>"
@@ -28911,7 +28911,7 @@ obj
 				layer = 10
 				Click()
 					if(usr.Job)
-						usr << "<b>You cant open or close this while busy!<br>"
+						usr << "<b>can notopen or close this while busy!<br>"
 						return
 					if(usr.CanSee == 0)
 						usr << "<font color=red>You are blind and can not see objects!<br>"
@@ -28938,10 +28938,10 @@ obj
 				layer = 10
 				Click()
 					if(usr.Job)
-						usr << "<b>You cant use this while busy!<br>"
+						usr << "<b>can notuse this while busy!<br>"
 						return
 					if(usr.Dead)
-						usr << "<b>You cant do that while dead!<br>"
+						usr << "<b>can notdo that while dead!<br>"
 						return
 					if(usr.CanSee == 0)
 						usr << "<font color=red>You are blind and can not see objects!<br>"

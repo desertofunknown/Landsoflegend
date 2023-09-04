@@ -31,14 +31,14 @@ mob
 		CanSleep = 1
 		CanBeRevived = 1
 		CanEatBodies = 0
-		CanEatRawMeats = 0 // 0 means you are guranteed to be posioned, 1 means that you can, but may get posioned, 2 means you can and will have no ill effects.
 		CanSwimWell = 0
+		CanEatRawMeats = 0 // 0 means you will always be poisoned from eating raw meat; 1 means you will sometimes be poisoned from eating raw meats, 2 means you can eat raw meats without feeling sick.
 		CanRegenLimbs = 0
 		CanBreathe = 1
 		CanTakeDamage = 1 //For magic shields, ect.
-		CanUseTK = 0 //Races that can use TK powers.
+		CanUseTK = 0 //Races that can learn and use telekinesis.
 
-		OrginalName = null
+		OriginalName = null
 
 		MouseLocationX = null
 		MouseLocationY = null
@@ -56,7 +56,7 @@ mob
 		tmp/GuardLoc = null
 		tmp/Ready = 0
 		tmp/UsingBook = null
-		tmp/CantDoTask = 0
+		tmp/CannotDoTask = 0
 		tmp/Selling = null // List of objects a NPC is selling and that belong to them.
 
 		GuardDir = null
@@ -97,7 +97,7 @@ mob
 
 		CarpentrySkill = 1
 		MiningSkill = 1
-		MasonarySkill = 1
+		MasonrySkill = 1
 		SmeltingSkill = 1
 		ForgingSkill = 1
 		WoodCuttingSkill = 1
@@ -117,7 +117,7 @@ mob
 
 		CarpentrySkillMulti = 0
 		MiningSkillMulti = 0
-		MasonarySkillMulti = 0
+		MasonrySkillMulti = 0
 		SmeltingSkillMulti = 0
 		ForgingSkillMulti = 0
 		WoodCuttingSkillMulti = 0
@@ -147,7 +147,7 @@ mob
 		WindMagic = 0
 		EarthMagic = 0
 		MagicResistance = 10 // Default for now.
-		MagicPotentcy = 0
+		MagicPotency = 0
 		DiseaseResistance = 10 // Default for now
 		CanUseMagic = 1
 
@@ -246,13 +246,13 @@ turf
 
 		Supported = 0
 
-		ManMade = 0 // Makes it so the AddObjects proc wont place boulders onto this turf
+		ManMade = 0 // Makes it so the AddObjects proc won't place boulders onto this turf
 
 		AttachedKey = null
 atom
 	DblClick()
 		if(usr.Function == "Interact")
-			if(usr.CantDoTask)
+			if(usr.CannotDoTask)
 				return
 			var/obj/O = null
 			if(usr.Ref)
@@ -286,7 +286,7 @@ atom
 								spawn(Time)
 									if(usr)
 										if(T in range(1,usr))
-											if(usr.Job == "Dig" && T.density == 0 && T.Dura == 0 && usr.CantDoTask == 0)
+											if(usr.Job == "Dig" && T.density == 0 && T.Dura == 0 && usr.CannotDoTask == 0)
 												if(T.icon_state == "dirt")
 													CanDig = 1
 												if(T.icon_state == "stone floor")
@@ -352,7 +352,7 @@ atom
 							spawn(Time)
 								if(usr)
 									if(T in range(1,usr))
-										if(usr.Job == "Dig" && T.density == 0 && T.Dura == 0 && usr.CantDoTask == 0)
+										if(usr.Job == "Dig" && T.density == 0 && T.Dura == 0 && usr.CannotDoTask == 0)
 											usr.Job = null
 											usr.MiningSkill += usr.MiningSkillMulti / 2
 											usr.GainStats(3)
@@ -602,7 +602,7 @@ obj
 		Locked = 0
 		KeyCode = null
 
-		CantRaces = null
+		CannotRaces = null
 		Heals = null
 
 		tmp/GoesTo = null
@@ -619,7 +619,7 @@ obj
 
 		Delete = 0 //Add this to items that should delete when the person holding them dies.
 
-		TwoHander = 0 //Weapons that can used two hands to do damage with.
+		TwoHanded = 0 //Weapons that can used two hands to do damage with.
 
 		SpeakPercent = 0 //How well you can speak that Language
 		WritePercent = 0 //How well you can write that Language

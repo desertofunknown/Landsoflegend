@@ -66,7 +66,7 @@ mob
 					T.Move(src)
 				for(var/atom/a in range(0,src))
 					if(a.density && a != src)
-						view(src) << "<font color = red>[src] slams into [a]!<br>"
+						view(src) << "<font color = red>[src] slams into The [A]!<br>"
 						src.Pain += rand(15,25)
 						if(src.Weapon)
 							var/Drop = prob(100 - src.Agility * 1.5)
@@ -130,7 +130,7 @@ mob
 				if(src)
 					if(src.Stunned)
 						src.Stunned = 0
-						view(src) << "<font color=green>[src] is no longer stunned!<br>"
+						view(src) << "<font color=green>[src] has regained their senses!<br>"
 						if(src.Fainted == 0)
 							var/Legs = 1
 							if(src.RightLeg == 0)
@@ -230,7 +230,7 @@ mob
 					HRightLeg = 0
 				if(src.Race == "Illithid" && src.Sleep >= 1 && src.Sleeping == 0 && src.Fainted == 0)
 					src.overlays += /obj/Misc/SpellEffects/AstralShield
-					view(6,src) << "<font color=purple>[src]'s mind deflects the [A]!<br>"
+					view(6,src) << "<font color=purple>[src]'s mind deflects the The [A]!<br>"
 					src.Sleep -= DMG / 1.5
 					DMG = 0
 					if(src.Sleep <= 0)
@@ -324,7 +324,7 @@ mob
 							ArmourOpening = 0
 					Through = prob(GetsThrough)
 					if(Through == 0)
-						view(src) << "<font color = red>[A] breaks on [src]'s Armour!<br>"
+						view(src) << "<font color = red>The [A] breaks on [src]'s Armour!<br>"
 						del(A)
 					if(DMG >= 0 && Through)
 						var/HHeart = prob(15)
@@ -358,7 +358,7 @@ mob
 								src.AddGore("Torso",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Liver!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Liver!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -367,14 +367,14 @@ mob
 									A.Type = 33
 								if(src.Liver <= 1 && src.Liver != 0)
 									src.Liver = 0
-									view(src) << "<font color = purple>[src]'s Liver has been pierced, it violently spasms then explodes through the wound in a spray of blood and goo!!<br>"
+									view(src) << "<font color = purple>The [A] pierces through the hepatic veins in [src]'s Liver! Blood hemorrhages profusely from the exit wound! <br>"
 						if(HRightKidney)
 							if(src.RightKidney)
 								src.RightKidney -= DMG
 								src.AddGore("Torso",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Right Kidney!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Right Kidney!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -383,9 +383,9 @@ mob
 									A.Type = 33
 								if(src.RightKidney <= 1 && src.RightKidney != 0)
 									src.RightKidney = 0
-									view(src) << "<font color = purple>[src]'s RightKidney has been pierced, it violently spasms and shrinks into a mush as blood explodes from the wound!!<br>"
+									view(src) << "<font color = purple>The [A] pierces [src]'s Right Kidney with enough force to send bits of the organ flying out from the exit wound with some blood and urine!<br>"
 									if(src.LeftKidney <= 1 && src.LeftKidney != 0)
-										view(src) << "<font color = purple>[src]'s Kidneys have failed! They die a slow painful death!<br>"
+										view(src) << "<font color = purple>Both of [src]'s Kidneys have failed! They die a slow painful death from dehydration!<br>"
 										src.Death()
 										return
 						if(HLeftKidney)
@@ -394,7 +394,7 @@ mob
 								src.AddGore("Torso",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Left Kidney!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Left Kidney!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -403,9 +403,9 @@ mob
 									A.Type = 33
 								if(src.LeftKidney <= 1 && src.LeftKidney != 0)
 									src.LeftKidney = 0
-									view(src) << "<font color = purple>[src]'s LeftKidney has been pierced, it violently spasms and shrinks into a mush as blood explodes from the wound!!<br>"
+									view(src) << "<font color = purple>The [A] pierces [src]'s Left Kidney with enough force to send bits of the organ flying out from the exit wound with some blood and urine!<br>"
 									if(src.RightKidney <= 1 && src.RightKidney != 0)
-										view(src) << "<font color = purple>[src]'s Kidneys have failed! They die a slow painful death!<br>"
+										view(src) << "<font color = purple>Both of[src]'s Kidneys have failed! They die a slow painful death from dehydration!<br>"
 										src.Death()
 										return
 						if(HSpleen)
@@ -414,7 +414,7 @@ mob
 								src.AddGore("Torso",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Spleen!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Spleen!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -423,14 +423,14 @@ mob
 									A.Type = 33
 								if(src.Spleen <= 1 && src.Spleen != 0)
 									src.Spleen = 0
-									view(src) << "<font color = purple>[src]'s Spleen has been pierced, it violently spasms before pulsating blood everywhere from the wound!!<br>"
+									view(src) << "<font color = purple>The [A] pierces [src]'s Spleen with enough force to split it in two! Blood quickly spills from the exit wound!<br>"
 						if(HIntestines)
 							if(src.Intestine)
 								src.Intestine -= DMG
 								src.AddGore("Torso",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Intestines!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Intestines!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -444,13 +444,13 @@ mob
 									view(src) << "<font color=green>[src] pukes!<br>"
 								if(src.Intestine <= 1 && src.Intestine != 0)
 									src.Intestine = 0
-									view(src) << "<font color = purple>[src]'s Intestines has been pierced, it violently spasms before gushing with disgusting liquids!<br>"
+									view(src) << "<font color = purple>The [A] pierces through [src]'s Intestines! Foul-smelling secretions spill from the exit wound! <br>"
 						if(HStomach)
 							if(src.Stomach)
 								src.Stomach -= DMG
 								src.AddGore("Torso",src.Race)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Stomach!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Stomach!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -465,14 +465,14 @@ mob
 									view(src) << "<font color=green>[src] pukes!<br>"
 								if(src.Stomach <= 1 && src.Stomach != 0)
 									src.Stomach = 0
-									view(src) << "<font color = purple>[src]'s Stomach has been pierced, it violently spasms before gushing with disgusting liquids!<br>"
+									view(src) << "<font color = purple>The [A] pierces through [src]'s stomach! Stomach acid and undigested matter spill from the exit wound<br>"
 						if(HRightLung)
 							if(src.RightLung)
 								src.RightLung -= DMG
 								src.AddGore("Torso",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Right Lung!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Right Lung!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -483,12 +483,12 @@ mob
 									src.Bleed()
 								if(src.RightLung <= 1 && src.RightLung != 0)
 									src.RightLung = 0
-									view(src) << "<font color = purple>[src]'s RightLung has been pierced, it violently spasms before collapsing!<br>"
+									view(src) << "<font color = purple>The [A] pierces through [src]'s Right Lung! It violently spasms, then collapses!<br>"
 									if(src.LeftLung == 0)
 										spawn(300)
 											if(src)
 												if(src.Dead == 0 && src.Faction != "Undead")
-													view(src) << "<font color =purple>[src]'s Lungs have collapsed, they die slowly!<br>"
+													view(src) << "<font color = purple>Both of [src]'s Lungs have collapsed! They die slowly of asphyxiation!<br>"
 													src.Death()
 													return
 						if(HLeftLung)
@@ -497,7 +497,7 @@ mob
 								src.AddGore("Torso",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Left Lung!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Left Lung!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -508,12 +508,12 @@ mob
 									src.Bleed()
 								if(src.LeftLung <= 1 && src.LeftLung != 0)
 									src.LeftLung = 0
-									view(src) << "<font color = purple>[src]'s LeftLung has been pierced, it violently spasms before collapsing!<br>"
+									view(src) << "<font color = purple>The [A] pierces through [src]'s Left Lung! It violently spasms, then collapses!"
 									if(src.RightLung == 0)
 										spawn(300)
 											if(src)
 												if(src.Dead == 0 && src.Faction != "Undead")
-													view(src) << "<font color =purple>[src]'s Lungs have collapsed, they die slowly!<br>"
+													view(src) << "<font color = purple> Both of [src]'s Lungs have collapsed! They die slowly of asphyxiation!<br>"
 													src.Death()
 													return
 						if(HHeart)
@@ -522,7 +522,7 @@ mob
 								src.AddGore("Torso",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Heart!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Heart!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -534,7 +534,7 @@ mob
 								if(src.Heart <= 1 && src.Heart != 0)
 									src.Heart = 0
 									if(src.Faction != "Undead")
-										view(src) << "<font color = purple>[src]'s Heart has been pierced through the middle [src] dies instantly!<br>"
+										view(src) << "<font color = purple>The [A] pierces through the middle of [src]'s Heart! They suffer a massive heart attack and dies instantly!<br>"
 										src.Death()
 									return
 
@@ -611,13 +611,13 @@ mob
 									if(src.WHead == null)
 										var/KO = prob(15)
 										if(KO)
-											view(src) << "<font color=red>The [A] smashes into [src]'s skull and knocks them out!<br>"
+											view(src) << "<font color=red>The The [A] smashes into [src]'s skull and knocks them out!<br>"
 											src.Fainted = 1
 											src.CanMove = 0
 											src.Pull = null
 											src.Fainted()
 									if(GetsStuck)
-										view(src) << "<font color = red>[A] becomes lodged in [src]'s Brain!<br>"
+										view(src) << "<font color = red>The [A] becomes lodged in [src]'s Brain!<br>"
 										A.suffix = "StuckIn"
 										A.Move(src)
 										A.overlays += image(/obj/HUD/C/)
@@ -628,7 +628,7 @@ mob
 										src.Bleed()
 									if(src.Brain <= 20 && src.Brain != 0)
 										src.Brain = 0
-										view(src) << "<font color = purple>[src]'s skull has been cracked open by an arrow, their brain becomes horrificly damaged and they die instantly!<br>"
+										view(src) << "<font color = purple>The [A] shatters <font color = purple>[src]'s skull, mangles the brain, and pierces through their spinal cord! They die instantly!<br>"
 										src.Death()
 										return
 						if(HThroat)
@@ -637,7 +637,7 @@ mob
 								src.AddGore("Head",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Throat!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Throat!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -649,7 +649,7 @@ mob
 								if(src.Throat <= 1 && src.Throat != 0)
 									src.Throat = 0
 									if(src.Faction != "Undead")
-										view(src) << "<font color = purple>An arrow flies into [src]'s Throat, blood begins to gush from the wound as they slowy fall to the floor dieng almost instantly!<br>"
+										view(src) << "<font color = purple>The [A] pierces [src]'s Throat and trachea! They fall to the ground while they gurgle and choke on their own blood, soon dying of asphyxiation and drowning! <br>"
 										src.Death()
 										return
 						if(HSkull)
@@ -666,7 +666,7 @@ mob
 										src.Pull = null
 										src.Fainted()
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Skull!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Skull!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -680,7 +680,7 @@ mob
 									src.Brain -= 50
 									if(src.Brain <= 20)
 										src.Brain = 0
-										view(src) << "<font color = purple>[src]'s skull has been cracked open by an arrow, their brain becomes horrificly damaged and they die instantly!<br>"
+										view(src) << "<font color = purple><font color = purple>The [A] shatters <font color = purple>[src]'s skull, mangles the brain, and pierces through their spinal cord! They die instantly!<br>"
 										src.Death()
 										return
 						if(HNose)
@@ -689,7 +689,7 @@ mob
 								src.AddGore("Head",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Nose!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Nose!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -704,7 +704,7 @@ mob
 								src.AddGore("Head",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Right Ear!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Right Ear!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -719,7 +719,7 @@ mob
 								src.AddGore("Head",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Left Ear!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Left Ear!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -734,7 +734,7 @@ mob
 								src.AddGore("Head",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Right Eye!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Right Eye!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -747,7 +747,7 @@ mob
 									src.RightEye = 0
 								if(src.LeftEye <= 1 && src.LeftEye != 0)
 									src.LeftEye = 0
-									src << "<font color=red>You go blind!!<br>"
+									src << "<font color=red>You have gone blind!<br>"
 									src.CanSee = 0
 									src.ResetButtons()
 									src.Function = null
@@ -757,7 +757,7 @@ mob
 								src.AddGore("Head",src.Race)
 								src.Pain += rand(DMG / 4, DMG / 3)
 								if(GetsStuck)
-									view(src) << "<font color = red>[A] becomes lodged in [src]'s Left Eye!<br>"
+									view(src) << "<font color = red>The [A] becomes lodged in [src]'s Left Eye!<br>"
 									A.suffix = "StuckIn"
 									A.Move(src)
 									A.overlays += image(/obj/HUD/C/)
@@ -770,7 +770,7 @@ mob
 									src.LeftEye = 0
 								if(src.RightEye <= 1 && src.RightEye != 0)
 									src.RightEye = 0
-									src << "<font color=red>You go blind!!<br>"
+									src << "<font color=red>You have gone blind!<br>"
 									src.CanSee = 0
 									src.ResetButtons()
 									src.Function = null
@@ -837,7 +837,7 @@ mob
 						Through = prob(GetsThrough)
 						if(DMG >= 0 && Through)
 							if(GetsStuck)
-								view(src) << "<font color = red>[A] becomes lodged in [src]'s Left Arm!<br>"
+								view(src) << "<font color = red>The [A] becomes lodged in [src]'s Left Arm!<br>"
 								A.suffix = "StuckIn"
 								A.Move(src)
 								A.overlays += image(/obj/HUD/C/)
@@ -927,7 +927,7 @@ mob
 						Through = prob(GetsThrough)
 						if(DMG >= 0 && Through)
 							if(GetsStuck)
-								view(src) << "<font color = red>[A] becomes lodged in [src]'s Right Arm!<br>"
+								view(src) << "<font color = red>The [A] becomes lodged in [src]'s Right Arm!<br>"
 								A.suffix = "StuckIn"
 								A.Move(src)
 								A.overlays += image(/obj/HUD/C/)
@@ -1017,7 +1017,7 @@ mob
 						Through = prob(GetsThrough)
 						if(DMG >= 0 && Through)
 							if(GetsStuck)
-								view(src) << "<font color = red>[A] becomes lodged in [src]'s Right Leg!<br>"
+								view(src) << "<font color = red>The [A] becomes lodged in [src]'s Right Leg!<br>"
 								A.suffix = "StuckIn"
 								A.Move(src)
 								A.overlays += image(/obj/HUD/C/)
@@ -1107,7 +1107,7 @@ mob
 						Through = prob(GetsThrough)
 						if(DMG >= 0 && Through)
 							if(GetsStuck)
-								view(src) << "<font color = red>[A] becomes lodged in [src]'s Left Leg!<br>"
+								view(src) << "<font color = red>The [A] becomes lodged in [src]'s Left Leg!<br>"
 								A.suffix = "StuckIn"
 								A.Move(src)
 								A.overlays += image(/obj/HUD/C/)
@@ -1194,7 +1194,7 @@ mob
 							view(src) << "<font color =red>[src] is bleeding [src.Bleed]!<br>"
 							src.BleedLast = src.Bleed
 				if(Die)
-					view(src) << "<font color=red>[src] has bled to death!<br>"
+					view(src) << "<font color=red>[src] dies from exsanguination.<br>"
 					if(src.BloodColour == /obj/Misc/Gore/BloodSplat/)
 						var/obj/BS = new src.BloodColour()
 						BS.Move(src.loc)
@@ -1244,7 +1244,7 @@ mob
 						I.suffix = "Carried"
 						I.overlays-=image(/obj/HUD/E/)
 						I.icon_state = I.CarryState
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WBack)
 				var/obj/I = src.WBack
 				if(I)
@@ -1255,10 +1255,10 @@ mob
 						I.suffix = "Carried"
 						I.overlays-=image(/obj/HUD/E/)
 						I.icon_state = I.CarryState
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
-						if(src.OrginalName)
-							src.name = src.OrginalName
-							src.OrginalName = null
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
+						if(src.OriginalName)
+							src.name = src.OriginalName
+							src.OriginalName = null
 						if(src.StoredFaction)
 							src.Faction = src.StoredFaction
 							src.StoredFaction = null
@@ -1272,7 +1272,7 @@ mob
 						I.suffix = "Carried"
 						I.overlays-=image(/obj/HUD/E/)
 						I.icon_state = I.CarryState
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WUpperBody)
 				var/obj/I = src.WUpperBody
 				if(I)
@@ -1283,7 +1283,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WLeftHand)
 				var/obj/I = src.WLeftHand
 				if(I)
@@ -1294,7 +1294,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WRightHand)
 				var/obj/I = src.WRightHand
 				if(I)
@@ -1305,7 +1305,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WWaist)
 				var/obj/I = src.WWaist
 				if(I)
@@ -1316,7 +1316,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WLeftFoot)
 				var/obj/I = src.WLeftFoot
 				if(I)
@@ -1327,7 +1327,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WRightFoot)
 				var/obj/I = src.WLeftFoot
 				if(I)
@@ -1338,7 +1338,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WChest)
 				var/obj/I = src.WChest
 				if(I)
@@ -1349,7 +1349,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WLegs)
 				var/obj/I = src.WLegs
 				if(I)
@@ -1360,7 +1360,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 			if(src.WShoulders)
 				var/obj/I = src.WShoulders
 				if(I)
@@ -1371,7 +1371,7 @@ mob
 						I.suffix = "Carried"
 						I.icon_state = I.CarryState
 						I.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [I] has been damaged badly!<br>"
+						src << "<font color =red>Your [I] is broken, so you can no longer wear it. You must either repair it, or find or craft another one.<br>"
 
 
 		CheckWeaponDura(var/obj/W)
@@ -1384,7 +1384,7 @@ mob
 						W.suffix = "Carried"
 						W.icon_state = W.CarryState
 						W.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [W] has been damaged badly!<br>"
+						src << "<font color =red>Your [W] is broken! You can either repair it, or you can find or craft another one.<br>"
 					return
 				if(W == src.Weapon2)
 					if(W.Dura <= 0)
@@ -1395,7 +1395,7 @@ mob
 						W.suffix = "Carried"
 						W.icon_state = W.CarryState
 						W.overlays-=image(/obj/HUD/E/)
-						src << "<font color =red>Your [W] has been damaged badly!<br>"
+						src << "<font color =red>Your [W] is too worn and damaged, so it can no longer protect you! You must find or craft another one.<br>"
 					return
 			else
 				world << "Dura Check Error..."
@@ -1703,7 +1703,7 @@ mob
 			if(T.client)
 				if(src.client)
 					if(T.client.address == src.client.address && T != src)
-						world << "<font color = teal><b>([usr.key])[usr] - [usr.OrginalName] was booted for Alt Key Interaction!<br>"
+						world << "<font color = teal><b>([usr.key])[usr] - [usr.OriginalName] was booted for Alt Key Interaction!<br>"
 						del(src)
 						return
 			if(T.Sleeping)
@@ -1829,7 +1829,7 @@ mob
 				if(MainWeapon == src.Weapon2 && src.Weapon)
 					Dual = 1
 				if(Dual == 0)
-					if(src.LeftArm && MainWeapon.TwoHander)
+					if(src.LeftArm && MainWeapon.TwoHanded)
 						Damage = Damage + MainWeapon.Weight / 2
 			else
 				var/Noise = rand(1,2)
@@ -1930,7 +1930,7 @@ mob
 					if(T.client)
 						T.client.screen -= Z
 					Z.Move(T.loc)
-					view(src) << "<font color=red>[src] dis-arms [T] of their [Z]!<br>"
+					view(src) << "<font color=red>[src] disarms [T] of their [Z]!<br>"
 					if(Z.Delete)
 						del(Z)
 					return
@@ -1950,7 +1950,7 @@ mob
 					if(T.client)
 						T.client.screen -= Z2
 					Z2.Move(T.loc)
-					view(src) << "<font color=red>[src] dis-arms [T] of their [Z2]!<br>"
+					view(src) << "<font color=red>[src] disarms [T] of their [Z2]!<br>"
 					if(Z2.Delete)
 						del(Z2)
 					return
@@ -3139,7 +3139,7 @@ mob
 															if(A2.Delete)
 																del(A2)
 													if(T.Race == "Skeleton")
-														view(src) << "<font color =red>[T]'s Right Leg is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+														view(src) << "<font color =red>[T]'s Right Leg is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 														T.Death()
 														return
 												else
@@ -3183,7 +3183,7 @@ mob
 														del(A2)
 												T.WRightFoot = null
 											if(T.Race == "Skeleton")
-												view(src) << "<font color =red>[T]'s Right Leg is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+												view(src) << "<font color =red>[T]'s Right Leg is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 												T.Death()
 												return
 										else
@@ -3429,7 +3429,7 @@ mob
 															if(A2.Delete)
 																del(A2)
 													if(T.Race == "Skeleton")
-														view(src) << "<font color =red>[T]'s Left Leg is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+														view(src) << "<font color =red>[T]'s Left Leg is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 														T.Death()
 														return
 												else
@@ -3473,7 +3473,7 @@ mob
 													if(A2.Delete)
 														del(A2)
 											if(T.Race == "Skeleton")
-												view(src) << "<font color =red>[T]'s Left Leg is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+												view(src) << "<font color =red>[T]'s Left Leg is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 												T.Death()
 												return
 										else
@@ -3681,7 +3681,7 @@ mob
 										view(src) << "<font color =red>[src] shatters [T]'s Left Arm, they drop their [O]!<br>"
 										view(5) << 'BreakBone.wav'
 										if(T.Race == "Skeleton")
-											view(src) << "<font color =red>[T]'s Left Arm is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+											view(src) << "<font color =red>[T]'s Left Arm is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 											T.Death()
 											return
 								if(T.LeftArm <= 1 && T.LeftArm != 0)
@@ -3724,7 +3724,7 @@ mob
 														if(A.Delete)
 															del(A)
 													if(T.Race == "Skeleton")
-														view(src) << "<font color =red>[T]'s Left Arm is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+														view(src) << "<font color =red>[T]'s Left Arm is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 														T.Death()
 														return
 												else
@@ -3754,7 +3754,7 @@ mob
 											L.Move(T.loc)
 											step_rand(L)
 											if(T.Race == "Skeleton")
-												view(src) << "<font color =red>[T]'s Left Arm is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+												view(src) << "<font color =red>[T]'s Left Arm is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 												T.Death()
 												return
 										else
@@ -3958,10 +3958,10 @@ mob
 										T.Weight -= O.Weight
 										if(O.Delete)
 											del(O)
-										view(src) << "<font color =red>[src] shatters [T]'s Right Arm, they drop their weapon!<br>"
+										view(src) << "<font color =red>[src] shatters [T]'s Right Arm! They cry out in pain and drop their weapon!<br>"
 										view(5) << 'BreakBone.wav'
 										if(T.Race == "Skeleton")
-											view(src) << "<font color =red>[T]'s Right Arm is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+											view(src) << "<font color =red>[T]'s Right Arm is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 											T.Death()
 											return
 								if(T.RightArm <= 1 && T.RightArm != 0)
@@ -3998,7 +3998,7 @@ mob
 														if(A.Delete)
 															del(A)
 													if(T.Race == "Skeleton")
-														view(src) << "<font color =red>[T]'s Right Arm is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+														view(src) << "<font color =red>[T]'s Right Arm is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 														T.Death()
 														return
 												else
@@ -4022,7 +4022,7 @@ mob
 											T.Bleed()
 											view(src) << "<font color =red>[src] hacks [T]'s Right Arm off!<br>"
 											if(T.Race == "Skeleton")
-												view(src) << "<font color =red>[T]'s Right Arm is Completely pulverised, their bones fall apart and smash to the ground!<br>"
+												view(src) << "<font color =red>[T]'s Right Arm is completely pulverized! Their bones fall apart and smash to the ground!<br>"
 												T.Death()
 												return
 										else
@@ -4170,11 +4170,11 @@ mob
 										if(T.Faction != "Undead")
 											if(MainWeapon)
 												if(MainWeapon.DamageType != "Blunt")
-													view(src) << "<font color =red>[T]'s Throat is torn to shreds, blood gushes everywhere as they fall to the ground dead!<br>"
+													view(src) << "<font color =red>[src]'s [MainWeapon] mangles [T]'s Throat! Blood gushes everywhere as they fall to the ground, dying from massive blood loss!<br>"
 												else
-													view(src) << "<font color = red>[T]'s Throat is crushed by [src]'s [MainWeapon], [T] falls to the ground, dieing instantly!<br>"
+													view(src) << "<font color =red>[src]'s [MainWeapon] smashes into [T]'s Throat, crushing the larynx! [T] falls the ground, gasping for air until they die from asphyxiation!<br>"
 											else
-												view(src) << "<font color = red>[T]'s Throat is crushed by [src], [T] falls to the ground, dieing instantly!<br>"
+												view(src) << "<font color = red>[src] crushes and mangles [T]'s Throat with their bare hands! Blood gushes everywhere as they fall to the ground, dying from massive blood loss!<br>"
 											T.Death()
 											return
 							if(HitsSkull)
@@ -4197,7 +4197,7 @@ mob
 									T.Pain += Damage / 2
 									T.Brain -= Damage / 2
 									if(T.Race == "Skeleton")
-										view(src) << "<font color =red>[T]'s skull is Completely shattered, their bones fall apart and turn to ash!<br>"
+										view(src) << "<font color =red>[T]'s entire skull shatters to pieces and their bones fall apart and turn to dust!<br>"
 										view(5) << 'BreakBone.wav'
 										var/obj/Items/Resources/Ash/A = new
 										A.Move(T.loc)
@@ -4206,7 +4206,7 @@ mob
 									if(T)
 										if(T.Brain <= 1 && T.Brain != 0)
 											T.Brain = 0
-											view(src) << "<font color =red>[T]'s Brain gets Completely mangled, they die instantly!<br>"
+											view(src) << "<font color =red>[T]'s Brain has been completely scrambled! They die instantly!<br>"
 											T.Death()
 											return
 								T.Splat()
@@ -4231,7 +4231,7 @@ mob
 										if(T.Brain <= 1 && T.Brain != 0)
 											T.Brain = 0
 											T.Death()
-											view(src) << "<font color =red>[T]'s Brain gets Completely mangled, they die instantly!<br>"
+											view(src) << "<font color =red>[T]'s Brain has been completely scrambled! They die instantly!<br>"
 											return
 							if(HitsTeeth)
 								if(T.Teeth)
@@ -4245,7 +4245,7 @@ mob
 									if(T.Teeth <= 1 && T.Teeth != 0)
 										T.Teeth = 0
 										T.Blood -= Damage / 3
-										view(src) << "<font color =red>[T]'s Teeth gets Completely mangled!<br>"
+										view(src) << "<font color =red>[T]'s Teeth are broken messes!<br>"
 							if(HitsRightEye)
 								if(T.RightEye)
 									T.RightEye -= Damage
@@ -4258,18 +4258,18 @@ mob
 									if(T.RightEye <= 1 && T.RightEye != 0)
 										T.RightEye = 0
 										T.Blood -= Damage
-										view(src) << "<font color =red>[T]'s RightEye gets Completely mangled!<br>"
+										view(src) << "<font color =red>[T]'s Right Eye is completely mangled!<br>"
 										var/Die = prob(5)
 										if(Die && T.Faction != "Undead")
 											T.Death()
 											return
 										if(T.LeftEye <= 1)
-											T << "<font color=red>You go blind!!<br>"
+											T << "<font color=red>You have gone blind!<br>"
 											T.CanSee = 0
 											T.ResetButtons()
 											T.Function = null
 										if(T.Race == "Cyclops")
-											T << "<font color=red>You go blind!!<br>"
+											T << "<font color=red>You have gone blind!<br>"
 											T.CanSee = 0
 											T.ResetButtons()
 											T.Function = null
@@ -4285,13 +4285,13 @@ mob
 									if(T.LeftEye <= 1 && T.LeftEye != 0)
 										T.LeftEye = 0
 										T.Blood -= Damage
-										view(src) << "<font color =red>[T]'s LeftEye gets Completely mangled!<br>"
+										view(src) << "<font color =red>[T]'s Left Eye is completely mangled!<br>"
 										var/Die = prob(5)
 										if(Die && T.Faction != "Undead")
 											T.Death()
 											return
 										if(T.RightEye <= 1)
-											T << "<font color=red>You go blind!!<br>"
+											T << "<font color=red>You have gone blind!<br>"
 											T.CanSee = 0
 											T.ResetButtons()
 											T.Function = null
@@ -4307,7 +4307,7 @@ mob
 									if(T.RightEar <= 1 && T.RightEar != 0)
 										T.RightEar = 0
 										T.Blood -= Damage / 3
-										view(src) << "<font color =red>[T]'s RightEar gets Completely mangled!<br>"
+										view(src) << "<font color =red>[T]'s Right Ear is completely mangled!<br>"
 							if(HitsLeftEar)
 								if(T.LeftEar)
 									T.LeftEar -= Damage
@@ -4320,7 +4320,7 @@ mob
 									if(T.LeftEar <= 1 && T.LeftEar != 0)
 										T.LeftEar = 0
 										T.Blood -= Damage / 3
-										view(src) << "<font color =red>[T]'s LeftEar gets Completely mangled!<br>"
+										view(src) << "<font color =red>[T]'s LeftEar is completely mangled!<br>"
 							if(HitsNose)
 								if(T.Nose)
 									T.AddGore("Head",T.Race)
@@ -4333,7 +4333,7 @@ mob
 									if(T.Nose <= 1 && T.Nose != 0)
 										T.Nose = 0
 										T.Blood -= Damage / 3
-										view(src) << "<font color =red>[T]'s Nose gets Completely mangled!<br>"
+										view(src) << "<font color =red>[T]'s Nose is completely mangled!<br>"
 						return
 		Affliction(var/A,var/mob/Victim)
 			if(A == null)
@@ -4355,12 +4355,12 @@ mob
 		Illness(var/SeverityFactor)
 			spawn(rand(200,1000))
 				if(src && src.Dead == 0)
-					src << "<font color = purple>You start to feel a little fevorish...<br>"
+					src << "<font color = purple>You feel nauseated...<br>"
 					spawn(rand(500,1500))
 						if(src && src.Dead == 0)
 							var/WontRecover = prob(SeverityFactor)
 							if(WontRecover)
-								src << "<font color = purple>You start to feel really ill!<br>"
+								src << "<font color = purple>You feel as if you will throw up!<br>"
 								src.Pain += 100
 								var/obj/Misc/Gore/Puke/P = new
 								P.Move(src.loc)
@@ -4372,7 +4372,7 @@ mob
 								src.Afflictions -= "Ill"
 								return
 							else
-								src << "<font color = purple>You start to feel a little better!<br>"
+								src << "<font color = purple>You slowly feel better!<br>"
 								src.Afflictions -= "Ill"
 								return
 						else
@@ -4389,15 +4389,15 @@ mob
 			spawn(rand(200,1000))
 				if(src)
 					if(src.Dead== 0)
-						src << "<font color = purple>You start to feel a little fevorish...<br>"
+						src << "<font color = purple>You feel a little feverish...<br>"
 						spawn(rand(200,1000))
 						if(src)
 							if(src.Dead == 0)
-								src << "<font color = purple>Your body begins to feel numb and cold, you also twitch a little now and then, you suddenly feel the chill of death deep inside of you!<br>"
+								src << "<font color = purple>Your body begins to feel numb and cold, and your limbs involuntarily twitch every minute. After a while, you feel the chill of death deep inside of you!<br>"
 								spawn(rand(200,1000))
 									if(src)
 										if(src.Dead == 0)
-											src << "<font color = purple>You fall to the ground gasping for air, the very life force in your body begins to drain, you die and lie on the ground. After a moment you awake to find you have turned into one of the living dead, forever cursed to walk between the realm of the living, and the dead!<br>"
+											src << "<font color = purple>You fall to the ground gasping for air, your life fading until you slowly waste away. Suddenly, you awaken, pale and clammy, without a heartbeat. You have turned into the living dead, forever cursed to walk between the realm of the living, and the dead!<br>"
 											src.icon += rgb(50,50,50)
 											for(var/obj/Items/I in src)
 												if(I.suffix == "Equip" && I.Type == "Conceals")
@@ -4410,9 +4410,9 @@ mob
 													I.icon_state = I.CarryState
 													I.layer = 20
 													src.DeleteInventoryMenu()
-													if(src.OrginalName)
-														src.name = src.OrginalName
-														src.OrginalName = null
+													if(src.OriginalName)
+														src.name = src.OriginalName
+														src.OriginalName = null
 													if(src.StoredFaction)
 														src.Faction = src.StoredFaction
 														src.StoredFaction = null
@@ -4435,7 +4435,7 @@ mob
 											src.UndeadReset()
 											src.HateList = list("Stahlite Empire","Frogmen Hordes","Giant Hordes","Altherian Empire","Dragons","Demonic Legions","Human Empire","Chaos","Dangerous Beasts","Cyclops Hordes","Goblin Hordes","Spider Hordes","Snakeman Empire","Neutral","Human Empire Unholy","Human Empire Outlaw","None","Ratling Hordes")
 											src.Afflictions -= "Undead Bite"
-											src.Afflictions += "Undeath"
+											src.Afflictions += "Undead"
 											src.SpreadsAffliction = "Undead Bite"
 											src.DieAge = 1000
 											src.UndeadProc()

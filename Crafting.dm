@@ -16,7 +16,7 @@ mob
 					AddedDura += 1
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 10)
 					Qual = "Very Poor"
@@ -25,7 +25,7 @@ mob
 					AddedDura += rand(1,3)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 20)
 					Qual = "Poor"
@@ -34,7 +34,7 @@ mob
 					AddedDura += rand(3,5)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 30)
 					Qual = "Average"
@@ -43,7 +43,7 @@ mob
 					AddedDura += rand(10,15)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 40)
 					Qual = "Above Average"
@@ -52,7 +52,7 @@ mob
 					AddedDura += rand(15,20)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 50)
 					Qual = "Good"
@@ -61,7 +61,7 @@ mob
 					AddedDura += rand(20,25)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 60)
 					Qual = "Very Good"
@@ -70,7 +70,7 @@ mob
 					AddedDura += rand(25,30)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 70)
 					Qual = "Excellent"
@@ -79,7 +79,7 @@ mob
 					AddedDura += rand(30,35)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 80)
 					Qual = "Grand"
@@ -88,7 +88,7 @@ mob
 					AddedDura += rand(40,45)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 90)
 					Qual = "Epic"
@@ -97,7 +97,7 @@ mob
 					AddedDura += rand(60,70)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill <= 100)
 					Qual = "Epic"
@@ -106,7 +106,7 @@ mob
 					AddedDura += rand(60,70)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.BoneCraftSkill >= 101)
 					Qual = "Legendary"
@@ -115,7 +115,7 @@ mob
 					AddedDura += rand(80,100)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from Bone. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from Bone. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 		CraftLeatherArmour(var/obj/Leather,var/obj/W)
 			if(Leather && W)
@@ -133,7 +133,7 @@ mob
 					AddedDura += 1
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 10)
 					Qual = "Very Poor"
@@ -142,7 +142,7 @@ mob
 					AddedDura += rand(1,3)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 20)
 					Qual = "Poor"
@@ -151,7 +151,7 @@ mob
 					AddedDura += rand(3,5)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 30)
 					Qual = "Average"
@@ -160,7 +160,7 @@ mob
 					AddedDura += rand(10,15)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 40)
 					Qual = "Above Average"
@@ -169,7 +169,7 @@ mob
 					AddedDura += rand(15,20)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 50)
 					Qual = "Good"
@@ -178,7 +178,7 @@ mob
 					AddedDura += rand(20,25)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 60)
 					Qual = "Very Good"
@@ -187,7 +187,7 @@ mob
 					AddedDura += rand(25,30)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 70)
 					Qual = "Excellent"
@@ -196,7 +196,7 @@ mob
 					AddedDura += rand(30,35)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 80)
 					Qual = "Grand"
@@ -205,7 +205,7 @@ mob
 					AddedDura += rand(40,45)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 90)
 					Qual = "Epic"
@@ -214,7 +214,7 @@ mob
 					AddedDura += rand(60,70)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill <= 100)
 					Qual = "Epic"
@@ -223,7 +223,7 @@ mob
 					AddedDura += rand(60,70)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.LeatherCraftSkill >= 101)
 					Qual = "Legendary"
@@ -232,7 +232,7 @@ mob
 					AddedDura += rand(80,100)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Leather.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Leather.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 		CraftArmour(var/obj/Ingot,var/obj/W)
 			if(Ingot && W)
@@ -262,7 +262,7 @@ mob
 					AddedDura += 1
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 10)
 					Qual = "Very Poor"
@@ -271,7 +271,7 @@ mob
 					AddedDura += rand(1,3)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 20)
 					Qual = "Poor"
@@ -280,7 +280,7 @@ mob
 					AddedDura += rand(3,5)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 30)
 					Qual = "Average"
@@ -289,7 +289,7 @@ mob
 					AddedDura += rand(10,15)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 40)
 					Qual = "Above Average"
@@ -298,7 +298,7 @@ mob
 					AddedDura += rand(15,20)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 50)
 					Qual = "Good"
@@ -307,7 +307,7 @@ mob
 					AddedDura += rand(20,25)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 60)
 					Qual = "Very Good"
@@ -316,7 +316,7 @@ mob
 					AddedDura += rand(25,30)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 70)
 					Qual = "Excellent"
@@ -325,7 +325,7 @@ mob
 					AddedDura += rand(30,35)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 80)
 					Qual = "Grand"
@@ -334,7 +334,7 @@ mob
 					AddedDura += rand(40,45)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 90)
 					Qual = "Epic"
@@ -343,7 +343,7 @@ mob
 					AddedDura += rand(60,70)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 100)
 					Qual = "Epic"
@@ -352,7 +352,7 @@ mob
 					AddedDura += rand(60,70)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill >= 101)
 					Qual = "Legendary"
@@ -361,7 +361,7 @@ mob
 					AddedDura += rand(80,100)
 					W.Dura = AddedDura
 					W.Defence = AddedDefence
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 		CraftWeapon(var/obj/Ingot,var/obj/W)
 			if(Ingot && W)
@@ -390,7 +390,7 @@ mob
 					W.Quality = 1
 					AddedDura += 1
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 10)
 					Qual = "Very Poor"
@@ -398,7 +398,7 @@ mob
 					W.Quality = rand(1,2)
 					AddedDura += rand(1,2)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 20)
 					Qual = "Poor"
@@ -406,7 +406,7 @@ mob
 					W.Quality = rand(2,3)
 					AddedDura += rand(3,5)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 30)
 					Qual = "Average"
@@ -414,7 +414,7 @@ mob
 					W.Quality = rand(3,5)
 					AddedDura += rand(10,15)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 40)
 					Qual = "Above Average"
@@ -429,7 +429,7 @@ mob
 					W.Quality = rand(8,13)
 					AddedDura += rand(20,25)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 60)
 					Qual = "Very Good"
@@ -437,7 +437,7 @@ mob
 					W.Quality = rand(13,15)
 					AddedDura += rand(25,30)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 70)
 					Qual = "Excellent"
@@ -445,7 +445,7 @@ mob
 					W.Quality = rand(15,17)
 					AddedDura += rand(30,35)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 80)
 					Qual = "Grand"
@@ -453,7 +453,7 @@ mob
 					W.Quality = rand(17,20)
 					AddedDura += rand(40,45)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 90)
 					Qual = "Epic"
@@ -461,7 +461,7 @@ mob
 					W.Quality = rand(20,22)
 					AddedDura += rand(60,70)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill <= 100)
 					Qual = "Epic"
@@ -469,7 +469,7 @@ mob
 					W.Quality = rand(20,22)
 					AddedDura += rand(60,70)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 				if(src.ForgingSkill >= 101)
 					Qual = "Legendary"
@@ -477,7 +477,7 @@ mob
 					W.Quality = rand(22,24)
 					AddedDura += rand(80,100)
 					W.Dura = AddedDura
-					W.desc = "This is a [W], it is made from [Ingot.Material]. The Date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
+					W.desc = "This is a [W], made from [Ingot.Material]. The date it was created is etched on the side, Year [Year], Month [Month]. The [W] seems to be of [Qual] Quality."
 					return
 obj
 	proc

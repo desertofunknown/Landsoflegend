@@ -13,7 +13,7 @@ mob
 					Fall = 0
 				var/Falls = prob(Fall)
 				if(Falls)
-					view(6,src) << "<font color = yellow>[src] falls down a Hole!<br>"
+					view(6,src) << "<font color = yellow>[src] falls down a hole!<br>"
 					src.Move(O.GoesTo)
 					src.overlays -= /obj/Misc/Bubbles/
 					src.overlays -= /obj/Misc/Swim/
@@ -22,7 +22,7 @@ mob
 						src.HitObject()
 				else
 					if(src.client == null)
-						view(6,src) << "<font color = yellow>[src] avoids the Hole!<br>"
+						view(6,src) << "<font color = yellow>[src] avoids the hole!<br>"
 					src.Move(O.loc)
 		if(src.UnderTK)
 			if(a.density && a != src.LastHit)
@@ -197,7 +197,7 @@ mob
 						usr << "<font color = teal>You take a good look at [src].<br>"
 						for(var/obj/Items/Armour/Back/B in src)
 							if(B.Type == "Conceals" && B.suffix == "Equip")
-								usr << "<font color = teal>[src] appears to be wearing a [B], so you've little idea what else they might be wearing."
+								usr << "<font color = teal>[src] appears to be wearing a [B], so you cannot discern what else they are wearing."
 								return
 						for(var/obj/Items/Armour/A in src)
 							if(A.suffix == "Equip")
@@ -212,115 +212,123 @@ mob
 							if(ChanceToSpotBlood)
 								usr << "<font color = red><br>[src] appears to be [src.Bleed] bleeding.<br>"
 							if(ChanceToSpotBlood == 0)
-								usr << "<font color = red><br>[src] appears to be bleeding, but your not sure how bad<br>"
+								usr << "<font color = red><br>[src] appears to be bleeding, but your not sure how badly.<br>"
 						var/ChanceStr = 0
 						var/StrMsg = null
 						ChanceStr = prob(usr.Intelligence * 3)
 						if(ChanceStr)
+							if(src.Strength >= usr.Strength / 1 && src.Strength < usr.Strength / 1.1) 
+								StrMsg = "<font color = blue><br>[src]'s strength rivals your own.<br>"
 							if(src.Strength <= usr.Strength / 1.1)
-								StrMsg = "<font color = blue><br>[src] looks a tiny bit weaker than you.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be slightly weaker than you.<br>"
 							if(src.Strength <= usr.Strength / 1.2)
-								StrMsg = "<font color = blue><br>[src] looks a little weaker than you.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be weaker than you.<br>"
 							if(src.Strength <= usr.Strength / 1.5)
-								StrMsg = "<font color = blue><br>[src] looks alot weaker than you.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be much weaker than you.<br>"
 							if(src.Strength <= usr.Strength / 2)
-								StrMsg = "<font color = blue><br>[src] looks terribly weaker than you.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be twice as weak as you.<br>"
 							if(src.Strength <= usr.Strength / 3)
-								StrMsg = "<font color = blue><br>[src] looks pathetic compared to your strength.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be absolutely pathetic, compared to your strength.<br>"
 							if(usr.Strength <= src.Strength / 1.1)
-								StrMsg = "<font color = blue><br>[src] looks a tiny bit stronger than you.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be slightly stronger than you.<br>"
 							if(usr.Strength <= src.Strength / 1.2)
-								StrMsg = "<font color = blue><br>[src] looks a little bit stronger than you.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be stronger than you.<br>"
 							if(usr.Strength <= src.Strength / 1.5)
-								StrMsg = "<font color = blue><br>[src] looks a alot stronger than you.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be a lot stronger than you.<br>"
 							if(usr.Strength <= src.Strength / 2)
-								StrMsg = "<font color = blue><br>[src] looks immensely stronger than you.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to be more than twice as strong as you.<br>"
 							if(usr.Strength <= src.Strength / 3)
-								StrMsg = "<font color = blue><br>[src] looks mighty compared to your strength.<br>"
+								StrMsg = "<font color = blue><br>[src] appears to if they could move mountains, compared to your strength.<br>"
 							usr << "[StrMsg]"
 						else
-							usr << "<font color = blue><br>Your not sure how strong [src] is compared to you.<br>"
+							usr << "<font color = blue><br>You are unsure how strong [src] is, compared to you.<br>"
 						var/ChanceEnd = 0
 						var/EndMsg = null
 						ChanceEnd = prob(usr.Intelligence * 3)
 						if(ChanceEnd)
+							if(src.Endurance>= usr.Endurance / 1 && src.Endurance< usr.Endurance / 1.1) 
+								EndMsg = "<font color = blue><br>[src]'s endurance rivals your own.<br>"
 							if(src.Endurance <= usr.Endurance / 1.1)
-								EndMsg = "<font color = blue><br>[src] looks a tiny bit less endurant than you.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be slightly less endurant than you.<br>"
 							if(src.Endurance <= usr.Endurance / 1.2)
-								EndMsg = "<font color = blue><br>[src] looks a little less endurant than you.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be less endurant than you.<br>"
 							if(src.Endurance <= usr.Endurance / 1.5)
-								EndMsg = "<font color = blue><br>[src] looks alot less endurant than you.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be a lot less endurant than you.<br>"
 							if(src.Endurance <= usr.Endurance / 2)
-								EndMsg = "<font color = blue><br>[src] looks terribly less endurant than you.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be half as sturdy as you.<br>"
 							if(src.Endurance <= usr.Endurance / 3)
-								EndMsg = "<font color = blue><br>[src] looks flimsy compared to your endurance.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be too fragile to touch, compared to your endurance.<br>"
 							if(usr.Endurance <= src.Endurance / 1.1)
-								EndMsg = "<font color = blue><br>[src] looks a tiny bit more endurant than you.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be slightly more endurant than you.<br>"
 							if(usr.Endurance <= src.Endurance / 1.2)
-								EndMsg = "<font color = blue><br>[src] looks a little bit more endurant than you.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be more endurant than you.<br>"
 							if(usr.Endurance <= src.Endurance / 1.5)
-								EndMsg = "<font color = blue><br>[src] looks a alot more endurant than you.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be a lot more endurant than you.<br>"
 							if(usr.Endurance <= src.Endurance / 2)
-								EndMsg = "<font color = blue><br>[src] looks immensely more endurant than you.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be more than twice as endurant as you. <br>"
 							if(usr.Endurance <= src.Endurance / 3)
-								EndMsg = "<font color = blue><br>[src] looks as tough as a mountain compared to your endurance.<br>"
+								EndMsg = "<font color = blue><br>[src] appears to be tough as a mountain compared to your endurance.<br>"
 							usr << "[EndMsg]"
 						else
-							usr << "<font color = blue><br>Your not sure how endurant [src] is compared to you.<br>"
+							usr << "<font color = blue><br>You are unsure how endurant [src] is, compared to you.<br>"
 						var/ChanceAgil = 0
 						var/AgilMsg = null
 						ChanceAgil = prob(usr.Intelligence * 3)
 						if(ChanceAgil)
+							if(src.Agility >= usr.Agility / 1 && src.Agility < usr.Agility / 1.1) 
+								AgilMsg = "<font color = blue><br>[src]'s agility rivals your own.<br>"
 							if(src.Agility <= usr.Agility / 1.1)
-								AgilMsg = "<font color = blue><br>[src] looks a tiny bit less agile than you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears to be slightly less agile than you.<br>"
 							if(src.Agility <= usr.Agility / 1.2)
-								AgilMsg = "<font color = blue><br>[src] looks a little less agile than you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears to be less agile than you.<br>"
 							if(src.Agility <= usr.Agility / 1.5)
-								AgilMsg = "<font color = blue><br>[src] looks alot less agile than you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears to be a lot less agile than you.<br>"
 							if(src.Agility <= usr.Agility / 2)
-								AgilMsg = "<font color = blue><br>[src] looks terribly less agile than you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears to be terribly less agile than you.<br>"
 							if(src.Agility <= usr.Agility / 3)
-								AgilMsg = "<font color = blue><br>[src] looks slow compared to your agility.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears as slow as a snail, compared to your agility.<br>"
 							if(usr.Agility <= src.Agility / 1.1)
-								AgilMsg = "<font color = blue><br>[src] looks a tiny bit more agile than you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears to be a slightly more agile than you.<br>"
 							if(usr.Agility <= src.Agility / 1.2)
-								AgilMsg = "<font color = blue><br>[src] looks a little bit more agile than you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears to be more agile than you.<br>"
 							if(usr.Agility <= src.Agility / 1.5)
-								AgilMsg = "<font color = blue><br>[src] looks a alot more agile than you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears to be a lot more agile than you.<br>"
 							if(usr.Agility <= src.Agility / 2)
-								AgilMsg = "<font color = blue><br>[src] looks immensely more agile than you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears to be more than twice as agile as you.<br>"
 							if(usr.Agility <= src.Agility / 3)
-								AgilMsg = "<font color = blue><br>[src] looks super-agile compared to you.<br>"
+								AgilMsg = "<font color = blue><br>[src] appears as if they can leap over a mountain, compared to your agility.<br>"
 							usr << "[AgilMsg]"
 						else
-							usr << "<font color = blue><br>Your not sure how agile [src] is compared to you.<br>"
+							usr << "<font color = blue><br>You are unsure how agile [src] is, compared to you.<br>"
 						var/ChanceInt = 0
 						var/IntMsg = null
 						ChanceInt = prob(usr.Intelligence * 3)
 						if(ChanceInt)
+							if(src.Agility >= usr.Agility / 1 && src.Agility < usr.Agility / 1.1) 
+								IntMsg = "<font color = blue><br>[src] 's intellect rivals your own.<br>"
 							if(src.Intelligence <= usr.Intelligence / 1.1)
-								IntMsg = "<font color = blue><br>[src] looks a tiny bit less intelligent than you.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be slightly less intelligent than you.<br>"
 							if(src.Intelligence <= usr.Intelligence / 1.2)
-								IntMsg = "<font color = blue><br>[src] looks a little less intelligent than you.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be a less intelligent than you.<br>"
 							if(src.Intelligence <= usr.Intelligence / 1.5)
-								IntMsg = "<font color = blue><br>[src] looks alot less intelligent than you.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be a lot less intelligent than you.<br>"
 							if(src.Intelligence <= usr.Intelligence / 2)
-								IntMsg = "<font color = blue><br>[src] looks terribly less intelligent than you.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be terribly less intelligent than you.<br>"
 							if(src.Intelligence <= usr.Intelligence / 3)
-								IntMsg = "<font color = blue><br>[src] looks stupid compared to your intelligence.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to have no brain, compared to your intelligence.<br>"
 							if(usr.Intelligence <= src.Intelligence / 1.1)
-								IntMsg = "<font color = blue><br>[src] looks a tiny bit more intelligent than you.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be slightly more intelligent than you.<br>"
 							if(usr.Intelligence <= src.Intelligence / 1.2)
-								IntMsg = "<font color = blue><br>[src] looks a little bit more intelligent than you.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be more intelligent than you.<br>"
 							if(usr.Intelligence <= src.Intelligence / 1.5)
-								IntMsg = "<font color = blue><br>[src] looks a alot more intelligent than you.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be more intelligent than you.<br>"
 							if(usr.Intelligence <= src.Intelligence / 2)
-								IntMsg = "<font color = blue><br>[src] looks immensely more intelligent than you.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be more than twice as intelligent than you.<br>"
 							if(usr.Intelligence <= src.Intelligence / 3)
-								IntMsg = "<font color = blue><br>[src] looks like a Genius compared to your intelligence.<br>"
+								IntMsg = "<font color = blue><br>[src] appears to be a genius compared to your intelligence.<br>"
 							usr << "[IntMsg]"
 						else
-							usr << "<font color = blue><br>Your not sure how intelligent [src] is compared to you.<br>"
+							usr << "<font color = blue><br>You are unsure how intelligent [src] is, compared to you.<br>"
 					usr.CanExamine = 0
 					var/GainInt = prob(22 - usr.Intelligence / 3)
 					if(GainInt && usr.Intelligence <= usr.IntCap && usr.Intelligence <= WorldIntCap && usr.Intelligence <= usr.IntelligenceMax)
@@ -330,7 +338,7 @@ mob
 							usr.CanExamine = 1
 					return
 				else
-					usr << "<font color = blue>Must wait a little while before Examining again.<br>"
+					usr << "<font color = blue>You must wait a little while before examining again.<br>"
 					return
 			if(usr.Function == "Combat")
 				var/Display = 1
@@ -354,9 +362,9 @@ mob
 								if(usr.name != "Unknown")
 									M.HateList += usr.name
 				if(src.client && Display)
-					view(usr) << "<font color = yellow> ([usr.OrginalName])[usr] readies for combat while facing in [src]'s direction!<br>"
+					view(usr) << "<font color = yellow> ([usr.OriginalName])[usr] readies for combat while facing in [src]'s direction!<br>"
 				if(src.client)
-					usr.Log_player("([usr.key])[usr] - [usr.OrginalName] Targets [src] to Attack.")
+					usr.Log_player("([usr.key])[usr] - [usr.OriginalName] Targets [src] to Attack.")
 				usr.client.images += src.TargetIcon
 			if(usr.Function == "Pull")
 				if(src.Fainted)
@@ -389,9 +397,9 @@ mob
 					return
 				if(O.Dura >= 1 && usr.Job == null && O.suffix == "Equip" && src == usr && O.ObjectType == "Dagger" && usr.Beard)
 					if(usr.Race == "Stahlite")
-						usr << "<font color = red>Your character would rather die a thousand painful deaths than shave his own beard off, shame on you...<br>"
+						usr << "<font color = red>[usr] would rather die a thousand painful deaths than shave their own beard off!<br>"
 						return
-					view(usr) << "<font color = yellow>[usr] shaves their beard off using a [O]!<br>"
+					view(usr) << "<font color = yellow>[usr] shaves their beard using a [O]!<br>"
 					usr.overlays -= usr.Beard
 					usr.Beard = null
 					return
@@ -435,22 +443,22 @@ mob
 								usr.Target = null
 							return
 						else
-							usr << "<font color = red>You dont have enough coins to pay off your fine!<br>"
+							usr << "<font color = red>You do not have enough coins to pay off your fine!<br>"
 							return
 		if(usr.Function == "Interact" && usr.Ref == null && src.client)
 			if(src != usr)
 				if(usr in range(1,src))
 					if(src.Age <= 10 && usr.Age <= 10)
-						range(8,usr) << "<font color = yellow>([usr.OrginalName])[usr] Asks [src], a [src.Age] year old [src.Gender], to Mate. But they are both far too young!<br>"
-						usr << "<font color = teal>[src] and you, must be at least 11 to Mate!<br>"
+						range(8,usr) << "<font color = yellow>([usr.OriginalName])[usr] Asks [src], a [src.Age] year old [src.Gender], to Mate. But they are both far too young!<br>"
+						usr << "<font color = teal>[src] and you, must be at least 11 to mate!<br>"
 						return
 					if(src.Age <= 10)
-						range(8,usr) << "<font color = yellow>([usr.OrginalName])[usr] Asks [src], a [src.Age] year old [src.Gender], to Mate. But [src] is far too young!<br>"
-						usr << "<font color = teal>[src] must be at least 11 to Mate!<br>"
+						range(8,usr) << "<font color = yellow>([usr.OriginalName])[usr] Asks [src], a [src.Age] year old [src.Gender], to Mate. But [src] is far too young!<br>"
+						usr << "<font color = teal>[src] must be at least 11 to mate!<br>"
 						return
 					if(usr.Age <= 10)
-						range(8,usr) << "<font color = yellow>([usr.OrginalName])[usr] Asks [src], a [src.Age] year old [src.Gender], to Mate. But [src] is far too young!<br>"
-						usr << "<font color = teal>[src] must be at least 11 to Mate!<br>"
+						range(8,usr) << "<font color = yellow>([usr.OriginalName])[usr] Asks [src], a [src.Age] year old [src.Gender], to Mate. But [src] is far too young!<br>"
+						usr << "<font color = teal>[src] must be at least 11 to mate!<br>"
 						return
 					var/Mate = 0
 					if(src.Gender == "Male" && usr.Gender == "Female" && usr.PregType == "Womb")
@@ -461,9 +469,9 @@ mob
 						var/list/menu = new()
 						menu += "Yes"
 						menu += "No"
-						var/Result = input(src,"([usr.OrginalName])[usr] has offered to Mate with you, do you accept?", "Choose", null) in menu
+						var/Result = input(src,"([usr.OriginalName])[usr] has offered to Mate with you, do you accept?", "Choose", null) in menu
 						if(Result == "Yes")
-							range(8,usr) << "<font color = yellow>[src] accepts [usr] in their offer to Mate, and....off they go.<br>"
+							range(8,usr) << "<font color = yellow>[src] accepts [usr] in their offer to mate, and... off they go.<br>"
 							if(usr.Gender == "Female" && usr.Preg == 0)
 								if(usr.PregType == "Womb")
 									usr.Preg = 2
@@ -529,10 +537,10 @@ mob
 								src.FatherEndurance = usr.Endurance / 8
 								return
 						if(Result == "No")
-							range(8,usr) << "<font color = yellow>[usr] Asked [src] to Mate, but sadly, was rejected.<br>"
+							range(8,usr) << "<font color = yellow>[usr] asked [src] to mate, but sadly, [src] rejected them.<br>"
 							return
 					else
-						range(8,usr) << "<font color = yellow>[usr] asked to Mate with [src], but [src] was either the same sex as them, or reproduced in a different way.<br>"
+						range(8,usr) << "<font color = yellow>[usr] asked to mate with [src], but [src] was either the same sex as them, or reproduced in a different way.<br>"
 						return
 
 	NPC
@@ -657,7 +665,7 @@ mob
 									if(I.Defence)
 										Val += I.Defence / 2
 									var/RoundedVal = round(Val)
-									src.Speak("Ah, I see you've chosen a [I], a fine choice indeed! That item has a total Value of about [RoundedVal] Gold Coins.",7)
+									src.Speak("Ah, I see you've chosen a [I], a fine choice indeed! That item has a total value of about [RoundedVal] Gold Coins.",7)
 									var/list/menu = new()
 									menu += "Buy"
 									menu += "Dont Buy"
@@ -700,9 +708,9 @@ mob
 													I.CanBeCrafted = 1
 												src.Speak("Thank you, come again!.",7)
 											else
-												src.Speak("You dont have [RoundedVal] Gold Coins so you cant buy the [I].",7)
+												src.Speak("You do not have [RoundedVal] Gold Coins, so you can not buy the [I].",7)
 						else
-							usr << "<font color = yellow>[src] seems to have no idea what your saying.<br>"
+							usr << "<font color = yellow>[src] shakes their head, unable to understand what you are saying. You should learn how to speak [usr]'s language if you wish to communicate with them.<br>"
 						return
 				New()
 					spawn(10)
@@ -1779,9 +1787,9 @@ mob
 													I.CanBeCrafted = 1
 												src.Speak("Thank you, come again!.",7)
 											else
-												src.Speak("You dont have [RoundedVal] Gold Coins so you cant buy the [I].",7)
+												src.Speak("You do not have [RoundedVal] Gold Coins so you can not buy the [I].",7)
 						else
-							usr << "<font color = yellow>[src] seems to have no idea what your saying.<br>"
+							usr << "<font color = yellow>[src] tilts their head to the side curiously, as if they are trying to understand what you are saying. You should learn how to speak [usr]'s language  if you wish to communicate with them.<br><br>"
 						return
 				New()
 					spawn(10)
@@ -2955,7 +2963,7 @@ mob
 									CanUnderstand = 1
 									src.CurrentLanguage = usr.CurrentLanguage
 						if(CanUnderstand)
-							src.Speak("Welcome, you wont find better wares anywhere else!",7)
+							src.Speak("Welcome, you won't find better wares anywhere else!",7)
 							for(var/obj/I in usr)
 								if(I in src.Selling)
 									var/Val = 1
@@ -3019,9 +3027,9 @@ mob
 													I.CanBeCrafted = 1
 												src.Speak("Remember, best wares in all the land!.",7)
 											else
-												src.Speak("You dont have [RoundedVal] Gold Coins so you cant buy the [I], what ya trying to do, rip me off?! Shame on you...",7)
+												src.Speak("You do not have [RoundedVal] Gold Coins so you can not buy the [I], what ya trying to do, rip me off?! Shame on you...",7)
 						else
-							usr << "<font color = yellow>[src] glares, seeming to have no idea what your saying.<br>"
+							usr << "<font color = yellow>[src] strokes their beard with a look of confusion on their face. You should learn how to speak [usr]'s language if you wish to communicate with them.<br><br>"
 						return
 				New()
 					spawn(10)
@@ -7462,7 +7470,7 @@ mob
 												else
 													src.Speak("No have [RoundedVal] shinies so you no buy the [I].",7)
 							else
-								usr << "<font color = yellow>[src] seems to have no idea what your saying.<br>"
+								usr << "<font color = yellow>[src] twitches their nose then shakes their head, unable to understand what you are saying. You should learn how to speak [usr]'s language if you wish to communicate with them.<br>"
 							return
 					New()
 						spawn(10)
@@ -8522,9 +8530,9 @@ mob
 													I.CanBeCrafted = 1
 												src.Speak("Thank you, come again!.",7)
 											else
-												src.Speak("You dont have [RoundedVal] Gold Coins so you cant buy the [I].",7)
+												src.Speak("You do not have [RoundedVal] Gold Coins so you can not buy the [I].",7)
 						else
-							usr << "<font color = yellow>[src] seems to have no idea what your saying.<br>"
+							usr << "<font color = yellow>[src] flicks their tongue and blinks, unable to understand what you are saying. You should learn how to speak [usr]'s language  if you wish to communicate with them.<br>"
 						return
 				New()
 					spawn(10)

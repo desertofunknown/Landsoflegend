@@ -53,7 +53,7 @@
 
 //Cooked and un-cooked meats not given any hunger rises, not even 50.
 
-//Cant use Pick to attack already dug up turf.
+//Can't use Pick to attack already dug up turf.
 
 //Undead died of a heart attack or somthing.
 
@@ -65,7 +65,7 @@
 
 //some items are still weightless, like the saw
 
-//Bug maybe with loosing both eyes, need to make it so you cant see anything, where as now, it lets you see everything, even when dark, apprantly.
+//Bug maybe with loosing both eyes, need to make it so you  see anything, where as now, it lets you see everything, even when dark, apprantly.
 
 //Can relog to avoid drowning
 
@@ -119,7 +119,7 @@
 
 //: I can't put doors on Gate squares?
 
-//Re-work branch equip code to work with dual wielding and make sure it cant be bugged up when throwing into a fire.
+//Re-work branch equip code to work with dual wielding and make sure it  be bugged up when throwing into a fire.
 
 //Possible icon bug with quivers. <--- Admin invis maybe.
 
@@ -162,7 +162,7 @@
 
 //Goblin smashes Unknown in the skull and knocks them out! <---As Illithid.
 
-//When a door breaks, Inquis one maybe, you cant move. Check for bugs if two players at the same time attack.
+//When a door breaks, Inquis one maybe, you  move. Check for bugs if two players at the same time attack.
 
 
 
@@ -290,7 +290,7 @@
 
 //No Idea - Items think their equipped when chars are loaded maybe or somthing
 
-//No Idea - bug with shield, cant equip it or somthing, need to check
+//No Idea - bug with shield,  equip it or somthing, need to check
 
 //No Idea - Bleed msg does not seem to display in dark areas
 
